@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="800" viewBox="0 0 1920 1080">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3c72" />
+      <stop offset="100%" stop-color="#2a5298" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg-gradient)" />
+  
+  <!-- Abstract mountain shapes representing Swiss Alps -->
+  <polygon points="0,1080 0,700 300,800 600,600 900,750 1200,550 1500,700 1800,600 1920,650 1920,1080" fill="#152a55" opacity="0.7" />
+  <polygon points="0,1080 0,800 400,880 800,750 1200,850 1600,750 1920,800 1920,1080" fill="#0e1c38" opacity="0.8" />
+  
+  <!-- Abstract grid pattern representing precision and engineering -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.1">
+    <g id="vertical-lines">
+      <line x1="100" y1="0" x2="100" y2="1080" />
+      <line x1="300" y1="0" x2="300" y2="1080" />
+      <line x1="500" y1="0" x2="500" y2="1080" />
+      <line x1="700" y1="0" x2="700" y2="1080" />
+      <line x1="900" y1="0" x2="900" y2="1080" />
+      <line x1="1100" y1="0" x2="1100" y2="1080" />
+      <line x1="1300" y1="0" x2="1300" y2="1080" />
+      <line x1="1500" y1="0" x2="1500" y2="1080" />
+      <line x1="1700" y1="0" x2="1700" y2="1080" />
+      <line x1="1900" y1="0" x2="1900" y2="1080" />
+    </g>
+    <g id="horizontal-lines">
+      <line x1="0" y1="100" x2="1920" y2="100" />
+      <line x1="0" y1="300" x2="1920" y2="300" />
+      <line x1="0" y1="500" x2="1920" y2="500" />
+      <line x1="0" y1="700" x2="1920" y2="700" />
+      <line x1="0" y1="900" x2="1920" y2="900" />
+    </g>
+  </g>
+  
+  <!-- Subtle particle effect -->
+  <g fill="#ffffff" opacity="0.5">
+    <circle cx="150" cy="250" r="2" />
+    <circle cx="450" cy="350" r="1" />
+    <circle cx="750" cy="200" r="2" />
+    <circle cx="1050" cy="450" r="1" />
+    <circle cx="1350" cy="250" r="2" />
+    <circle cx="1650" cy="350" r="1" />
+    <circle cx="350" cy="550" r="2" />
+    <circle cx="650" cy="450" r="1" />
+    <circle cx="950" cy="600" r="2" />
+    <circle cx="1250" cy="500" r="1" />
+    <circle cx="1550" cy="600" r="2" />
+    <circle cx="1850" cy="500" r="1" />
+  </g>
+</svg>

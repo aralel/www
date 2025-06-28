@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="racing-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34495e" />
+      <stop offset="100%" stop-color="#2c3e50" />
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="0%" r="70%" fx="50%" fy="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.3)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="800" height="600" fill="url(#racing-bg)" />
+  
+  <!-- Race track -->
+  <rect x="100" y="100" width="600" height="400" rx="100" ry="100" fill="#1e272e" stroke="#d35400" stroke-width="10" />
+  <rect x="200" y="200" width="400" height="200" rx="50" ry="50" fill="#1e272e" stroke="#d35400" stroke-width="10" />
+  
+  <!-- Grid lines on track -->
+  <g stroke="#ffffff" stroke-width="2" stroke-dasharray="10,10" opacity="0.2">
+    <line x1="150" y1="300" x2="650" y2="300" />
+    <line x1="400" y1="150" x2="400" y2="450" />
+    
+    <line x1="250" y1="200" x2="250" y2="400" />
+    <line x1="350" y1="200" x2="350" y2="400" />
+    <line x1="450" y1="200" x2="450" y2="400" />
+    <line x1="550" y1="200" x2="550" y2="400" />
+    
+    <line x1="200" y1="250" x2="600" y2="250" />
+    <line x1="200" y1="350" x2="600" y2="350" />
+  </g>
+  
+  <!-- Spotlight effect -->
+  <rect width="800" height="600" fill="url(#spotlight)" />
+  
+  <!-- Racing vehicles -->
+  <!-- Vehicle 1 -->
+  <g transform="translate(280, 300)">
+    <rect x="-25" y="-12" width="50" height="24" rx="5" ry="5" fill="#e74c3c" />
+    <rect x="-20" y="-10" width="40" height="6" fill="#000000" opacity="0.7" /> <!-- Windshield -->
+    <circle cx="-15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <circle cx="15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <rect x="-20" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="-20" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+  </g>
+  
+  <!-- Vehicle 2 -->
+  <g transform="translate(480, 250)">
+    <rect x="-25" y="-12" width="50" height="24" rx="5" ry="5" fill="#3498db" />
+    <rect x="-20" y="-10" width="40" height="6" fill="#000000" opacity="0.7" /> <!-- Windshield -->
+    <circle cx="-15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <circle cx="15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <rect x="-20" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="-20" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+  </g>
+  
+  <!-- Vehicle 3 -->
+  <g transform="translate(370, 350)">
+    <rect x="-25" y="-12" width="50" height="24" rx="5" ry="5" fill="#2ecc71" />
+    <rect x="-20" y="-10" width="40" height="6" fill="#000000" opacity="0.7" /> <!-- Windshield -->
+    <circle cx="-15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <circle cx="15" cy="-12" r="5" fill="#f1c40f" /> <!-- Headlight -->
+    <rect x="-20" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="12" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="-20" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+    <rect x="10" y="-15" width="10" height="3" fill="#000000" /> <!-- Wheel -->
+  </g>
+  
+  <!-- Motion lines -->
+  <g stroke="#ffffff" stroke-width="2" opacity="0.5">
+    <line x1="230" y1="300" x2="260" y2="300" />
+    <line x1="430" y1="250" x2="460" y2="250" />
+    <line x1="320" y1="350" x2="350" y2="350" />
+  </g>
+  
+  <!-- Game title placeholder -->
+  <rect x="200" y="500" width="400" height="60" rx="10" ry="10" fill="rgba(0,0,0,0.5)" />
+  <text x="400" y="540" font-family="Arial" font-size="24" fill="white" text-anchor="middle">PROJECT GAMMA</text>
+</svg>

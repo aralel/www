@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#27ae60" />
+  
+  <!-- Game environment - fantasy forest -->
+  <defs>
+    <linearGradient id="forest-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2ecc71" />
+      <stop offset="100%" stop-color="#27ae60" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#forest-bg)" />
+  
+  <!-- Background trees -->
+  <g opacity="0.7">
+    <path d="M100,600 L100,400 L50,400 L125,300 L75,300 L150,200 L225,300 L175,300 L250,400 L200,400 L200,600 Z" fill="#145a32" />
+    <path d="M350,600 L350,450 L300,450 L375,350 L325,350 L400,250 L475,350 L425,350 L500,450 L450,450 L450,600 Z" fill="#196f3d" />
+    <path d="M600,600 L600,420 L550,420 L625,320 L575,320 L650,220 L725,320 L675,320 L750,420 L700,420 L700,600 Z" fill="#145a32" />
+  </g>
+  
+  <!-- Ground -->
+  <rect x="0" y="500" width="800" height="100" fill="#7d3c0c" />
+  <path d="M0,500 C100,480 200,520 300,490 C400,510 500,480 600,500 C700,490 800,520 800,500 L800,600 L0,600 Z" fill="#7d3c0c" />
+  
+  <!-- Game character -->
+  <g transform="translate(400, 350)">
+    <!-- Character body -->
+    <circle cx="0" cy="-50" r="25" fill="#f5b041" /> <!-- Head -->
+    <rect x="-15" y="-25" width="30" height="50" rx="10" ry="10" fill="#f5b041" /> <!-- Body -->
+    
+    <!-- Eyes -->
+    <circle cx="-8" cy="-55" r="5" fill="white" />
+    <circle cx="8" cy="-55" r="5" fill="white" />
+    <circle cx="-8" cy="-55" r="2" fill="black" />
+    <circle cx="8" cy="-55" r="2" fill="black" />
+    
+    <!-- Mouth -->
+    <path d="M-10,-40 C-5,-35 5,-35 10,-40" fill="none" stroke="black" stroke-width="2" />
+    
+    <!-- Arms -->
+    <rect x="-35" y="-15" width="20" height="10" rx="5" ry="5" fill="#f5b041" />
+    <rect x="15" y="-15" width="20" height="10" rx="5" ry="5" fill="#f5b041" />
+    
+    <!-- Legs -->
+    <rect x="-15" y="25" width="10" height="30" rx="5" ry="5" fill="#f5b041" />
+    <rect x="5" y="25" width="10" height="30" rx="5" ry="5" fill="#f5b041" />
+    
+    <!-- Sword -->
+    <rect x="35" y="-20" width="5" height="60" fill="#95a5a6" />
+    <polygon points="30,-20 45,-20 37.5,-40" fill="#7f8c8d" />
+  </g>
+  
+  <!-- Magical elements -->
+  <g opacity="0.8">
+    <circle cx="200" cy="200" r="15" fill="#9b59b6" />
+    <circle cx="190" cy="210" r="5" fill="#8e44ad" />
+    
+    <circle cx="600" cy="150" r="10" fill="#3498db" />
+    <circle cx="610" cy="140" r="3" fill="#2980b9" />
+    
+    <circle cx="300" cy="100" r="12" fill="#e74c3c" />
+    <circle cx="290" cy="110" r="4" fill="#c0392b" />
+    
+    <circle cx="700" cy="300" r="18" fill="#f1c40f" />
+    <circle cx="690" cy="310" r="6" fill="#f39c12" />
+  </g>
+  
+  <!-- Game title placeholder -->
+  <rect x="200" y="500" width="400" height="60" rx="10" ry="10" fill="rgba(0,0,0,0.5)" />
+  <text x="400" y="540" font-family="Arial" font-size="24" fill="white" text-anchor="middle">PROJECT BETA</text>
+</svg>

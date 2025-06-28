@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f5f5" />
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="team-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#2c3e50" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#team-gradient)" />
+  
+  <!-- Abstract office background -->
+  <rect x="50" y="100" width="700" height="400" rx="10" ry="10" fill="#ffffff" opacity="0.8" />
+  <line x1="50" y1="150" x2="750" y2="150" stroke="#eeeeee" stroke-width="2" />
+  
+  <!-- Team members (abstract representations) -->
+  <g transform="translate(150, 300)">
+    <!-- Person 1 - Swiss team member -->
+    <circle cx="0" cy="0" r="60" fill="#3498db" opacity="0.8" />
+    <circle cx="0" cy="-25" r="25" fill="#ffffff" />
+    <rect x="-30" y="10" width="60" height="60" rx="10" ry="10" fill="#ffffff" />
+    <!-- Swiss flag indicator -->
+    <rect x="-15" y="50" width="30" height="30" fill="#ff0000" />
+    <rect x="-5" y="60" width="10" height="10" fill="#ffffff" />
+    <rect x="0" y="55" width="10" height="20" fill="#ffffff" transform="rotate(90 0 65)" />
+  </g>
+  
+  <g transform="translate(400, 300)">
+    <!-- Person 2 - Team lead -->
+    <circle cx="0" cy="0" r="70" fill="#2c3e50" opacity="0.8" />
+    <circle cx="0" cy="-30" r="30" fill="#ffffff" />
+    <rect x="-35" y="10" width="70" height="70" rx="10" ry="10" fill="#ffffff" />
+  </g>
+  
+  <g transform="translate(650, 300)">
+    <!-- Person 3 - German team member -->
+    <circle cx="0" cy="0" r="60" fill="#3498db" opacity="0.8" />
+    <circle cx="0" cy="-25" r="25" fill="#ffffff" />
+    <rect x="-30" y="10" width="60" height="60" rx="10" ry="10" fill="#ffffff" />
+    <!-- German flag indicator -->
+    <rect x="-15" y="50" width="30" height="10" fill="#000000" />
+    <rect x="-15" y="60" width="30" height="10" fill="#ff0000" />
+    <rect x="-15" y="70" width="30" height="10" fill="#ffcc00" />
+  </g>
+  
+  <!-- Connecting lines representing collaboration -->
+  <line x1="150" y1="300" x2="400" y2="300" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5" />
+  <line x1="400" y1="300" x2="650" y2="300" stroke="#3498db" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Abstract code/design elements -->
+  <g opacity="0.2">
+    <text x="100" y="200" font-family="Courier New" font-size="10" fill="#2c3e50">function createGame() {</text>
+    <text x="120" y="215" font-family="Courier New" font-size="10" fill="#2c3e50">const engine = new GameEngine();</text>
+    <text x="120" y="230" font-family="Courier New" font-size="10" fill="#2c3e50">const assets = loadAssets();</text>
+    <text x="120" y="245" font-family="Courier New" font-size="10" fill="#2c3e50">return new Game(engine, assets);</text>
+    <text x="100" y="260" font-family="Courier New" font-size="10" fill="#2c3e50">}</text>
+    
+    <text x="500" y="200" font-family="Courier New" font-size="10" fill="#2c3e50">.game-container {</text>
+    <text x="520" y="215" font-family="Courier New" font-size="10" fill="#2c3e50">display: flex;</text>
+    <text x="520" y="230" font-family="Courier New" font-size="10" fill="#2c3e50">justify-content: center;</text>
+    <text x="520" y="245" font-family="Courier New" font-size="10" fill="#2c3e50">background: linear-gradient(#3498db, #2c3e50);</text>
+    <text x="500" y="260" font-family="Courier New" font-size="10" fill="#2c3e50">}</text>
+  </g>
+  
+  <!-- Company name -->
+  <text x="400" y="500" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50" text-anchor="middle">Aralel Software Studios</text>
+  <text x="400" y="530" font-family="Arial" font-size="16" fill="#3498db" text-anchor="middle">Where Swiss Precision Meets German Engineering</text>
+</svg>
