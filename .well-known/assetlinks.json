@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.aralel.availabell.debug",
+    "sha256_cert_fingerprints":
+    ["87:DA:3F:79:7B:DD:00:75:6A:AC:F7:9E:C7:98:50:1E:E7:2F:0B:D3:15:2F:8E:EA:54:53:40:81:5D:37:BE:FF"]
+  }
+}]
