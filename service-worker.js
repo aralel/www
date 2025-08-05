@@ -1,8 +1,9 @@
 // Service Worker for Aralel Software Studios PWA
 
-const CACHE_NAME = 'aralel-cache-v1';
+const CACHE_NAME = 'aralel-cache-v2';
 const urlsToCache = [
   '/',
+  '.well-known/assetlinks.json',
   '/index.html',
   '/styles.css',
   '/script.js',
