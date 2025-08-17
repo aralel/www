@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Route Mapper</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .info-panel h3 {
+            margin: 0 0 10px 0;
+            color: #3498db;
+        }
+
+        .info-panel p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .clear-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .clear-btn:hover {
+            background: #c0392b;
+        }
+
+        .coordinates {
+            font-family: monospace;
+            font-size: 12px;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info-panel">
+        <h3>Global Route Mapper</h3>
+        <p>Click two points on the map to draw a complete great circle around the entire globe.</p>
+        <div id="route-info">
+            <p>Clicks: <span id="click-count">0</span>/2</p>
+        </div>
+        <button class="clear-btn" onclick="clearRoute()">Clear Route</button>
+    </div>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map', {
+            center: [30, 20],
+            zoom: 6,
+            worldCopyJump: true
+        });
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 20,
+            noWrap: false
+        }).addTo(map);
+
+        // Variables to store clicks and route
+        let clickCount = 0;
+        let points = [];
+        let markers = [];
+        let routeLine = null;
+
+        // Function to calculate great circle distance
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Earth's radius in kilometers
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        // Function to generate complete great circle points (full 360 degrees)
+        function generateCompleteGreatCircle(lat1, lon1, lat2, lon2, numPoints = 360) {
+            const points = [];
+
+            // Convert to radians
+            lat1 = lat1 * Math.PI / 180;
+            lon1 = lon1 * Math.PI / 180;
+            lat2 = lat2 * Math.PI / 180;
+            lon2 = lon2 * Math.PI / 180;
+
+            // Calculate the great circle plane
+            // Normal vector to the plane containing both points and Earth's center
+            const n1 = Math.cos(lat1) * Math.cos(lon1);
+            const n2 = Math.cos(lat1) * Math.sin(lon1);
+            const n3 = Math.sin(lat1);
+
+            const m1 = Math.cos(lat2) * Math.cos(lon2);
+            const m2 = Math.cos(lat2) * Math.sin(lon2);
+            const m3 = Math.sin(lat2);
+
+            // Cross product to get normal to the great circle plane
+            const nx = n2 * m3 - n3 * m2;
+            const ny = n3 * m1 - n1 * m3;
+            const nz = n1 * m2 - n2 * m1;
+
+            // Normalize
+            const norm = Math.sqrt(nx * nx + ny * ny + nz * nz);
+            const ux = nx / norm;
+            const uy = ny / norm;
+            const uz = nz / norm;
+
+            // Create orthogonal vectors in the plane
+            const vx = n1;
+            const vy = n2;
+            const vz = n3;
+
+            // Second orthogonal vector (cross product of normal and first point)
+            const wx = uy * vz - uz * vy;
+            const wy = uz * vx - ux * vz;
+            const wz = ux * vy - uy * vx;
+
+            // Generate points around the complete great circle
+            for (let i = 0; i < numPoints; i++) {
+                const angle = (2 * Math.PI * i) / numPoints;
+
+                // Point on the great circle
+                const x = Math.cos(angle) * vx + Math.sin(angle) * wx;
+                const y = Math.cos(angle) * vy + Math.sin(angle) * wy;
+                const z = Math.cos(angle) * vz + Math.sin(angle) * wz;
+
+                // Convert back to lat/lon
+                const lat = Math.asin(z);
+                const lon = Math.atan2(y, x);
+
+                points.push([lat * 180 / Math.PI, lon * 180 / Math.PI]);
+            }
+
+            // Close the circle by adding the first point at the end
+            if (points.length > 0) {
+                points.push(points[0]);
+            }
+
+            return points;
+        }
+
+        // Function to handle map clicks
+        function onMapClick(e) {
+            if (clickCount < 2) {
+                const lat = e.latlng.lat;
+                const lng = e.latlng.lng;
+
+                // Add marker
+                const marker = L.marker([lat, lng], {
+                    icon: L.divIcon({
+                        className: 'custom-marker',
+                        html: `<div style="background: #3498db; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white;"></div>`,
+                        iconSize: [16, 16],
+                        iconAnchor: [8, 8]
+                    })
+                }).addTo(map);
+
+                markers.push(marker);
+                points.push([lat, lng]);
+                clickCount++;
+
+                // Update UI
+                document.getElementById('click-count').textContent = clickCount;
+
+                if (clickCount === 2) {
+                    drawGreatCircleRoute();
+                }
+            }
+        }
+
+        // Function to draw the complete great circle route
+        function drawGreatCircleRoute() {
+            const [lat1, lon1] = points[0];
+            const [lat2, lon2] = points[1];
+
+            // Calculate distance (shortest path between the two points)
+            const distance = calculateDistance(lat1, lon1, lat2, lon2);
+
+            // Generate complete great circle points (full circle around the globe)
+            const routePoints = generateCompleteGreatCircle(lat1, lon1, lat2, lon2);
+
+            // Create the complete route line
+            routeLine = L.polyline(routePoints, {
+                color: '#e74c3c',
+                weight: 3,
+                opacity: 0.8,
+                smoothFactor: 1
+            }).addTo(map);
+
+            // Calculate the circumference of this great circle (always ~40,075 km for Earth)
+            const earthCircumference = 40075; // km
+
+            // Update info panel
+            const routeInfo = document.getElementById('route-info');
+            routeInfo.innerHTML = `
+                <p>Clicks: <span id="click-count">2</span>/2</p>
+                <p><strong>Great Circle Information:</strong></p>
+                <p class="coordinates">Point 1: ${lat1.toFixed(4)}°, ${lon1.toFixed(4)}°</p>
+                <p class="coordinates">Point 2: ${lat2.toFixed(4)}°, ${lon2.toFixed(4)}°</p>
+                <p>Shortest distance: ${distance.toFixed(0)} km</p>
+                <p>Complete circle: ${earthCircumference.toFixed(0)} km</p>
+                <p>Full great circle drawn around the globe!</p>
+            `;
+
+            // Don't auto-fit bounds since we want to see the complete global circle
+            // Users can zoom/pan to explore the full route
+        }
+
+        // Function to clear the route
+        function clearRoute() {
+            // Remove markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            // Remove route line
+            if (routeLine) {
+                map.removeLayer(routeLine);
+                routeLine = null;
+            }
+
+            // Reset variables
+            clickCount = 0;
+            points = [];
+
+            // Reset UI
+            document.getElementById('route-info').innerHTML = `
+                <p>Clicks: <span id="click-count">0</span>/2</p>
+            `;
+
+            // Reset map view
+            map.setView([20, 0], 2);
+        }
+
+        // Add click event listener to map
+        map.on('click', onMapClick);
+
+        // Add some styling for better visibility
+        const style = document.createElement('style');
+        style.textContent = `
+            .leaflet-container {
+                background: #2c3e50;
+            }
+            .custom-marker {
+                filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
