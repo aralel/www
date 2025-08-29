@@ -5,31 +5,6 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.aralel.availabell.debug",
-      "sha256_cert_fingerprints": [
-        "87:DA:3F:79:7B:DD:00:75:6A:AC:F7:9E:C7:98:50:1E:E7:2F:0B:D3:15:2F:8E:EA:54:53:40:81:5D:37:BE:FF"
-      ]
-    }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls",
-      "delegate_permission/common.get_login_creds"
-    ],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.aralel.availabell",
-      "sha256_cert_fingerprints": [
-        "48:01:ED:D6:7E:D6:75:0F:76:03:C7:FB:F4:AF:68:F2:C2:E3:D2:32:6F:BA:BA:CD:27:CF:FE:48:B4:06:B1:4D"
-      ]
-    }
-  },
-  {
-    "relation": [
-      "delegate_permission/common.handle_all_urls"
-    ],
-    "target": {
-      "namespace": "android_app",
       "package_name": "com.codehospital.availabell",
       "sha256_cert_fingerprints": [
         "C8:1C:4F:C6:F9:65:E3:57:F1:66:DB:52:23:8C:9C:86:9D:FC:14:72:2E:A6:51:50:98:E8:C5:5B:0C:58:F9:17"
