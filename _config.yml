@@ -1,4 +1,4 @@
-include: [".well-known"]
+include: [".well-known", "available"]
 
 defaults:
   - scope:
@@ -6,3 +6,7 @@ defaults:
     values:
       layout: none
       content_type: application/json
+  - scope:
+      path: "available"
+    values:
+      layout: none
