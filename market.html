@@ -229,7 +229,7 @@
 
             const maxGrowth = computed.reduce((m, e) => (Number.isFinite(e.growthVal) && e.growthVal > m ? e.growthVal : m), 0);
             for (const e of computed) {
-              e.appealVal = (Number.isFinite(e.appealBase) && maxGrowth > 0) ? (e.appealBase / maxGrowth) : e.appealBase;
+              e.appealVal = (Number.isFinite(e.appealBase) && maxGrowth > 0) ? (100*e.appealBase / maxGrowth) : e.appealBase;
             }
             maxGrowthOverall = Number.isFinite(maxGrowth) ? maxGrowth : NaN;
             maxAppealOverall = computed.reduce((m, e) => (Number.isFinite(e.appealVal) && e.appealVal > m ? e.appealVal : m), -Infinity);
@@ -242,7 +242,7 @@
                     return { text: formatPercent(n), className: (Number.isFinite(n) && n > 120) ? 'cell-growth-high' : '' };
                 }
                 if (col === 'appeal') {
-                    const n = Number.isFinite(entry.appealVal) ? (entry.appealVal * 100) : NaN;
+                    const n = Number.isFinite(entry.appealVal) ? (entry.appealVal) : NaN;
                     return { text: formatPercent(n, 2), title: Number.isFinite(entry.appealBase) ? String(entry.appealBase) : '' };
                 }
                 if (col === 'current') {
@@ -293,7 +293,7 @@
         results.style.display = '';
         const metaParts = [`${rowsCount.toLocaleString()} row${rowsCount === 1 ? '' : 's'}`];
         if (Number.isFinite(maxGrowthOverall)) metaParts.push(`max growth: ${maxGrowthOverall.toFixed(2)}`);
-        if (Number.isFinite(maxAppealOverall)) metaParts.push(`max appeal: ${maxAppealOverall} %`);
+        if (Number.isFinite(maxAppealOverall)) metaParts.push(`max appeal: ${maxAppealOverall.toFixed(2)} %`);
         meta.textContent = metaParts.join(' · ');
       }
 
