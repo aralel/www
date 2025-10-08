@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Analysis</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --muted: #6b7280;
+      --accent: #4f46e5;
+      --accent-weak: #eef2ff;
+      --error: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: #0f172a;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin: 0 0 16px 0;
+      font-weight: 700;
+    }
+
+    /* Dropzone */
+    #dropzone {
+      border: 2px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 28px;
+      background: var(--card);
+      cursor: pointer;
+      user-select: none;
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+      outline: none;
+    }
+    #dropzone:hover { border-color: #a8b1c6; }
+    #dropzone.highlight {
+      border-color: var(--accent);
+      background: var(--accent-weak);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12) inset;
+    }
+    .dz-icon { font-size: 28px; }
+    .dz-title { font-weight: 600; }
+    .dz-subtitle { color: var(--muted); font-size: 0.95rem; }
+
+    #error { color: var(--error); margin-top: 12px; }
+    
+    /* Table */
+    .table-wrapper {
+      margin-top: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .table-container {
+      width: 100%;
+      overflow: auto;
+      max-height: 70vh;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #f8fafc;
+      z-index: 1;
+      border-bottom: 1px solid var(--border);
+    }
+    th, td { padding: 10px 12px; font-size: 14px; text-align: left; white-space: nowrap; }
+    tbody tr:nth-child(even) td { background: #fcfcfd; }
+    tbody tr:hover td { background: #f7f8fb; }
+    tbody tr { cursor: pointer; }
+
+    .table-meta { padding: 10px 12px; color: var(--muted); font-size: 13px; border-bottom: 1px solid var(--border); }
+    .row-muted td { color: var(--muted); background: #f9fafb !important; }
+    /* Cell and row color states */
+    .cell-growth-high { color: #16a34a; font-weight: 600; }
+    .row-color-green td { background: #ecfdf5 !important; color: #065f46; }
+    .row-color-red td { background: #fef2f2 !important; color: #991b1b; }
+    .row-color-blue td { background: #eff6ff !important; color: #1e40af; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Market Analysis</h1>
+    <div id="dropzone" tabindex="0" role="button" aria-label="Drop a JSON file here or press Enter/Space to choose a file">
+      <div class="dz-icon" aria-hidden="true">📄</div>
+      <div class="dz-title">Drop a JSON file here</div>
+      <div class="dz-subtitle">or click to choose a file</div>
+      <input type="file" id="fileInput" accept="application/json,.json" hidden />
+    </div>
+
+    <div id="error" role="alert" aria-live="polite"></div>
+
+    <section id="results" class="table-wrapper" style="display:none;">
+      <div id="meta" class="table-meta"></div>
+      <div id="tableContainer" class="table-container"></div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const tableContainer = document.getElementById('tableContainer');
+      const errorBox = document.getElementById('error');
+      const results = document.getElementById('results');
+      const meta = document.getElementById('meta');
+
+      const preventDefaults = (e) => { e.preventDefault(); e.stopPropagation(); };
+
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(ev => {
+        dropzone.addEventListener(ev, preventDefaults, false);
+      });
+      ['dragenter', 'dragover'].forEach(ev => {
+        dropzone.addEventListener(ev, () => dropzone.classList.add('highlight'));
+      });
+      ['dragleave', 'drop'].forEach(ev => {
+        dropzone.addEventListener(ev, () => dropzone.classList.remove('highlight'));
+      });
+
+      dropzone.addEventListener('click', () => fileInput.click());
+      dropzone.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          fileInput.click();
+        }
+      });
+
+      dropzone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        if (!dt || !dt.files || dt.files.length === 0) return;
+        handleFile(dt.files[0]);
+      });
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (file) handleFile(file);
+      });
+
+      function handleFile(file) {
+        clearUI();
+
+        if (!file.name.toLowerCase().endsWith('.json')) {
+          showError('Please provide a .json file.');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const text = String(reader.result || '').replace(/^\uFEFF/, '').trim();
+            const data = JSON.parse(text);
+            renderTableFromData(data);
+          } catch (err) {
+            showError('Invalid JSON: ' + (err && err.message ? err.message : String(err)));
+          }
+        };
+        reader.onerror = () => showError('Could not read the file.');
+        reader.readAsText(file);
+      }
+
+      function clearUI() {
+        errorBox.textContent = '';
+        tableContainer.innerHTML = '';
+        results.style.display = 'none';
+        meta.textContent = '';
+      }
+
+      function showError(msg) {
+        errorBox.textContent = msg;
+      }
+
+      function renderTableFromData(data) {
+        const frag = document.createDocumentFragment();
+        let table, rowsCount = 0, colsCount = 0, maxGrowthOverall = NaN, maxAppealOverall = NaN;
+
+        if (Array.isArray(data)) {
+          if (data.length === 0) {
+            tableContainer.textContent = 'Array is empty.';
+            results.style.display = '';
+            meta.textContent = '0 rows';
+            return;
+          }
+
+          const first = data[0];
+          if (isPlainObject(first)) {
+            let columns = gatherColumns(data);
+            if (!columns.includes('growth')) columns.push('growth');
+            if (!columns.includes('appeal')) columns.push('appeal');
+
+            const computed = data.map((item) => {
+              const currentNum = toNumber(item.current);
+              const targetNum = toNumber(item.target);
+              const hasCT = Number.isFinite(currentNum) && Number.isFinite(targetNum) && currentNum !== 0;
+              const growthVal = hasCT ? targetNum / currentNum : NaN;
+
+              const b = toNumber(item.buy);
+              const h = toNumber(item.hold);
+              const s = toNumber(item.sell);
+              const buyVal = Number.isFinite(b) ? b : 0;
+              const holdVal = Number.isFinite(h) ? h : 0;
+              const sellVal = Number.isFinite(s) ? s : 0;
+              const appealBase = (buyVal * 3 + holdVal - sellVal * 3)*3/700;
+              return {
+                item,
+                growthVal,
+                appealBase,
+                muted: !hasCT,
+              };
+            });
+
+            const maxGrowth = computed.reduce((m, e) => (Number.isFinite(e.growthVal) && e.growthVal > m ? e.growthVal : m), 0);
+            for (const e of computed) {
+              e.appealVal = (Number.isFinite(e.appealBase) && maxGrowth > 0) ? (e.appealBase / maxGrowth) : e.appealBase;
+            }
+            maxGrowthOverall = Number.isFinite(maxGrowth) ? maxGrowth : NaN;
+            maxAppealOverall = computed.reduce((m, e) => (Number.isFinite(e.appealVal) && e.appealVal > m ? e.appealVal : m), -Infinity);
+            computed.sort((a, b) => b.appealVal - a.appealVal);
+
+            const rows = computed.map(entry =>
+              columns.map(col => {
+                if (col === 'growth') {
+                    const n = Number.isFinite(entry.growthVal) ? (entry.growthVal * 100) : NaN;
+                    return { text: formatPercent(n), className: (Number.isFinite(n) && n > 120) ? 'cell-growth-high' : '' };
+                }
+                if (col === 'appeal') {
+                    const n = Number.isFinite(entry.appealVal) ? (entry.appealVal * 100) : NaN;
+                    return { text: formatPercent(n, 2), title: Number.isFinite(entry.appealBase) ? String(entry.appealBase) : '' };
+                }
+                if (col === 'current') {
+                  const n = toNumber(entry.item.current);
+                  return formatMoney(n, entry.item.current);
+                }
+                if (col === 'target') {
+                  const n = toNumber(entry.item.target);
+                  return formatMoney(n, entry.item.target);
+                }
+                if (col === 'buy' || col === 'hold' || col === 'sell') {
+                  const n = toNumber(entry.item[col]);
+                  return formatPercent(n, 0);
+                }
+                return valueToCell(entry.item[col]);
+              })
+            );
+
+            const mutedSet = new Set();
+            computed.forEach((entry, i) => { if (entry.muted) mutedSet.add(i); });
+
+            rowsCount = rows.length; colsCount = columns.length;
+            const rowNames = computed.map(e => (e.item && e.item.name != null) ? String(e.item.name) : '');
+            table = buildTable(columns, rows, { mutedRowIndices: mutedSet, rowNames });
+            frag.appendChild(table);
+          } else {
+            const columns = ['value'];
+            const rows = data.map(v => [valueToCell(v)]);
+            rowsCount = rows.length; colsCount = 1;
+            table = buildTable(columns, rows);
+            frag.appendChild(table);
+          }
+        } else if (isPlainObject(data)) {
+          const columns = ['key', 'value'];
+          const rows = Object.keys(data).map(k => [k, valueToCell(data[k])]);
+          rowsCount = rows.length; colsCount = 2;
+          table = buildTable(columns, rows);
+          frag.appendChild(table);
+        } else {
+          const columns = ['value'];
+          const rows = [[valueToCell(data)]];
+          rowsCount = 1; colsCount = 1;
+          table = buildTable(columns, rows);
+          frag.appendChild(table);
+        }
+
+        tableContainer.appendChild(frag);
+        results.style.display = '';
+        const metaParts = [`${rowsCount.toLocaleString()} row${rowsCount === 1 ? '' : 's'}`];
+        if (Number.isFinite(maxGrowthOverall)) metaParts.push(`max growth: ${maxGrowthOverall.toFixed(2)}`);
+        if (Number.isFinite(maxAppealOverall)) metaParts.push(`max appeal: ${maxAppealOverall} %`);
+        meta.textContent = metaParts.join(' · ');
+      }
+
+      function isPlainObject(obj) {
+        return Object.prototype.toString.call(obj) === '[object Object]';
+      }
+
+      function gatherColumns(arr) {
+        const cols = [];
+        const seen = new Set();
+        for (const item of arr) {
+          if (isPlainObject(item)) {
+            for (const key of Object.keys(item)) {
+              if (!seen.has(key)) {
+                seen.add(key);
+                cols.push(key);
+              }
+            }
+          }
+        }
+        return cols;
+      }
+
+      function buildTable(headers, rows, opts) {
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        const trh = document.createElement('tr');
+        for (const h of headers) {
+          const th = document.createElement('th');
+          th.textContent = h;
+          trh.appendChild(th);
+        }
+        thead.appendChild(trh);
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        const mutedSet = opts && opts.mutedRowIndices ? opts.mutedRowIndices : null;
+        const rowNames = opts && opts.rowNames ? opts.rowNames : null;
+        for (let i = 0; i < rows.length; i++) {
+          const row = rows[i];
+          const tr = document.createElement('tr');
+          if (mutedSet && mutedSet.has(i)) tr.classList.add('row-muted');
+          const rowName = rowNames && rowNames[i] ? String(rowNames[i]) : '';
+          if (rowName) {
+            const cookieKey = ROW_COLOR_COOKIE_PREFIX + rowName;
+            const initialColor = getRowColorFromCookie(cookieKey);
+            if (initialColor) applyRowColorClass(tr, initialColor);
+            tr.addEventListener('click', () => {
+              const current = detectRowColorClass(tr);
+              const next = nextRowColor(current);
+              applyRowColorClass(tr, next);
+              setRowColorCookie(cookieKey, next);
+            });
+          } else {
+            tr.addEventListener('click', () => {
+              const current = detectRowColorClass(tr);
+              const next = nextRowColor(current);
+              applyRowColorClass(tr, next);
+            });
+          }
+          for (const cell of row) {
+            const td = document.createElement('td');
+            if (cell && typeof cell === 'object' && 'text' in cell) {
+              td.textContent = cell.text;
+              if (cell.title) td.title = cell.title;
+              if (cell.className) td.classList.add(cell.className);
+            } else {
+              td.textContent = cell;
+            }
+            tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        return table;
+      }
+
+      function valueToCell(v) {
+        if (v == null) return '';
+        if (typeof v === 'object') {
+          try { return JSON.stringify(v); } catch { return String(v); }
+        }
+        return String(v);
+      }
+      function toNumber(val) {
+        if (typeof val === 'number' && Number.isFinite(val)) return val;
+        if (typeof val !== 'string') return NaN;
+        let s = val.trim();
+        if (!s) return NaN;
+        s = s
+          .replace(/\u00A0/g, ' ')
+          .replace(/[€%$]/g, '')
+          .replace(/,/g, '')
+          .replace(/[^0-9.\-]/g, '');
+        if (s === '' || s === '-' || s === '—') return NaN;
+        const n = parseFloat(s);
+        return Number.isFinite(n) ? n : NaN;
+      }
+
+      function formatMoney(n, original) {
+        if (!Number.isFinite(n)) return '';
+        const sym = detectCurrencySymbol(original);
+        const out = n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return sym ? out + ' ' + sym : out;
+      }
+
+      function formatPercent(n, decimals = 0) {
+        if (!Number.isFinite(n)) return '';
+        return n.toFixed(decimals) + '%';
+      }
+
+      function detectCurrencySymbol(original) {
+        if (typeof original === 'string') {
+          if (original.includes('€')) return '€';
+          if (original.includes('$')) return '$';
+          if (original.includes('£')) return '£';
+        }
+        return '';
+      }
+
+      // Row color persistence via cookies
+      const ROW_COLOR_COOKIE_PREFIX = 'rowColor:';
+      function getCookieRaw(name) {
+        const parts = document.cookie.split(';');
+        for (const part of parts) {
+          const trimmed = part.trim();
+          if (!trimmed) continue;
+          const eqIdx = trimmed.indexOf('=');
+          const k = eqIdx >= 0 ? trimmed.slice(0, eqIdx) : trimmed;
+          const v = eqIdx >= 0 ? trimmed.slice(eqIdx + 1) : '';
+          if (decodeURIComponent(k) === name) return decodeURIComponent(v);
+        }
+        return '';
+      }
+      function setCookieRaw(name, value, maxAgeSeconds) {
+        const nv = encodeURIComponent(name) + '=' + encodeURIComponent(value) + '; path=/; max-age=' + String(maxAgeSeconds);
+        document.cookie = nv;
+      }
+      function deleteCookieRaw(name) {
+        document.cookie = encodeURIComponent(name) + '=; path=/; Max-Age=0';
+      }
+      function getRowColorFromCookie(key) {
+        const v = getCookieRaw(key);
+        return v === 'green' || v === 'red' || v === 'blue' ? v : '';
+      }
+      function setRowColorCookie(key, color) {
+        if (!color) deleteCookieRaw(key);
+        else setCookieRaw(key, color, 60 * 60 * 24 * 365);
+      }
+      function applyRowColorClass(tr, color) {
+        tr.classList.remove('row-color-green', 'row-color-red', 'row-color-blue');
+        if (color) tr.classList.add('row-color-' + color);
+      }
+      function detectRowColorClass(tr) {
+        if (tr.classList.contains('row-color-green')) return 'green';
+        if (tr.classList.contains('row-color-red')) return 'red';
+        if (tr.classList.contains('row-color-blue')) return 'blue';
+        return '';
+      }
+      function nextRowColor(current) {
+        if (current === 'green') return 'red';
+        if (current === 'red') return 'blue';
+        if (current === 'blue') return '';
+        return 'green';
+      }
+
+    })();
+  </script>
+</body>
+</html>
