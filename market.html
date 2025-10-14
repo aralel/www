@@ -13,6 +13,7 @@
       --accent: #4f46e5;
       --accent-weak: #eef2ff;
       --error: #b91c1c;
+      --success: #16a34a;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,7 +25,7 @@
       line-height: 1.5;
     }
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 32px auto;
       padding: 0 16px;
     }
@@ -90,9 +91,15 @@
     .row-muted td { color: var(--muted); background: #f9fafb !important; }
     /* Cell and row color states */
     .cell-growth-high { color: #16a34a; font-weight: 600; }
+    .cell-growth-medium { color: #d2ae1b; font-weight: 600; }
+    .cell-growth-low { color: #d1281f; font-weight: 600; }
     .row-color-green td { background: #ecfdf5 !important; color: #065f46; }
     .row-color-red td { background: #fef2f2 !important; color: #991b1b; }
     .row-color-blue td { background: #eff6ff !important; color: #1e40af; }
+    .cell-negative { color: var(--error) !important; }
+    .cell-positive { color: var(--success) !important; }
+    .cell-mcap-gold { background: #fffbeb !important; color: #92400e; font-weight: 800; }
+    .cell-mcap-silver { background: #f4f4f5 !important; color: #52525b; font-weight: 700; }
   </style>
 </head>
 <body>
@@ -201,16 +208,21 @@
           }
 
           const first = data[0];
-          if (isPlainObject(first)) {
+          const isObject = isPlainObject(first);
+          if (isObject) {
             let columns = gatherColumns(data);
             if (!columns.includes('growth')) columns.push('growth');
             if (!columns.includes('appeal')) columns.push('appeal');
 
             const computed = data.map((item) => {
+              const trendText = item.trend.replace('trTrendArrow -xsmall -', '').replace(' trPerformanceMeter__arrow', '');
+              const trend = trendText == 'positive' ? +1 : trendText == 'negative' ? -1 : 0;
               const currentNum = toNumber(item.current);
               const targetNum = toNumber(item.target);
               const hasCT = Number.isFinite(currentNum) && Number.isFinite(targetNum) && currentNum !== 0;
               const growthVal = hasCT ? targetNum / currentNum : NaN;
+              const relativeNum = toNumber(item.relative)*trend;
+              const absoluteNum = toNumber(item.absolute)*trend;
 
               const b = toNumber(item.buy);
               const h = toNumber(item.hold);
@@ -222,8 +234,10 @@
               return {
                 item,
                 growthVal,
+                relativeNum,
+                absoluteNum,
                 appealBase,
-                muted: !hasCT,
+                muted: !hasCT
               };
             });
 
@@ -239,7 +253,15 @@
               columns.map(col => {
                 if (col === 'growth') {
                     const n = Number.isFinite(entry.growthVal) ? (entry.growthVal * 100) : NaN;
-                    return { text: formatPercent(n), className: (Number.isFinite(n) && n > 120) ? 'cell-growth-high' : '' };
+                    return { text: formatPercent(n), className: (Number.isFinite(n) && n > 120) ? 'cell-growth-high' : (Number.isFinite(n) && n > 100) ? 'cell-growth-medium' : 'cell-growth-low'  };
+                }
+                if (col === 'relative') {
+                  const n = Number.isFinite(entry.relativeNum) ? (entry.relativeNum) : NaN;
+                  return { text: formatPercent(n, 2), className: (Number.isFinite(n) && n < 0) ? 'cell-negative' : 'cell-positive' };
+                }
+                if (col === 'absolute') {
+                  const n = Number.isFinite(entry.absoluteNum) ? (entry.absoluteNum) : NaN;
+                  return { text: formatMoney(n, entry.item.absolute), className: (Number.isFinite(n) && n < 0) ? 'cell-negative' : 'cell-positive' };
                 }
                 if (col === 'appeal') {
                     const n = Number.isFinite(entry.appealVal) ? (entry.appealVal) : NaN;
@@ -256,6 +278,20 @@
                 if (col === 'buy' || col === 'hold' || col === 'sell') {
                   const n = toNumber(entry.item[col]);
                   return formatPercent(n, 0);
+                }
+                if (col === 'daily_change') {
+                  const n = toNumber(entry.item['daily_change']);
+                  return formatPercent(n, 2);
+                }
+                if (col === 'cap') {
+                  const raw = entry.item[col];
+                  const text = valueToCell(raw);
+                  if (typeof raw === 'string') {
+                    const trimmed = raw.trim();
+                    const cls = /t$/i.test(trimmed) ? 'cell-mcap-gold' : (/b$/i.test(trimmed) ? 'cell-mcap-silver' : '');
+                    return { text, className: cls };
+                  }
+                  return text;
                 }
                 return valueToCell(entry.item[col]);
               })
@@ -307,6 +343,7 @@
         for (const item of arr) {
           if (isPlainObject(item)) {
             for (const key of Object.keys(item)) {
+              if (key === 'trend') continue;
               if (!seen.has(key)) {
                 seen.add(key);
                 cols.push(key);
