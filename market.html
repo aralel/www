@@ -82,7 +82,10 @@
       z-index: 1;
       border-bottom: 1px solid var(--border);
     }
+    thead th.sortable { cursor: pointer; user-select: none; }
+    thead th .sort-indicator { float: right; color: var(--muted); font-size: 12px; margin-left: 6px; }
     th, td { padding: 10px 12px; font-size: 14px; text-align: left; white-space: nowrap; }
+    td:first-child { white-space: normal; word-wrap: break-word; max-width: 200px; }
     tbody tr:nth-child(even) td { background: #fcfcfd; }
     tbody tr:hover td { background: #f7f8fb; }
     tbody tr { cursor: pointer; }
@@ -358,9 +361,27 @@
         const table = document.createElement('table');
         const thead = document.createElement('thead');
         const trh = document.createElement('tr');
-        for (const h of headers) {
+        for (let i = 0; i < headers.length; i++) {
+          const h = headers[i];
           const th = document.createElement('th');
-          th.textContent = h;
+          th.classList.add('sortable');
+          const label = document.createElement('span');
+          label.textContent = h;
+          const indicator = document.createElement('span');
+          indicator.className = 'sort-indicator';
+          indicator.textContent = '';
+          th.appendChild(label);
+          th.appendChild(indicator);
+          th.addEventListener('click', () => {
+            const currentIdx = Number(table.dataset.sortIndex || '-1');
+            const currentDir = table.dataset.sortDir || 'asc';
+            let dir = 'asc';
+            if (currentIdx === i && currentDir === 'asc') dir = 'desc';
+            sortTableBody(table, i, dir, h);
+            table.dataset.sortIndex = String(i);
+            table.dataset.sortDir = dir;
+            updateSortIndicators(thead, i, dir);
+          });
           trh.appendChild(th);
         }
         thead.appendChild(trh);
@@ -406,6 +427,84 @@
         }
         table.appendChild(tbody);
         return table;
+      }
+
+      function updateSortIndicators(thead, activeIdx, dir) {
+        const ths = Array.from(thead.querySelectorAll('th'));
+        ths.forEach((th, idx) => {
+          const span = th.querySelector('.sort-indicator');
+          if (!span) return;
+          if (idx === activeIdx) {
+            th.setAttribute('aria-sort', dir === 'asc' ? 'ascending' : 'descending');
+            span.textContent = dir === 'asc' ? '▲' : '▼';
+          } else {
+            th.removeAttribute('aria-sort');
+            span.textContent = '';
+          }
+        });
+      }
+
+      function sortTableBody(table, colIndex, dir, headerName) {
+        const tbody = table.querySelector('tbody');
+        if (!tbody) return;
+        const rows = Array.from(tbody.rows);
+        const isNumeric = isNumericHeader(headerName) || detectNumericColumn(rows, colIndex, headerName);
+        const factor = dir === 'asc' ? 1 : -1;
+        rows.sort((a, b) => {
+          const av = getCellSortValue(a.cells[colIndex], headerName, isNumeric);
+          const bv = getCellSortValue(b.cells[colIndex], headerName, isNumeric);
+          const aMissing = av === null || av === '' || Number.isNaN(av);
+          const bMissing = bv === null || bv === '' || Number.isNaN(bv);
+          if (aMissing && bMissing) return 0;
+          if (aMissing) return 1; // always push missing to bottom
+          if (bMissing) return -1;
+          if (isNumeric) return factor * (av - bv);
+          return factor * String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: 'base' });
+        });
+        tbody.append(...rows);
+      }
+
+      function isNumericHeader(h) {
+        if (!h) return false;
+        const key = String(h).toLowerCase();
+        return (
+          key === 'growth' || key === 'relative' || key === 'absolute' || key === 'appeal' ||
+          key === 'current' || key === 'target' || key === 'buy' || key === 'hold' ||
+          key === 'sell' || key === 'daily_change' || key === 'cap'
+        );
+      }
+
+      function detectNumericColumn(rows, idx, headerName) {
+        if (String(headerName).toLowerCase() === 'cap') return true;
+        for (const r of rows) {
+          const t = (r.cells[idx] && r.cells[idx].textContent) ? r.cells[idx].textContent.trim() : '';
+          if (!t) continue;
+          const n = toNumber(t);
+          if (Number.isFinite(n)) return true;
+        }
+        return false;
+      }
+
+      function getCellSortValue(td, headerName, numeric) {
+        if (!td) return null;
+        const txt = td.textContent ? td.textContent.trim() : '';
+        if (!txt) return null;
+        if (String(headerName).toLowerCase() === 'cap') return parseCapText(txt);
+        if (numeric) {
+          const n = toNumber(txt);
+          return Number.isFinite(n) ? n : null;
+        }
+        return txt.toLowerCase();
+      }
+
+      function parseCapText(text) {
+        const m = String(text).trim().match(/^([0-9.,]+)\s*([TtBbMmKk])?/);
+        if (!m) return null;
+        const num = parseFloat(m[1].replace(/,/g, ''));
+        if (!Number.isFinite(num)) return null;
+        const suffix = (m[2] || '').toUpperCase();
+        const scale = suffix === 'T' ? 1e12 : suffix === 'B' ? 1e9 : suffix === 'M' ? 1e6 : suffix === 'K' ? 1e3 : 1;
+        return num * scale;
       }
 
       function valueToCell(v) {
