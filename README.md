@@ -1,6 +1,6 @@
-# Aralel Software Studios Website
+# Aralel GMBH Website
 
-A modern, responsive website for Aralel Software Studios, highlighting their games under construction and showcasing their Swiss-German heritage.
+A modern, responsive website for Aralel GMBH, showcasing Swiss-German craftsmanship across apps, websites, ecommerce, and games.
 
 ## Features
 

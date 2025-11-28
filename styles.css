@@ -1,11 +1,11 @@
 /* Aralel Color Palette */
 :root {
-    --aralel-primary: #6b4fbb; /* Primary purple from logo */
-    --aralel-secondary: #8c70d4; /* Lighter purple */
-    --aralel-accent: #4a3582; /* Darker purple */
-    --aralel-dark: #2c3e50; /* Dark blue/gray */
-    --aralel-light: #f5f5f5; /* Light background */
-    --aralel-text: #333333; /* Text color */
+    --aralel-primary: #1d4ed8; /* Primary purple from logo */
+    --aralel-secondary: #475569; /* Lighter purple */
+    --aralel-accent: #1e40af; /* Darker purple */
+    --aralel-dark: #0f172a; /* Dark blue/gray */
+    --aralel-light: #f8fafc; /* Light background */
+    --aralel-text: #111827; /* Text color */
 }
 
 * {
@@ -398,7 +398,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(107, 79, 187, 0.8) 0%, rgba(74, 53, 130, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.8) 0%, rgba(30, 64, 175, 0.8) 100%);
     opacity: 0.7;
 }
 
