@@ -1,6 +1,6 @@
-# Aralel GMBH Website
+# Aralel Gmbh Website
 
-A modern, responsive website for Aralel GMBH, showcasing Swiss-German craftsmanship across apps, websites, ecommerce, and games.
+A modern, responsive website for Aralel Gmbh, showcasing Swiss-German craftsmanship across apps, websites, ecommerce, and games.
 
 ## Features
 

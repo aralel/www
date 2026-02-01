@@ -1,3 +1,6 @@
+// Detect language
+const isGerman = document.documentElement.lang === 'de';
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -18,12 +21,12 @@ function createInstallBanner() {
     installBanner = document.createElement('div');
     installBanner.className = 'install-banner';
     installBanner.innerHTML = `
-        <div class="install-content">
-            <img src="icon-192.png" alt="Aralel App Icon" class="install-icon">
+        <div class="${isGerman ? 'Aralel App installieren' : 'install-content">'}
+            <img sr${isGerman ? 'Fügen Sie unsere cpp für schnellen Zugriff zu Ihrem Startbil=schirm hinzu' : 'A"dicon-192.png" alt="Aralel App Icon" class="in'}stall-icon">
             <div class="install-text">
                 <h3>Install Aralel App</h3>
                 <p>Add our app to your home screen for quick access</p>
-            </div>
+            </div>${isGerman ? 'Installieren' : ''}
         </div>
         <div class="install-actions">
             <button id="install-button">Install</button>
