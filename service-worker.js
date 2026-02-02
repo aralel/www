@@ -1,4 +1,4 @@
-// Service Worker for Aralel Gmbh PWA
+// Service Worker for Aralel GmbH PWA
 
 const CACHE_NAME = 'aralel-cache-v2';
 const urlsToCache = [

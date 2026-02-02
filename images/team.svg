@@ -65,6 +65,6 @@
   </g>
   
   <!-- Company name -->
-  <text x="400" y="500" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50" text-anchor="middle">Aralel Gmbh</text>
+  <text x="400" y="500" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50" text-anchor="middle">Aralel GmbH</text>
   <text x="400" y="530" font-family="Arial" font-size="16" fill="#3498db" text-anchor="middle">Where Swiss Precision Meets German Engineering</text>
 </svg>
