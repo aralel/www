@@ -11,8 +11,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             margin: 0;
+            padding: 1rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
@@ -22,6 +24,14 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             backdrop-filter: blur(10px);
+            width: min(100%, 26rem);
+        }
+        .redirect-container h2 {
+            margin: 0 0 0.75rem;
+            font-size: clamp(1.35rem, 5vw, 1.9rem);
+        }
+        .redirect-container p {
+            margin: 0;
         }
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
@@ -44,6 +54,11 @@
         .fallback-link:hover {
             color: white;
             text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .redirect-container {
+                padding: 1.5rem 1.1rem;
+            }
         }
     </style>
 </head>

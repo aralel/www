@@ -1,0 +1,16 @@
+{% assign t = site.data.locales[include.locale] %}
+{% assign google_badge = "/images/google-play-badge-en.png" %}
+{% assign apple_badge = "/images/app-store-badge-en.svg" %}
+{% if include.locale == "de" %}
+  {% assign google_badge = "/images/google-play-badge-de.png" %}
+  {% assign apple_badge = "/images/app-store-badge-de.svg" %}
+{% endif %}
+{% if include.store_key == "googlePlay" %}
+  <a class="store-link store-link--google" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.googleAria }}">
+    <img src="{{ google_badge | relative_url }}" alt="" class="store-badge-image" loading="lazy">
+  </a>
+{% elsif include.store_key == "appStore" %}
+  <a class="store-link store-link--apple" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.appleAria }}">
+    <img src="{{ apple_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--apple" loading="lazy">
+  </a>
+{% endif %}

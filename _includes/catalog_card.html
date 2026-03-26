@@ -1,0 +1,41 @@
+{% assign product = include.product %}
+{% assign t = site.data.locales[include.locale] %}
+{% assign copy = t.products[product.slug] %}
+{% assign folder = "games" %}
+{% if product.type == "app" %}
+  {% assign folder = "apps" %}
+{% endif %}
+{% assign suffix = "" %}
+{% if include.locale == "en" %}
+  {% assign suffix = "_en" %}
+{% endif %}
+{% assign product_url = "/" | append: folder | append: "/" | append: product.slug | append: suffix | append: ".html" %}
+
+<article class="catalog-card{% if include.compact %} catalog-card--compact{% endif %}" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};">
+  <div class="catalog-card-top">
+    <img src="{{ product.iconUrl }}" alt="{{ copy.name }} icon" class="catalog-icon" loading="lazy">
+    <div class="catalog-heading">
+      <span class="catalog-type">{{ copy.category }}</span>
+      <h3>{{ copy.name }}</h3>
+    </div>
+  </div>
+
+  <p class="catalog-summary">{{ copy.shortSummary }}</p>
+
+  <div class="product-pill-row">
+    {% if product.stores.googlePlay %}<span class="product-pill">Google Play</span>{% endif %}
+    {% if product.stores.appStore %}<span class="product-pill">App Store</span>{% endif %}
+    {% if product.websiteUrl %}<span class="product-pill">Web</span>{% endif %}
+  </div>
+
+  <div class="catalog-actions">
+    <a href="{{ product_url | relative_url }}" class="learn-more">{{ t.common.learnMore }}</a>
+    <div class="store-links">
+      {% for store in product.stores %}
+        {% assign store_key = store[0] %}
+        {% assign store_url = store[1] %}
+        {% include store_link.html store_key=store_key url=store_url locale=include.locale %}
+      {% endfor %}
+    </div>
+  </div>
+</article>

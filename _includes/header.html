@@ -1,0 +1,36 @@
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign home_url = "/en.html" %}
+{% assign apps_url = "/apps_en.html" %}
+{% assign games_url = "/games_en.html" %}
+{% if locale_code == "de" %}
+  {% assign home_url = "/index.html" %}
+  {% assign apps_url = "/apps.html" %}
+  {% assign games_url = "/games.html" %}
+{% endif %}
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a class="logo logo-link" href="{{ home_url | relative_url }}">
+      <img src="{{ '/images/aralel-logo.png' | relative_url }}" alt="Aralel GmbH Logo" class="logo-img">
+      <span class="logo-text">Aralel GmbH</span>
+    </a>
+
+    <button class="mobile-menu-toggle" aria-label="{% if locale_code == "de" %}Menü umschalten{% else %}Toggle menu{% endif %}" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul>
+      <li><a href="{{ home_url | relative_url }}#hero">{{ t.nav.home }}</a></li>
+      <li><a href="{{ apps_url | relative_url }}">{{ t.nav.apps }}</a></li>
+      <li><a href="{{ games_url | relative_url }}">{{ t.nav.games }}</a></li>
+      <li><a href="{{ home_url | relative_url }}#about">{{ t.nav.about }}</a></li>
+      <li><a href="{{ home_url | relative_url }}#contact">{{ t.nav.contact }}</a></li>
+      {% if page.switch_url %}
+        <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" title="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,134 @@
+{% assign locale_code = page.locale | default: "en" %}
+{% assign og_locale = "en_US" %}
+{% assign alternate_locale = "de_DE" %}
+{% if locale_code == "de" %}
+  {% assign og_locale = "de_DE" %}
+  {% assign alternate_locale = "en_US" %}
+{% endif %}
+{% assign t = site.data.locales[locale_code] %}
+
+{% assign product = nil %}
+{% assign product_copy = nil %}
+{% if page.product_slug %}
+  {% assign product = site.data.products.products | where: "slug", page.product_slug | first %}
+  {% if product %}
+    {% assign product_copy = t.products[page.product_slug] %}
+  {% endif %}
+{% endif %}
+{% assign page_copy = nil %}
+{% if page.page_key and t.pages[page.page_key] %}
+  {% assign page_copy = t.pages[page.page_key] %}
+{% endif %}
+
+{% assign resolved_title = page.page_title %}
+{% if resolved_title == nil and page_copy %}
+  {% assign resolved_title = page_copy.title %}
+{% endif %}
+{% if resolved_title == nil and product_copy %}
+  {% assign resolved_title = product_copy.name | append: " - Aralel GmbH" %}
+{% endif %}
+{% if resolved_title == nil and t.site.defaultTitle %}
+  {% assign resolved_title = t.site.defaultTitle %}
+{% endif %}
+{% if resolved_title == nil %}
+  {% assign resolved_title = site.title | default: "Aralel GmbH" %}
+{% endif %}
+
+{% assign resolved_description = page.page_description %}
+{% if resolved_description == nil and page_copy %}
+  {% assign resolved_description = page_copy.description %}
+{% endif %}
+{% if resolved_description == nil and product_copy %}
+  {% assign resolved_description = product_copy.metaDescription %}
+{% endif %}
+{% if resolved_description == nil and t.site.defaultDescription %}
+  {% assign resolved_description = t.site.defaultDescription %}
+{% endif %}
+{% if resolved_description == nil %}
+  {% assign resolved_description = site.description %}
+{% endif %}
+
+{% assign meta_image = page.og_image %}
+{% if meta_image == nil and product %}
+  {% assign meta_image = product.iconUrl %}
+{% endif %}
+{% if meta_image == nil %}
+  {% assign meta_image = "/images/aralel-logo.png" %}
+{% endif %}
+{% if meta_image contains "://" %}
+  {% assign resolved_image = meta_image %}
+{% else %}
+  {% assign resolved_image = meta_image | absolute_url %}
+{% endif %}
+
+{% assign canonical_source = page.url %}
+{% if page.canonical_url %}
+  {% assign canonical_source = page.canonical_url %}
+{% endif %}
+{% if canonical_source contains "://" %}
+  {% assign canonical_url = canonical_source %}
+{% else %}
+  {% assign canonical_url = canonical_source | absolute_url %}
+{% endif %}
+
+{% assign switch_source = page.switch_url %}
+{% if switch_source %}
+  {% if switch_source contains "://" %}
+    {% assign alternate_url = switch_source %}
+  {% else %}
+    {% assign alternate_url = switch_source | absolute_url %}
+  {% endif %}
+{% endif %}
+
+{% assign x_default_source = page.url %}
+{% if locale_code == "de" and page.switch_url %}
+  {% assign x_default_source = page.switch_url %}
+{% endif %}
+{% if page.x_default_url %}
+  {% assign x_default_source = page.x_default_url %}
+{% endif %}
+{% if x_default_source contains "://" %}
+  {% assign x_default_url = x_default_source %}
+{% else %}
+  {% assign x_default_url = x_default_source | absolute_url %}
+{% endif %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ resolved_title | escape }}</title>
+<meta name="description" content="{{ resolved_description | escape }}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="{{ canonical_url }}">
+{% if alternate_url %}
+  {% if locale_code == "de" %}
+    <link rel="alternate" hreflang="en" href="{{ alternate_url }}">
+  {% else %}
+    <link rel="alternate" hreflang="de" href="{{ alternate_url }}">
+  {% endif %}
+{% endif %}
+<link rel="alternate" hreflang="x-default" href="{{ x_default_url }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ resolved_title | escape }}">
+<meta property="og:description" content="{{ resolved_description | escape }}">
+<meta property="og:image" content="{{ resolved_image }}">
+<meta property="og:site_name" content="{{ t.site.defaultTitle | default: site.title | escape }}">
+<meta property="og:locale" content="{{ og_locale }}">
+<meta property="og:locale:alternate" content="{{ alternate_locale }}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ canonical_url }}">
+<meta name="twitter:title" content="{{ resolved_title | escape }}">
+<meta name="twitter:description" content="{{ resolved_description | escape }}">
+<meta name="twitter:image" content="{{ resolved_image }}">
+
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
+<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">

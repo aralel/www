@@ -1,0 +1,352 @@
+{
+  "site": {
+    "defaultTitle": "Aralel GmbH",
+    "defaultDescription": "The official website of Aralel GmbH"
+  },
+  "pages": {
+    "home": {
+      "title": "Aralel GmbH | Official Website and Portfolio",
+      "description": "The official website of Aralel GmbH"
+    },
+    "apps": {
+      "title": "Applications Portfolio - Aralel GmbH",
+      "description": "Applications in the public Aralel portfolio"
+    },
+    "games": {
+      "title": "Games Portfolio - Aralel GmbH",
+      "description": "Games and interactive productions in the Aralel portfolio"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "apps": "Apps",
+    "games": "Games",
+    "about": "Company",
+    "contact": "Contact",
+    "switchTitle": "Deutsch",
+    "switchFlag": "🇩🇪"
+  },
+  "stores": {
+    "googleAria": "Open on Google Play",
+    "appleAria": "Open on the App Store",
+    "appleEyebrow": "Download on the",
+    "appleLabel": "App Store"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "categoryLabel": "Category",
+    "typeLabel": "Type",
+    "typeApp": "App",
+    "typeGame": "Game",
+    "openWebsite": "Open Website",
+    "appsLabel": "Apps",
+    "gamesLabel": "Games"
+  },
+  "footer": {
+    "description": "Official website of Aralel GmbH with a public portfolio of released products.",
+    "portfolioTitle": "Portfolio",
+    "companyTitle": "Company",
+    "languageTitle": "Language",
+    "about": "Company",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "cache": "Invalidate cache"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Official Website",
+      "title": "Aralel GmbH",
+      "subtitle": "Software, digital products, and public portfolio",
+      "text": "Aralel builds and operates digital products for the web and mobile devices. This website is the company’s official presence and brings together our publicly available productions so partners, clients, and visitors can review the portfolio clearly.",
+      "ctaLabel": "View Portfolio",
+      "ctaUrl": "/apps_en.html"
+    },
+    "apps": {
+      "title": "Applications in the Portfolio",
+      "subtitle": "Public-facing applications from our portfolio with direct access to detail pages and live releases.",
+      "linkLabel": "View All Apps",
+      "linkUrl": "/apps_en.html"
+    },
+    "games": {
+      "title": "Games in the Portfolio",
+      "subtitle": "Interactive productions from our portfolio",
+      "linkLabel": "View All Games",
+      "linkUrl": "/games_en.html"
+    },
+    "about": {
+      "title": "Company",
+      "subtitle": "How Aralel works and what this website shows",
+      "blocks": [
+        {
+          "title": "What Aralel stands for",
+          "text": "Aralel builds digital products with an emphasis on clarity, engineering quality, and long-term maintainability. We work across applications, websites, and interactive experiences built for real usage."
+        },
+        {
+          "title": "How we work",
+          "text": "Our process combines product thinking, design, and engineering. The goal is not surface-level presence but durable products with clean execution, understandable structure, and a consistent user experience."
+        },
+        {
+          "title": "What this portfolio shows",
+          "text": "This website documents publicly released productions by Aralel GmbH. Each product page makes clear what the product is, which platforms it is available on, and how it can be accessed publicly."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "subtitle": "Talk to us about products, projects, or collaboration",
+      "emailTitle": "Email Us",
+      "socialTitle": "Social Media",
+      "formTitle": "Send Us a Message",
+      "placeholders": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "subject": "Subject",
+        "message": "Your Message"
+      },
+      "submitLabel": "Send Message"
+    }
+  },
+  "catalog": {
+    "app": {
+      "kicker": "Portfolio",
+      "heroTitle": "Applications in the Portfolio",
+      "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites.",
+      "sectionTitle": "All Applications",
+      "sectionSubtitle": "Every application in the portfolio includes a concise profile and direct links to the public release."
+    },
+    "game": {
+      "kicker": "Portfolio",
+      "heroTitle": "Games in the Portfolio",
+      "heroText": "These games and interactive productions are currently public within the Aralel portfolio",
+      "sectionTitle": "All Games",
+      "sectionSubtitle": "Every game in the portfolio includes a concise profile and direct links to the public release."
+    }
+  },
+  "products": {
+    "availabell": {
+      "name": "Availabell",
+      "category": "Tools",
+      "shortSummary": "Share your current availability with family, teams, and the people who need to reach you.",
+      "heroTitle": "Make availability visible",
+      "heroText": "Availabell helps people communicate when they are reachable and gives groups a fast way to see who is free before making the next call.",
+      "description": "It is built for families, small teams, and distributed contacts who want a lightweight call-readiness signal instead of another heavy coordination tool.",
+      "highlights": [
+        {
+          "title": "Shared status",
+          "text": "Let others know when you are open for a call or callback."
+        },
+        {
+          "title": "Built for groups",
+          "text": "See who is currently available before you start the next conversation."
+        },
+        {
+          "title": "Focused Android utility",
+          "text": "A simple, practical companion designed for everyday communication."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "privacyLabel": "Privacy policy",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Currently published as an Android app on Google Play.",
+      "metaDescription": "Availabell is Aralel’s Android app for sharing call availability with family, teams, and contacts."
+    },
+    "cyrus-cylinder": {
+      "name": "Cyrus Cylinder",
+      "category": "Education",
+      "shortSummary": "Learn German by rotating word parts into real combinations.",
+      "heroTitle": "Vocabulary through patterns",
+      "heroText": "Cyrus Cylinder turns German practice into a rotating word-building exercise that helps learners align prefixes, middles, and suffixes into valid words.",
+      "description": "Each correct combination is reinforced with pronunciation and meaning so the app supports quick, focused vocabulary sessions.",
+      "highlights": [
+        {
+          "title": "Cylinder-based play",
+          "text": "Rotate word parts into place and discover valid German combinations."
+        },
+        {
+          "title": "Instant pronunciation",
+          "text": "Hear words immediately and connect spelling to sound."
+        },
+        {
+          "title": "Short learning loops",
+          "text": "Designed for fast, repeatable language practice throughout the day."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android app on Google Play.",
+      "metaDescription": "Cyrus Cylinder is Aralel’s German-learning app built around rotating word-part combinations."
+    },
+    "anava": {
+      "name": "Anava",
+      "category": "Health & Fitness",
+      "shortSummary": "Record daily supplications, gratitude, and spiritual routines in one calm place.",
+      "heroTitle": "A quiet companion for daily reflection",
+      "heroText": "Anava helps people capture daily duas and gratitude moments while building a more intentional view of their spiritual journey.",
+      "description": "It combines personal journaling with supportive guidance around prayer-related routines and a focused, low-noise mobile experience.",
+      "highlights": [
+        {
+          "title": "Daily entries",
+          "text": "Capture supplications, reflections, and gratitude moments in a structured way."
+        },
+        {
+          "title": "Spiritual guidance",
+          "text": "Use the app as a calm anchor for recurring routines and reflection."
+        },
+        {
+          "title": "Gentle onboarding",
+          "text": "Improved navigation and onboarding make it easier to start and stay consistent."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android app on Google Play.",
+      "metaDescription": "Anava is Aralel’s Android app for daily supplications, gratitude, and spiritual reflection."
+    },
+    "a-solar-compass": {
+      "name": "A Solar Compass",
+      "category": "Tools",
+      "shortSummary": "Calculate the exact local moment when the sun aligns with a target bearing.",
+      "heroTitle": "Astronomical alignment in real time",
+      "heroText": "A Solar Compass computes the local moment when the sun’s azimuth lines up with any bearing between your source position and a target point on Earth.",
+      "description": "It combines precise calculation with live countdowns, reminders, and widgets so the critical alignment window is easy to track.",
+      "highlights": [
+        {
+          "title": "Solar alignment engine",
+          "text": "Built on real astronomical calculations instead of rough estimates."
+        },
+        {
+          "title": "Countdown and reminders",
+          "text": "Stay oriented with a live timer and pre-alignment notifications."
+        },
+        {
+          "title": "GPS or manual input",
+          "text": "Use your location automatically or work with exact coordinates."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android app on Google Play.",
+      "metaDescription": "A Solar Compass is Aralel’s Android tool for precise sun-alignment calculations, countdowns, and reminders."
+    },
+    "german-word-search": {
+      "name": "German Word Search",
+      "category": "Word Game",
+      "shortSummary": "Build German vocabulary and articles through themed word-search puzzles.",
+      "heroTitle": "Learn German through puzzles",
+      "heroText": "German Word Search turns vocabulary practice into a playful loop of themed grids, article recognition, and repeatable challenge levels.",
+      "description": "With 15 categories, multiple difficulty levels, and extra support like pronunciation and translations, it is designed for steady language progress.",
+      "highlights": [
+        {
+          "title": "15 themed categories",
+          "text": "Every session trains practical vocabulary, from animals to city life."
+        },
+        {
+          "title": "Three difficulty levels",
+          "text": "Start easy and scale up to denser, more demanding puzzles."
+        },
+        {
+          "title": "Learning feedback",
+          "text": "Pronunciation, translations, and progress systems reinforce retention."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android game on Google Play.",
+      "metaDescription": "German Word Search is Aralel’s vocabulary game for learning German words and articles through puzzle play."
+    },
+    "arena-sudoku": {
+      "name": "Arena Sudoku",
+      "category": "Puzzle",
+      "shortSummary": "A realtime Sudoku experience where players solve the same board together.",
+      "heroTitle": "Sudoku as a live competition",
+      "heroText": "Arena Sudoku turns a familiar logic game into a multiplayer challenge where speed, accuracy, and shared board state matter across web and mobile devices.",
+      "description": "Players work on the same puzzle, watch live updates, and compete through scoring, history, and leaderboard-style progression whether they join in the browser or through the mobile versions.",
+      "highlights": [
+        {
+          "title": "Shared board",
+          "text": "Everyone sees the same puzzle and the same live progress."
+        },
+        {
+          "title": "Competitive scoring",
+          "text": "Correct moves contribute directly to the match outcome."
+        },
+        {
+          "title": "Always available modes",
+          "text": "Easy, medium, and hard sessions stay ready to join."
+        }
+      ],
+      "primaryCta": "View on the App Store",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Available on the web at arena.aralel.com, on Google Play, and on the App Store.",
+      "metaDescription": "Arena Sudoku is Aralel’s realtime multiplayer Sudoku game for the web and mobile devices."
+    },
+    "hedortal": {
+      "name": "Hedortal",
+      "category": "Casual",
+      "shortSummary": "A fast coin-flip arcade game where timing decides your score.",
+      "heroTitle": "Timing beats luck",
+      "heroText": "Hedortal turns a simple coin flip into a compact arcade challenge where stopping at the right moment is the whole game.",
+      "description": "The experience stays intentionally minimal: short rounds, immediate feedback, and repeatable attempts with direct score impact.",
+      "highlights": [
+        {
+          "title": "One tap matters",
+          "text": "Stop the spinning coin at the right moment and push your score higher."
+        },
+        {
+          "title": "Quick sessions",
+          "text": "Built for fast play loops whenever you have a minute."
+        },
+        {
+          "title": "Clear rules",
+          "text": "No clutter, just reaction, rhythm, and repetition."
+        }
+      ],
+      "primaryCta": "View on the App Store",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Currently published for iPhone and iPad on the App Store.",
+      "metaDescription": "Hedortal is Aralel’s fast coin-flip arcade game for iPhone and iPad."
+    },
+    "rock-paper-bluetooth": {
+      "name": "Rock Paper Bluetooth",
+      "category": "Casual",
+      "shortSummary": "Local rock-paper-scissors over Bluetooth with leaderboards and instant rematches.",
+      "heroTitle": "A classic turned into a local duel",
+      "heroText": "Rock Paper Bluetooth brings rock-paper-scissors to iPhone and iPad as a quick local multiplayer game that works without internet.",
+      "description": "It combines immediate Bluetooth sessions with Game Center progress, unlockable achievements, and a stronger competitive loop.",
+      "highlights": [
+        {
+          "title": "Bluetooth multiplayer",
+          "text": "Host or join nearby matches without needing an internet connection."
+        },
+        {
+          "title": "Instant rematches",
+          "text": "Short rounds and quick restarts keep the pace high."
+        },
+        {
+          "title": "Game Center progression",
+          "text": "Leaderboards, history, and achievements give the classic more depth."
+        }
+      ],
+      "primaryCta": "View on the App Store",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Currently published for iPhone and iPad on the App Store.",
+      "metaDescription": "Rock Paper Bluetooth is Aralel’s Bluetooth-powered local duel game for iPhone and iPad."
+    }
+  }
+}

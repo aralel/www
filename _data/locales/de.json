@@ -1,0 +1,352 @@
+{
+  "site": {
+    "defaultTitle": "Aralel GmbH",
+    "defaultDescription": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web und Mobilgeräte."
+  },
+  "pages": {
+    "home": {
+      "title": "Aralel GmbH | Offizielle Website und Portfolio",
+      "description": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Google Play und App Store."
+    },
+    "apps": {
+      "title": "Apps-Portfolio - Aralel GmbH",
+      "description": "Anwendungen im öffentlichen Portfolio der Aralel GmbH mit direkten Links zu Veröffentlichungen und begleitenden Websites."
+    },
+    "games": {
+      "title": "Spiele-Portfolio - Aralel GmbH",
+      "description": "Spiele und interaktive Produktionen im öffentlichen Portfolio der Aralel GmbH mit direkten Links zu Web, App Store und Google Play."
+    }
+  },
+  "nav": {
+    "home": "Start",
+    "apps": "Apps",
+    "games": "Spiele",
+    "about": "Unternehmen",
+    "contact": "Kontakt",
+    "switchTitle": "English",
+    "switchFlag": "🇬🇧"
+  },
+  "stores": {
+    "googleAria": "Bei Google Play öffnen",
+    "appleAria": "Im App Store öffnen",
+    "appleEyebrow": "Laden im",
+    "appleLabel": "App Store"
+  },
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "categoryLabel": "Kategorie",
+    "typeLabel": "Typ",
+    "typeApp": "App",
+    "typeGame": "Spiel",
+    "openWebsite": "Website öffnen",
+    "appsLabel": "Apps",
+    "gamesLabel": "Spiele"
+  },
+  "footer": {
+    "description": "Offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte und direkten Links zu den jeweiligen Plattformen.",
+    "portfolioTitle": "Portfolio",
+    "companyTitle": "Unternehmen",
+    "languageTitle": "Sprache",
+    "about": "Unternehmen",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "cache": "Cache ungültig machen"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Offizielle Website",
+      "title": "Aralel GmbH",
+      "subtitle": "Software, digitale Produkte und öffentliches Portfolio",
+      "text": "Aralel entwickelt und betreibt digitale Produkte für Web und Mobilgeräte. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
+      "ctaLabel": "Portfolio ansehen",
+      "ctaUrl": "/apps.html"
+    },
+    "apps": {
+      "title": "Apps im Portfolio",
+      "subtitle": "Öffentlich verfügbare Anwendungen aus unserem Portfolio mit direktem Zugriff auf Detailseiten und Veröffentlichungen.",
+      "linkLabel": "Alle Apps ansehen",
+      "linkUrl": "/apps.html"
+    },
+    "games": {
+      "title": "Spiele im Portfolio",
+      "subtitle": "Interaktive Produktionen aus unserem Portfolio auf Web, Google Play und App Store.",
+      "linkLabel": "Alle Spiele ansehen",
+      "linkUrl": "/games.html"
+    },
+    "about": {
+      "title": "Unternehmen",
+      "subtitle": "Wie Aralel arbeitet und was diese Website zeigt",
+      "blocks": [
+        {
+          "title": "Wofür Aralel steht",
+          "text": "Aralel entwickelt digitale Produkte mit Fokus auf Klarheit, technische Qualität und langfristige Pflege. Wir arbeiten an Anwendungen, Websites und interaktiven Erlebnissen, die reale Nutzungsszenarien ernst nehmen."
+        },
+        {
+          "title": "Wie wir arbeiten",
+          "text": "Unser Prozess verbindet Produktdenken, Design und Engineering. Ziel ist nicht bloße Präsenz, sondern belastbare Produkte mit sauberer Ausführung, nachvollziehbarer Struktur und konsistentem Nutzererlebnis."
+        },
+        {
+          "title": "Was dieses Portfolio zeigt",
+          "text": "Auf dieser Website dokumentieren wir veröffentlichte Produktionen der Aralel GmbH. Jede Produktseite zeigt, worum es geht, auf welchen Plattformen das Produkt verfügbar ist und wie es öffentlich erreichbar ist."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Kontakt aufnehmen",
+      "subtitle": "Sprechen Sie mit uns über Produkte, Projekte oder Zusammenarbeit",
+      "emailTitle": "Schreiben Sie uns",
+      "socialTitle": "Soziale Medien",
+      "formTitle": "Senden Sie uns eine Nachricht",
+      "placeholders": {
+        "name": "Ihr Name",
+        "email": "Ihre E-Mail",
+        "subject": "Betreff",
+        "message": "Ihre Nachricht"
+      },
+      "submitLabel": "Nachricht senden"
+    }
+  },
+  "catalog": {
+    "app": {
+      "kicker": "Portfolio",
+      "heroTitle": "Anwendungen im Portfolio",
+      "heroText": "Diese Anwendungen sind derzeit öffentlich als Teil des Aralel-Portfolios verfügbar, inklusive direkter Links zu Stores und begleitenden Websites.",
+      "sectionTitle": "Alle Anwendungen",
+      "sectionSubtitle": "Jede Anwendung im Portfolio enthält ein kompaktes Profil und direkte Links zur öffentlichen Veröffentlichung."
+    },
+    "game": {
+      "kicker": "Portfolio",
+      "heroTitle": "Spiele im Portfolio",
+      "heroText": "Diese Spiele und interaktiven Produktionen sind derzeit öffentlich im Aralel-Portfolio verfügbar, auf Web, Google Play oder im App Store.",
+      "sectionTitle": "Alle Spiele",
+      "sectionSubtitle": "Jedes Spiel im Portfolio enthält ein kompaktes Profil und direkte Links zur jeweiligen öffentlichen Veröffentlichung."
+    }
+  },
+  "products": {
+    "availabell": {
+      "name": "Availabell",
+      "category": "Tools",
+      "shortSummary": "Teilen Sie Ihre aktuelle Erreichbarkeit mit Familie, Teams und wichtigen Kontakten.",
+      "heroTitle": "Verfügbarkeit klar kommunizieren",
+      "heroText": "Availabell macht sichtbar, wann Sie erreichbar sind, und hilft Gruppen dabei, vor einem Anruf schnell zu sehen, wer gerade verfügbar ist.",
+      "description": "Die App richtet sich an Familien, kleine Teams und verteilte Kontakte, die einen unkomplizierten Status für Anrufe und spontane Abstimmungen brauchen.",
+      "highlights": [
+        {
+          "title": "Status teilen",
+          "text": "Zeigen Sie auf einen Blick, wann Sie für einen Anruf oder Rückruf verfügbar sind."
+        },
+        {
+          "title": "Für Gruppen gedacht",
+          "text": "Sehen Sie schneller, wer in Ihrer Runde gerade erreichbar ist, bevor Sie den nächsten Anruf starten."
+        },
+        {
+          "title": "Leichtgewichtig auf Android",
+          "text": "Ein fokussiertes Tool ohne unnötige Komplexität, direkt für den Alltag gebaut."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Derzeit als Android-App bei Google Play veröffentlicht.",
+      "metaDescription": "Availabell ist Aralels App zum Teilen der eigenen Erreichbarkeit mit Familie, Teams und Kontakten."
+    },
+    "cyrus-cylinder": {
+      "name": "Cyrus Cylinder",
+      "category": "Bildung",
+      "shortSummary": "Deutsch lernen, indem Wortbausteine zu echten Begriffen zusammengedreht werden.",
+      "heroTitle": "Wortschatz über Muster lernen",
+      "heroText": "Cyrus Cylinder verbindet Sprachtraining mit einer rotierenden Lernmechanik, die Präfixe, Mittelteile und Endungen zu korrekten Wörtern kombiniert.",
+      "description": "Die App ist auf schnelles Vokabeltraining ausgelegt und ergänzt jede gelöste Kombination direkt um Aussprache und Bedeutung.",
+      "highlights": [
+        {
+          "title": "Zylinder-Mechanik",
+          "text": "Richten Sie Wortteile aus und entdecken Sie gültige deutsche Kombinationen."
+        },
+        {
+          "title": "Aussprache direkt dabei",
+          "text": "Hören Sie Wörter sofort an und verbinden Sie Schriftbild mit Klang."
+        },
+        {
+          "title": "Kurze Lerneinheiten",
+          "text": "Ideal für konzentrierte Sessions zwischendurch statt langer Lernblöcke."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
+      "metaDescription": "Cyrus Cylinder ist Aralels Sprachlern-App für deutsches Vokabeltraining mit rotierenden Wortbausteinen."
+    },
+    "anava": {
+      "name": "Anava",
+      "category": "Gesundheit & Fitness",
+      "shortSummary": "Tägliche Bittgebete, Dankbarkeit und spirituelle Routinen an einem Ort festhalten.",
+      "heroTitle": "Ein stiller Begleiter für den Alltag",
+      "heroText": "Anava unterstützt Menschen dabei, tägliche Duas und Momente der Dankbarkeit zu dokumentieren und bewusster auf den eigenen spirituellen Weg zu schauen.",
+      "description": "Die App kombiniert persönliche Aufzeichnungen mit hilfreichen Funktionen für Gebetszeiten, geführtes Onboarding und eine ruhige, fokussierte Nutzung.",
+      "highlights": [
+        {
+          "title": "Tägliche Einträge",
+          "text": "Halten Sie Gebete, Reflexionen und Dankbarkeitsmomente strukturiert fest."
+        },
+        {
+          "title": "Spirituelle Orientierung",
+          "text": "Nutzen Sie die App als ruhigen Anker für wiederkehrende Routinen."
+        },
+        {
+          "title": "Behutsam geführt",
+          "text": "Onboarding und verbesserte Navigation helfen beim schnellen Einstieg."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
+      "metaDescription": "Anava ist Aralels Android-App für tägliche Bittgebete, Dankbarkeit und spirituelle Reflexion."
+    },
+    "a-solar-compass": {
+      "name": "A Solar Compass",
+      "category": "Tools",
+      "shortSummary": "Berechnet den exakten Zeitpunkt, an dem die Sonne auf einen Zielkurs ausgerichtet ist.",
+      "heroTitle": "Astronomische Ausrichtung in Echtzeit",
+      "heroText": "A Solar Compass berechnet für jeden Standort und jedes Ziel den lokalen Moment, in dem der Sonnenstand exakt zu dieser Peilung passt.",
+      "description": "Die App verbindet präzise Berechnung mit Live-Countdown, Erinnerungen und Widgets, damit der entscheidende Zeitpunkt nicht verpasst wird.",
+      "highlights": [
+        {
+          "title": "Sonnenausrichtung berechnen",
+          "text": "Nutzen Sie reale astronomische Formeln statt grober Annäherungen."
+        },
+        {
+          "title": "Countdown und Erinnerungen",
+          "text": "Bleiben Sie mit Live-Timer und Benachrichtigungen bis zum Zielmoment orientiert."
+        },
+        {
+          "title": "GPS oder manuell",
+          "text": "Arbeiten Sie flexibel mit Ihrem Standort oder frei gewählten Koordinaten."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
+      "metaDescription": "A Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
+    },
+    "german-word-search": {
+      "name": "German Word Search",
+      "category": "Wortspiel",
+      "shortSummary": "Deutschen Wortschatz mit Artikeln durch Wortsuche und Kategorien spielerisch lernen.",
+      "heroTitle": "Deutsch lernen über Rätsel",
+      "heroText": "German Word Search verbindet Vokabeltraining mit klassischen Wortsuche-Rätseln und macht Artikel, Kategorien und Wiederholung spielerisch zugänglich.",
+      "description": "Mit 15 Themenwelten, mehreren Schwierigkeitsgraden und Zusatzfunktionen wie Aussprache und Übersetzung ist das Spiel auf stetigen Lernfortschritt ausgelegt.",
+      "highlights": [
+        {
+          "title": "15 Themenkategorien",
+          "text": "Von Tieren bis Stadtleben trainiert jede Runde praktischen Wortschatz."
+        },
+        {
+          "title": "Drei Schwierigkeitsstufen",
+          "text": "Beginnen Sie leicht und steigern Sie sich bis zu komplexeren Rätseln."
+        },
+        {
+          "title": "Lernen mit Feedback",
+          "text": "Aussprache, Übersetzungen und Fortschrittssysteme unterstützen das Behalten."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-Spiel bei Google Play veröffentlicht.",
+      "metaDescription": "German Word Search ist Aralels Wortspiel zum spielerischen Lernen von deutschem Wortschatz mit Artikeln."
+    },
+    "arena-sudoku": {
+      "name": "Arena Sudoku",
+      "category": "Puzzle",
+      "shortSummary": "Echtzeit-Sudoku, in dem mehrere Spieler dasselbe Brett gemeinsam lösen.",
+      "heroTitle": "Sudoku als Live-Wettkampf",
+      "heroText": "Arena Sudoku bringt klassische Denksport-Aufgaben in ein Mehrspieler-Format, bei dem Tempo, Präzision und der direkte Vergleich auf Web und Mobilgeräten zusammenkommen.",
+      "description": "Spieler arbeiten auf demselben Raster, verfolgen Live-Aktualisierungen und messen sich über Punkte, Verlauf und Bestenlisten, egal ob sie im Browser oder über die mobilen Versionen einsteigen.",
+      "highlights": [
+        {
+          "title": "Gemeinsames Spielfeld",
+          "text": "Alle Teilnehmenden sehen dieselbe Aufgabe und dieselben Live-Updates."
+        },
+        {
+          "title": "Wettbewerb mit Punkten",
+          "text": "Korrekte Züge zahlen direkt auf den Wettbewerb ein."
+        },
+        {
+          "title": "Immer spielbereit",
+          "text": "Leichte, mittlere und schwere Partien stehen fortlaufend bereit."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Im Web unter arena.aralel.com sowie bei Google Play und im App Store verfügbar.",
+      "metaDescription": "Arena Sudoku ist Aralels Mehrspieler-Sudoku für Web und Mobilgeräte mit Live-Board und Wettbewerbssystem."
+    },
+    "hedortal": {
+      "name": "Hedortal",
+      "category": "Casual",
+      "shortSummary": "Ein schnelles Münzwurf-Arcade-Spiel, bei dem Timing über Ihren Punktestand entscheidet.",
+      "heroTitle": "Timing schlägt Zufall",
+      "heroText": "Hedortal verwandelt den einfachen Münzwurf in eine kurze Arcade-Herausforderung, bei der das richtige Stoppen über Gewinn oder Verlust entscheidet.",
+      "description": "Die Spielidee ist absichtlich reduziert gehalten: kurze Runden, sofortiges Feedback und wiederholbare Versuche mit direktem Score-Effekt.",
+      "highlights": [
+        {
+          "title": "Ein Tap entscheidet",
+          "text": "Stoppen Sie die Münze im richtigen Moment und maximieren Sie Ihre Punkte."
+        },
+        {
+          "title": "Kurze Sessions",
+          "text": "Perfekt für schnelle Spielmomente zwischendurch."
+        },
+        {
+          "title": "Klares Regelwerk",
+          "text": "Ohne Ballast, nur Reaktion, Rhythmus und Wiederholung."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Derzeit für iPhone und iPad im App Store veröffentlicht.",
+      "metaDescription": "Hedortal ist Aralels schnelles Coin-Flip-Arcade-Spiel für iPhone und iPad."
+    },
+    "rock-paper-bluetooth": {
+      "name": "Rock Paper Bluetooth",
+      "category": "Casual",
+      "shortSummary": "Lokales Schere-Stein-Papier über Bluetooth mit Bestenlisten und Sofort-Revanchen.",
+      "heroTitle": "Der Klassiker als lokales Duell",
+      "heroText": "Rock Paper Bluetooth bringt Schere-Stein-Papier als schnelles Mehrspieler-Spiel auf iPhone und iPad, ohne Internet und direkt über Bluetooth.",
+      "description": "Das Spiel kombiniert unmittelbare lokale Verbindungen mit Game-Center-Fortschritt, freischaltbaren Erfolgen und einer klaren Turnier-Energie.",
+      "highlights": [
+        {
+          "title": "Bluetooth-Multiplayer",
+          "text": "Hosten oder treten Sie lokalen Partien ohne Internet bei."
+        },
+        {
+          "title": "Sofortige Revanchen",
+          "text": "Kurze Matches und schnelle Neustarts halten das Tempo hoch."
+        },
+        {
+          "title": "Game-Center-Fortschritt",
+          "text": "Bestenlisten, Historie und Erfolge geben dem Klassiker zusätzlichen Wettbewerb."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Derzeit für iPhone und iPad im App Store veröffentlicht.",
+      "metaDescription": "Rock Paper Bluetooth ist Aralels lokales Bluetooth-Duellspiel für iPhone und iPad."
+    }
+  }
+}

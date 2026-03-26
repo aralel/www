@@ -1,0 +1,15 @@
+---
+layout: none
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for node in site.html_pages %}
+  {% unless node.url contains '/available/' or node.url contains '/join/' %}
+  <url>
+    <loc>{{ node.url | absolute_url }}</loc>
+    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endunless %}
+{% endfor %}
+</urlset>

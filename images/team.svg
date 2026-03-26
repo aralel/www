@@ -17,14 +17,13 @@
   
   <!-- Team members (abstract representations) -->
   <g transform="translate(150, 300)">
-    <!-- Person 1 - Swiss team member -->
+    <!-- Person 1 -->
     <circle cx="0" cy="0" r="60" fill="#3498db" opacity="0.8" />
     <circle cx="0" cy="-25" r="25" fill="#ffffff" />
     <rect x="-30" y="10" width="60" height="60" rx="10" ry="10" fill="#ffffff" />
-    <!-- Swiss flag indicator -->
-    <rect x="-15" y="50" width="30" height="30" fill="#ff0000" />
-    <rect x="-5" y="60" width="10" height="10" fill="#ffffff" />
-    <rect x="0" y="55" width="10" height="20" fill="#ffffff" transform="rotate(90 0 65)" />
+    <rect x="-15" y="50" width="30" height="8" rx="4" ry="4" fill="#3498db" />
+    <rect x="-15" y="62" width="22" height="8" rx="4" ry="4" fill="#5dade2" />
+    <rect x="-15" y="74" width="26" height="8" rx="4" ry="4" fill="#85c1e9" />
   </g>
   
   <g transform="translate(400, 300)">
@@ -35,14 +34,13 @@
   </g>
   
   <g transform="translate(650, 300)">
-    <!-- Person 3 - German team member -->
+    <!-- Person 3 -->
     <circle cx="0" cy="0" r="60" fill="#3498db" opacity="0.8" />
     <circle cx="0" cy="-25" r="25" fill="#ffffff" />
     <rect x="-30" y="10" width="60" height="60" rx="10" ry="10" fill="#ffffff" />
-    <!-- German flag indicator -->
-    <rect x="-15" y="50" width="30" height="10" fill="#000000" />
-    <rect x="-15" y="60" width="30" height="10" fill="#ff0000" />
-    <rect x="-15" y="70" width="30" height="10" fill="#ffcc00" />
+    <rect x="-15" y="50" width="30" height="8" rx="4" ry="4" fill="#2c3e50" />
+    <rect x="-15" y="62" width="18" height="8" rx="4" ry="4" fill="#3498db" />
+    <rect x="-15" y="74" width="24" height="8" rx="4" ry="4" fill="#5dade2" />
   </g>
   
   <!-- Connecting lines representing collaboration -->
@@ -66,5 +64,5 @@
   
   <!-- Company name -->
   <text x="400" y="500" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50" text-anchor="middle">Aralel GmbH</text>
-  <text x="400" y="530" font-family="Arial" font-size="16" fill="#3498db" text-anchor="middle">Where Swiss Precision Meets German Engineering</text>
+  <text x="400" y="530" font-family="Arial" font-size="16" fill="#3498db" text-anchor="middle">Product, design, and engineering in one team</text>
 </svg>

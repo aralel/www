@@ -1,0 +1,54 @@
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign home_url = "/en.html" %}
+{% assign apps_url = "/apps_en.html" %}
+{% assign games_url = "/games_en.html" %}
+{% assign arena_url = "/games/arena-sudoku_en.html" %}
+{% assign availabell_url = "/apps/availabell_en.html" %}
+{% if locale_code == "de" %}
+  {% assign home_url = "/index.html" %}
+  {% assign apps_url = "/apps.html" %}
+  {% assign games_url = "/games.html" %}
+  {% assign arena_url = "/games/arena-sudoku.html" %}
+  {% assign availabell_url = "/apps/availabell.html" %}
+{% endif %}
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Aralel GmbH</h3>
+      <p class="footer-copy">{{ t.footer.description }}</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>{{ t.footer.portfolioTitle }}</h3>
+      <ul>
+        <li><a href="{{ apps_url | relative_url }}">{{ t.common.appsLabel }}</a></li>
+        <li><a href="{{ games_url | relative_url }}">{{ t.common.gamesLabel }}</a></li>
+        <li><a href="{{ availabell_url | relative_url }}">Availabell</a></li>
+        <li><a href="{{ arena_url | relative_url }}">Arena Sudoku</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>{{ t.footer.companyTitle }}</h3>
+      <ul>
+        <li><a href="{{ home_url | relative_url }}#about">{{ t.footer.about }}</a></li>
+        <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
+        <li><a href="{{ '/privacy-policy.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>{{ t.footer.languageTitle }}</h3>
+      <ul>
+        <li><a href="{{ '/index.html' | relative_url }}">🇩🇪 Deutsch</a></li>
+        <li><a href="{{ '/en.html' | relative_url }}">🇬🇧 English</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Aralel GmbH. {% if locale_code == "de" %}Alle Rechte vorbehalten.{% else %}All rights reserved.{% endif %} | <a href="#" id="invalidate-cache">{{ t.footer.cache }}</a></p>
+  </div>
+</footer>

@@ -8,7 +8,7 @@
   </defs>
   <rect width="1920" height="1080" fill="url(#bg-gradient)" />
   
-  <!-- Abstract mountain shapes representing Swiss Alps -->
+  <!-- Abstract landscape shapes -->
   <polygon points="0,1080 0,700 300,800 600,600 900,750 1200,550 1500,700 1800,600 1920,650 1920,1080" fill="#152a55" opacity="0.7" />
   <polygon points="0,1080 0,800 400,880 800,750 1200,850 1600,750 1920,800 1920,1080" fill="#0e1c38" opacity="0.8" />
   

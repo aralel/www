@@ -1,4 +1,12 @@
+title: Aralel GmbH
+description: Official bilingual company website and public portfolio for Aralel GmbH.
+url: "https://aralel.com"
+baseurl: ""
 include: [".well-known", "available"]
+exclude:
+  - node_modules
+  - scripts
+  - sample.json
 
 defaults:
   - scope:

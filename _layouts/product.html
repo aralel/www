@@ -1,0 +1,128 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign product = site.data.products.products | where: "slug", page.product_slug | first %}
+{% assign t = site.data.locales[page.locale] %}
+{% assign copy = t.products[page.product_slug] %}
+{% assign is_app = false %}
+{% if product.type == "app" %}
+  {% assign is_app = true %}
+{% endif %}
+{% assign listing_url = "/games.html" %}
+{% assign listing_label = t.common.gamesLabel %}
+{% if is_app %}
+  {% assign listing_url = "/apps.html" %}
+  {% assign listing_label = t.common.appsLabel %}
+{% endif %}
+{% if page.locale == "en" %}
+  {% if is_app %}
+    {% assign listing_url = "/apps_en.html" %}
+  {% else %}
+    {% assign listing_url = "/games_en.html" %}
+  {% endif %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {% if is_app %}"MobileApplication"{% else %}"VideoGame"{% endif %},
+  "name": {{ copy.name | jsonify }},
+  "description": {{ copy.metaDescription | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "image": {{ product.iconUrl | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aralel GmbH",
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
+
+<main class="catalog-page">
+  <section class="detail-hero" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};">
+    <div class="detail-hero-content">
+      <div class="detail-breadcrumbs">
+        <a href="{{ listing_url | relative_url }}">{{ listing_label }}</a>
+        <span>/</span>
+        <span>{{ copy.name }}</span>
+      </div>
+
+      <div class="detail-hero-grid">
+        <div class="detail-copy">
+          <span class="page-kicker">{{ copy.category }}</span>
+          <h1>{{ copy.name }}</h1>
+          <p class="detail-lead">{{ copy.heroTitle }}</p>
+          <p>{{ copy.heroText }}</p>
+
+          <div class="store-links">
+            {% for store in product.stores %}
+              {% assign store_key = store[0] %}
+              {% assign store_url = store[1] %}
+              {% include store_link.html store_key=store_key url=store_url locale=page.locale %}
+            {% endfor %}
+          </div>
+
+          {% if product.websiteUrl or product.privacyUrl %}
+            <div class="secondary-link-row">
+              {% if product.websiteUrl %}
+                <a class="secondary-link" href="{{ product.websiteUrl }}" target="_blank" rel="noopener noreferrer">{{ t.common.openWebsite }}</a>
+              {% endif %}
+              {% if product.privacyUrl and product.privacyUrl[page.locale] %}
+                <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel }}</a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="detail-visual">
+          <img src="{{ product.iconUrl }}" alt="{{ copy.name }} icon" class="detail-icon" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-content">
+    <div class="detail-main-column">
+      <div class="section-title-container">
+        <h2 class="section-title">{{ copy.detailLabel }}</h2>
+        <div class="title-decoration"></div>
+        <p class="section-subtitle">{{ copy.shortSummary }}</p>
+      </div>
+
+      <div class="detail-description">
+        <p>{{ copy.description }}</p>
+      </div>
+
+      <div class="detail-card-grid">
+        {% for highlight in copy.highlights %}
+          <article class="detail-card">
+            <h2>{{ highlight.title }}</h2>
+            <p>{{ highlight.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <aside class="detail-sidebar">
+      <div class="detail-panel">
+        <div class="detail-meta-item">
+          <span class="detail-meta-label">{{ t.common.categoryLabel }}</span>
+          <strong>{{ copy.category }}</strong>
+        </div>
+        <div class="detail-meta-item">
+          <span class="detail-meta-label">{{ t.common.typeLabel }}</span>
+          <strong>{% if is_app %}{{ t.common.typeApp }}{% else %}{{ t.common.typeGame }}{% endif %}</strong>
+        </div>
+        <div class="detail-meta-item">
+          <span class="detail-meta-label">{{ copy.availabilityTitle }}</span>
+          <strong>{{ copy.availabilityText }}</strong>
+        </div>
+      </div>
+
+      <div class="detail-panel">
+        <a class="back-link" href="{{ listing_url | relative_url }}">{{ copy.backLabel }}</a>
+      </div>
+    </aside>
+  </section>
+</main>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.locale | default: 'en' }}">
+<head>
+  {% include head.html %}
+</head>
+{% assign resolved_body_class = page.body_class %}
+{% if resolved_body_class == nil %}
+  {% if page.layout == "home" %}
+    {% assign resolved_body_class = "home-page" %}
+  {% else %}
+    {% assign resolved_body_class = "subpage" %}
+  {% endif %}
+{% endif %}
+<body class="{{ resolved_body_class }}">
+  {% unless page.hide_header %}
+    {% include header.html %}
+  {% endunless %}
+
+  {{ content }}
+
+  {% unless page.hide_footer %}
+    {% include footer.html %}
+  {% endunless %}
+
+  {% unless page.disable_cookie_consent %}
+    <script src="{{ '/cookie-consent.js' | relative_url }}"></script>
+  {% endunless %}
+  <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>
