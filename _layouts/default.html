@@ -11,6 +11,7 @@
     {% assign resolved_body_class = "subpage" %}
   {% endif %}
 {% endif %}
+{% assign release_version = site.release_version | default: site.time | date: "%Y%m%d%H%M%S" %}
 <body class="{{ resolved_body_class }}">
   {% unless page.hide_header %}
     {% include header.html %}
@@ -23,8 +24,8 @@
   {% endunless %}
 
   {% unless page.disable_cookie_consent %}
-    <script src="{{ '/cookie-consent.js' | relative_url }}"></script>
+    <script src="{{ '/cookie-consent.js' | relative_url }}?v={{ release_version }}"></script>
   {% endunless %}
-  <script src="{{ '/script.js' | relative_url }}"></script>
+  <script src="{{ '/script.js' | relative_url }}?v={{ release_version }}"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 // Detect language
 const isGerman = document.documentElement.lang === 'de';
+const releaseVersionMeta = document.querySelector('meta[name="release-version"]');
+const releaseVersion = releaseVersionMeta ? releaseVersionMeta.content : 'dev';
 
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -105,7 +107,7 @@ function createInstallBanner() {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register(`/service-worker.js?v=${encodeURIComponent(releaseVersion)}`)
             .then((registration) => {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
             })

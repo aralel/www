@@ -92,6 +92,7 @@
 {% else %}
   {% assign x_default_url = x_default_source | absolute_url %}
 {% endif %}
+{% assign release_version = site.release_version | default: site.time | date: "%Y%m%d%H%M%S" %}
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,12 +124,13 @@
 <meta name="twitter:title" content="{{ resolved_title | escape }}">
 <meta name="twitter:description" content="{{ resolved_description | escape }}">
 <meta name="twitter:image" content="{{ resolved_image }}">
+<meta name="release-version" content="{{ release_version }}">
 
-<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ release_version }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
-<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+<link rel="manifest" href="{{ '/manifest.json' | relative_url }}?v={{ release_version }}">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">

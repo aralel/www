@@ -1,13 +1,15 @@
 // Service Worker for Aralel GmbH PWA
 
-const CACHE_NAME = 'aralel-cache-v2';
+const swUrl = new URL(self.location.href);
+const RELEASE_VERSION = swUrl.searchParams.get('v') || 'dev';
+const CACHE_NAME = `aralel-cache-${RELEASE_VERSION}`;
 const urlsToCache = [
   '/',
   '.well-known/assetlinks.json',
   '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/manifest.json',
+  '/styles.css?v=' + RELEASE_VERSION,
+  '/script.js?v=' + RELEASE_VERSION,
+  '/manifest.json?v=' + RELEASE_VERSION,
   '/favicon.ico',
   '/apple-touch-icon.png',
   '/icon-192.png',
