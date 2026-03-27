@@ -28,12 +28,6 @@ body_class: subpage
   </section>
 
   <section class="catalog-section-page">
-    <div class="section-title-container">
-      <h2 class="section-title">{{ catalog.sectionTitle }}</h2>
-      <div class="title-decoration"></div>
-      <p class="section-subtitle">{{ catalog.sectionSubtitle }}</p>
-    </div>
-
     <div class="catalog-grid">
       {% for product in products %}
         {% include catalog_card.html product=product locale=page.locale %}

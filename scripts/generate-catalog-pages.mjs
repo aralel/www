@@ -118,16 +118,16 @@ function structuredDataScript(data) {
     return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 }
 
-function renderStoreLinks(product, locale) {
+function renderStoreLinks(product, locale, basePrefix = "") {
+    const googleBadge = `${basePrefix}images/badge-google-play.svg`;
+    const appleBadge = `${basePrefix}images/badge-app-store.svg`;
+
     return Object.entries(product.stores)
         .map(([storeKey, url]) => {
+            const badgeSrc = storeKey === "googlePlay" ? googleBadge : appleBadge;
             return `
                 <a class="store-link store-link--${storeVariantClass(storeKey)}" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${locale === "de" ? `${copyStoreName(storeKey)} öffnen` : `Open ${copyStoreName(storeKey)}`}">
-                    <i class="${storeIconClass(storeKey)} store-link-icon" aria-hidden="true"></i>
-                    <span class="store-link-copy">
-                        <span class="store-link-eyebrow">${storeEyebrow(locale, storeKey)}</span>
-                        <span class="store-link-name">${storeLabel(locale, storeKey)}</span>
-                    </span>
+                    <img src="${badgeSrc}" alt="" class="store-badge-image${storeKey === "appStore" ? " store-badge-image--apple" : ""}">
                 </a>
             `;
         })
@@ -284,6 +284,7 @@ function htmlDocument({
 function renderListingPage(type, locale) {
     const meta = pageMeta[type][locale];
     const products = getProductsByType(type === "apps" ? "app" : "game");
+    const basePrefix = "";
     const cards = products
         .map((product) => {
             const copy = product.locales[locale];
@@ -302,14 +303,13 @@ function renderListingPage(type, locale) {
                     </div>
                     <div class="catalog-actions">
                         <a class="learn-more" href="${productPath(product, locale)}">${escapeHtml(meta.viewDetails)}</a>
-                        ${renderStoreLinks(product, locale)}
+                        ${renderStoreLinks(product, locale, basePrefix)}
                     </div>
                 </article>
             `;
         })
         .join("");
 
-    const basePrefix = "";
     const langSwitchHref = listingPath(type, locale === "de" ? "en" : "de");
     const title = meta.title;
     const description = meta.intro;
@@ -517,7 +517,7 @@ function renderProductPage(product, locale) {
                             <p class="detail-lead">${escapeHtml(copy.heroTitle)}</p>
                             <p>${escapeHtml(copy.heroText)}</p>
                             <div class="store-links">
-                                ${renderStoreLinks(product, locale)}
+                                ${renderStoreLinks(product, locale, basePrefix)}
                             </div>
                             ${secondaryLinks.length ? `<div class="secondary-link-row">${secondaryLinks.join("")}</div>` : ""}
                         </div>

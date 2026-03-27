@@ -11,7 +11,7 @@
 {% endif %}
 {% assign product_url = "/" | append: folder | append: "/" | append: product.slug | append: suffix | append: ".html" %}
 
-<article class="catalog-card{% if include.compact %} catalog-card--compact{% endif %}" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};">
+<article class="catalog-card{% if include.compact %} catalog-card--compact{% endif %}" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};" onclick="window.location.href='{{ product_url | relative_url }}'">
   <div class="catalog-card-top">
     <img src="{{ product.iconUrl }}" alt="{{ copy.name }} icon" class="catalog-icon" loading="lazy">
     <div class="catalog-heading">
@@ -29,7 +29,6 @@
   </div>
 
   <div class="catalog-actions">
-    <a href="{{ product_url | relative_url }}" class="learn-more">{{ t.common.learnMore }}</a>
     <div class="store-links">
       {% for store in product.stores %}
         {% assign store_key = store[0] %}

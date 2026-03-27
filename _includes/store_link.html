@@ -1,10 +1,6 @@
 {% assign t = site.data.locales[include.locale] %}
-{% assign google_badge = "/images/google-play-badge-en.png" %}
-{% assign apple_badge = "/images/app-store-badge-en.svg" %}
-{% if include.locale == "de" %}
-  {% assign google_badge = "/images/google-play-badge-de.png" %}
-  {% assign apple_badge = "/images/app-store-badge-de.svg" %}
-{% endif %}
+{% assign google_badge = "/images/badge-google-play.svg" %}
+{% assign apple_badge = "/images/badge-app-store.svg" %}
 {% if include.store_key == "googlePlay" %}
   <a class="store-link store-link--google" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.googleAria }}">
     <img src="{{ google_badge | relative_url }}" alt="" class="store-badge-image" loading="lazy">

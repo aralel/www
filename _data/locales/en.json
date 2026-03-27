@@ -110,16 +110,12 @@
     "app": {
       "kicker": "Portfolio",
       "heroTitle": "Applications in the Portfolio",
-      "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites.",
-      "sectionTitle": "All Applications",
-      "sectionSubtitle": "Every application in the portfolio includes a concise profile and direct links to the public release."
+      "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites."
     },
     "game": {
       "kicker": "Portfolio",
       "heroTitle": "Games in the Portfolio",
-      "heroText": "These games and interactive productions are currently public within the Aralel portfolio",
-      "sectionTitle": "All Games",
-      "sectionSubtitle": "Every game in the portfolio includes a concise profile and direct links to the public release."
+      "heroText": "These games and interactive productions are currently public within the Aralel portfolio"
     }
   },
   "products": {
