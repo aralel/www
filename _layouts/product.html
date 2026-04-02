@@ -26,7 +26,7 @@ body_class: subpage
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": {% if is_app %}"MobileApplication"{% else %}"VideoGame"{% endif %},
+  "@type": {% if is_app %}"SoftwareApplication"{% else %}"VideoGame"{% endif %},
   "name": {{ copy.name | jsonify }},
   "description": {{ copy.metaDescription | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
@@ -54,6 +54,7 @@ body_class: subpage
           <h1>{{ copy.name }}</h1>
           <p class="detail-lead">{{ copy.heroTitle }}</p>
           <p>{{ copy.heroText }}</p>
+          {% include platform_pills.html product=product locale=page.locale %}
 
           <div class="store-links">
             {% for store in product.stores %}

@@ -1,20 +1,36 @@
 {
   "site": {
     "defaultTitle": "Aralel GmbH",
-    "defaultDescription": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web und Mobilgeräte."
+    "defaultDescription": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Mobilgeräte und Desktop."
   },
   "pages": {
     "home": {
       "title": "Aralel GmbH | Offizielle Website und Portfolio",
-      "description": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Google Play und App Store."
+      "description": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Mobilgeräte und Desktop."
     },
     "apps": {
       "title": "Apps-Portfolio - Aralel GmbH",
-      "description": "Anwendungen im öffentlichen Portfolio der Aralel GmbH mit direkten Links zu Veröffentlichungen und begleitenden Websites."
+      "description": "Anwendungen im öffentlichen Portfolio der Aralel GmbH auf Android, iPhone, Mac und im Web."
     },
     "games": {
       "title": "Spiele-Portfolio - Aralel GmbH",
       "description": "Spiele und interaktive Produktionen im öffentlichen Portfolio der Aralel GmbH mit direkten Links zu Web, App Store und Google Play."
+    },
+    "iphone": {
+      "title": "iPhone-Portfolio - Aralel GmbH",
+      "description": "Aralel-Produkte, die derzeit für iPhone und iPad verfügbar sind."
+    },
+    "android": {
+      "title": "Android-Portfolio - Aralel GmbH",
+      "description": "Aralel-Produkte, die derzeit bei Google Play für Android verfügbar sind."
+    },
+    "desktop": {
+      "title": "Desktop-Portfolio - Aralel GmbH",
+      "description": "Aralel-Software, die derzeit als Desktop-Anwendung für Mac verfügbar ist."
+    },
+    "websites": {
+      "title": "Web-Portfolio - Aralel GmbH",
+      "description": "Aralel-Produkte mit öffentlicher Website oder browserbasierter Erfahrung."
     }
   },
   "nav": {
@@ -42,6 +58,36 @@
     "appsLabel": "Apps",
     "gamesLabel": "Spiele"
   },
+  "platforms": {
+    "labels": {
+      "iphone": "iPhone",
+      "android": "Android",
+      "desktop": "Desktop",
+      "website": "Website"
+    },
+    "pages": {
+      "iphone": {
+        "kicker": "Plattformen",
+        "heroTitle": "Produkte auf dem iPhone",
+        "heroText": "Alle öffentlichen Aralel-Veröffentlichungen, die derzeit eine iPhone- oder iPad-Version im App Store haben."
+      },
+      "android": {
+        "kicker": "Plattformen",
+        "heroTitle": "Produkte auf Android",
+        "heroText": "Alle öffentlichen Aralel-Veröffentlichungen, die derzeit über Google Play auf Android verfügbar sind."
+      },
+      "desktop": {
+        "kicker": "Plattformen",
+        "heroTitle": "Desktop-Produkte",
+        "heroText": "Öffentliche Aralel-Software, die derzeit für den Desktop-Einsatz auf dem Mac veröffentlicht ist."
+      },
+      "website": {
+        "kicker": "Plattformen",
+        "heroTitle": "Produkte mit öffentlicher Website",
+        "heroText": "Öffentliche Aralel-Veröffentlichungen, die direkt im Browser nutzbar sind oder eine eigene öffentliche Produkt-Website haben."
+      }
+    }
+  },
   "footer": {
     "description": "Offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte und direkten Links zu den jeweiligen Plattformen.",
     "portfolioTitle": "Portfolio",
@@ -57,7 +103,7 @@
       "kicker": "Offizielle Website",
       "title": "Aralel GmbH",
       "subtitle": "Software, digitale Produkte und öffentliches Portfolio",
-      "text": "Aralel entwickelt und betreibt digitale Produkte für Web und Mobilgeräte. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
+      "text": "Aralel entwickelt und betreibt digitale Produkte für Web, Mobilgeräte und Desktop-Plattformen. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
       "ctaLabel": "Portfolio ansehen",
       "ctaUrl": "/apps.html"
     },
@@ -110,7 +156,7 @@
     "app": {
       "kicker": "Portfolio",
       "heroTitle": "Anwendungen im Portfolio",
-      "heroText": "Diese Anwendungen sind derzeit öffentlich als Teil des Aralel-Portfolios verfügbar, inklusive direkter Links zu Stores und begleitenden Websites.",
+      "heroText": "Diese Anwendungen sind derzeit öffentlich als Teil des Aralel-Portfolios verfügbar, inklusive direkter Links zu Stores und begleitenden Websites auf Mobilgeräten, Desktop und im Web.",
       "sectionTitle": "Alle Anwendungen",
       "sectionSubtitle": "Jede Anwendung im Portfolio enthält ein kompaktes Profil und direkte Links zur öffentlichen Veröffentlichung."
     },
@@ -235,6 +281,64 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
       "metaDescription": "A Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
+    },
+    "wireless-deck": {
+      "name": "Wireless Deck",
+      "category": "Dienstprogramme",
+      "shortSummary": "Nahe Wi-Fi-Netze und Bluetooth-LE-Geräte direkt vom Mac aus untersuchen.",
+      "heroTitle": "Die Funkumgebung rund um Ihren Mac prüfen",
+      "heroText": "Wireless Deck kombiniert Wi-Fi- und Bluetooth-Radaransichten, damit nahe Netzwerke und BLE-Geräte lokal gescannt, Signalbedingungen verglichen und Sichtbarkeitsprobleme untersucht werden können.",
+      "description": "Die App ist für Funkdiagnostik auf dem Mac ausgelegt. Live-Ergebnisse lassen sich durchsuchen und filtern, sichtbare Zeilen kopieren, letzte Scans beim Start wiederherstellen und bei Bedarf über eine optionale Debug-Konsole tiefer analysieren.",
+      "highlights": [
+        {
+          "title": "Wi-Fi-Radar",
+          "text": "SSID, BSSID, Kanal, Band, Signal, Rauschen, Sicherheit und Router-Hinweise in einer Ansicht prüfen."
+        },
+        {
+          "title": "Bluetooth-LE-Scan",
+          "text": "Nahe BLE-Geräte untersuchen, Signalstärken vergleichen und Advertising-Details einsehen."
+        },
+        {
+          "title": "Lokale Diagnose",
+          "text": "Suchen, filtern, kopieren und debuggen, ohne Konto und ohne Upload von Scan-Ergebnissen."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Mac-App im App Store veröffentlicht.",
+      "metaDescription": "Wireless Deck ist Aralels Mac-Tool zur Untersuchung naher Wi-Fi- und Bluetooth-Umgebungen."
+    },
+    "messagram-app": {
+      "name": "Messagram App",
+      "category": "Dienstprogramme",
+      "shortSummary": "Messenger-Textbackups lokal auf dem Mac importieren und privat durchsuchen.",
+      "heroTitle": "Ein datenschutzorientierter Viewer für Chat-Backups",
+      "heroText": "Messagram importiert exportierte Messenger-.txt-Backups und macht Gespräche lokal auf dem Mac durchsuchbar und lesbar, ohne Daten nach außen zu senden.",
+      "description": "Die App ist auf Offline-Nutzung und Suche ausgelegt. Mehrere Backups lassen sich gleichzeitig importieren, Konversationen werden in einer vertrauten Chat-Ansicht dargestellt, Suchbegriffe können innerhalb eines Chats oder über alle importierten Chats hinweg gefunden werden, und Sprünge zu bestimmten Tagen bleiben direkt im Mac-Workflow.",
+      "highlights": [
+        {
+          "title": "Mehrfachimport",
+          "text": "Mehrere exportierte Text-Backups gleichzeitig per Drag-and-drop oder Dateiauswahl importieren."
+        },
+        {
+          "title": "Suche im Chat und global",
+          "text": "Innerhalb eines Chats oder über das gesamte importierte Archiv hinweg mit hervorgehobenen Treffern suchen."
+        },
+        {
+          "title": "Konsequent offline",
+          "text": "Keine Analysen, keine Cloud-Synchronisation, kein Login und keine Datenübertragung."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Mac-App im App Store veröffentlicht.",
+      "metaDescription": "Messagram App ist Aralels Mac-Viewer für Messenger-Textbackups mit lokaler Suche und privater Nutzung."
     },
     "german-word-search": {
       "name": "German Word Search",

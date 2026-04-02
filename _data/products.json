@@ -4,6 +4,7 @@
     {
       "slug": "availabell",
       "type": "app",
+      "platforms": ["android"],
       "accent": "#d9485f",
       "accentStrong": "#8b1e33",
       "iconUrl": "https://play-lh.googleusercontent.com/MGy2xuFSsg9mDG7z_pG4H5gPaaQSHx75Ydl3Z3LGYsg_9tv7i-_ZRdlodGz1ppZ4uj2jbNsedw1xl0lH9A-5Rg",
@@ -18,6 +19,7 @@
     {
       "slug": "cyrus-cylinder",
       "type": "app",
+      "platforms": ["android", "website"],
       "accent": "#6c5ce7",
       "accentStrong": "#34287f",
       "iconUrl": "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
@@ -29,6 +31,7 @@
     {
       "slug": "anava",
       "type": "app",
+      "platforms": ["android", "website"],
       "accent": "#1f8f8b",
       "accentStrong": "#0d4947",
       "iconUrl": "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
@@ -40,6 +43,7 @@
     {
       "slug": "a-solar-compass",
       "type": "app",
+      "platforms": ["android", "website"],
       "accent": "#ff9f1c",
       "accentStrong": "#7a4307",
       "iconUrl": "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
@@ -49,8 +53,41 @@
       "websiteUrl": "https://sunquest.codehospital.com"
     },
     {
+      "slug": "wireless-deck",
+      "type": "app",
+      "platforms": ["desktop", "website"],
+      "accent": "#2563eb",
+      "accentStrong": "#1d4ed8",
+      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/76/ef/7a/76ef7a59-2549-0ff7-21c6-bc38bd92d050/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/wireless-deck/id6761027814"
+      },
+      "websiteUrl": "https://wireless.aralel.com/app-store.html",
+      "privacyUrl": {
+        "de": "https://wireless.aralel.com/privacy.html",
+        "en": "https://wireless.aralel.com/privacy.html"
+      }
+    },
+    {
+      "slug": "messagram-app",
+      "type": "app",
+      "platforms": ["desktop", "website"],
+      "accent": "#0f766e",
+      "accentStrong": "#134e4a",
+      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e5/d9/3be5d991-2262-d4cd-2795-01aa69e0d724/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/messagram-app/id6760690229"
+      },
+      "websiteUrl": "https://www.messagram.org",
+      "privacyUrl": {
+        "de": "https://www.messagram.org/privacy",
+        "en": "https://www.messagram.org/privacy"
+      }
+    },
+    {
       "slug": "german-word-search",
       "type": "game",
+      "platforms": ["android"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
       "iconUrl": "https://play-lh.googleusercontent.com/FLE1zm6cFO1BSAIaxipwBKOwzjDYCAPZ98md8mcVH_vxsyU3Izc3jm6VmjHTZjUETOQGGheqpkmVQ_eux_My",
@@ -61,6 +98,7 @@
     {
       "slug": "arena-sudoku",
       "type": "game",
+      "platforms": ["iphone", "android", "website"],
       "accent": "#14b8a6",
       "accentStrong": "#0b4d46",
       "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
@@ -73,6 +111,7 @@
     {
       "slug": "hedortal",
       "type": "game",
+      "platforms": ["iphone"],
       "accent": "#f97316",
       "accentStrong": "#7c2d12",
       "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/3a/92/e23a923e-9bd9-88c1-0496-a2979ee189af/AppIcon-0-0-1x_U007emarketing-0-11-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
@@ -83,6 +122,7 @@
     {
       "slug": "rock-paper-bluetooth",
       "type": "game",
+      "platforms": ["iphone"],
       "accent": "#ef4444",
       "accentStrong": "#7f1d1d",
       "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",

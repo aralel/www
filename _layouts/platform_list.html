@@ -1,0 +1,38 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign page_meta = t.pages[page.page_key] %}
+{% assign platform_page = t.platforms.pages[page.platform_key] %}
+{% assign products = site.data.products.products | where_exp: "product", "product.platforms contains page.platform_key" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page_meta.title | jsonify }},
+  "description": {{ page_meta.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }}
+}
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ platform_page.kicker }}</span>
+      <h1>{{ platform_page.heroTitle }}</h1>
+      <p>{{ platform_page.heroText }}</p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page">
+    <div class="catalog-grid">
+      {% for product in products %}
+        {% include catalog_card.html product=product locale=locale_code %}
+      {% endfor %}
+    </div>
+  </section>
+</main>

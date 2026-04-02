@@ -441,6 +441,12 @@ main {
     letter-spacing: -0.03em;
 }
 
+.catalog-name-link:hover,
+.catalog-name-link:focus-visible {
+    color: var(--product-accent-strong);
+    outline: none;
+}
+
 .catalog-summary {
     margin: 0;
     color: var(--text-soft);
@@ -450,6 +456,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0.55rem;
+    margin-block: 0.5rem;
 }
 
 .product-pill {
@@ -463,6 +470,19 @@ main {
     color: var(--text-soft);
     font-size: 0.78rem;
     font-weight: 800;
+}
+
+.product-pill--link {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.product-pill--link:hover,
+.product-pill--link:focus-visible {
+    background: var(--brand-soft);
+    border-color: rgba(201, 122, 43, 0.24);
+    color: var(--brand-deep);
+    transform: translateY(-1px);
+    outline: none;
 }
 
 .catalog-actions {

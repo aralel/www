@@ -1,0 +1,18 @@
+{% assign product = include.product %}
+{% assign locale_code = include.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign suffix = "" %}
+{% if locale_code == "en" %}
+  {% assign suffix = "_en" %}
+{% endif %}
+
+<div class="product-pill-row">
+  {% for platform_key in product.platforms %}
+    {% assign page_name = platform_key %}
+    {% if platform_key == "website" %}
+      {% assign page_name = "websites" %}
+    {% endif %}
+    {% assign platform_url = "/" | append: page_name | append: suffix | append: ".html" %}
+    <a class="product-pill product-pill--link" href="{{ platform_url | relative_url }}">{{ t.platforms.labels[platform_key] }}</a>
+  {% endfor %}
+</div>
