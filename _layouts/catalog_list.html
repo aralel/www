@@ -2,7 +2,8 @@
 layout: default
 body_class: subpage
 ---
-{% assign products = site.data.products.products | where: "type", page.catalog_type %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign products = visible_products | where: "type", page.catalog_type %}
 {% assign t = site.data.locales[page.locale] %}
 {% assign page_meta = t.pages[page.page_key] %}
 {% assign catalog = t.catalog[page.catalog_type] %}

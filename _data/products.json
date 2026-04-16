@@ -2,8 +2,23 @@
   "brand": "Aralel GmbH",
   "products": [
     {
+      "slug": "arena-sudoku",
+      "type": "game",
+      "hidden": false,
+      "platforms": ["iphone", "android", "website"],
+      "accent": "#14b8a6",
+      "accentStrong": "#0b4d46",
+      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/arena-sudoku/id6760966368",
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.asudoku"
+      },
+      "websiteUrl": "https://arena.aralel.com"
+    },
+    {
       "slug": "availabell",
       "type": "app",
+      "hidden": false,
       "platforms": ["android"],
       "accent": "#d9485f",
       "accentStrong": "#8b1e33",
@@ -19,6 +34,7 @@
     {
       "slug": "cyrus-cylinder",
       "type": "app",
+      "hidden": false,
       "platforms": ["android", "website"],
       "accent": "#6c5ce7",
       "accentStrong": "#34287f",
@@ -31,6 +47,7 @@
     {
       "slug": "anava",
       "type": "app",
+      "hidden": true,
       "platforms": ["android", "website"],
       "accent": "#1f8f8b",
       "accentStrong": "#0d4947",
@@ -43,6 +60,7 @@
     {
       "slug": "a-solar-compass",
       "type": "app",
+      "hidden": false,
       "platforms": ["android", "website"],
       "accent": "#ff9f1c",
       "accentStrong": "#7a4307",
@@ -55,6 +73,7 @@
     {
       "slug": "wireless-deck",
       "type": "app",
+      "hidden": false,
       "platforms": ["desktop", "website"],
       "accent": "#2563eb",
       "accentStrong": "#1d4ed8",
@@ -71,6 +90,7 @@
     {
       "slug": "messagram-app",
       "type": "app",
+      "hidden": false,
       "platforms": ["desktop", "website"],
       "accent": "#0f766e",
       "accentStrong": "#134e4a",
@@ -87,30 +107,20 @@
     {
       "slug": "german-word-search",
       "type": "game",
+      "hidden": false,
       "platforms": ["android"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
-      "iconUrl": "https://play-lh.googleusercontent.com/FLE1zm6cFO1BSAIaxipwBKOwzjDYCAPZ98md8mcVH_vxsyU3Izc3jm6VmjHTZjUETOQGGheqpkmVQ_eux_My",
+      "iconUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
+        "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875"
       }
-    },
-    {
-      "slug": "arena-sudoku",
-      "type": "game",
-      "platforms": ["iphone", "android", "website"],
-      "accent": "#14b8a6",
-      "accentStrong": "#0b4d46",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "stores": {
-        "appStore": "https://apps.apple.com/us/app/arena-sudoku/id6760966368",
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.asudoku"
-      },
-      "websiteUrl": "https://arena.aralel.com"
     },
     {
       "slug": "hedortal",
       "type": "game",
+      "hidden": false,
       "platforms": ["iphone"],
       "accent": "#f97316",
       "accentStrong": "#7c2d12",
@@ -122,6 +132,7 @@
     {
       "slug": "rock-paper-bluetooth",
       "type": "game",
+      "hidden": false,
       "platforms": ["iphone"],
       "accent": "#ef4444",
       "accentStrong": "#7f1d1d",

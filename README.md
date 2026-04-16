@@ -73,6 +73,7 @@ Each product entry contains:
 
 - `slug`
 - `type`
+- `hidden`
 - `iconUrl`
 - `stores`
 - optional `websiteUrl`
@@ -86,6 +87,8 @@ To add or update a product:
 2. Update the matching translated product copy under `products.<slug>` in both locale files.
 3. Ensure the matching page file exists under `apps/` or `games/`.
 4. Run `bundle exec jekyll build` to verify the site still renders correctly.
+
+Set `hidden` to `true` when a product should be removed from homepage cards, catalog pages, platform pages, and the sitemap without deleting its catalog entry. Hidden product detail pages are also marked `noindex`.
 
 ## Notes
 

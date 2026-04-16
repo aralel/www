@@ -2,8 +2,9 @@
 layout: default
 body_class: home-page
 ---
-{% assign apps = site.data.products.products | where: "type", "app" %}
-{% assign games = site.data.products.products | where: "type", "game" %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign apps = visible_products | where: "type", "app" %}
+{% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
 
 <script type="application/ld+json">
@@ -38,22 +39,6 @@ body_class: home-page
     </div>
   </section>
 
-  <section id="apps" class="apps-section">
-    <div class="section-title-container">
-      <h2 class="section-title">{{ t.home.apps.title }}</h2>
-      <div class="title-decoration"></div>
-      <p class="section-subtitle">{{ t.home.apps.subtitle }}</p>
-    </div>
-    <div class="apps-grid">
-      {% for product in apps %}
-        {% include catalog_card.html product=product locale=page.locale compact=true %}
-      {% endfor %}
-    </div>
-    <div class="section-link-row">
-      <a href="{{ t.home.apps.linkUrl | relative_url }}" class="learn-more">{{ t.home.apps.linkLabel }}</a>
-    </div>
-  </section>
-
   <section id="games" class="games-section">
     <div class="section-title-container">
       <h2 class="section-title">{{ t.home.games.title }}</h2>
@@ -67,6 +52,22 @@ body_class: home-page
     </div>
     <div class="section-link-row">
       <a href="{{ t.home.games.linkUrl | relative_url }}" class="learn-more">{{ t.home.games.linkLabel }}</a>
+    </div>
+  </section>
+
+  <section id="apps" class="apps-section">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ t.home.apps.title }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ t.home.apps.subtitle }}</p>
+    </div>
+    <div class="apps-grid">
+      {% for product in apps %}
+        {% include catalog_card.html product=product locale=page.locale compact=true %}
+      {% endfor %}
+    </div>
+    <div class="section-link-row">
+      <a href="{{ t.home.apps.linkUrl | relative_url }}" class="learn-more">{{ t.home.apps.linkLabel }}</a>
     </div>
   </section>
 

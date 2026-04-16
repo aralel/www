@@ -51,8 +51,35 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event - serve from cache or network
+// Fetch event - keep HTML fresh while still caching static assets.
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  const acceptsHtml = event.request.headers.get('accept')?.includes('text/html');
+  const isNavigation = event.request.mode === 'navigate' || acceptsHtml;
+
+  if (isNavigation) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response && response.status === 200 && response.type === 'basic') {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+
+          return response;
+        })
+        .catch(() => caches.match(event.request)
+          .then(response => response || caches.match('/index.html'))
+        )
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then(response => {

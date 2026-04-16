@@ -68,6 +68,7 @@ function storeLabel(locale, storeKey) {
     const labels = {
         googlePlay: locale === "de" ? "Google Play" : "Google Play",
         appStore: locale === "de" ? "App Store" : "App Store",
+        amazonAppstore: locale === "de" ? "Amazon Appstore" : "Amazon Appstore",
         website: locale === "de" ? "Web" : "Web"
     };
     return labels[storeKey];
@@ -77,15 +78,30 @@ function storeEyebrow(locale, storeKey) {
     if (storeKey === "googlePlay") {
         return locale === "de" ? "Jetzt bei" : "Get it on";
     }
+    if (storeKey === "amazonAppstore") {
+        return locale === "de" ? "Erhältlich im" : "Available at";
+    }
     return locale === "de" ? "Im" : "Download on the";
 }
 
 function storeIconClass(storeKey) {
-    return storeKey === "googlePlay" ? "fab fa-google-play" : "fab fa-apple";
+    if (storeKey === "googlePlay") {
+        return "fab fa-google-play";
+    }
+    if (storeKey === "amazonAppstore") {
+        return "fab fa-amazon";
+    }
+    return "fab fa-apple";
 }
 
 function storeVariantClass(storeKey) {
-    return storeKey === "googlePlay" ? "google" : "apple";
+    if (storeKey === "googlePlay") {
+        return "google";
+    }
+    if (storeKey === "amazonAppstore") {
+        return "amazon";
+    }
+    return "apple";
 }
 
 function productPath(product, locale) {
@@ -121,13 +137,18 @@ function structuredDataScript(data) {
 function renderStoreLinks(product, locale, basePrefix = "") {
     const googleBadge = `${basePrefix}images/badge-google-play.svg`;
     const appleBadge = `${basePrefix}images/badge-app-store.svg`;
+    const amazonBadge = `${basePrefix}images/badge-amazon-appstore-${locale}.png`;
 
     return Object.entries(product.stores)
         .map(([storeKey, url]) => {
-            const badgeSrc = storeKey === "googlePlay" ? googleBadge : appleBadge;
+            const badgeSrc = storeKey === "googlePlay"
+                ? googleBadge
+                : storeKey === "amazonAppstore"
+                    ? amazonBadge
+                    : appleBadge;
             return `
                 <a class="store-link store-link--${storeVariantClass(storeKey)}" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${locale === "de" ? `${copyStoreName(storeKey)} öffnen` : `Open ${copyStoreName(storeKey)}`}">
-                    <img src="${badgeSrc}" alt="" class="store-badge-image${storeKey === "appStore" ? " store-badge-image--apple" : ""}">
+                    <img src="${badgeSrc}" alt="" class="store-badge-image${storeKey === "appStore" ? " store-badge-image--apple" : ""}${storeKey === "amazonAppstore" ? " store-badge-image--amazon" : ""}">
                 </a>
             `;
         })
@@ -148,6 +169,9 @@ function renderStorePills(product, locale) {
 function copyStoreName(storeKey) {
     if (storeKey === "googlePlay") {
         return "Google Play";
+    }
+    if (storeKey === "amazonAppstore") {
+        return "Amazon Appstore";
     }
     return "App Store";
 }
@@ -175,8 +199,8 @@ function renderHeader({ locale, basePrefix, langSwitchHref }) {
                 </button>
                 <ul>
                     <li><a href="${basePrefix}${homePath(locale)}">${nav.home}</a></li>
-                    <li><a href="${basePrefix}${listingPath("apps", locale)}">${nav.apps}</a></li>
                     <li><a href="${basePrefix}${listingPath("games", locale)}">${nav.games}</a></li>
+                    <li><a href="${basePrefix}${listingPath("apps", locale)}">${nav.apps}</a></li>
                     <li><a href="${basePrefix}${homePath(locale)}#about">${nav.about}</a></li>
                     <li><a href="${basePrefix}${homePath(locale)}#contact">${nav.contact}</a></li>
                     <li class="lang-switch"><a href="${langSwitchHref}" title="${locale === "de" ? "English" : "Deutsch"}">${locale === "de" ? "🇬🇧" : "🇩🇪"}</a></li>
@@ -192,13 +216,13 @@ function renderFooter({ locale, basePrefix }) {
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Aralel GmbH</h3>
-                    <p class="footer-copy">${locale === "de" ? "Veröffentlichte Apps, Spiele und Web-Produkte aus Aachen, verlinkt direkt zu den jeweiligen Plattformen." : "Published apps, games, and web products from Aachen, linked directly to their platforms."}</p>
+                    <p class="footer-copy">${locale === "de" ? "Veröffentlichte Spiele, Apps und Web-Produkte, verlinkt direkt zu den jeweiligen Plattformen." : "Published games, apps, and web products linked directly to their platforms."}</p>
                 </div>
                 <div class="footer-section">
                     <h3>${locale === "de" ? "Produkte" : "Products"}</h3>
                     <ul>
-                        <li><a href="${basePrefix}${listingPath("apps", locale)}">${locale === "de" ? "Apps" : "Apps"}</a></li>
                         <li><a href="${basePrefix}${listingPath("games", locale)}">${locale === "de" ? "Spiele" : "Games"}</a></li>
+                        <li><a href="${basePrefix}${listingPath("apps", locale)}">${locale === "de" ? "Apps" : "Apps"}</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -577,10 +601,10 @@ function writePage({ outPath, html }) {
 }
 
 for (const locale of locales) {
-    writePage(renderListingPage("apps", locale));
     writePage(renderListingPage("games", locale));
+    writePage(renderListingPage("apps", locale));
 
-    for (const product of siteCatalog.products) {
+    for (const product of siteCatalog.products.filter((product) => product.hidden !== true)) {
         writePage(renderProductPage(product, locale));
     }
 }

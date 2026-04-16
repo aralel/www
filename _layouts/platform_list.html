@@ -6,7 +6,10 @@ body_class: subpage
 {% assign t = site.data.locales[locale_code] %}
 {% assign page_meta = t.pages[page.page_key] %}
 {% assign platform_page = t.platforms.pages[page.platform_key] %}
-{% assign products = site.data.products.products | where_exp: "product", "product.platforms contains page.platform_key" %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign platform_products = visible_products | where_exp: "product", "product.platforms contains page.platform_key" %}
+{% assign games = platform_products | where: "type", "game" %}
+{% assign apps = platform_products | where: "type", "app" %}
 
 <script type="application/ld+json">
 {
@@ -30,7 +33,10 @@ body_class: subpage
 
   <section class="catalog-section-page">
     <div class="catalog-grid">
-      {% for product in products %}
+      {% for product in games %}
+        {% include catalog_card.html product=product locale=locale_code %}
+      {% endfor %}
+      {% for product in apps %}
         {% include catalog_card.html product=product locale=locale_code %}
       {% endfor %}
     </div>

@@ -45,6 +45,7 @@
   "stores": {
     "googleAria": "Bei Google Play öffnen",
     "appleAria": "Im App Store öffnen",
+    "amazonAria": "Im Amazon Appstore öffnen",
     "appleEyebrow": "Laden im",
     "appleLabel": "App Store"
   },
@@ -105,7 +106,7 @@
       "subtitle": "Software, digitale Produkte und öffentliches Portfolio",
       "text": "Aralel entwickelt und betreibt digitale Produkte für Web, Mobilgeräte und Desktop-Plattformen. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
       "ctaLabel": "Portfolio ansehen",
-      "ctaUrl": "/apps.html"
+      "ctaUrl": "/games.html"
     },
     "apps": {
       "title": "Apps im Portfolio",
@@ -255,11 +256,11 @@
       "metaDescription": "Anava ist Aralels Android-App für tägliche Bittgebete, Dankbarkeit und spirituelle Reflexion."
     },
     "a-solar-compass": {
-      "name": "A Solar Compass",
+      "name": "Solar Compass",
       "category": "Tools",
       "shortSummary": "Berechnet den exakten Zeitpunkt, an dem die Sonne auf einen Zielkurs ausgerichtet ist.",
       "heroTitle": "Astronomische Ausrichtung in Echtzeit",
-      "heroText": "A Solar Compass berechnet für jeden Standort und jedes Ziel den lokalen Moment, in dem der Sonnenstand exakt zu dieser Peilung passt.",
+      "heroText": "Solar Compass berechnet für jeden Standort und jedes Ziel den lokalen Moment, in dem der Sonnenstand exakt zu dieser Peilung passt.",
       "description": "Die App verbindet präzise Berechnung mit Live-Countdown, Erinnerungen und Widgets, damit der entscheidende Zeitpunkt nicht verpasst wird.",
       "highlights": [
         {
@@ -280,7 +281,7 @@
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
-      "metaDescription": "A Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
+      "metaDescription": "Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
     },
     "wireless-deck": {
       "name": "Wireless Deck",

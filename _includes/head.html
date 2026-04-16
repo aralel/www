@@ -15,6 +15,10 @@
     {% assign product_copy = t.products[page.product_slug] %}
   {% endif %}
 {% endif %}
+{% assign product_hidden = false %}
+{% if product and product.hidden == true %}
+  {% assign product_hidden = true %}
+{% endif %}
 {% assign page_copy = nil %}
 {% if page.page_key and t.pages[page.page_key] %}
   {% assign page_copy = t.pages[page.page_key] %}
@@ -48,7 +52,20 @@
   {% assign resolved_description = site.description %}
 {% endif %}
 
+{% if product_hidden %}
+  {% if locale_code == "de" %}
+    {% assign resolved_title = "Produkt nicht gelistet - Aralel GmbH" %}
+    {% assign resolved_description = "Dieses Produkt ist derzeit nicht im öffentlichen Aralel-Portfolio gelistet." %}
+  {% else %}
+    {% assign resolved_title = "Product not listed - Aralel GmbH" %}
+    {% assign resolved_description = "This product is not currently listed in the public Aralel portfolio." %}
+  {% endif %}
+{% endif %}
+
 {% assign meta_image = page.og_image %}
+{% if product_hidden %}
+  {% assign meta_image = "/images/aralel-logo.png" %}
+{% endif %}
 {% if meta_image == nil and product %}
   {% assign meta_image = product.iconUrl %}
 {% endif %}
@@ -98,7 +115,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ resolved_title | escape }}</title>
 <meta name="description" content="{{ resolved_description | escape }}">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow{% endif %}">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="{{ canonical_url }}">
 {% if alternate_url %}

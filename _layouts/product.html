@@ -9,6 +9,10 @@ body_class: subpage
 {% if product.type == "app" %}
   {% assign is_app = true %}
 {% endif %}
+{% assign product_hidden = false %}
+{% if product.hidden == true %}
+  {% assign product_hidden = true %}
+{% endif %}
 {% assign listing_url = "/games.html" %}
 {% assign listing_label = t.common.gamesLabel %}
 {% if is_app %}
@@ -23,6 +27,28 @@ body_class: subpage
   {% endif %}
 {% endif %}
 
+{% if product_hidden %}
+<script>
+  window.location.replace({{ listing_url | relative_url | jsonify }});
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ listing_label }}</span>
+      {% if page.locale == "de" %}
+        <h1>Produkt nicht gelistet</h1>
+        <p>Dieses Produkt ist derzeit nicht im öffentlichen Portfolio gelistet.</p>
+        <a class="learn-more" href="{{ listing_url | relative_url }}">Zur Übersicht</a>
+      {% else %}
+        <h1>Product not listed</h1>
+        <p>This product is not currently listed in the public portfolio.</p>
+        <a class="learn-more" href="{{ listing_url | relative_url }}">Back to portfolio</a>
+      {% endif %}
+    </div>
+  </section>
+</main>
+{% else %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,3 +153,4 @@ body_class: subpage
     </aside>
   </section>
 </main>
+{% endif %}

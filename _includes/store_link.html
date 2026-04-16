@@ -1,6 +1,10 @@
 {% assign t = site.data.locales[include.locale] %}
 {% assign google_badge = "/images/badge-google-play.svg" %}
 {% assign apple_badge = "/images/badge-app-store.svg" %}
+{% assign amazon_badge = "/images/badge-amazon-appstore-en.png" %}
+{% if include.locale == "de" %}
+  {% assign amazon_badge = "/images/badge-amazon-appstore-de.png" %}
+{% endif %}
 {% if include.store_key == "googlePlay" %}
   <a class="store-link store-link--google" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.googleAria }}">
     <img src="{{ google_badge | relative_url }}" alt="" class="store-badge-image" loading="lazy">
@@ -8,5 +12,9 @@
 {% elsif include.store_key == "appStore" %}
   <a class="store-link store-link--apple" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.appleAria }}">
     <img src="{{ apple_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--apple" loading="lazy">
+  </a>
+{% elsif include.store_key == "amazonAppstore" %}
+  <a class="store-link store-link--amazon" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.amazonAria }}">
+    <img src="{{ amazon_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--amazon" loading="lazy">
   </a>
 {% endif %}

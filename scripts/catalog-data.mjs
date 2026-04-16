@@ -4,6 +4,7 @@ export const siteCatalog = {
         {
             slug: "availabell",
             type: "app",
+            hidden: false,
             accent: "#d9485f",
             accentStrong: "#8b1e33",
             iconUrl: "https://play-lh.googleusercontent.com/MGy2xuFSsg9mDG7z_pG4H5gPaaQSHx75Ydl3Z3LGYsg_9tv7i-_ZRdlodGz1ppZ4uj2jbNsedw1xl0lH9A-5Rg",
@@ -78,6 +79,7 @@ export const siteCatalog = {
         {
             slug: "cyrus-cylinder",
             type: "app",
+            hidden: false,
             accent: "#6c5ce7",
             accentStrong: "#34287f",
             iconUrl: "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
@@ -147,6 +149,7 @@ export const siteCatalog = {
         {
             slug: "anava",
             type: "app",
+            hidden: true,
             accent: "#1f8f8b",
             accentStrong: "#0d4947",
             iconUrl: "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
@@ -216,6 +219,7 @@ export const siteCatalog = {
         {
             slug: "a-solar-compass",
             type: "app",
+            hidden: false,
             accent: "#ff9f1c",
             accentStrong: "#7a4307",
             iconUrl: "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
@@ -225,11 +229,11 @@ export const siteCatalog = {
             websiteUrl: "https://sunquest.codehospital.com",
             locales: {
                 de: {
-                    name: "A Solar Compass",
+                    name: "Solar Compass",
                     category: "Tools",
                     shortSummary: "Berechnet den exakten Zeitpunkt, an dem die Sonne auf einen Zielkurs ausgerichtet ist.",
                     heroTitle: "Astronomische Ausrichtung in Echtzeit",
-                    heroText: "A Solar Compass berechnet für jeden Standort und jedes Ziel den lokalen Moment, in dem der Sonnenstand exakt zu dieser Peilung passt.",
+                    heroText: "Solar Compass berechnet für jeden Standort und jedes Ziel den lokalen Moment, in dem der Sonnenstand exakt zu dieser Peilung passt.",
                     description: "Die App verbindet präzise Berechnung mit Live-Countdown, Erinnerungen und Widgets, damit der entscheidende Zeitpunkt nicht verpasst wird.",
                     highlights: [
                         {
@@ -250,14 +254,14 @@ export const siteCatalog = {
                     backLabel: "Zur Apps-Übersicht",
                     availabilityTitle: "Verfügbar auf",
                     availabilityText: "Als Android-App bei Google Play veröffentlicht.",
-                    metaDescription: "A Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
+                    metaDescription: "Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
                 },
                 en: {
-                    name: "A Solar Compass",
+                    name: "Solar Compass",
                     category: "Tools",
                     shortSummary: "Calculate the exact local moment when the sun aligns with a target bearing.",
                     heroTitle: "Astronomical alignment in real time",
-                    heroText: "A Solar Compass computes the local moment when the sun’s azimuth lines up with any bearing between your source position and a target point on Earth.",
+                    heroText: "Solar Compass computes the local moment when the sun’s azimuth lines up with any bearing between your source position and a target point on Earth.",
                     description: "It combines precise calculation with live countdowns, reminders, and widgets so the critical alignment window is easy to track.",
                     highlights: [
                         {
@@ -278,18 +282,20 @@ export const siteCatalog = {
                     backLabel: "Back to Apps",
                     availabilityTitle: "Available On",
                     availabilityText: "Published as an Android app on Google Play.",
-                    metaDescription: "A Solar Compass is Aralel’s Android tool for precise sun-alignment calculations, countdowns, and reminders."
+                    metaDescription: "Solar Compass is Aralel’s Android tool for precise sun-alignment calculations, countdowns, and reminders."
                 }
             }
         },
         {
             slug: "german-word-search",
             type: "game",
+            hidden: false,
             accent: "#2563eb",
             accentStrong: "#102a66",
-            iconUrl: "https://play-lh.googleusercontent.com/FLE1zm6cFO1BSAIaxipwBKOwzjDYCAPZ98md8mcVH_vxsyU3Izc3jm6VmjHTZjUETOQGGheqpkmVQ_eux_My",
+            iconUrl: "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
             stores: {
-                googlePlay: "https://play.google.com/store/apps/details?id=com.aralel.german_word_search"
+                googlePlay: "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
+                amazonAppstore: "https://www.amazon.com/dp/B0GX2VZ875"
             },
             locales: {
                 de: {
@@ -353,6 +359,7 @@ export const siteCatalog = {
         {
             slug: "arena-sudoku",
             type: "game",
+            hidden: false,
             accent: "#14b8a6",
             accentStrong: "#0b4d46",
             iconUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
@@ -423,6 +430,7 @@ export const siteCatalog = {
         {
             slug: "hedortal",
             type: "game",
+            hidden: false,
             accent: "#f97316",
             accentStrong: "#7c2d12",
             iconUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/3a/92/e23a923e-9bd9-88c1-0496-a2979ee189af/AppIcon-0-0-1x_U007emarketing-0-11-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
@@ -491,6 +499,7 @@ export const siteCatalog = {
         {
             slug: "rock-paper-bluetooth",
             type: "game",
+            hidden: false,
             accent: "#ef4444",
             accentStrong: "#7f1d1d",
             iconUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
@@ -560,5 +569,5 @@ export const siteCatalog = {
 };
 
 export function getProductsByType(type) {
-    return siteCatalog.products.filter((product) => product.type === type);
+    return siteCatalog.products.filter((product) => product.type === type && product.hidden !== true);
 }

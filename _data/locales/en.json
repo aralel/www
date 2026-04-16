@@ -45,6 +45,7 @@
   "stores": {
     "googleAria": "Open on Google Play",
     "appleAria": "Open on the App Store",
+    "amazonAria": "Open on Amazon Appstore",
     "appleEyebrow": "Download on the",
     "appleLabel": "App Store"
   },
@@ -105,16 +106,16 @@
       "subtitle": "Software, digital products, and public portfolio",
       "text": "Aralel builds and operates digital products for the web, mobile devices, and desktop platforms. This website is the company’s official presence and brings together our publicly available productions so partners, clients, and visitors can review the portfolio clearly.",
       "ctaLabel": "View Portfolio",
-      "ctaUrl": "/apps_en.html"
+      "ctaUrl": "/games_en.html"
     },
     "apps": {
-      "title": "Applications in the Portfolio",
+      "title": "Applications",
       "subtitle": "Public-facing applications from our portfolio with direct access to detail pages and live releases.",
       "linkLabel": "View All Apps",
       "linkUrl": "/apps_en.html"
     },
     "games": {
-      "title": "Games in the Portfolio",
+      "title": "Games",
       "subtitle": "Interactive productions from our portfolio",
       "linkLabel": "View All Games",
       "linkUrl": "/games_en.html"
@@ -155,12 +156,12 @@
   "catalog": {
     "app": {
       "kicker": "Portfolio",
-      "heroTitle": "Applications in the Portfolio",
+      "heroTitle": "Applications",
       "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites across mobile, desktop, and the web."
     },
     "game": {
       "kicker": "Portfolio",
-      "heroTitle": "Games in the Portfolio",
+      "heroTitle": "Games",
       "heroText": "These games and interactive productions are currently public within the Aralel portfolio"
     }
   },
@@ -251,11 +252,11 @@
       "metaDescription": "Anava is Aralel’s Android app for daily supplications, gratitude, and spiritual reflection."
     },
     "a-solar-compass": {
-      "name": "A Solar Compass",
+      "name": "Solar Compass",
       "category": "Tools",
       "shortSummary": "Calculate the exact local moment when the sun aligns with a target bearing.",
       "heroTitle": "Astronomical alignment in real time",
-      "heroText": "A Solar Compass computes the local moment when the sun’s azimuth lines up with any bearing between your source position and a target point on Earth.",
+      "heroText": "Solar Compass computes the local moment when the sun’s azimuth lines up with any bearing between your source position and a target point on Earth.",
       "description": "It combines precise calculation with live countdowns, reminders, and widgets so the critical alignment window is easy to track.",
       "highlights": [
         {
@@ -276,7 +277,7 @@
       "backLabel": "Back to Apps",
       "availabilityTitle": "Available On",
       "availabilityText": "Published as an Android app on Google Play.",
-      "metaDescription": "A Solar Compass is Aralel’s Android tool for precise sun-alignment calculations, countdowns, and reminders."
+      "metaDescription": "Solar Compass is Aralel’s Android tool for precise sun-alignment calculations, countdowns, and reminders."
     },
     "wireless-deck": {
       "name": "Wireless Deck",
