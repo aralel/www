@@ -1461,3 +1461,7 @@ main {
         transition: none !important;
     }
 }
+
+.hidden {
+    display: none;
+}

@@ -569,7 +569,7 @@ function renderProductPage(product, locale) {
                     <div class="detail-panel">
                         ${metaList}
                     </div>
-                    <div class="detail-panel">
+                    <div class="detail-panel hidden">
                         <a class="back-link" href="${listingHref}">${escapeHtml(copy.backLabel)}</a>
                     </div>
                 </aside>
