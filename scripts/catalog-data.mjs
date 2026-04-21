@@ -84,9 +84,9 @@ export const siteCatalog = {
             accentStrong: "#34287f",
             iconUrl: "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
             stores: {
-                googlePlay: "https://play.google.com/store/apps/details?id=com.aralel.trennbare"
+                googlePlay: "https://play.google.com/store/apps/details?id=com.aralel.trennbare",
+                appStore: "https://apps.apple.com/us/app/cyrus-cylinder/id6760327600"
             },
-            websiteUrl: "https://cyrus-cylinder.aralel.com",
             locales: {
                 de: {
                     name: "Cyrus Cylinder",
@@ -113,7 +113,7 @@ export const siteCatalog = {
                     detailLabel: "App-Details",
                     backLabel: "Zur Apps-Übersicht",
                     availabilityTitle: "Verfügbar auf",
-                    availabilityText: "Als Android-App bei Google Play veröffentlicht.",
+                    availabilityText: "Bei Google Play sowie im App Store für iPhone und iPad veröffentlicht.",
                     metaDescription: "Cyrus Cylinder ist Aralels Sprachlern-App für deutsches Vokabeltraining mit rotierenden Wortbausteinen."
                 },
                 en: {
@@ -141,7 +141,7 @@ export const siteCatalog = {
                     detailLabel: "App Details",
                     backLabel: "Back to Apps",
                     availabilityTitle: "Available On",
-                    availabilityText: "Published as an Android app on Google Play.",
+                    availabilityText: "Published on Google Play and on the App Store for iPhone and iPad.",
                     metaDescription: "Cyrus Cylinder is Aralel’s German-learning app built around rotating word-part combinations."
                 }
             }

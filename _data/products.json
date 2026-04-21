@@ -35,14 +35,14 @@
       "slug": "cyrus-cylinder",
       "type": "app",
       "hidden": false,
-      "platforms": ["android", "website"],
+      "platforms": ["android", "iphone"],
       "accent": "#6c5ce7",
       "accentStrong": "#34287f",
       "iconUrl": "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.trennbare"
-      },
-      "websiteUrl": "https://cyrus-cylinder.aralel.com"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.trennbare",
+        "appStore": "https://apps.apple.com/us/app/cyrus-cylinder/id6760327600"
+      }
     },
     {
       "slug": "anava",
