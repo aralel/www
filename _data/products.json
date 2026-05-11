@@ -108,7 +108,7 @@
       "slug": "german-word-search",
       "type": "game",
       "hidden": false,
-      "platforms": ["android"],
+      "platforms": ["android", "amazon"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
       "iconUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
@@ -139,6 +139,18 @@
       "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/rock-paper-bluetooth/id6759180874"
+      }
+    },
+    {
+      "slug": "ad-verbum",
+      "type": "game",
+      "hidden": false,
+      "platforms": ["amazon"],
+      "accent": "#d97706",
+      "accentStrong": "#92400e",
+      "iconUrl": "https://m.media-amazon.com/images/I/81v7gM7LNJL.png",
+      "stores": {
+        "amazonAppstore": "https://www.amazon.com/dp/B0H12XZQTM"
       }
     }
   ]
