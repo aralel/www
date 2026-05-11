@@ -24,6 +24,10 @@
       "title": "Android-Portfolio - Aralel GmbH",
       "description": "Aralel-Produkte, die derzeit bei Google Play für Android verfügbar sind."
     },
+    "amazon": {
+      "title": "Amazon-Appstore-Portfolio - Aralel GmbH",
+      "description": "Aralel-Produkte, die derzeit im Amazon Appstore für Android und Fire TV verfügbar sind."
+    },
     "desktop": {
       "title": "Desktop-Portfolio - Aralel GmbH",
       "description": "Aralel-Software, die derzeit als Desktop-Anwendung für Mac verfügbar ist."
@@ -63,6 +67,7 @@
     "labels": {
       "iphone": "iPhone",
       "android": "Android",
+      "amazon": "Amazon",
       "desktop": "Desktop",
       "website": "Website"
     },
@@ -81,6 +86,11 @@
         "kicker": "Plattformen",
         "heroTitle": "Desktop-Produkte",
         "heroText": "Öffentliche Aralel-Software, die derzeit für den Desktop-Einsatz auf dem Mac veröffentlicht ist."
+      },
+      "amazon": {
+        "kicker": "Plattformen",
+        "heroTitle": "Produkte im Amazon Appstore",
+        "heroText": "Aralel-Produkte, die derzeit im Amazon Appstore für Android und Fire TV verfügbar sind."
       },
       "website": {
         "kicker": "Plattformen",
@@ -452,6 +462,34 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Derzeit für iPhone und iPad im App Store veröffentlicht.",
       "metaDescription": "Rock Paper Bluetooth ist Aralels lokales Bluetooth-Duellspiel für iPhone und iPad."
+    },
+    "ad-verbum": {
+      "name": "Ad Verbum",
+      "category": "Wortspiel",
+      "shortSummary": "Texte auswendig lernen, indem eine Schlange Wörter in der richtigen Reihenfolge frisst.",
+      "heroTitle": "Jedes Wort behalten",
+      "heroText": "Ad Verbum verwandelt Textmemorierung in ein schnelles Snake-Spiel, bei dem Wörter einer gewählten Passage in der richtigen Reihenfolge eingesammelt werden.",
+      "description": "Wählen Sie aus vorinstallierten Texten oder fügen Sie eigene Passagen ein. Die Schlange bewegt sich über das Spielfeld, gesammelte Wörter hängen sich an den Kopf an, und ein streakbasiertes Punktesystem belohnt Genauigkeit ohne frühe Fehler zu hart zu bestrafen.",
+      "highlights": [
+        {
+          "title": "Beliebiger Text",
+          "text": "Starten Sie mit vorinstallierten Passagen oder fügen Sie jederzeit eigene Texte ein."
+        },
+        {
+          "title": "Arabisch und RTL-Unterstützung",
+          "text": "Von Grund auf für korrekte Rechts-nach-links-Darstellung und Buchstabenverbindung entwickelt."
+        },
+        {
+          "title": "Mehrere Steuerungsarten",
+          "text": "Spielen Sie mit Tastatur, Controller, Touch, TV-Fernbedienung oder Gerätebewegung."
+        }
+      ],
+      "primaryCta": "Im Amazon Appstore ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Im Amazon Appstore für Android und Fire TV veröffentlicht.",
+      "metaDescription": "Ad Verbum ist Aralels Wortmemorierungs-Snake-Spiel für Android und Fire TV."
     }
   }
 }

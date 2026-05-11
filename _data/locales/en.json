@@ -24,6 +24,10 @@
       "title": "Android Portfolio - Aralel GmbH",
       "description": "Aralel products currently available on Android through Google Play."
     },
+    "amazon": {
+      "title": "Amazon Appstore Portfolio - Aralel GmbH",
+      "description": "Aralel products currently available on the Amazon Appstore for Android and Fire TV."
+    },
     "desktop": {
       "title": "Desktop Portfolio - Aralel GmbH",
       "description": "Aralel desktop products currently available for Mac."
@@ -63,6 +67,7 @@
     "labels": {
       "iphone": "iPhone",
       "android": "Android",
+      "amazon": "Amazon",
       "desktop": "Desktop",
       "website": "Website"
     },
@@ -81,6 +86,11 @@
         "kicker": "Platforms",
         "heroTitle": "Desktop Products",
         "heroText": "Public Aralel software currently released for desktop use on Mac."
+      },
+      "amazon": {
+        "kicker": "Platforms",
+        "heroTitle": "Products on the Amazon Appstore",
+        "heroText": "Aralel products currently available on the Amazon Appstore for Android and Fire TV devices."
       },
       "website": {
         "kicker": "Platforms",
@@ -448,6 +458,34 @@
       "availabilityTitle": "Available On",
       "availabilityText": "Currently published for iPhone and iPad on the App Store.",
       "metaDescription": "Rock Paper Bluetooth is Aralel’s Bluetooth-powered local duel game for iPhone and iPad."
+    },
+    "ad-verbum": {
+      "name": "Ad Verbum",
+      "category": "Word Game",
+      "shortSummary": "Memorize scripture and text by guiding a snake to eat words in the right order.",
+      "heroTitle": "Remember every word",
+      "heroText": "Ad Verbum turns text memorization into a fast, tactile snake game where you collect words of a chosen phrase in order while avoiding decoys.",
+      "description": "Pick from built-in tracks or paste your own text. The snake wraps the board, words attach to its head as a readable trail, and streak-based scoring rewards accuracy without punishing early mistakes too harshly.",
+      "highlights": [
+        {
+          "title": "Any text you choose",
+          "text": "Start with built-in scripture passages or paste your own text at any time."
+        },
+        {
+          "title": "Full Arabic and RTL support",
+          "text": "Designed from the ground up for correct right-to-left rendering and letter shaping."
+        },
+        {
+          "title": "Multiple control modes",
+          "text": "Play with keyboard, controller, touch, TV remote, or device motion."
+        }
+      ],
+      "primaryCta": "View on Amazon Appstore",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published on the Amazon Appstore for Android and Fire TV.",
+      "metaDescription": "Ad Verbum is Aralel’s word memorization snake game for Android and Fire TV."
     }
   }
 }
