@@ -1,13 +1,38 @@
 /**
- * GDPR Cookie Consent Manager
- * Handles cookie consent for EU compliance
+ * GDPR/DSGVO Cookie Consent Manager
+ * Handles cookie consent for EU compliance (bilingual: DE/EN)
  */
 
 (function() {
     'use strict';
 
     const CONSENT_KEY = 'aralel_cookie_consent';
-    const CONSENT_VERSION = '1.0';
+    const CONSENT_VERSION = '1.1';
+    const ADSENSE_CLIENT = 'ca-pub-2499635055097290';
+
+    const pageLang = document.documentElement.lang || 'en';
+    const isDE = pageLang === 'de';
+
+    const i18n = {
+        title:           isDE ? 'Cookie-Einstellungen' : 'Cookie Settings',
+        description:     isDE
+            ? 'Wir verwenden Cookies, um Ihr Nutzungserlebnis zu verbessern und die Website zu analysieren. Sie können wählen, welche Cookies Sie erlauben. Notwendige Cookies sind immer aktiv. '
+            : 'We use cookies to enhance your browsing experience and analyze site traffic. You can choose which cookies you allow. Essential cookies are always active. ',
+        policyLink:      isDE ? 'Mehr erfahren in unserer Datenschutzerklärung' : 'Learn more in our Privacy Policy',
+        policyHref:      isDE ? '/datenschutz.html' : '/privacy-policy.html',
+        necessary:       isDE ? 'Notwendige Cookies' : 'Essential Cookies',
+        necessaryDesc:   isDE ? 'Für den Betrieb der Website erforderlich. Können nicht deaktiviert werden.' : 'Required for the website to function. Cannot be disabled.',
+        required:        isDE ? 'Erforderlich' : 'Required',
+        analytics:       isDE ? 'Analyse-Cookies' : 'Analytics Cookies',
+        analyticsDesc:   isDE ? 'Helfen uns zu verstehen, wie Besucher mit der Website interagieren.' : 'Help us understand how visitors interact with our website.',
+        marketing:       isDE ? 'Marketing-Cookies' : 'Marketing Cookies',
+        marketingDesc:   isDE ? 'Für die Einblendung personalisierter Werbeanzeigen verwendet.' : 'Used to deliver personalized advertisements.',
+        preferences:     isDE ? 'Präferenz-Cookies' : 'Preference Cookies',
+        preferencesDesc: isDE ? 'Speichern Ihre Einstellungen und Präferenzen.' : 'Remember your settings and preferences.',
+        rejectAll:       isDE ? 'Alle ablehnen' : 'Reject All',
+        savePrefs:       isDE ? 'Einstellungen speichern' : 'Save Preferences',
+        acceptAll:       isDE ? 'Alle akzeptieren' : 'Accept All',
+    };
 
     // Default consent state - all non-essential cookies disabled
     const defaultConsent = {
@@ -61,80 +86,88 @@
         return defaultConsent[type];
     }
 
-    // Create the cookie banner HTML
+    function makeEl(tag, cls, textVal) {
+        const el = document.createElement(tag);
+        if (cls) { el.className = cls; }
+        if (textVal !== undefined) { el.textContent = textVal; }
+        return el;
+    }
+
+    function makeSwitch(switchId, isChecked, isDisabled) {
+        const label = makeEl('label', 'cookie-switch');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.id = switchId;
+        if (isChecked) { input.checked = true; }
+        if (isDisabled) { input.disabled = true; }
+        label.appendChild(input);
+        label.appendChild(makeEl('span', 'cookie-slider'));
+        return label;
+    }
+
+    function makeOption(switchId, isChecked, isDisabled, titleText, badgeText, descText) {
+        const header = makeEl('div', 'cookie-option-header');
+        header.appendChild(makeSwitch(switchId, isChecked, isDisabled));
+        header.appendChild(makeEl('span', 'cookie-option-title', titleText));
+        if (badgeText) {
+            header.appendChild(makeEl('span', 'cookie-badge required', badgeText));
+        }
+        const option = makeEl('div', 'cookie-option');
+        option.appendChild(header);
+        option.appendChild(makeEl('p', 'cookie-option-desc', descText));
+        return option;
+    }
+
+    // Build the cookie banner using only safe DOM methods
     function createBanner() {
-        const banner = document.createElement('div');
+        const policyLink = document.createElement('a');
+        policyLink.href = i18n.policyHref;
+        policyLink.target = '_blank';
+        policyLink.rel = 'noopener noreferrer';
+        policyLink.textContent = i18n.policyLink;
+
+        const heading = makeEl('h2', null, '🍪 ' + i18n.title);
+        heading.id = 'cookie-consent-title';
+
+        const descPara = makeEl('p');
+        descPara.id = 'cookie-consent-description';
+        descPara.appendChild(document.createTextNode(i18n.description));
+        descPara.appendChild(policyLink);
+        descPara.appendChild(document.createTextNode('.'));
+
+        const headerDiv = makeEl('div', 'cookie-consent-header');
+        headerDiv.appendChild(heading);
+        headerDiv.appendChild(descPara);
+
+        const optionsDiv = makeEl('div', 'cookie-consent-options');
+        optionsDiv.appendChild(makeOption('cookie-necessary', true, true, i18n.necessary, i18n.required, i18n.necessaryDesc));
+        optionsDiv.appendChild(makeOption('cookie-analytics', false, false, i18n.analytics, null, i18n.analyticsDesc));
+        optionsDiv.appendChild(makeOption('cookie-marketing', false, false, i18n.marketing, null, i18n.marketingDesc));
+        optionsDiv.appendChild(makeOption('cookie-preferences', false, false, i18n.preferences, null, i18n.preferencesDesc));
+
+        const rejectBtn = makeEl('button', 'cookie-btn cookie-btn-secondary', i18n.rejectAll);
+        rejectBtn.id = 'cookie-reject-all';
+        const saveBtn = makeEl('button', 'cookie-btn cookie-btn-secondary', i18n.savePrefs);
+        saveBtn.id = 'cookie-save-preferences';
+        const acceptBtn = makeEl('button', 'cookie-btn cookie-btn-primary', i18n.acceptAll);
+        acceptBtn.id = 'cookie-accept-all';
+
+        const buttonsDiv = makeEl('div', 'cookie-consent-buttons');
+        buttonsDiv.appendChild(rejectBtn);
+        buttonsDiv.appendChild(saveBtn);
+        buttonsDiv.appendChild(acceptBtn);
+
+        const content = makeEl('div', 'cookie-consent-content');
+        content.appendChild(headerDiv);
+        content.appendChild(optionsDiv);
+        content.appendChild(buttonsDiv);
+
+        const banner = makeEl('div', 'cookie-consent-banner');
         banner.id = 'cookie-consent-banner';
-        banner.className = 'cookie-consent-banner';
         banner.setAttribute('role', 'dialog');
         banner.setAttribute('aria-labelledby', 'cookie-consent-title');
         banner.setAttribute('aria-describedby', 'cookie-consent-description');
-
-        banner.innerHTML = `
-            <div class="cookie-consent-content">
-                <div class="cookie-consent-header">
-                    <h2 id="cookie-consent-title">🍪 Cookie Settings</h2>
-                    <p id="cookie-consent-description">
-                        We use cookies to enhance your browsing experience and analyze site traffic.
-                        You can choose which cookies you allow. Essential cookies are always active as they are necessary for the website to function.
-                        <a href="/privacy-policy.html" target="_blank">Learn more in our Privacy Policy</a>.
-                    </p>
-                </div>
-
-                <div class="cookie-consent-options">
-                    <div class="cookie-option">
-                        <div class="cookie-option-header">
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookie-necessary" checked disabled>
-                                <span class="cookie-slider"></span>
-                            </label>
-                            <span class="cookie-option-title">Essential Cookies</span>
-                            <span class="cookie-badge required">Required</span>
-                        </div>
-                        <p class="cookie-option-desc">Required for the website to function. Cannot be disabled.</p>
-                    </div>
-
-                    <div class="cookie-option">
-                        <div class="cookie-option-header">
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookie-analytics">
-                                <span class="cookie-slider"></span>
-                            </label>
-                            <span class="cookie-option-title">Analytics Cookies</span>
-                        </div>
-                        <p class="cookie-option-desc">Help us understand how visitors interact with our website.</p>
-                    </div>
-
-                    <div class="cookie-option">
-                        <div class="cookie-option-header">
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookie-marketing">
-                                <span class="cookie-slider"></span>
-                            </label>
-                            <span class="cookie-option-title">Marketing Cookies</span>
-                        </div>
-                        <p class="cookie-option-desc">Used to deliver personalized advertisements.</p>
-                    </div>
-
-                    <div class="cookie-option">
-                        <div class="cookie-option-header">
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookie-preferences">
-                                <span class="cookie-slider"></span>
-                            </label>
-                            <span class="cookie-option-title">Preference Cookies</span>
-                        </div>
-                        <p class="cookie-option-desc">Remember your settings and preferences.</p>
-                    </div>
-                </div>
-
-                <div class="cookie-consent-buttons">
-                    <button id="cookie-reject-all" class="cookie-btn cookie-btn-secondary">Reject All</button>
-                    <button id="cookie-save-preferences" class="cookie-btn cookie-btn-secondary">Save Preferences</button>
-                    <button id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Accept All</button>
-                </div>
-            </div>
-        `;
+        banner.appendChild(content);
 
         return banner;
     }
@@ -226,23 +259,18 @@
         }
     }
 
-    // Placeholder for analytics loading
     function loadAnalytics() {
-        // Add your analytics script loading here
-        // Example for Google Analytics:
-        // if (typeof gtag === 'undefined') {
-        //     const script = document.createElement('script');
-        //     script.src = 'https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID';
-        //     script.async = true;
-        //     document.head.appendChild(script);
-        // }
-        console.log('Analytics consent granted - ready to load analytics scripts');
+        // No analytics service is currently configured.
     }
 
-    // Placeholder for marketing loading
     function loadMarketing() {
-        // Add your marketing script loading here
-        console.log('Marketing consent granted - ready to load marketing scripts');
+        if (document.querySelector('script[data-adsense]')) { return; }
+        const script = document.createElement('script');
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_CLIENT;
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.setAttribute('data-adsense', '1');
+        document.head.appendChild(script);
     }
 
     // Delete non-essential cookies

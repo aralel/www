@@ -107,6 +107,8 @@
     "about": "Company",
     "contact": "Contact",
     "privacy": "Privacy",
+    "impressum": "Legal Notice",
+    "cookieSettings": "Cookie Settings",
     "cache": "Invalidate cache"
   },
   "home": {

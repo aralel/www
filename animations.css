@@ -1,0 +1,421 @@
+/* ============================================================
+   Aralel Animations
+   All motion respects prefers-reduced-motion via the
+   .motion-ok class added to <html> by animations.js
+   ============================================================ */
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-32px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(32px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes decorLine {
+    from { width: 0; opacity: 0; }
+    to   { width: 7rem; opacity: 1; }
+}
+
+@keyframes kickerPop {
+    0%   { opacity: 0; transform: translateY(10px) scale(0.94); }
+    60%  { transform: translateY(-2px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes ripple {
+    to { transform: scale(4); opacity: 0; }
+}
+
+@keyframes floatA {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes floatB {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(10px) rotate(-2deg); }
+}
+
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* ── Scroll-reveal base states ──────────────────────────────── */
+/* Elements start invisible; .motion-ok enables the transitions */
+
+.html.motion-ok .reveal,
+html.motion-ok .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.motion-ok .reveal.reveal--left {
+    transform: translateX(-32px);
+}
+
+html.motion-ok .reveal.reveal--right {
+    transform: translateX(32px);
+}
+
+html.motion-ok .reveal.reveal--scale {
+    transform: scale(0.93);
+}
+
+html.motion-ok .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger delays for child groups */
+html.motion-ok .stagger-children > *:nth-child(1)  { transition-delay: 0ms; }
+html.motion-ok .stagger-children > *:nth-child(2)  { transition-delay: 80ms; }
+html.motion-ok .stagger-children > *:nth-child(3)  { transition-delay: 160ms; }
+html.motion-ok .stagger-children > *:nth-child(4)  { transition-delay: 240ms; }
+html.motion-ok .stagger-children > *:nth-child(5)  { transition-delay: 320ms; }
+html.motion-ok .stagger-children > *:nth-child(6)  { transition-delay: 400ms; }
+html.motion-ok .stagger-children > *:nth-child(7)  { transition-delay: 480ms; }
+html.motion-ok .stagger-children > *:nth-child(8)  { transition-delay: 560ms; }
+html.motion-ok .stagger-children > *:nth-child(9)  { transition-delay: 640ms; }
+html.motion-ok .stagger-children > *:nth-child(10) { transition-delay: 720ms; }
+html.motion-ok .stagger-children > *:nth-child(11) { transition-delay: 800ms; }
+html.motion-ok .stagger-children > *:nth-child(12) { transition-delay: 880ms; }
+
+/* ── Hero entrance ──────────────────────────────────────────── */
+
+html.motion-ok .hero-animate .hero-kicker {
+    animation: kickerPop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.1s;
+}
+
+html.motion-ok .hero-animate h1 {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.22s;
+}
+
+html.motion-ok .hero-animate h2 {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.36s;
+}
+
+html.motion-ok .hero-animate p {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.48s;
+}
+
+html.motion-ok .hero-animate .hero-actions {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.6s;
+}
+
+/* ── Title decoration line ──────────────────────────────────── */
+
+html.motion-ok .title-decoration {
+    width: 0;
+    opacity: 0;
+    transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s ease;
+}
+
+html.motion-ok .title-decoration.is-visible {
+    width: 7rem;
+    opacity: 1;
+}
+
+/* ── Catalog card hover lift ────────────────────────────────── */
+
+html.motion-ok .catalog-card {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.28s ease;
+    will-change: transform;
+}
+
+html.motion-ok .catalog-card:hover {
+    transform: translateY(-5px) scale(1.012);
+    box-shadow: 0 28px 56px rgba(70, 43, 17, 0.13);
+    border-color: color-mix(in srgb, var(--product-accent) 40%, var(--border));
+}
+
+/* ── Detail card hover ──────────────────────────────────────── */
+
+html.motion-ok .detail-card {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+}
+
+html.motion-ok .detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(70, 43, 17, 0.09);
+    background: linear-gradient(180deg, #fff, var(--surface-soft));
+}
+
+/* ── About image floating orbs ──────────────────────────────── */
+
+html.motion-ok .about-image::before,
+html.motion-ok .about-image::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+html.motion-ok .about-image::before {
+    width: 9rem;
+    height: 9rem;
+    top: 18%;
+    left: 14%;
+    background: radial-gradient(circle, rgba(201, 122, 43, 0.22), transparent 70%);
+    animation: floatA 6s ease-in-out infinite;
+}
+
+html.motion-ok .about-image::after {
+    width: 7rem;
+    height: 7rem;
+    bottom: 22%;
+    right: 16%;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.18), transparent 70%);
+    animation: floatB 7s ease-in-out infinite;
+    animation-delay: 1.2s;
+}
+
+/* ── Header scroll state ────────────────────────────────────── */
+
+.site-header {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.site-header.is-scrolled {
+    box-shadow: 0 4px 24px rgba(70, 43, 17, 0.09);
+    background: rgba(255, 255, 255, 0.97);
+}
+
+/* ── Logo hover ─────────────────────────────────────────────── */
+
+html.motion-ok .logo-img {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+}
+
+html.motion-ok .logo-link:hover .logo-img {
+    transform: rotate(-4deg) scale(1.08);
+    box-shadow: 0 8px 20px rgba(70, 43, 17, 0.14);
+}
+
+/* ── Social link hover ──────────────────────────────────────── */
+
+html.motion-ok .social-links a {
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.22s ease,
+                box-shadow 0.22s ease;
+}
+
+html.motion-ok .social-links a:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: var(--brand-soft);
+    box-shadow: 0 8px 18px rgba(70, 43, 17, 0.12);
+}
+
+/* ── CTA button shimmer on hover ────────────────────────────── */
+
+html.motion-ok .cta-button,
+html.motion-ok .submit-button {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.22s ease;
+}
+
+html.motion-ok .cta-button::after,
+html.motion-ok .submit-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.22) 50%,
+        transparent 70%
+    );
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+html.motion-ok .cta-button:hover::after,
+html.motion-ok .submit-button:hover::after {
+    opacity: 1;
+    animation: shimmer 0.7s linear forwards;
+}
+
+html.motion-ok .cta-button:hover,
+html.motion-ok .submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 36px rgba(143, 78, 22, 0.28);
+}
+
+/* ── Ripple effect ──────────────────────────────────────────── */
+
+html.motion-ok .ripple-host {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(201, 122, 43, 0.18);
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple 0.55s linear forwards;
+}
+
+/* ── Page-hero entrance ─────────────────────────────────────── */
+
+html.motion-ok .page-hero-content,
+html.motion-ok .detail-hero-content {
+    animation: scaleIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.08s;
+}
+
+/* ── Detail icon float ──────────────────────────────────────── */
+
+html.motion-ok .detail-icon {
+    animation: floatA 7s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+/* ── Footer link hover ──────────────────────────────────────── */
+
+html.motion-ok .footer-section a {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+html.motion-ok .footer-section a:hover {
+    transform: translateX(3px);
+}
+
+/* ── Form field focus glow ──────────────────────────────────── */
+
+html.motion-ok .form-group input,
+html.motion-ok .form-group textarea {
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+}
+
+html.motion-ok .form-group input:focus,
+html.motion-ok .form-group textarea:focus {
+    transform: translateY(-1px);
+}
+
+/* ── Platform pill hover ────────────────────────────────────── */
+
+html.motion-ok .product-pill--link {
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.2s ease;
+}
+
+html.motion-ok .product-pill--link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(70, 43, 17, 0.1);
+}
+
+/* ── Store badge hover ──────────────────────────────────────── */
+
+html.motion-ok .store-link {
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.22s ease;
+}
+
+html.motion-ok .store-link:hover {
+    transform: translateY(-3px) scale(1.03);
+    filter: saturate(1.08) brightness(1.02);
+}
+
+/* ── Catalog icon hover ─────────────────────────────────────── */
+
+html.motion-ok .catalog-icon {
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.28s ease;
+}
+
+html.motion-ok .catalog-card:hover .catalog-icon {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 20px 36px rgba(31, 24, 19, 0.18);
+}
+
+/* ── Section title reveal ───────────────────────────────────── */
+
+html.motion-ok .section-title {
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Reduced motion: disable everything ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    html.motion-ok .reveal,
+    html.motion-ok .reveal.reveal--left,
+    html.motion-ok .reveal.reveal--right,
+    html.motion-ok .reveal.reveal--scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    html.motion-ok .title-decoration {
+        width: 7rem !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+
+    html.motion-ok .hero-animate .hero-kicker,
+    html.motion-ok .hero-animate h1,
+    html.motion-ok .hero-animate h2,
+    html.motion-ok .hero-animate p,
+    html.motion-ok .hero-animate .hero-actions,
+    html.motion-ok .page-hero-content,
+    html.motion-ok .detail-hero-content,
+    html.motion-ok .detail-icon,
+    html.motion-ok .about-image::before,
+    html.motion-ok .about-image::after {
+        animation: none !important;
+    }
+
+    html.motion-ok .catalog-card:hover,
+    html.motion-ok .detail-card:hover,
+    html.motion-ok .cta-button:hover,
+    html.motion-ok .submit-button:hover,
+    html.motion-ok .social-links a:hover,
+    html.motion-ok .store-link:hover,
+    html.motion-ok .catalog-card:hover .catalog-icon {
+        transform: none !important;
+    }
+}

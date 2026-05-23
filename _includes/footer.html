@@ -35,7 +35,13 @@
       <ul>
         <li><a href="{{ home_url | relative_url }}#about">{{ t.footer.about }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
-        <li><a href="{{ '/privacy-policy.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
+        {% if locale_code == "de" %}
+          <li><a href="{{ '/datenschutz.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
+          <li><a href="{{ '/impressum.html' | relative_url }}">{{ t.footer.impressum }}</a></li>
+        {% else %}
+          <li><a href="{{ '/privacy-policy.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
+          <li><a href="{{ '/impressum_en.html' | relative_url }}">{{ t.footer.impressum }}</a></li>
+        {% endif %}
       </ul>
     </div>
 
@@ -49,6 +55,6 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 Aralel GmbH. {% if locale_code == "de" %}Alle Rechte vorbehalten.{% else %}All rights reserved.{% endif %} | <a href="#" id="invalidate-cache">{{ t.footer.cache }}</a></p>
+    <p>&copy; 2026 Aralel GmbH. {% if locale_code == "de" %}Alle Rechte vorbehalten.{% else %}All rights reserved.{% endif %} | <a href="#" id="invalidate-cache">{{ t.footer.cache }}</a> | <a href="#" class="cookie-settings-link">{{ t.footer.cookieSettings }}</a></p>
   </div>
 </footer>

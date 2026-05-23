@@ -164,26 +164,8 @@ if (hero && heroContent) {
     }
 }
 
-// Reveal cards as they enter the viewport
-if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    document.querySelectorAll('.game-card, .catalog-card, .detail-card').forEach((card) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.5s ease-out';
-        observer.observe(card);
-    });
-}
+// Card reveal is now handled by animations.js via CSS classes.
+// This block is intentionally left empty to avoid conflicts.
 
 // Invalidate PWA cache link
 const invalidateLink = document.getElementById('invalidate-cache');
