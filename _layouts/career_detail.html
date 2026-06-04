@@ -1,0 +1,87 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign careers = t.careers %}
+{% assign role = careers.roles | where: "slug", page.job_slug | first %}
+{% assign suffix = "" %}
+{% if locale_code == "en" %}
+  {% assign suffix = "_en" %}
+{% endif %}
+{% assign careers_url = "/careers" | append: suffix | append: ".html" %}
+{% assign department_name = careers.departments[role.department] %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": {{ role.title | jsonify }},
+  "description": {{ role.extendedDescription | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "employmentType": {{ role.type | jsonify }},
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "Aralel GmbH",
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
+
+<main class="careers-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <div class="career-breadcrumbs">
+        <a href="{{ careers_url | relative_url }}">{{ careers.backLabel }}</a>
+        <span>/</span>
+        <span>{{ role.title }}</span>
+      </div>
+      <div class="career-detail-badges">
+        <span class="career-type-badge">{{ role.type }}</span>
+        <span class="career-dept-badge">{{ department_name }}</span>
+      </div>
+      <h1>{{ role.title }}</h1>
+      <p>{{ role.extendedDescription }}</p>
+    </div>
+  </section>
+
+  <section class="career-detail-section">
+    <div class="career-detail-body">
+      <div class="career-detail-main">
+        <h2 class="career-requirements-title">{{ careers.requirementsLabel }}</h2>
+        <ul class="career-requirements-list">
+          {% for requirement in role.requirements %}
+            <li>{{ requirement }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <aside class="career-detail-aside">
+        <div class="career-aside-panel">
+          <div class="career-aside-item">
+            <span class="career-aside-label">{{ careers.typeLabel }}</span>
+            <strong>{{ role.type }}</strong>
+          </div>
+          <div class="career-aside-item">
+            <span class="career-aside-label">{{ careers.departmentLabel }}</span>
+            <strong>{{ department_name }}</strong>
+          </div>
+        </div>
+
+        <div class="career-aside-panel career-apply-panel">
+          <h3 class="career-apply-title">{{ careers.applyTitle }}</h3>
+          <p class="career-apply-text">{{ careers.applyText }}</p>
+          <a class="cta-button" href="mailto:contact@aralel.com?subject={{ role.emailSubject | uri_escape }}">
+            {{ careers.hero.applyLabel }}
+          </a>
+        </div>
+
+        <a class="back-link" href="{{ careers_url | relative_url }}">
+          <i class="fas fa-arrow-left"></i> {{ careers.backLabel }}
+        </a>
+      </aside>
+    </div>
+  </section>
+</main>

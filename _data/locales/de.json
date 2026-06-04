@@ -35,6 +35,10 @@
     "websites": {
       "title": "Web-Portfolio - Aralel GmbH",
       "description": "Aralel-Produkte mit öffentlicher Website oder browserbasierter Erfahrung."
+    },
+    "careers": {
+      "title": "Karriere – Aralel GmbH",
+      "description": "Wir suchen Freelancer und Teilzeit-Mitarbeitende. Offene Stellen bei der Aralel GmbH."
     }
   },
   "nav": {
@@ -43,6 +47,7 @@
     "games": "Spiele",
     "about": "Unternehmen",
     "contact": "Kontakt",
+    "careers": "Karriere",
     "switchTitle": "English",
     "switchFlag": "🇬🇧"
   },
@@ -106,6 +111,7 @@
     "languageTitle": "Sprache",
     "about": "Unternehmen",
     "contact": "Kontakt",
+    "careers": "Karriere",
     "privacy": "Datenschutz",
     "impressum": "Impressum",
     "cookieSettings": "Cookie-Einstellungen",
@@ -164,6 +170,124 @@
       },
       "submitLabel": "Nachricht senden"
     }
+  },
+  "careers": {
+    "hero": {
+      "kicker": "Wir stellen ein",
+      "title": "Bei Aralel einsteigen",
+      "text": "Wir arbeiten mit talentierten Freelancern und Teilzeit-Mitarbeitenden zusammen. Wer mit Leidenschaft baut, ist bei uns richtig.",
+      "applyLabel": "Per E-Mail bewerben"
+    },
+    "backLabel": "Zurück zu Karriere",
+    "typeLabel": "Art",
+    "departmentLabel": "Abteilung",
+    "requirementsLabel": "Das suchen wir",
+    "applyTitle": "Interesse?",
+    "applyText": "Schick uns eine kurze Vorstellung und einen Link zu deinem Portfolio oder LinkedIn.",
+    "departments": {
+      "engineering": "Engineering",
+      "creative": "Kreativ",
+      "customer-experience": "Kundenerlebnis",
+      "leadership": "Führung"
+    },
+    "roles": [
+      {
+        "slug": "rails-backend-developer",
+        "title": "Ruby on Rails Backend-Entwickler",
+        "type": "Freiberuflich",
+        "department": "engineering",
+        "description": "Aufbau und Pflege skalierbarer Backend-APIs, Services und interner Tools. Fundierte Kenntnisse in Rails, REST-APIs und PostgreSQL erwartet.",
+        "extendedDescription": "Du arbeitest eng mit unserem Produktteam zusammen, um die Backend-Systeme hinter Aralels Anwendungen zu gestalten, aufzubauen und zu pflegen. Dies ist ein freiberufliches Engagement mit flexiblen Arbeitszeiten, ausgerichtet auf sauberen, gut getesteten Rails-Code.",
+        "requirements": [
+          "3+ Jahre Erfahrung mit Ruby on Rails",
+          "Fundierte Kenntnisse in REST-API-Design und PostgreSQL",
+          "Erfahrung mit testgetriebener Entwicklung (RSpec oder Minitest)",
+          "Erfahrung mit Cloud-Deployment (Heroku, AWS oder ähnlich)",
+          "Kenntnisse in Background-Jobs (Sidekiq) und Caching von Vorteil"
+        ],
+        "emailSubject": "Bewerbung: Ruby on Rails Backend-Entwickler"
+      },
+      {
+        "slug": "unity-developer",
+        "title": "Unity-Entwickler",
+        "type": "Freiberuflich",
+        "department": "engineering",
+        "description": "Entwicklung plattformübergreifender Spiele und interaktiver Erlebnisse in Unity. Erfahrung mit mobilen Builds, Physics-Systemen und Unity UI von Vorteil.",
+        "extendedDescription": "Du arbeitest an Spielfeatures, Tools und Plattformintegrationen in Unity-Projekten für Mobil und Desktop. Wir legen Wert auf sauberen Code, gute Kommunikation und ein Gespür für Details in interaktiven Erlebnissen.",
+        "requirements": [
+          "2+ Jahre professionelle Unity-Entwicklung",
+          "Erfahrung mit der Veröffentlichung von Mobil- oder Desktop-Spielen",
+          "Kenntnisse in Unity UI Toolkit oder uGUI",
+          "Fundiertes Verständnis von C# und objektorientierten Entwurfsmustern",
+          "Erfahrung mit Physics, Animationscontrollern und Input-Systemen von Vorteil"
+        ],
+        "emailSubject": "Bewerbung: Unity-Entwickler"
+      },
+      {
+        "slug": "3d-blender-artist",
+        "title": "3D Blender Artist",
+        "type": "Freiberuflich",
+        "department": "creative",
+        "description": "Erstellung hochwertiger 3D-Modelle, Animationen und visueller Assets für Spiele und Apps. Enge Zusammenarbeit in Bezug auf Art Direction und Asset-Pipeline.",
+        "extendedDescription": "Du erstellst 3D-Modelle, Texturen und Animationen, die direkt in unsere Spiel- und App-Projekte einfließen. Wir suchen jemanden, der effizient innerhalb von Art-Direction-Vorgaben arbeiten kann und gleichzeitig eigene kreative Impulse einbringt.",
+        "requirements": [
+          "Sicherer Umgang mit Blender (Modellierung, Rigging, Animation)",
+          "Erfahrung mit spielfertigen Assets mit optimierten Polygonzahlen",
+          "Fundiertes Verständnis von PBR-Materialien und Textur-Pipelines",
+          "Portfolio mit 3D-Arbeiten (erforderlich)",
+          "Erfahrung mit Unity- oder Unreal-Asset-Export von Vorteil"
+        ],
+        "emailSubject": "Bewerbung: 3D Blender Artist"
+      },
+      {
+        "slug": "content-manager",
+        "title": "Content Manager",
+        "type": "Freiberuflich",
+        "department": "creative",
+        "description": "Verantwortung für Content-Erstellung und redaktionelle Planung über alle Aralel-Kanäle – von Store-Listings und Social Media bis hin zu Produkttexten.",
+        "extendedDescription": "Du pflegst den Redaktionskalender, erstellst und bearbeitest Inhalte für Web, App-Stores und Social-Media-Kanäle und hilfst, Aralels Online-Präsenz zu stärken. Eine teilzeitfähige, asynchrone Freelance-Rolle mit viel kreativem Gestaltungsspielraum.",
+        "requirements": [
+          "Erfahrung in der Content-Erstellung für digitale Marken oder Softwareprodukte",
+          "Starke Schreib- und Redaktionskompetenz auf Englisch (Deutsch von Vorteil)",
+          "Kenntnisse in SEO-Best-Practices und Content-Planung",
+          "Erfahrung in der Verwaltung von Social-Media-Kanälen und Redaktionskalendern",
+          "Kenntnisse in App Store Optimization (ASO) von Vorteil"
+        ],
+        "emailSubject": "Bewerbung: Content Manager"
+      },
+      {
+        "slug": "customer-success-specialist",
+        "title": "Customer Success Specialist",
+        "type": "Freiberuflich",
+        "department": "customer-experience",
+        "description": "Unterstützung unserer Nutzer:innen bei Apps und Spielen – Anfragen beantworten, Feedback sammeln und bei jeder Interaktion einen guten Eindruck hinterlassen.",
+        "extendedDescription": "Du bist die erste Anlaufstelle für Nutzeranfragen und -feedback. Diese Rolle ist schlank, aber bedeutsam – wir suchen jemanden, dem Nutzer:innen wirklich am Herzen liegen und der uns hilft, die Verbindung zwischen Produkt und Nutzenden zu stärken.",
+        "requirements": [
+          "Erfahrung im Kundensupport, Customer Success oder Community Management",
+          "Starke schriftliche Kommunikationskompetenz auf Englisch (Deutsch von Vorteil)",
+          "Sicherer Umgang mit Support-Tools (Zendesk, Intercom oder ähnlich)",
+          "Proaktive Arbeitsweise mit Sorgfalt und Aufmerksamkeit für Details",
+          "Interesse an Apps, Spielen oder digitalen Produkten von Vorteil"
+        ],
+        "emailSubject": "Bewerbung: Customer Success Specialist"
+      },
+      {
+        "slug": "part-time-ceo",
+        "title": "Teilzeit-CEO",
+        "type": "Teilzeit",
+        "department": "leadership",
+        "description": "Leitung der Unternehmensausrichtung, Geschäftsentwicklung, Partnerschaften und Operations in Teilzeit. Gesucht wird jemand mit unternehmerischer Erfahrung und einer praktischen Denkweise.",
+        "extendedDescription": "Aralel ist ein schlankes, produktgetriebenes Unternehmen. Wir suchen einen Teilzeit-CEO, der strategische Klarheit bringt, externe Beziehungen aufbaut und das Unternehmen voranbringt – ohne Bürokratie. Eine seltene Gelegenheit, ein fokussiertes Software-Studio mitzugestalten.",
+        "requirements": [
+          "Nachgewiesene unternehmerische oder leitende Führungserfahrung",
+          "Starkes Netzwerk in der Tech-, Gaming- oder Digital-Produkt-Branche",
+          "Fähigkeit, Geschäftsentwicklung und strategische Partnerschaften voranzutreiben",
+          "Komfortabel in einem schlanken, remote-first Umfeld",
+          "Leidenschaft für digitale Produkte und Software-Handwerk"
+        ],
+        "emailSubject": "Bewerbung: Teilzeit-CEO"
+      }
+    ]
   },
   "catalog": {
     "app": {

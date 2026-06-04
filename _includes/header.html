@@ -3,10 +3,12 @@
 {% assign home_url = "/en.html" %}
 {% assign apps_url = "/apps_en.html" %}
 {% assign games_url = "/games_en.html" %}
+{% assign careers_url = "/careers_en.html" %}
 {% if locale_code == "de" %}
   {% assign home_url = "/index.html" %}
   {% assign apps_url = "/apps.html" %}
   {% assign games_url = "/games.html" %}
+  {% assign careers_url = "/careers.html" %}
 {% endif %}
 
 <header class="site-header">
@@ -28,6 +30,7 @@
       <li><a href="{{ apps_url | relative_url }}">{{ t.nav.apps }}</a></li>
       <li><a href="{{ home_url | relative_url }}#about">{{ t.nav.about }}</a></li>
       <li><a href="{{ home_url | relative_url }}#contact">{{ t.nav.contact }}</a></li>
+      <li><a href="{{ careers_url | relative_url }}">{{ t.nav.careers }}</a></li>
       {% if page.switch_url %}
         <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" title="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
       {% endif %}

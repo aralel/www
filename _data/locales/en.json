@@ -35,6 +35,10 @@
     "websites": {
       "title": "Web Portfolio - Aralel GmbH",
       "description": "Aralel products with a public website or browser-accessible experience."
+    },
+    "careers": {
+      "title": "Careers – Aralel GmbH",
+      "description": "We're hiring freelancers and part-time collaborators. View open roles at Aralel GmbH."
     }
   },
   "nav": {
@@ -43,6 +47,7 @@
     "games": "Games",
     "about": "Company",
     "contact": "Contact",
+    "careers": "Careers",
     "switchTitle": "Deutsch",
     "switchFlag": "🇩🇪"
   },
@@ -106,6 +111,7 @@
     "languageTitle": "Language",
     "about": "Company",
     "contact": "Contact",
+    "careers": "Careers",
     "privacy": "Privacy",
     "impressum": "Legal Notice",
     "cookieSettings": "Cookie Settings",
@@ -164,6 +170,124 @@
       },
       "submitLabel": "Send Message"
     }
+  },
+  "careers": {
+    "hero": {
+      "kicker": "We're Hiring",
+      "title": "Join Aralel",
+      "text": "We work with talented freelancers and part-time collaborators. If you're passionate about what you build, we'd love to work with you.",
+      "applyLabel": "Apply via Email"
+    },
+    "backLabel": "Back to Careers",
+    "typeLabel": "Type",
+    "departmentLabel": "Department",
+    "requirementsLabel": "What We're Looking For",
+    "applyTitle": "Interested?",
+    "applyText": "Send us a short intro and a link to your portfolio or LinkedIn.",
+    "departments": {
+      "engineering": "Engineering",
+      "creative": "Creative",
+      "customer-experience": "Customer Experience",
+      "leadership": "Leadership"
+    },
+    "roles": [
+      {
+        "slug": "rails-backend-developer",
+        "title": "Ruby on Rails Backend Developer",
+        "type": "Freelance",
+        "department": "engineering",
+        "description": "Build and maintain scalable backend APIs, services, and internal tooling. Strong knowledge of Rails, REST APIs, and PostgreSQL expected.",
+        "extendedDescription": "You'll work closely with our product team to design, build, and maintain the backend systems that power Aralel's applications. This is a freelance engagement with flexible hours, focused on delivering clean, well-tested Rails code.",
+        "requirements": [
+          "3+ years of experience with Ruby on Rails",
+          "Solid knowledge of REST API design and PostgreSQL",
+          "Comfortable with test-driven development (RSpec or Minitest)",
+          "Experience with cloud deployment (Heroku, AWS, or similar)",
+          "Familiarity with background jobs (Sidekiq) and caching is a plus"
+        ],
+        "emailSubject": "Application: Ruby on Rails Backend Developer"
+      },
+      {
+        "slug": "unity-developer",
+        "title": "Unity Developer",
+        "type": "Freelance",
+        "department": "engineering",
+        "description": "Develop cross-platform games and interactive experiences in Unity. Experience with mobile builds, physics systems, and Unity UI is a plus.",
+        "extendedDescription": "You'll collaborate on game features, tooling, and platform integrations across mobile and desktop Unity projects. We value clean code, good communication, and an eye for detail in interactive experiences.",
+        "requirements": [
+          "2+ years of professional Unity development",
+          "Experience shipping mobile or desktop games to app stores",
+          "Proficiency with Unity UI Toolkit or uGUI",
+          "Solid understanding of C# and object-oriented design patterns",
+          "Experience with physics, animation controllers, and input systems is a plus"
+        ],
+        "emailSubject": "Application: Unity Developer"
+      },
+      {
+        "slug": "3d-blender-artist",
+        "title": "3D Blender Artist",
+        "type": "Freelance",
+        "department": "creative",
+        "description": "Create high-quality 3D models, animations, and visual assets for games and apps. You'll collaborate closely on art direction and asset pipeline.",
+        "extendedDescription": "You'll produce 3D models, textures, and animations that feed directly into our game and app projects. We're looking for someone who can work efficiently within art direction guidelines while also bringing their own creative input.",
+        "requirements": [
+          "Proficiency in Blender (modeling, rigging, animation)",
+          "Experience creating game-ready assets with optimized poly counts",
+          "Strong understanding of PBR materials and texture pipelines",
+          "Portfolio demonstrating 3D work (required)",
+          "Experience with Unity or Unreal asset export is a plus"
+        ],
+        "emailSubject": "Application: 3D Blender Artist"
+      },
+      {
+        "slug": "content-manager",
+        "title": "Content Manager",
+        "type": "Freelance",
+        "department": "creative",
+        "description": "Own content creation and editorial planning across Aralel's channels — from store listings and social media to product copy and blog posts.",
+        "extendedDescription": "You'll manage the editorial calendar, write and edit content for web, app stores, and social channels, and help grow Aralel's online presence. This is a part-time, async-friendly freelance role with a lot of creative ownership.",
+        "requirements": [
+          "Experience creating content for digital brands or software products",
+          "Strong writing and editing skills in English (German is a plus)",
+          "Familiarity with SEO best practices and content planning",
+          "Comfortable managing social media channels and editorial calendars",
+          "Experience with app store optimization (ASO) is a bonus"
+        ],
+        "emailSubject": "Application: Content Manager"
+      },
+      {
+        "slug": "customer-success-specialist",
+        "title": "Customer Success Specialist",
+        "type": "Freelance",
+        "department": "customer-experience",
+        "description": "Support our users across apps and games — handling inquiries, gathering feedback, and making sure every interaction leaves a good impression.",
+        "extendedDescription": "You'll be the first point of contact for user questions and feedback. This role is lightweight but meaningful — we want someone who genuinely cares about users and can help us close the loop between product and the people using it.",
+        "requirements": [
+          "Experience in customer support, success, or community management",
+          "Strong written communication skills in English (German is a plus)",
+          "Comfortable using support tools (Zendesk, Intercom, or similar)",
+          "Proactive mindset with attention to detail",
+          "Interest in apps, games, or digital products is a bonus"
+        ],
+        "emailSubject": "Application: Customer Success Specialist"
+      },
+      {
+        "slug": "part-time-ceo",
+        "title": "Part-time CEO",
+        "type": "Part-time",
+        "department": "leadership",
+        "description": "Lead company direction, business development, partnerships, and operations on a part-time basis. Looking for entrepreneurial experience and a hands-on mindset.",
+        "extendedDescription": "Aralel is a lean, product-driven company. We're looking for a part-time CEO who can bring strategic clarity, build external relationships, and help move the business forward — without bureaucracy. This is a rare opportunity to co-shape a focused software studio.",
+        "requirements": [
+          "Proven entrepreneurial or executive leadership experience",
+          "Strong network in tech, gaming, or digital product industries",
+          "Ability to drive business development and strategic partnerships",
+          "Comfortable operating in a lean, remote-first environment",
+          "Passion for digital products and software craftsmanship"
+        ],
+        "emailSubject": "Application: Part-time CEO"
+      }
+    ]
   },
   "catalog": {
     "app": {

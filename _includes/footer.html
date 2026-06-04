@@ -5,12 +5,14 @@
 {% assign games_url = "/games_en.html" %}
 {% assign arena_url = "/games/arena-sudoku_en.html" %}
 {% assign availabell_url = "/apps/availabell_en.html" %}
+{% assign careers_url = "/careers_en.html" %}
 {% if locale_code == "de" %}
   {% assign home_url = "/index.html" %}
   {% assign apps_url = "/apps.html" %}
   {% assign games_url = "/games.html" %}
   {% assign arena_url = "/games/arena-sudoku.html" %}
   {% assign availabell_url = "/apps/availabell.html" %}
+  {% assign careers_url = "/careers.html" %}
 {% endif %}
 
 <footer class="site-footer">
@@ -35,6 +37,7 @@
       <ul>
         <li><a href="{{ home_url | relative_url }}#about">{{ t.footer.about }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
+        <li><a href="{{ careers_url | relative_url }}">{{ t.footer.careers }}</a></li>
         {% if locale_code == "de" %}
           <li><a href="{{ '/datenschutz.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
           <li><a href="{{ '/impressum.html' | relative_url }}">{{ t.footer.impressum }}</a></li>

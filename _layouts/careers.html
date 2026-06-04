@@ -1,0 +1,71 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign careers = t.careers %}
+{% assign suffix = "" %}
+{% if locale_code == "en" %}
+  {% assign suffix = "_en" %}
+{% endif %}
+{% assign department_order = "engineering,creative,customer-experience,leadership" | split: "," %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ t.pages.careers.title | jsonify }},
+  "description": {{ t.pages.careers.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "about": {
+    "@type": "Organization",
+    "name": "Aralel GmbH",
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
+
+<main class="careers-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ careers.hero.kicker }}</span>
+      <h1>{{ careers.hero.title }}</h1>
+      <p>{{ careers.hero.text }}</p>
+    </div>
+  </section>
+
+  <section class="careers-section">
+    {% for department_slug in department_order %}
+      {% assign department_roles = careers.roles | where: "department", department_slug %}
+      {% if department_roles.size > 0 %}
+        <div class="careers-department">
+          <div class="careers-department-header">
+            <h2 class="careers-department-title">{{ careers.departments[department_slug] }}</h2>
+            <span class="careers-department-count">{{ department_roles.size }}</span>
+          </div>
+          <div class="careers-grid">
+            {% for role in department_roles %}
+              {% assign job_detail_url = "/careers/" | append: role.slug | append: suffix | append: ".html" %}
+              <article class="career-card">
+                <div class="career-card-top">
+                  <span class="career-type-badge">{{ role.type }}</span>
+                </div>
+                <h3 class="career-title">
+                  <a class="career-title-link" href="{{ job_detail_url | relative_url }}">{{ role.title }}</a>
+                </h3>
+                <p class="career-description">{{ role.description }}</p>
+                <div class="career-actions">
+                  <a class="cta-button" href="{{ job_detail_url | relative_url }}">
+                    {{ t.common.learnMore }}
+                  </a>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+</main>

@@ -24,12 +24,20 @@
   {% assign page_copy = t.pages[page.page_key] %}
 {% endif %}
 
+{% assign career_role = nil %}
+{% if page.job_slug %}
+  {% assign career_role = t.careers.roles | where: "slug", page.job_slug | first %}
+{% endif %}
+
 {% assign resolved_title = page.page_title %}
 {% if resolved_title == nil and page_copy %}
   {% assign resolved_title = page_copy.title %}
 {% endif %}
 {% if resolved_title == nil and product_copy %}
   {% assign resolved_title = product_copy.name | append: " - Aralel GmbH" %}
+{% endif %}
+{% if resolved_title == nil and career_role %}
+  {% assign resolved_title = career_role.title | append: " – Aralel GmbH" %}
 {% endif %}
 {% if resolved_title == nil and t.site.defaultTitle %}
   {% assign resolved_title = t.site.defaultTitle %}
@@ -44,6 +52,9 @@
 {% endif %}
 {% if resolved_description == nil and product_copy %}
   {% assign resolved_description = product_copy.metaDescription %}
+{% endif %}
+{% if resolved_description == nil and career_role %}
+  {% assign resolved_description = career_role.extendedDescription %}
 {% endif %}
 {% if resolved_description == nil and t.site.defaultDescription %}
   {% assign resolved_description = t.site.defaultDescription %}
