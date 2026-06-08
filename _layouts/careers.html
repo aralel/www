@@ -19,11 +19,9 @@ body_class: subpage
   "description": {{ t.pages.careers.description | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
   "inLanguage": {{ locale_code | jsonify }},
-  "about": {
-    "@type": "Organization",
-    "name": "Aralel GmbH",
-    "url": {{ site.url | jsonify }}
-  }
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "publisher": { "@id": "{{ site.url }}/#organization" },
+  "about": { "@id": "{{ site.url }}/#organization" }
 }
 </script>
 

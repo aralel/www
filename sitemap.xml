@@ -3,7 +3,8 @@ layout: none
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {% for node in site.html_pages %}
   {% assign skip_node = false %}
   {% if node.url contains '/available/' or node.url contains '/join/' %}
@@ -19,6 +20,17 @@ permalink: /sitemap.xml
   <url>
     <loc>{{ node.url | absolute_url }}</loc>
     <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {% if node.locale and node.switch_url %}
+      {% if node.locale == "de" %}
+    <xhtml:link rel="alternate" hreflang="de" href="{{ node.url | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="{{ node.switch_url | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ node.switch_url | absolute_url }}"/>
+      {% else %}
+    <xhtml:link rel="alternate" hreflang="en" href="{{ node.url | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="de" href="{{ node.switch_url | absolute_url }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ node.url | absolute_url }}"/>
+      {% endif %}
+    {% endif %}
   </url>
   {% endunless %}
 {% endfor %}

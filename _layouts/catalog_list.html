@@ -7,15 +7,41 @@ body_class: subpage
 {% assign t = site.data.locales[page.locale] %}
 {% assign page_meta = t.pages[page.page_key] %}
 {% assign catalog = t.catalog[page.catalog_type] %}
+{% assign detail_dir = "games" %}
+{% if page.catalog_type == "app" %}{% assign detail_dir = "apps" %}{% endif %}
+{% assign detail_suffix = "" %}
+{% if page.locale == "en" %}{% assign detail_suffix = "_en" %}{% endif %}
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": {{ page_meta.title | jsonify }},
-  "description": {{ page_meta.description | jsonify }},
-  "url": {{ page.url | absolute_url | jsonify }},
-  "inLanguage": {{ page.locale | jsonify }}
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ page.url | absolute_url }}#webpage",
+      "name": {{ page_meta.title | jsonify }},
+      "description": {{ page_meta.description | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "inLanguage": {{ page.locale | jsonify }},
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "itemListElement": [
+        {% for product in products %}
+        {% assign product_copy = t.products[product.slug] %}
+        {% assign detail_url = "/" | append: detail_dir | append: "/" | append: product.slug | append: detail_suffix | append: ".html" %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": {{ product_copy.name | jsonify }},
+          "url": {{ detail_url | absolute_url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  ]
 }
 </script>
 

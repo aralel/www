@@ -49,19 +49,58 @@ body_class: subpage
   </section>
 </main>
 {% else %}
+{% assign platform_names = "" %}
+{% for platform_key in product.platforms %}
+  {% case platform_key %}
+    {% when "iphone" %}{% assign platform_names = platform_names | append: "iOS, " %}
+    {% when "android" %}{% assign platform_names = platform_names | append: "Android, " %}
+    {% when "amazon" %}{% assign platform_names = platform_names | append: "Amazon Fire, " %}
+    {% when "desktop" %}{% assign platform_names = platform_names | append: "macOS, " %}
+    {% when "website" %}{% assign platform_names = platform_names | append: "Web, " %}
+  {% endcase %}
+{% endfor %}
+{% assign operating_systems = platform_names | split: ", " | join: ", " %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": {% if is_app %}"SoftwareApplication"{% else %}"VideoGame"{% endif %},
-  "name": {{ copy.name | jsonify }},
-  "description": {{ copy.metaDescription | jsonify }},
-  "url": {{ page.url | absolute_url | jsonify }},
-  "image": {{ product.iconUrl | jsonify }},
-  "publisher": {
-    "@type": "Organization",
-    "name": "Aralel GmbH",
-    "url": {{ site.url | jsonify }}
-  }
+  "@graph": [
+    {
+      "@type": {% if is_app %}"SoftwareApplication"{% else %}"VideoGame"{% endif %},
+      "@id": "{{ page.url | absolute_url }}#product",
+      "name": {{ copy.name | jsonify }},
+      "description": {{ copy.metaDescription | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "image": {{ product.iconUrl | jsonify }},
+      "applicationCategory": {% if is_app %}"UtilitiesApplication"{% else %}"GameApplication"{% endif %},
+      {% if operating_systems != "" %}"operatingSystem": {{ operating_systems | jsonify }},{% endif %}
+      "inLanguage": {{ page.locale | jsonify }},
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "publisher": { "@id": "{{ site.url }}/#organization" },
+      "author": { "@id": "{{ site.url }}/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ listing_label | jsonify }},
+          "item": {{ listing_url | relative_url | absolute_url | jsonify }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ copy.name | jsonify }},
+          "item": {{ page.url | absolute_url | jsonify }}
+        }
+      ]
+    }
+  ]
 }
 </script>
 

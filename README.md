@@ -92,6 +92,19 @@ To add or update a product:
 
 Set `hidden` to `true` when a product should be removed from homepage cards, catalog pages, platform pages, and the sitemap without deleting its catalog entry. Hidden product detail pages are also marked `noindex`.
 
+## SEO, Google & AI Discoverability
+
+The site is optimized for search engines, Google rich results, and AI assistants:
+
+- **Per-page metadata** is resolved centrally in [`_includes/head.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/_includes/head.html): title, description, canonical, `hreflang` (`de` / `en` / `x-default`), Open Graph, Twitter cards, and robots directives (`max-image-preview:large`).
+- **Structured data (JSON-LD).** A sitewide `@graph` in the head defines a rich `Organization` (`#organization`) and `WebSite` (`#website`) entity; page layouts reference these via `@id` and add page-specific types: `WebPage`, `CollectionPage` + `ItemList` (listings), `SoftwareApplication` / `VideoGame` + `offers` + `BreadcrumbList` (products), `JobPosting` (careers, Google-rich-result compliant), `Service` + `OfferCatalog` (services), and `AboutPage` (company).
+- **[`sitemap.xml`](/Users/maysam/Workspace/aralel/aralel-software-studios/sitemap.xml)** lists all indexable pages with `lastmod` and `xhtml:link` hreflang alternates for each bilingual pair. Hidden products and internal pages are excluded.
+- **[`robots.txt`](/Users/maysam/Workspace/aralel/aralel-software-studios/robots.txt)** explicitly welcomes search-engine and AI crawlers (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot, CCBot, …) and points to the sitemap.
+- **[`llms.txt`](/Users/maysam/Workspace/aralel/aralel-software-studios/llms.txt)** provides AI assistants a concise, build-time-generated markdown map of the company, apps, games, platform pages, and legal pages.
+- **Performance hints:** `preconnect` / `dns-prefetch` for the icon-font and app-store image CDNs.
+
+These are driven by data — adding a product, role, or service automatically updates the sitemap, structured data, and `llms.txt` on the next build.
+
 ## Notes
 
 - The repo still contains some standalone utility pages such as [`market.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/market.html) and [`map.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/map.html).

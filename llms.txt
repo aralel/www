@@ -1,0 +1,45 @@
+---
+layout: none
+permalink: /llms.txt
+---
+{%- assign t = site.data.locales["en"] -%}
+{%- assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" -%}
+{%- assign apps = visible_products | where: "type", "app" -%}
+{%- assign games = visible_products | where: "type", "game" -%}
+# Aralel GmbH
+
+> {{ t.site.defaultDescription }}
+
+Aralel GmbH is a software studio based in Aachen, Germany, building web, mobile, and desktop products. We publish our own games and apps and offer software development services. The site is available in English and German (hreflang `en` / `de`).
+
+- Base URL: {{ site.url }}
+- Contact: contact@aralel.com
+- Languages: English ({{ site.url }}/en.html), German ({{ site.url }}/index.html)
+
+## Company
+
+- [About Aralel]({{ site.url }}/company_en.html): {{ t.pages.company.description }}
+- [Services]({{ site.url }}/services_en.html): {{ t.pages.services.description }}
+- [Careers]({{ site.url }}/careers_en.html): {{ t.pages.careers.description }}
+
+## Apps
+{% for product in apps %}{% assign copy = t.products[product.slug] %}
+- [{{ copy.name }}]({{ site.url }}/apps/{{ product.slug }}_en.html): {{ copy.metaDescription }}{% endfor %}
+
+## Games
+{% for product in games %}{% assign copy = t.products[product.slug] %}
+- [{{ copy.name }}]({{ site.url }}/games/{{ product.slug }}_en.html): {{ copy.metaDescription }}{% endfor %}
+
+## Catalog by platform
+
+- [iPhone / iOS]({{ site.url }}/iphone_en.html)
+- [Android]({{ site.url }}/android_en.html)
+- [Amazon Appstore]({{ site.url }}/amazon_en.html)
+- [Desktop]({{ site.url }}/desktop_en.html)
+- [Websites]({{ site.url }}/websites_en.html)
+
+## Legal
+
+- [Legal Notice / Impressum]({{ site.url }}/impressum_en.html)
+- [Privacy Policy]({{ site.url }}/privacy-policy.html)
+- [Sitemap]({{ site.url }}/sitemap.xml)

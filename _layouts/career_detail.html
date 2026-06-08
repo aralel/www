@@ -13,6 +13,20 @@ body_class: subpage
 {% assign careers_url = "/careers" | append: suffix | append: ".html" %}
 {% assign department_name = careers.departments[role.department] %}
 
+{% assign role_type_normalized = role.type | downcase %}
+{% assign employment_type = "CONTRACTOR" %}
+{% if role_type_normalized contains "full" %}
+  {% assign employment_type = "FULL_TIME" %}
+{% elsif role_type_normalized contains "part" %}
+  {% assign employment_type = "PART_TIME" %}
+{% elsif role_type_normalized contains "intern" %}
+  {% assign employment_type = "INTERN" %}
+{% elsif role_type_normalized contains "temp" %}
+  {% assign employment_type = "TEMPORARY" %}
+{% endif %}
+{% assign date_posted = page.date | default: site.time | date: "%Y-%m-%d" %}
+{% assign valid_through = page.date | default: site.time | date: "%s" | plus: 7776000 | date: "%Y-%m-%d" %}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -21,11 +35,37 @@ body_class: subpage
   "description": {{ role.extendedDescription | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
   "inLanguage": {{ locale_code | jsonify }},
-  "employmentType": {{ role.type | jsonify }},
+  "datePosted": {{ date_posted | jsonify }},
+  "validThrough": {{ valid_through | jsonify }},
+  "employmentType": {{ employment_type | jsonify }},
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Aralel GmbH",
+    "value": {{ role.slug | jsonify }}
+  },
+  "industry": {{ department_name | jsonify }},
+  "directApply": true,
   "hiringOrganization": {
     "@type": "Organization",
+    "@id": "{{ site.url }}/#organization",
     "name": "Aralel GmbH",
-    "url": {{ site.url | jsonify }}
+    "sameAs": {{ site.url | jsonify }},
+    "logo": "{{ '/images/aralel-logo.png' | absolute_url }}"
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Josefstr 66",
+      "postalCode": "52080",
+      "addressLocality": "Aachen",
+      "addressCountry": "DE"
+    }
+  },
+  "jobLocationType": "TELECOMMUTE",
+  "applicantLocationRequirements": {
+    "@type": "Country",
+    "name": "Germany"
   }
 }
 </script>

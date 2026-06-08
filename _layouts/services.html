@@ -13,11 +13,8 @@ body_class: subpage
   "name": {{ services.hero.title | jsonify }},
   "description": {{ t.pages.services.description | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
-  "provider": {
-    "@type": "Organization",
-    "name": "Aralel GmbH",
-    "url": {{ site.url | jsonify }}
-  },
+  "inLanguage": {{ locale_code | jsonify }},
+  "provider": { "@id": "{{ site.url }}/#organization" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": {{ services.introTitle | jsonify }},

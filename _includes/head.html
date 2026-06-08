@@ -126,9 +126,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ resolved_title | escape }}</title>
 <meta name="description" content="{{ resolved_description | escape }}">
-<meta name="robots" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow{% endif %}">
+<meta name="robots" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endif %}">
+<meta name="googlebot" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1{% endif %}">
+<meta name="author" content="Aralel GmbH">
+<meta name="publisher" content="Aralel GmbH">
 <meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="content-language" content="{{ locale_code }}">
 <link rel="canonical" href="{{ canonical_url }}">
+
+<!-- Resource hints: speed up loading of the icon font and store/asset CDNs -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+<link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+<link rel="dns-prefetch" href="https://m.media-amazon.com">
 {% if alternate_url %}
   {% if locale_code == "de" %}
     <link rel="alternate" hreflang="en" href="{{ alternate_url }}">
@@ -143,6 +155,7 @@
 <meta property="og:title" content="{{ resolved_title | escape }}">
 <meta property="og:description" content="{{ resolved_description | escape }}">
 <meta property="og:image" content="{{ resolved_image }}">
+<meta property="og:image:alt" content="{{ resolved_title | escape }}">
 <meta property="og:site_name" content="{{ t.site.defaultTitle | default: site.title | escape }}">
 <meta property="og:locale" content="{{ og_locale }}">
 <meta property="og:locale:alternate" content="{{ alternate_locale }}">
@@ -163,4 +176,57 @@
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- Sitewide structured data: Organization + WebSite. Linked by @id so detail-page
+     schema (Product, JobPosting, …) can reference the same canonical entities. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.url }}/#organization",
+      "name": "Aralel GmbH",
+      "legalName": "Aralel GmbH",
+      "url": "{{ site.url }}/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ '/images/aralel-logo.png' | absolute_url }}",
+        "caption": "Aralel GmbH"
+      },
+      "image": "{{ '/images/aralel-logo.png' | absolute_url }}",
+      "description": {{ t.site.defaultDescription | default: site.description | jsonify }},
+      "email": "contact@aralel.com",
+      "vatID": "DE461077402",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Josefstr 66",
+        "postalCode": "52080",
+        "addressLocality": "Aachen",
+        "addressCountry": "DE"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@aralel.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "German"]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/aralel",
+        "https://www.github.com/aralel",
+        "https://www.instagram.com/aralelss",
+        "https://bsky.app/profile/aralel.bsky.social"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "Aralel GmbH",
+      "description": {{ t.site.defaultDescription | default: site.description | jsonify }},
+      "inLanguage": {{ locale_code | jsonify }},
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    }
+  ]
+}
+</script>
 <!-- Google AdSense is loaded conditionally via cookie-consent.js after marketing consent is granted -->

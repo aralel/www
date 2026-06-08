@@ -14,17 +14,15 @@ body_class: home-page
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Aralel GmbH",
-  "url": "{{ site.url }}",
-  "logo": "{{ '/images/aralel-logo.png' | absolute_url }}",
+  "@type": "WebPage",
+  "@id": "{{ page.url | absolute_url }}#webpage",
+  "url": "{{ page.url | absolute_url }}",
+  "name": {{ t.pages.home.title | jsonify }},
   "description": {{ t.pages.home.description | jsonify }},
-  "sameAs": [
-    "https://www.linkedin.com/company/aralel",
-    "https://www.github.com/aralel",
-    "https://www.instagram.com/aralelss",
-    "https://bsky.app/profile/aralel.bsky.social"
-  ]
+  "inLanguage": {{ page.locale | jsonify }},
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "about": { "@id": "{{ site.url }}/#organization" },
+  "publisher": { "@id": "{{ site.url }}/#organization" }
 }
 </script>
 
