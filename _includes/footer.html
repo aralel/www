@@ -5,6 +5,8 @@
 {% assign games_url = "/games_en.html" %}
 {% assign arena_url = "/games/arena-sudoku_en.html" %}
 {% assign availabell_url = "/apps/availabell_en.html" %}
+{% assign services_url = "/services_en.html" %}
+{% assign company_url = "/company_en.html" %}
 {% assign careers_url = "/careers_en.html" %}
 {% if locale_code == "de" %}
   {% assign home_url = "/index.html" %}
@@ -12,6 +14,8 @@
   {% assign games_url = "/games.html" %}
   {% assign arena_url = "/games/arena-sudoku.html" %}
   {% assign availabell_url = "/apps/availabell.html" %}
+  {% assign services_url = "/services.html" %}
+  {% assign company_url = "/company.html" %}
   {% assign careers_url = "/careers.html" %}
 {% endif %}
 
@@ -35,7 +39,8 @@
     <div class="footer-section">
       <h3>{{ t.footer.companyTitle }}</h3>
       <ul>
-        <li><a href="{{ home_url | relative_url }}#about">{{ t.footer.about }}</a></li>
+        <li><a href="{{ company_url | relative_url }}">{{ t.footer.about }}</a></li>
+        <li><a href="{{ services_url | relative_url }}">{{ t.footer.services }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
         <li><a href="{{ careers_url | relative_url }}">{{ t.footer.careers }}</a></li>
         {% if locale_code == "de" %}

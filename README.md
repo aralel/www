@@ -59,6 +59,8 @@ The generated output is written to `_site/`.
 - [`apps_en.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/apps_en.html): English apps listing
 - [`games.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/games.html): German games listing
 - [`games_en.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/games_en.html): English games listing
+- [`services.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/services.html) / [`services_en.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/services_en.html): software services page (DE / EN)
+- [`company.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/company.html) / [`company_en.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/company_en.html): company / about page (DE / EN)
 
 Product detail pages live under:
 

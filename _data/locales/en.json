@@ -39,12 +39,21 @@
     "careers": {
       "title": "Careers – Aralel GmbH",
       "description": "We're hiring freelancers and part-time collaborators. View open roles at Aralel GmbH."
+    },
+    "services": {
+      "title": "Services – Aralel GmbH",
+      "description": "Aralel is a software partner for hire: extra engineering capacity, code and product audits, web applications, mobile apps, automation, and digitalization."
+    },
+    "company": {
+      "title": "Company – Aralel GmbH",
+      "description": "About Aralel GmbH — a software studio building and operating digital products for web, mobile, and desktop, and a partner for teams that need software built well."
     }
   },
   "nav": {
     "home": "Home",
     "apps": "Apps",
     "games": "Games",
+    "services": "Services",
     "about": "Company",
     "contact": "Contact",
     "careers": "Careers",
@@ -111,6 +120,7 @@
     "languageTitle": "Language",
     "about": "Company",
     "contact": "Contact",
+    "services": "Services",
     "careers": "Careers",
     "privacy": "Privacy",
     "impressum": "Legal Notice",
@@ -288,6 +298,191 @@
         "emailSubject": "Application: Part-time CEO"
       }
     ]
+  },
+  "services": {
+    "hero": {
+      "kicker": "Services",
+      "title": "Software specialists for hire",
+      "text": "Beyond our own products, Aralel works as a software partner. Whether you need extra hands on a running project, an independent audit, or a new application built from scratch, we bring product thinking and engineering quality to your team."
+    },
+    "introTitle": "How we can help",
+    "introText": "We are software specialists. We plug into existing teams to add capacity, review and de-risk what you already have, and design and build new web, mobile, and automation projects end to end.",
+    "ctaLabel": "Discuss a project",
+    "ctaUrl": "mailto:contact@aralel.com?subject=Project%20inquiry",
+    "form": {
+      "title": "Discuss a project",
+      "subtitle": "Tell us what you need help with and we'll get back to you.",
+      "subjectValue": "Project inquiry",
+      "placeholders": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "subject": "Subject",
+        "message": "Tell us about your project"
+      },
+      "submitLabel": "Send Message"
+    },
+    "groups": [
+      {
+        "slug": "partner",
+        "icon": "fa-handshake-angle",
+        "title": "Team & advisory",
+        "summary": "Plug us into your team for extra capacity, an independent review, or long-term upkeep.",
+        "items": [
+          {
+            "icon": "fa-users",
+            "title": "Extra capacity & expert help",
+            "text": "Need more man hours or specialist support on a running project? We integrate with your team to add capacity, unblock delivery, and keep momentum — without lowering the bar."
+          },
+          {
+            "icon": "fa-clipboard-check",
+            "title": "Code & product audits",
+            "text": "An independent review of your codebase, architecture, or product. We surface risks, technical debt, and quick wins with clear, actionable recommendations."
+          },
+          {
+            "icon": "fa-life-ring",
+            "title": "Maintenance & support",
+            "text": "We keep shipped products healthy across every store — updates, bug fixes, OS and SDK upgrades, and ongoing support so your app stays live and reliable."
+          }
+        ]
+      },
+      {
+        "slug": "build",
+        "icon": "fa-cubes",
+        "title": "Product development",
+        "summary": "Web, mobile, and cross-platform products designed and built end to end.",
+        "items": [
+          {
+            "icon": "fa-window-maximize",
+            "title": "Web applications",
+            "text": "Custom web apps built for real usage — from internal tools to customer-facing platforms — with clean architecture and code that stays maintainable."
+          },
+          {
+            "icon": "fa-mobile-screen",
+            "title": "Mobile apps",
+            "text": "Native mobile apps for iOS and Android, shipped to the stores and built to last."
+          },
+          {
+            "icon": "fa-layer-group",
+            "title": "Cross-platform delivery",
+            "text": "One product on every platform. We build experiences that run on web, iOS, and Android from a shared codebase — the same approach behind our own Arena Sudoku."
+          },
+          {
+            "icon": "fa-pen-ruler",
+            "title": "UX & product design",
+            "text": "Clear, focused interfaces designed around real usage — from product thinking and flows to polished, consistent UI."
+          },
+          {
+            "icon": "fa-gamepad",
+            "title": "Game development & gamification",
+            "text": "Interactive and game experiences in Unity, plus gamified engagement layers — points, streaks, and leaderboards — for non-game products."
+          }
+        ]
+      },
+      {
+        "slug": "connectivity",
+        "icon": "fa-bluetooth-b",
+        "iconStyle": "fab",
+        "title": "Bluetooth, devices & connectivity",
+        "summary": "Bluetooth and BLE apps, realtime multiplayer, and connected-device integrations.",
+        "items": [
+          {
+            "icon": "fa-bluetooth-b",
+            "iconStyle": "fab",
+            "title": "Bluetooth & BLE apps",
+            "text": "Apps that talk to nearby phones and hardware over Bluetooth and Bluetooth LE — pairing, advertising, and local sessions. It's the core of our Rock Paper Bluetooth and Wireless Deck products."
+          },
+          {
+            "icon": "fa-tower-broadcast",
+            "title": "Realtime & multiplayer",
+            "text": "Live, shared state across devices with WebSockets — multiplayer sessions, synced boards, scoring, and leaderboards, as in our realtime Arena Sudoku."
+          },
+          {
+            "icon": "fa-microchip",
+            "title": "Connected devices & diagnostics",
+            "text": "Wireless scanning, signal inspection, and device integrations on the edge between software and hardware — the kind of work behind our Wi-Fi and BLE radar tooling."
+          }
+        ]
+      },
+      {
+        "slug": "reach",
+        "icon": "fa-globe",
+        "title": "Reach, localization & compliance",
+        "summary": "Ship to every store, in every language, with privacy built in.",
+        "items": [
+          {
+            "icon": "fa-store",
+            "title": "Multi-store release & ASO",
+            "text": "Release management and store optimization across the App Store, Google Play, Amazon Appstore, and the Mac App Store — listings, assets, review, and compliance. We publish to all of them."
+          },
+          {
+            "icon": "fa-language",
+            "title": "Localization & RTL",
+            "text": "Multilingual products done right, including full right-to-left support and Arabic shaping — the same i18n work behind our German-learning apps and Ad Verbum."
+          },
+          {
+            "icon": "fa-shield-halved",
+            "title": "Privacy-first & GDPR engineering",
+            "text": "Offline-by-design, no-telemetry architectures and GDPR/DSGVO-compliant builds — privacy treated as a feature, not an afterthought."
+          }
+        ]
+      },
+      {
+        "slug": "operations",
+        "icon": "fa-gears",
+        "title": "Automation & digitalization",
+        "summary": "Automate manual work, modernize processes, and add intelligent features.",
+        "items": [
+          {
+            "icon": "fa-robot",
+            "title": "Automation",
+            "text": "Automate repetitive work and connect your tools. We design and build automations and integrations that remove manual effort and reduce errors."
+          },
+          {
+            "icon": "fa-arrows-rotate",
+            "title": "Digitalization",
+            "text": "Turn manual, paper-based, or fragmented processes into reliable digital workflows. We help you digitalize and modernize how your business operates."
+          },
+          {
+            "icon": "fa-wand-magic-sparkles",
+            "title": "AI integration",
+            "text": "Bring AI into your product where it actually helps — assistants, search, classification, and content features wired into your existing apps and data."
+          },
+          {
+            "icon": "fa-calculator",
+            "title": "Complex logic & data",
+            "text": "Non-trivial computation done right — precise algorithms, calculation engines, and data-heavy logic, like the astronomical engine in our Solar Compass."
+          }
+        ]
+      }
+    ]
+  },
+  "company": {
+    "hero": {
+      "kicker": "Company",
+      "title": "About Aralel",
+      "text": "Aralel GmbH is a software studio that builds and operates digital products for the web, mobile, and desktop — and a partner for teams that need software built well."
+    },
+    "blocks": [
+      {
+        "title": "What Aralel stands for",
+        "text": "Aralel builds digital products with an emphasis on clarity, engineering quality, and long-term maintainability. We work across applications, websites, and interactive experiences built for real usage."
+      },
+      {
+        "title": "How we work",
+        "text": "Our process combines product thinking, design, and engineering. The goal is not surface-level presence but durable products with clean execution, understandable structure, and a consistent user experience."
+      },
+      {
+        "title": "What we build",
+        "text": "We design, build, and operate web apps, mobile apps for iOS and Android, and desktop software for Mac. Our public portfolio spans utilities, education, and games — each documented with what it is, which platforms it runs on, and how to access it."
+      },
+      {
+        "title": "Work with us",
+        "text": "Beyond our own portfolio, we work as a software partner — adding capacity to existing teams, auditing codebases, and building web apps, mobile apps, automations, and digitalization projects."
+      }
+    ],
+    "servicesCtaLabel": "Explore our services",
+    "contactCtaLabel": "Get in touch",
+    "imageAlt": "Aralel GmbH logo on an illuminated office reception wall"
   },
   "catalog": {
     "app": {

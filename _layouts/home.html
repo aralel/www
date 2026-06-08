@@ -6,6 +6,10 @@ body_class: home-page
 {% assign apps = visible_products | where: "type", "app" %}
 {% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
+{% assign services_url = "/services_en.html" %}
+{% if page.locale == "de" %}
+  {% assign services_url = "/services.html" %}
+{% endif %}
 
 <script type="application/ld+json">
 {
@@ -71,26 +75,23 @@ body_class: home-page
     </div>
   </section>
 
-  <section id="about" class="about-section">
-    <div class="about-content">
-      <div class="section-title-container">
-        <h2 class="section-title">{{ t.home.about.title }}</h2>
-        <div class="title-decoration"></div>
-        <p class="section-subtitle">{{ t.home.about.subtitle }}</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-image">
-          <div class="about-image-overlay"></div>
-        </div>
-
-        <div class="about-text">
-          {% for block in t.home.about.blocks %}
-            <h3>{{ block.title }}</h3>
-            <p>{{ block.text }}</p>
-          {% endfor %}
-        </div>
-      </div>
+  <section id="services" class="services-section">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ t.services.hero.title }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ t.services.introText }}</p>
+    </div>
+    <div class="services-grid">
+      {% for group in t.services.groups %}
+        <a class="service-card service-card--link" href="{{ services_url | relative_url }}#{{ group.slug }}">
+          <span class="service-icon"><i class="{{ group.iconStyle | default: 'fas' }} {{ group.icon }}"></i></span>
+          <h3 class="service-title">{{ group.title }}</h3>
+          <p class="service-text">{{ group.summary }}</p>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="section-link-row">
+      <a href="{{ services_url | relative_url }}" class="learn-more">{{ t.services.ctaLabel }}</a>
     </div>
   </section>
 

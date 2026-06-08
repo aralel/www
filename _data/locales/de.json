@@ -39,12 +39,21 @@
     "careers": {
       "title": "Karriere – Aralel GmbH",
       "description": "Wir suchen Freelancer und Teilzeit-Mitarbeitende. Offene Stellen bei der Aralel GmbH."
+    },
+    "services": {
+      "title": "Leistungen – Aralel GmbH",
+      "description": "Aralel als Software-Partner: zusätzliche Entwicklungskapazität, Code- und Produkt-Audits, Webanwendungen, Mobile-Apps, Automatisierung und Digitalisierung."
+    },
+    "company": {
+      "title": "Unternehmen – Aralel GmbH",
+      "description": "Über die Aralel GmbH — ein Software-Studio, das digitale Produkte für Web, Mobile und Desktop entwickelt und betreibt, und Partner für Teams, die Software in guter Qualität brauchen."
     }
   },
   "nav": {
     "home": "Start",
     "apps": "Apps",
     "games": "Spiele",
+    "services": "Leistungen",
     "about": "Unternehmen",
     "contact": "Kontakt",
     "careers": "Karriere",
@@ -111,6 +120,7 @@
     "languageTitle": "Sprache",
     "about": "Unternehmen",
     "contact": "Kontakt",
+    "services": "Leistungen",
     "careers": "Karriere",
     "privacy": "Datenschutz",
     "impressum": "Impressum",
@@ -288,6 +298,191 @@
         "emailSubject": "Bewerbung: Teilzeit-CEO"
       }
     ]
+  },
+  "services": {
+    "hero": {
+      "kicker": "Leistungen",
+      "title": "Software-Spezialisten zum Mitarbeiten",
+      "text": "Über unsere eigenen Produkte hinaus arbeitet Aralel als Software-Partner. Ob Sie zusätzliche Hände für ein laufendes Projekt, ein unabhängiges Audit oder eine neue Anwendung von Grund auf brauchen — wir bringen Produktdenken und technische Qualität in Ihr Team."
+    },
+    "introTitle": "Wie wir helfen können",
+    "introText": "Wir sind Software-Spezialisten. Wir integrieren uns in bestehende Teams, um Kapazität zu schaffen, prüfen und entschärfen, was Sie bereits haben, und konzipieren und entwickeln neue Web-, Mobile- und Automatisierungsprojekte von A bis Z.",
+    "ctaLabel": "Projekt besprechen",
+    "ctaUrl": "mailto:contact@aralel.com?subject=Projektanfrage",
+    "form": {
+      "title": "Projekt besprechen",
+      "subtitle": "Sagen Sie uns, wobei Sie Unterstützung brauchen – wir melden uns bei Ihnen.",
+      "subjectValue": "Projektanfrage",
+      "placeholders": {
+        "name": "Ihr Name",
+        "email": "Ihre E-Mail",
+        "subject": "Betreff",
+        "message": "Erzählen Sie uns von Ihrem Projekt"
+      },
+      "submitLabel": "Nachricht senden"
+    },
+    "groups": [
+      {
+        "slug": "partner",
+        "icon": "fa-handshake-angle",
+        "title": "Team & Beratung",
+        "summary": "Binden Sie uns in Ihr Team ein – für zusätzliche Kapazität, eine unabhängige Prüfung oder langfristige Pflege.",
+        "items": [
+          {
+            "icon": "fa-users",
+            "title": "Zusätzliche Kapazität & Experten-Hilfe",
+            "text": "Brauchen Sie mehr Mannstunden oder Spezialisten-Unterstützung für ein laufendes Projekt? Wir integrieren uns in Ihr Team, schaffen Kapazität, lösen Blockaden und halten das Tempo — ohne Qualitätseinbußen."
+          },
+          {
+            "icon": "fa-clipboard-check",
+            "title": "Code- & Produkt-Audits",
+            "text": "Eine unabhängige Prüfung Ihres Codes, Ihrer Architektur oder Ihres Produkts. Wir machen Risiken, technische Schulden und schnelle Verbesserungen sichtbar — mit klaren, umsetzbaren Empfehlungen."
+          },
+          {
+            "icon": "fa-life-ring",
+            "title": "Wartung & Support",
+            "text": "Wir halten veröffentlichte Produkte über alle Stores hinweg gesund — Updates, Fehlerbehebungen, OS- und SDK-Upgrades und laufender Support, damit Ihre App live und verlässlich bleibt."
+          }
+        ]
+      },
+      {
+        "slug": "build",
+        "icon": "fa-cubes",
+        "title": "Produktentwicklung",
+        "summary": "Web-, Mobile- und plattformübergreifende Produkte – von A bis Z konzipiert und gebaut.",
+        "items": [
+          {
+            "icon": "fa-window-maximize",
+            "title": "Webanwendungen",
+            "text": "Maßgeschneiderte Web-Apps für den echten Einsatz — von internen Tools bis zu kundenorientierten Plattformen — mit sauberer Architektur und wartbarem Code."
+          },
+          {
+            "icon": "fa-mobile-screen",
+            "title": "Mobile-Apps",
+            "text": "Native Mobile-Apps für iOS und Android, in die Stores ausgeliefert und auf Langlebigkeit gebaut."
+          },
+          {
+            "icon": "fa-layer-group",
+            "title": "Plattformübergreifende Auslieferung",
+            "text": "Ein Produkt auf jeder Plattform. Wir bauen Erlebnisse, die aus einer gemeinsamen Codebasis auf Web, iOS und Android laufen — derselbe Ansatz wie hinter unserem Arena Sudoku."
+          },
+          {
+            "icon": "fa-pen-ruler",
+            "title": "UX & Produktdesign",
+            "text": "Klare, fokussierte Oberflächen, gestaltet rund um die reale Nutzung — von Produktdenken und Abläufen bis zu poliertem, konsistentem UI."
+          },
+          {
+            "icon": "fa-gamepad",
+            "title": "Spieleentwicklung & Gamification",
+            "text": "Interaktive und spielerische Erlebnisse in Unity sowie gamifizierte Engagement-Ebenen — Punkte, Serien und Bestenlisten — für Nicht-Spiel-Produkte."
+          }
+        ]
+      },
+      {
+        "slug": "connectivity",
+        "icon": "fa-bluetooth-b",
+        "iconStyle": "fab",
+        "title": "Bluetooth, Geräte & Konnektivität",
+        "summary": "Bluetooth- und BLE-Apps, Echtzeit-Multiplayer und Integrationen mit vernetzten Geräten.",
+        "items": [
+          {
+            "icon": "fa-bluetooth-b",
+            "iconStyle": "fab",
+            "title": "Bluetooth- & BLE-Apps",
+            "text": "Apps, die über Bluetooth und Bluetooth LE mit nahen Geräten und Hardware kommunizieren — Pairing, Advertising und lokale Sessions. Das ist der Kern unserer Produkte Rock Paper Bluetooth und Wireless Deck."
+          },
+          {
+            "icon": "fa-tower-broadcast",
+            "title": "Echtzeit & Multiplayer",
+            "text": "Live geteilter Zustand über Geräte hinweg mit WebSockets — Multiplayer-Sessions, synchronisierte Spielfelder, Wertung und Bestenlisten, wie in unserem Echtzeit-Arena-Sudoku."
+          },
+          {
+            "icon": "fa-microchip",
+            "title": "Vernetzte Geräte & Diagnose",
+            "text": "Funkscans, Signalanalyse und Geräteintegrationen an der Schnittstelle von Software und Hardware — die Art von Arbeit hinter unserem WLAN- und BLE-Radar-Tooling."
+          }
+        ]
+      },
+      {
+        "slug": "reach",
+        "icon": "fa-globe",
+        "title": "Reichweite, Lokalisierung & Compliance",
+        "summary": "In jeden Store, in jeder Sprache – mit Datenschutz von Grund auf.",
+        "items": [
+          {
+            "icon": "fa-store",
+            "title": "Multi-Store-Release & ASO",
+            "text": "Release-Management und Store-Optimierung über App Store, Google Play, Amazon Appstore und Mac App Store — Listings, Assets, Review und Compliance. Wir veröffentlichen in allen."
+          },
+          {
+            "icon": "fa-language",
+            "title": "Lokalisierung & RTL",
+            "text": "Mehrsprachige Produkte richtig umgesetzt, inklusive voller Rechts-nach-links-Unterstützung und arabischer Schriftformung — dieselbe i18n-Arbeit wie hinter unseren Deutsch-Lern-Apps und Ad Verbum."
+          },
+          {
+            "icon": "fa-shield-halved",
+            "title": "Datenschutz & DSGVO-Engineering",
+            "text": "Offline-by-Design, telemetriefreie Architekturen und DSGVO-konforme Builds — Datenschutz als Funktion, nicht als nachträglicher Gedanke."
+          }
+        ]
+      },
+      {
+        "slug": "operations",
+        "icon": "fa-gears",
+        "title": "Automatisierung & Digitalisierung",
+        "summary": "Manuelle Arbeit automatisieren, Prozesse modernisieren und intelligente Funktionen ergänzen.",
+        "items": [
+          {
+            "icon": "fa-robot",
+            "title": "Automatisierung",
+            "text": "Automatisieren Sie wiederkehrende Arbeit und verbinden Sie Ihre Tools. Wir konzipieren und bauen Automatisierungen und Integrationen, die manuellen Aufwand beseitigen und Fehler reduzieren."
+          },
+          {
+            "icon": "fa-arrows-rotate",
+            "title": "Digitalisierung",
+            "text": "Verwandeln Sie manuelle, papierbasierte oder fragmentierte Abläufe in verlässliche digitale Workflows. Wir helfen Ihnen, Ihre Arbeitsweise zu digitalisieren und zu modernisieren."
+          },
+          {
+            "icon": "fa-wand-magic-sparkles",
+            "title": "KI-Integration",
+            "text": "Bringen Sie KI dorthin ins Produkt, wo sie wirklich hilft — Assistenten, Suche, Klassifizierung und Content-Funktionen, eingebunden in Ihre bestehenden Apps und Daten."
+          },
+          {
+            "icon": "fa-calculator",
+            "title": "Komplexe Logik & Daten",
+            "text": "Nicht-triviale Berechnungen richtig umgesetzt — präzise Algorithmen, Berechnungs-Engines und datenintensive Logik, wie die astronomische Engine in unserem Solar Compass."
+          }
+        ]
+      }
+    ]
+  },
+  "company": {
+    "hero": {
+      "kicker": "Unternehmen",
+      "title": "Über Aralel",
+      "text": "Die Aralel GmbH ist ein Software-Studio, das digitale Produkte für Web, Mobile und Desktop entwickelt und betreibt — und Partner für Teams, die Software in guter Qualität brauchen."
+    },
+    "blocks": [
+      {
+        "title": "Wofür Aralel steht",
+        "text": "Aralel entwickelt digitale Produkte mit Fokus auf Klarheit, technische Qualität und langfristige Pflege. Wir arbeiten an Anwendungen, Websites und interaktiven Erlebnissen, die reale Nutzungsszenarien ernst nehmen."
+      },
+      {
+        "title": "Wie wir arbeiten",
+        "text": "Unser Prozess verbindet Produktdenken, Design und Engineering. Ziel ist nicht bloße Präsenz, sondern belastbare Produkte mit sauberer Ausführung, nachvollziehbarer Struktur und konsistentem Nutzererlebnis."
+      },
+      {
+        "title": "Was wir bauen",
+        "text": "Wir konzipieren, entwickeln und betreiben Web-Apps, Mobile-Apps für iOS und Android sowie Desktop-Software für Mac. Unser öffentliches Portfolio reicht von Tools über Lern-Apps bis zu Spielen — jeweils dokumentiert mit dem, was es ist, auf welchen Plattformen es läuft und wie es erreichbar ist."
+      },
+      {
+        "title": "Arbeiten Sie mit uns",
+        "text": "Über unser eigenes Portfolio hinaus arbeiten wir als Software-Partner — wir schaffen Kapazität für bestehende Teams, auditieren Codebasen und entwickeln Webanwendungen, Mobile-Apps, Automatisierungen und Digitalisierungsprojekte."
+      }
+    ],
+    "servicesCtaLabel": "Unsere Leistungen entdecken",
+    "contactCtaLabel": "Kontakt aufnehmen",
+    "imageAlt": "Aralel-GmbH-Logo an einer beleuchteten Büro-Empfangswand"
   },
   "catalog": {
     "app": {

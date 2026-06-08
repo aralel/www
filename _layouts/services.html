@@ -1,0 +1,115 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign services = t.services %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": {{ services.hero.title | jsonify }},
+  "description": {{ t.pages.services.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "provider": {
+    "@type": "Organization",
+    "name": "Aralel GmbH",
+    "url": {{ site.url | jsonify }}
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": {{ services.introTitle | jsonify }},
+    "itemListElement": [
+      {% for group in services.groups %}
+      {
+        "@type": "OfferCatalog",
+        "name": {{ group.title | jsonify }},
+        "itemListElement": [
+          {% for item in group.items %}
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": {{ item.title | jsonify }},
+              "description": {{ item.text | jsonify }}
+            }
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+
+<main class="services-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ services.hero.kicker }}</span>
+      <h1>{{ services.hero.title }}</h1>
+      <p>{{ services.hero.text }}</p>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ services.introTitle }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ services.introText }}</p>
+    </div>
+
+    {% for group in services.groups %}
+      <div class="services-group" id="{{ group.slug }}">
+        <div class="services-group-header">
+          <span class="services-group-icon"><i class="{{ group.iconStyle | default: 'fas' }} {{ group.icon }}"></i></span>
+          <div class="services-group-heading">
+            <h3 class="services-group-title">{{ group.title }}</h3>
+            <p class="services-group-summary">{{ group.summary }}</p>
+          </div>
+        </div>
+        <div class="services-grid">
+          {% for item in group.items %}
+            <article class="service-card">
+              <span class="service-icon"><i class="{{ item.iconStyle | default: 'fas' }} {{ item.icon }}"></i></span>
+              <h3 class="service-title">{{ item.title }}</h3>
+              <p class="service-text">{{ item.text }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="services-cta">
+      <a href="#discuss" class="cta-button">{{ services.ctaLabel }}</a>
+    </div>
+  </section>
+
+  <section id="discuss" class="contact-section services-contact">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ services.form.title }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ services.form.subtitle }}</p>
+    </div>
+
+    <div class="contact-form services-form">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="{{ services.form.placeholders.name }}" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="{{ services.form.placeholders.email }}" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="{{ services.form.placeholders.subject }}" value="{{ services.form.subjectValue }}" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="{{ services.form.placeholders.message }}" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">{{ services.form.submitLabel }}</button>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,62 @@
+---
+layout: default
+body_class: subpage
+---
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign company = t.company %}
+{% assign services_url = "/services_en.html" %}
+{% assign contact_url = "/en.html#contact" %}
+{% if locale_code == "de" %}
+  {% assign services_url = "/services.html" %}
+  {% assign contact_url = "/index.html#contact" %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": {{ t.pages.company.title | jsonify }},
+  "description": {{ t.pages.company.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "about": {
+    "@type": "Organization",
+    "name": "Aralel GmbH",
+    "url": {{ site.url | jsonify }}
+  }
+}
+</script>
+
+<main class="company-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ company.hero.kicker }}</span>
+      <h1>{{ company.hero.title }}</h1>
+      <p>{{ company.hero.text }}</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-grid">
+        <div class="about-image about-image--photo">
+          <img src="{{ '/images/about-office.jpg' | relative_url }}" alt="{{ company.imageAlt }}" class="about-photo" width="1376" height="682" loading="lazy">
+          <div class="about-image-overlay"></div>
+        </div>
+
+        <div class="about-text">
+          {% for block in company.blocks %}
+            <h3>{{ block.title }}</h3>
+            <p>{{ block.text }}</p>
+          {% endfor %}
+
+          <div class="about-actions">
+            <a href="{{ services_url | relative_url }}" class="cta-button">{{ company.servicesCtaLabel }}</a>
+            <a href="{{ contact_url | relative_url }}" class="learn-more">{{ company.contactCtaLabel }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
