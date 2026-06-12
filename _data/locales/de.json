@@ -1,52 +1,52 @@
 {
   "site": {
     "defaultTitle": "Aralel GmbH",
-    "defaultDescription": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Mobilgeräte und Desktop."
+    "defaultDescription": "Aralel entwickelt und veröffentlicht digitale Produkte — Apps, Spiele und Web-Software — und arbeitet als Software-Partner für Teams, die es richtig gemacht haben wollen."
   },
   "pages": {
     "home": {
-      "title": "Aralel GmbH | Offizielle Website und Portfolio",
-      "description": "Die offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte für Web, Mobilgeräte und Desktop."
+      "title": "Aralel GmbH — Software-Studio",
+      "description": "Aralel entwickelt und veröffentlicht digitale Produkte — Apps, Spiele und Web-Software. Das ist die offizielle Präsenz und das öffentliche Portfolio des Studios."
     },
     "apps": {
-      "title": "Apps-Portfolio - Aralel GmbH",
-      "description": "Anwendungen im öffentlichen Portfolio der Aralel GmbH auf Android, iPhone, Mac und im Web."
+      "title": "Aralel-Apps — iOS, Android, Mac & Web",
+      "description": "Veröffentlichte Aralel-Apps im Überblick — für iOS, Android, Mac und das Web."
     },
     "games": {
-      "title": "Spiele-Portfolio - Aralel GmbH",
-      "description": "Spiele und interaktive Produktionen im öffentlichen Portfolio der Aralel GmbH mit direkten Links zu Web, App Store und Google Play."
+      "title": "Aralel-Spiele — Interaktive Produktionen",
+      "description": "Spiele und interaktive Produktionen von Aralel — nach Plattform durchstöbern oder direkt zur Detailseite."
     },
     "iphone": {
-      "title": "iPhone-Portfolio - Aralel GmbH",
-      "description": "Aralel-Produkte, die derzeit für iPhone und iPad verfügbar sind."
+      "title": "Aralel für iPhone & iPad",
+      "description": "Aralel-Apps und Spiele für iPhone und iPad — verfügbar im App Store."
     },
     "android": {
-      "title": "Android-Portfolio - Aralel GmbH",
-      "description": "Aralel-Produkte, die derzeit bei Google Play für Android verfügbar sind."
+      "title": "Aralel für Android",
+      "description": "Aralel-Apps für Android-Smartphones und -Tablets — verfügbar bei Google Play."
     },
     "amazon": {
-      "title": "Amazon-Appstore-Portfolio - Aralel GmbH",
-      "description": "Aralel-Produkte, die derzeit im Amazon Appstore für Android und Fire TV verfügbar sind."
+      "title": "Aralel im Amazon Appstore",
+      "description": "Aralel-Apps für Amazon-Geräte — verfügbar im Amazon Appstore."
     },
     "desktop": {
-      "title": "Desktop-Portfolio - Aralel GmbH",
-      "description": "Aralel-Software, die derzeit als Desktop-Anwendung für Mac verfügbar ist."
+      "title": "Aralel für Mac",
+      "description": "Aralel-Desktop-Apps für Mac."
     },
     "websites": {
-      "title": "Web-Portfolio - Aralel GmbH",
-      "description": "Aralel-Produkte mit öffentlicher Website oder browserbasierter Erfahrung."
+      "title": "Aralel im Web",
+      "description": "Aralel-Veröffentlichungen mit öffentlicher Web-Präsenz — Browser-Apps und Produktseiten."
     },
     "careers": {
-      "title": "Karriere – Aralel GmbH",
-      "description": "Wir suchen Freelancer und Teilzeit-Mitarbeitende. Offene Stellen bei der Aralel GmbH."
+      "title": "Offene Stellen bei Aralel GmbH",
+      "description": "Aralel sucht Freelancer und Teilzeit-Mitarbeitende. Alle offenen Stellen und der Bewerbungsprozess auf einen Blick."
     },
     "services": {
-      "title": "Leistungen – Aralel GmbH",
-      "description": "Aralel als Software-Partner: zusätzliche Entwicklungskapazität, Code- und Produkt-Audits, Webanwendungen, Mobile-Apps, Automatisierung und Digitalisierung."
+      "title": "Mit Aralel arbeiten — Softwareentwicklung & Beratung",
+      "description": "Aralel übernimmt Kundenaufträge: zusätzliche Entwicklungskapazität, unabhängige Audits und vollständige Produktentwicklungen für Web, Mobile und Automatisierung."
     },
     "company": {
-      "title": "Unternehmen – Aralel GmbH",
-      "description": "Über die Aralel GmbH — ein Software-Studio, das digitale Produkte für Web, Mobile und Desktop entwickelt und betreibt, und Partner für Teams, die Software in guter Qualität brauchen."
+      "title": "Über Aralel — Das Studio und wie wir arbeiten",
+      "description": "Aralel ist ein Software-Studio, das digitale Produkte entwickelt und betreibt. Was wir bauen, wie wir arbeiten und was dieses Portfolio zeigt."
     }
   },
   "nav": {
@@ -134,7 +134,7 @@
       "subtitle": "Software, digitale Produkte und öffentliches Portfolio",
       "text": "Aralel entwickelt und betreibt digitale Produkte für Web, Mobilgeräte und Desktop-Plattformen. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
       "ctaLabel": "Portfolio ansehen",
-      "ctaUrl": "/games.html"
+      "ctaUrl": "/frontpage.html"
     },
     "apps": {
       "title": "Apps im Portfolio",
@@ -346,16 +346,29 @@
         ]
       },
       {
-        "slug": "build",
-        "icon": "fa-cubes",
-        "title": "Produktentwicklung",
-        "summary": "Web-, Mobile- und plattformübergreifende Produkte – von A bis Z konzipiert und gebaut.",
+        "slug": "web",
+        "icon": "fa-laptop-code",
+        "title": "Webanwendungsentwicklung",
+        "summary": "Maßgeschneiderte Web-Apps und interne Tools mit sauberer Architektur — vom ersten Entwurf bis zum produktiven Betrieb.",
         "items": [
           {
             "icon": "fa-window-maximize",
             "title": "Webanwendungen",
             "text": "Maßgeschneiderte Web-Apps für den echten Einsatz — von internen Tools bis zu kundenorientierten Plattformen — mit sauberer Architektur und wartbarem Code."
           },
+          {
+            "icon": "fa-pen-ruler",
+            "title": "UX & Produktdesign",
+            "text": "Klare, fokussierte Oberflächen, gestaltet rund um die reale Nutzung — von Produktdenken und Abläufen bis zu poliertem, konsistentem UI."
+          }
+        ]
+      },
+      {
+        "slug": "mobile",
+        "icon": "fa-mobile-screen",
+        "title": "Mobile-App-Entwicklung",
+        "summary": "Native und plattformübergreifende Apps für iOS und Android — in die Stores ausgeliefert und auf Langlebigkeit gebaut.",
+        "items": [
           {
             "icon": "fa-mobile-screen",
             "title": "Mobile-Apps",
@@ -365,11 +378,6 @@
             "icon": "fa-layer-group",
             "title": "Plattformübergreifende Auslieferung",
             "text": "Ein Produkt auf jeder Plattform. Wir bauen Erlebnisse, die aus einer gemeinsamen Codebasis auf Web, iOS und Android laufen — derselbe Ansatz wie hinter unserem Arena Sudoku."
-          },
-          {
-            "icon": "fa-pen-ruler",
-            "title": "UX & Produktdesign",
-            "text": "Klare, fokussierte Oberflächen, gestaltet rund um die reale Nutzung — von Produktdenken und Abläufen bis zu poliertem, konsistentem UI."
           },
           {
             "icon": "fa-gamepad",

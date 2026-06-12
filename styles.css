@@ -225,11 +225,11 @@ main {
     display: grid;
     align-items: center;
     padding: clamp(1.75rem, 4.6vw, 4rem);
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 44rem;
-    will-change: transform;
 }
 
 .hero-kicker,
@@ -284,6 +284,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
+    position: relative;
 }
 
 .cta-button,
@@ -328,7 +329,7 @@ main {
 }
 
 .section-title-container {
-    max-width: 48rem;
+    /* max-width: 48rem; */
     margin-bottom: 2rem;
 }
 
@@ -499,17 +500,17 @@ main {
 }
 
 .store-links {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.65rem;
 }
 
 .store-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     line-height: 0;
-    max-width: 100%;
+    width: 100%;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -519,23 +520,10 @@ main {
 }
 
 .store-badge-image {
-    width: auto;
-    height: 3.15rem;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
     display: block;
     object-fit: contain;
-}
-
-.store-badge-image--apple {
-    height: 3.15rem;
-}
-
-.catalog-card--compact .store-badge-image {
-    height: 2.85rem;
-}
-
-.catalog-card--compact .store-badge-image--apple {
-    height: 2.85rem;
 }
 
 .page-hero {
@@ -1433,19 +1421,7 @@ main {
     }
 
     .store-links {
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .store-badge-image,
-    .catalog-card--compact .store-badge-image {
-        height: 3rem;
-    }
-
-    .store-badge-image--apple,
-    .catalog-card--compact .store-badge-image--apple {
-        height: 3rem;
+        grid-template-columns: 1fr;
     }
 
     .install-banner,
@@ -1554,13 +1530,6 @@ main {
 
     .store-links {
         gap: 0.55rem;
-    }
-
-    .store-badge-image,
-    .store-badge-image--apple,
-    .catalog-card--compact .store-badge-image,
-    .catalog-card--compact .store-badge-image--apple {
-        height: 2.8rem;
     }
 
     .install-content {

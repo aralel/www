@@ -2,7 +2,7 @@
 layout: default
 body_class: home-page
 ---
-{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true and product.front_page == true" %}
 {% assign apps = visible_products | where: "type", "app" %}
 {% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
@@ -30,12 +30,13 @@ body_class: home-page
   <section id="hero" class="hero-section">
     <div class="hero-shell">
       <div class="hero-content">
-        <span class="hero-kicker">{{ t.home.hero.kicker }}</span>
+        <!-- <span class="hero-kicker">{{ t.home.hero.kicker }}</span> -->
         <h1>{{ t.home.hero.title }}</h1>
         <h2>{{ t.home.hero.subtitle }}</h2>
         <p>{{ t.home.hero.text }}</p>
         <div class="hero-actions">
           <a href="{{ t.home.hero.ctaUrl | relative_url }}" class="cta-button">{{ t.home.hero.ctaLabel }}</a>
+          <a href="{{ t.services.ctaUrl }}" class="secondary-link">{{ t.services.ctaLabel }}</a>
         </div>
       </div>
     </div>

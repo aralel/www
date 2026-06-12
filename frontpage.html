@@ -1,0 +1,28 @@
+---
+layout: default
+body_class: subpage
+locale: de
+page_key: home
+---
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true and product.front_page == true" %}
+{% assign apps = visible_products | where: "type", "app" %}
+{% assign games = visible_products | where: "type", "game" %}
+{% assign t = site.data.locales[page.locale] %}
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ t.home.apps.title }}</span>
+      <h1>{{ t.pages.home.title }}</h1>
+      <p>{{ t.pages.home.description }}</p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page">
+    <div class="catalog-grid">
+      {% for product in visible_products %}
+        {% include catalog_card.html product=product locale=page.locale %}
+      {% endfor %}
+    </div>
+  </section>
+</main>
