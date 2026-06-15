@@ -310,8 +310,22 @@ main {
     box-shadow: 0 16px 28px rgba(143, 78, 22, 0.2);
 }
 
-.learn-more,
-.secondary-link,
+.learn-more {
+    /* padding: 0.9rem 1.25rem; */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+}
+
+.secondary-link {
+    padding: 0.9rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+}
+
 .back-link {
     padding: 0.9rem 1.25rem;
     background: var(--surface);

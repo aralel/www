@@ -2,6 +2,13 @@ title: Aralel GmbH
 description: Official bilingual company website and public portfolio for Aralel GmbH.
 url: "https://aralel.com"
 baseurl: ""
+
+# Optional social metadata. Uncomment and fill in to emit the matching tags.
+# Leave commented out (not empty) when unused — an empty value would still render the tag.
+# facebook_page: "https://www.facebook.com/YourPage"   # -> <meta property="article:publisher">
+# facebook_app_id: "000000000000000"                    # -> <meta property="fb:app_id">
+# twitter_handle: "@aralel"                              # -> <meta name="twitter:site">
+
 include: [".well-known", "available"]
 exclude:
   - node_modules

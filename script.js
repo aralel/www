@@ -141,6 +141,18 @@ window.addEventListener('appinstalled', () => {
     }
 });
 
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const targetLink = document.getElementById('relay-pixel');
+    if (targetLink && document.referrer) {
+      // Safely encode the URL parameter to handle special characters
+      const encodedReferrer = encodeURIComponent(document.referrer);
+
+      // Append the parameter to the existing URL
+      targetLink.src += `?source=${encodedReferrer}`;
+    }
+  });
+
 // Add parallax effect for the homepage hero only
 const hero = document.querySelector('#hero');
 const heroContent = hero ? hero.querySelector('.hero-content') : null;
@@ -186,3 +198,4 @@ if (invalidateLink) {
         }
     });
 }
+

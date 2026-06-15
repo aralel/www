@@ -58,6 +58,10 @@ body_class: subpage
       <p class="section-subtitle">{{ services.introText }}</p>
     </div>
 
+    <div class="services-cta">
+      <a href="#discuss" class="cta-button">{{ services.ctaLabel }}</a>
+    </div>
+
     {% for group in services.groups %}
       <div class="services-group" id="{{ group.slug }}">
         <div class="services-group-header">
@@ -78,10 +82,6 @@ body_class: subpage
         </div>
       </div>
     {% endfor %}
-
-    <div class="services-cta">
-      <a href="#discuss" class="cta-button">{{ services.ctaLabel }}</a>
-    </div>
   </section>
 
   <section id="discuss" class="contact-section services-contact">
