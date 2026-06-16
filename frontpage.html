@@ -4,7 +4,8 @@ body_class: subpage
 locale: de
 page_key: home
 ---
-{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true and product.front_page == true" %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign visible_products = visible_products | where: "front_page", true %}
 {% assign apps = visible_products | where: "type", "app" %}
 {% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
