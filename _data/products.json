@@ -116,13 +116,14 @@
       "type": "game",
       "hidden": false,
       "front_page": true,
-      "platforms": ["android", "amazon"],
+      "platforms": ["android", "amazon", "samsung"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
       "iconUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
-        "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875"
+        "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875",
+        "samsungGalaxyStore": "https://galaxystore.samsung.com/detail/com.aralel.german_word_search"
       }
     },
     {

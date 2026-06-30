@@ -28,6 +28,10 @@
       "title": "Aralel on the Amazon Appstore",
       "description": "Aralel apps available on Amazon devices through the Amazon Appstore."
     },
+    "samsung": {
+      "title": "Aralel on the Galaxy Store",
+      "description": "Aralel apps available on Samsung devices through the Galaxy Store."
+    },
     "desktop": {
       "title": "Aralel for Mac",
       "description": "Aralel desktop apps available for Mac."
@@ -64,6 +68,7 @@
     "googleAria": "Open on Google Play",
     "appleAria": "Open on the App Store",
     "amazonAria": "Open on Amazon Appstore",
+    "samsungAria": "Open on Galaxy Store",
     "appleEyebrow": "Download on the",
     "appleLabel": "App Store"
   },
@@ -82,6 +87,7 @@
       "iphone": "iPhone",
       "android": "Android",
       "amazon": "Amazon",
+      "samsung": "Samsung",
       "desktop": "Desktop",
       "website": "Website"
     },
@@ -105,6 +111,11 @@
         "kicker": "Platforms",
         "heroTitle": "Products on the Amazon Appstore",
         "heroText": "Aralel products currently available on the Amazon Appstore for Android and Fire TV devices."
+      },
+      "samsung": {
+        "kicker": "Platforms",
+        "heroTitle": "Products on the Galaxy Store",
+        "heroText": "Aralel products currently available on the Samsung Galaxy Store for Galaxy devices."
       },
       "website": {
         "kicker": "Platforms",

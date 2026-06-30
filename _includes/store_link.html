@@ -2,6 +2,7 @@
 {% assign google_badge = "/images/badge-google-play.svg" %}
 {% assign apple_badge = "/images/badge-app-store.svg" %}
 {% assign amazon_badge = "/images/badge-amazon-appstore-en.png" %}
+{% assign samsung_badge = "/images/badge-galaxy-store.svg" %}
 {% if include.locale == "de" %}
   {% assign amazon_badge = "/images/badge-amazon-appstore-de.png" %}
 {% endif %}
@@ -16,5 +17,9 @@
 {% elsif include.store_key == "amazonAppstore" %}
   <a class="store-link store-link--amazon" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.amazonAria }}">
     <img src="{{ amazon_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--amazon" loading="lazy">
+  </a>
+{% elsif include.store_key == "samsungGalaxyStore" %}
+  <a class="store-link store-link--samsung" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.samsungAria }}">
+    <img src="{{ samsung_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--samsung" loading="lazy">
   </a>
 {% endif %}

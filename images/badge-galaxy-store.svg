@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="59" viewBox="0 0 200 59">
+  <rect width="200" height="59" rx="8" fill="#000"/>
+  <rect x="0.5" y="0.5" width="199" height="58" rx="7.5" fill="none" stroke="#A6A6A6" stroke-width="1"/>
+  <path d="M24 16l14 13.5L24 43V16z" fill="#1428A0"/>
+  <path d="M24 16l9.5 4.6L24 30V16z" fill="#00AEEF"/>
+  <path d="M24 30l9.5 4.9L24 43V30z" fill="#1428A0"/>
+  <text x="48" y="22" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#fff" letter-spacing="0.5">GET IT ON</text>
+  <text x="48" y="43" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="500" fill="#fff">Galaxy Store</text>
+</svg>

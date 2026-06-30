@@ -41,7 +41,6 @@
         {% assign store_url = store[1] %}
         {% include store_link.html store_key=store_key url=store_url locale=include.locale %}
       {% endfor %}
-      <a href="{{ product_url | relative_url }}" class="learn-more">{{ t.common.learnMore }}</a>
     </div>
   </div>
 </article>
