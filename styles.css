@@ -311,7 +311,7 @@ main {
 }
 
 .learn-more {
-    /* padding: 0.9rem 1.25rem; */
+    padding: 0.9rem 1.25rem;
     background: var(--surface);
     border: 1px solid var(--border);
     color: var(--text);
@@ -514,8 +514,8 @@ main {
 }
 
 .store-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.65rem;
 }
 
@@ -524,7 +524,8 @@ main {
     align-items: center;
     justify-content: center;
     line-height: 0;
-    width: 100%;
+    width: 135px;
+    flex: 0 0 auto;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -1432,10 +1433,6 @@ main {
     .policy-content {
         border-radius: 24px;
         padding: 1.25rem;
-    }
-
-    .store-links {
-        grid-template-columns: 1fr;
     }
 
     .install-banner,

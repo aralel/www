@@ -153,6 +153,19 @@
       }
     },
     {
+      "slug": "ai-usage-menubar",
+      "type": "app",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["desktop"],
+      "accent": "#7c3aed",
+      "accentStrong": "#3b0a91",
+      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ed/40/4e/ed404e47-30a5-9485-c13a-6eb612126473/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/ai-usage-menubar/id6782388203?mt=12"
+      }
+    },
+    {
       "slug": "ad-verbum",
       "type": "game",
       "hidden": false,

@@ -658,6 +658,35 @@
       "availabilityText": "Published as a Mac app on the App Store.",
       "metaDescription": "Wireless Deck is Aralel’s Mac utility for inspecting nearby Wi-Fi and Bluetooth environments."
     },
+    "ai-usage-menubar": {
+      "name": "AI Usage Menubar",
+      "category": "Developer Tools",
+      "shortSummary": "Keep an eye on your Claude AI message quota right from the Mac menu bar.",
+      "heroTitle": "Monitor your Claude AI limits, live",
+      "heroText": "AI Usage Menubar puts your Claude AI message quota in the macOS menu bar, with a colour-coded progress bar and live daily and weekly reset countdowns, so you never lose track of your remaining usage.",
+      "description": "The app signs in through a secure in-app browser using your existing claude.ai session, so no separate password or API key is required and your credentials are never stored. Choose from seven menu bar display styles, from full percentage and countdown detail down to an icon-only view, and see plan name, tokens consumed, and time until your next reset at a glance.",
+      "highlights": [
+        {
+          "title": "Live quota tracking",
+          "text": "Messages used versus your plan limit, shown as a colour-coded progress bar in the menu bar."
+        },
+        {
+          "title": "Reset countdowns",
+          "text": "Daily and weekly reset timers update live, alongside tokens consumed and your plan name."
+        },
+        {
+          "title": "Private by design",
+          "text": "Reuses your existing claude.ai session; usage data is fetched directly and never leaves your device."
+        }
+      ],
+      "primaryCta": "View on the App Store",
+      "privacyLabel": "Privacy policy",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as a Mac app on the App Store.",
+      "metaDescription": "AI Usage Menubar is Aralel’s Mac menu bar app for tracking Claude AI message quota and reset times live."
+    },
     "messagram-app": {
       "name": "Messagram App",
       "category": "Utilities",

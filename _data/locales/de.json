@@ -662,6 +662,35 @@
       "availabilityText": "Als Mac-App im App Store veröffentlicht.",
       "metaDescription": "Wireless Deck ist Aralels Mac-Tool zur Untersuchung naher Wi-Fi- und Bluetooth-Umgebungen."
     },
+    "ai-usage-menubar": {
+      "name": "AI Usage Menubar",
+      "category": "Entwicklertools",
+      "shortSummary": "Das Claude-AI-Nachrichtenkontingent direkt in der Mac-Menüleiste im Blick behalten.",
+      "heroTitle": "Ihre Claude-AI-Limits live im Blick",
+      "heroText": "AI Usage Menubar zeigt Ihr Claude-AI-Nachrichtenkontingent in der macOS-Menüleiste mit einem farbcodierten Fortschrittsbalken sowie live aktualisierten Countdowns bis zum täglichen und wöchentlichen Reset, damit Sie nie den Überblick verlieren.",
+      "description": "Die Anmeldung erfolgt über einen sicheren In-App-Browser mit Ihrer bestehenden claude.ai-Sitzung, sodass kein separates Passwort und kein API-Schlüssel nötig sind und Ihre Zugangsdaten nie gespeichert werden. Zwischen sieben Anzeigestilen für die Menüleiste kann gewählt werden, von vollständigen Prozent- und Countdown-Angaben bis zu einer reinen Icon-Ansicht, dazu Plan-Name, verbrauchte Tokens und die Zeit bis zum nächsten Reset auf einen Blick.",
+      "highlights": [
+        {
+          "title": "Live-Kontingentanzeige",
+          "text": "Verbrauchte Nachrichten im Vergleich zum Plan-Limit als farbcodierter Fortschrittsbalken in der Menüleiste."
+        },
+        {
+          "title": "Reset-Countdowns",
+          "text": "Live aktualisierte Tages- und Wochen-Countdowns, dazu verbrauchte Tokens und der aktuelle Plan-Name."
+        },
+        {
+          "title": "Privat by Design",
+          "text": "Nutzt die bestehende claude.ai-Sitzung; Nutzungsdaten werden direkt abgerufen und verlassen das Gerät nie."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Mac-App im App Store veröffentlicht.",
+      "metaDescription": "AI Usage Menubar ist Aralels Mac-Menüleisten-App zur Live-Anzeige des Claude-AI-Nachrichtenkontingents und der Reset-Zeiten."
+    },
     "messagram-app": {
       "name": "Messagram App",
       "category": "Dienstprogramme",
