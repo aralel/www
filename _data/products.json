@@ -166,6 +166,20 @@
       }
     },
     {
+      "slug": "streakbox-gamify-daily-visit",
+      "type": "app",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["shopify", "website"],
+      "accent": "#95BF47",
+      "accentStrong": "#3f6212",
+      "iconUrl": "https://cdn.shopify.com/app-store/listing_images/63440e99c11c60a3df86ef1f0bda9a1b/icon/CIy5y4ie2pUDEAE=.png",
+      "stores": {
+        "shopifyAppStore": "https://apps.shopify.com/streakbox-gamify-daily-visit"
+      },
+      "websiteUrl": "https://streakbox.aralel.com/"
+    },
+    {
       "slug": "ad-verbum",
       "type": "game",
       "hidden": false,

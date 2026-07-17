@@ -127,16 +127,16 @@ body_class: subpage
               {% assign store_url = store[1] %}
               {% include store_link.html store_key=store_key url=store_url locale=page.locale %}
             {% endfor %}
+            {% if product.websiteUrl and product.stores.size < 3 %}
+              <a class="store-link store-link--website" href="{{ product.websiteUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.common.openWebsite }}">
+                <img src="{{ '/images/badge-website.svg' | relative_url }}" alt="" class="store-badge-image store-badge-image--website" loading="lazy">
+              </a>
+            {% endif %}
           </div>
 
-          {% if product.websiteUrl or product.privacyUrl %}
+          {% if product.privacyUrl and product.privacyUrl[page.locale] %}
             <div class="secondary-link-row">
-              {% if product.websiteUrl %}
-                <a class="secondary-link" href="{{ product.websiteUrl }}" target="_blank" rel="noopener noreferrer">{{ t.common.openWebsite }}</a>
-              {% endif %}
-              {% if product.privacyUrl and product.privacyUrl[page.locale] %}
-                <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel }}</a>
-              {% endif %}
+              <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel }}</a>
             </div>
           {% endif %}
         </div>

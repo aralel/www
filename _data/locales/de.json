@@ -32,6 +32,10 @@
       "title": "Aralel im Galaxy Store",
       "description": "Aralel-Apps für Samsung-Geräte — verfügbar im Galaxy Store."
     },
+    "shopify": {
+      "title": "Aralel im Shopify App Store",
+      "description": "Aralel-Apps als Shopify-Apps — verfügbar im Shopify App Store."
+    },
     "desktop": {
       "title": "Aralel für Mac",
       "description": "Aralel-Desktop-Apps für Mac."
@@ -69,6 +73,7 @@
     "appleAria": "Im App Store öffnen",
     "amazonAria": "Im Amazon Appstore öffnen",
     "samsungAria": "Im Galaxy Store öffnen",
+    "shopifyAria": "Im Shopify App Store öffnen",
     "appleEyebrow": "Laden im",
     "appleLabel": "App Store"
   },
@@ -89,7 +94,8 @@
       "amazon": "Amazon",
       "samsung": "Samsung",
       "desktop": "Desktop",
-      "website": "Website"
+      "website": "Website",
+      "shopify": "Shopify"
     },
     "pages": {
       "iphone": {
@@ -121,6 +127,11 @@
         "kicker": "Plattformen",
         "heroTitle": "Produkte mit öffentlicher Website",
         "heroText": "Öffentliche Aralel-Veröffentlichungen, die direkt im Browser nutzbar sind oder eine eigene öffentliche Produkt-Website haben."
+      },
+      "shopify": {
+        "kicker": "Plattformen",
+        "heroTitle": "Produkte im Shopify App Store",
+        "heroText": "Aralel-Apps, die derzeit als installierbare Apps im Shopify App Store verfügbar sind."
       }
     }
   },
@@ -690,6 +701,35 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Als Mac-App im App Store veröffentlicht.",
       "metaDescription": "AI Usage Menubar ist Aralels Mac-Menüleisten-App zur Live-Anzeige des Claude-AI-Nachrichtenkontingents und der Reset-Zeiten."
+    },
+    "streakbox-gamify-daily-visit": {
+      "name": "Streakbox – Gamify Daily Visit",
+      "category": "Treue & Prämien",
+      "shortSummary": "Belohnt eingeloggte Kund:innen mit einem täglichen Geschenk, das mit ihrer Streak wächst.",
+      "heroTitle": "Aus täglichen Besuchen eine Gewohnheit machen, die Kund:innen lieben",
+      "heroText": "Streakbox belohnt eingeloggte Kund:innen mit einem täglichen Geschenk, das mit der Länge ihrer Besuchs-Streak wächst — nach einer frei wählbaren Formel: flach, Fibonacci oder vollständig individuell.",
+      "description": "Prämienregeln lassen sich festlegen, die Punkte automatisch in Rabatte, kostenlosen Versand oder Gratisprodukte umwandeln, jeweils mit optionalem Mindestbestellwert. Ein schwebender Claim-Button oder ein Geschenkkalender-Block lässt sich an beliebiger Stelle im Theme platzieren, und Besuche, Streaks sowie Einlösungen lassen sich zentral in einem Dashboard verfolgen.",
+      "highlights": [
+        {
+          "title": "Streaks, die wachsen",
+          "text": "Tägliche Besuche werden mit Punkten belohnt, die mit der Streak wachsen — flach, nach Fibonacci oder vollständig individuell."
+        },
+        {
+          "title": "Flexible Prämienregeln",
+          "text": "Punkte werden automatisch in Rabatte, kostenlosen Versand oder Gratisprodukte umgewandelt, jeweils mit optionalem Mindestbestellwert."
+        },
+        {
+          "title": "Ein Dashboard, volle Übersicht",
+          "text": "Besuche, Streaks und Einlösungen lassen sich in einem Admin-Dashboard verfolgen, dazu ein gebrandetes Geschenkkalender-Widget im Storefront."
+        }
+      ],
+      "primaryCta": "Im Shopify App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Shopify-App im Shopify App Store veröffentlicht.",
+      "metaDescription": "Streakbox ist Aralels Shopify-App, die eingeloggte Kund:innen mit einem wachsenden täglichen Geschenk für ihre Besuchs-Streak belohnt."
     },
     "messagram-app": {
       "name": "Messagram App",

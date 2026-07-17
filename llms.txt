@@ -37,6 +37,7 @@ Aralel GmbH is a software studio based in Aachen, Germany, building web, mobile,
 - [Amazon Appstore]({{ site.url }}/amazon_en.html)
 - [Desktop]({{ site.url }}/desktop_en.html)
 - [Websites]({{ site.url }}/websites_en.html)
+- [Shopify App Store]({{ site.url }}/shopify_en.html)
 
 ## Legal
 

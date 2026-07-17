@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="59" viewBox="0 0 200 59">
+  <rect width="200" height="59" rx="8" fill="#000"/>
+  <rect x="0.5" y="0.5" width="199" height="58" rx="7.5" fill="none" stroke="#A6A6A6" stroke-width="1"/>
+  <circle cx="37" cy="29.5" r="13" fill="none" stroke="#c97a2b" stroke-width="1.6"/>
+  <ellipse cx="37" cy="29.5" rx="5.5" ry="13" fill="none" stroke="#c97a2b" stroke-width="1.6"/>
+  <line x1="24" y1="29.5" x2="50" y2="29.5" stroke="#c97a2b" stroke-width="1.6"/>
+  <line x1="26.5" y1="21.5" x2="47.5" y2="21.5" stroke="#c97a2b" stroke-width="1.2"/>
+  <line x1="26.5" y1="37.5" x2="47.5" y2="37.5" stroke="#c97a2b" stroke-width="1.2"/>
+  <text x="58" y="22" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" fill="#fff" letter-spacing="0.5">VISIT THE</text>
+  <text x="58" y="43" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="18" font-weight="500" fill="#fff">Website</text>
+</svg>
