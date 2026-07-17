@@ -367,7 +367,7 @@ export const siteCatalog = {
                 appStore: "https://apps.apple.com/us/app/arena-sudoku/id6760966368",
                 googlePlay: "https://play.google.com/store/apps/details?id=com.aralel.asudoku"
             },
-            websiteUrl: "https://arena.aralel.com",
+            websiteUrl: "https://sudoku.aralel.com",
             locales: {
                 de: {
                     name: "Arena Sudoku",
@@ -394,7 +394,7 @@ export const siteCatalog = {
                     detailLabel: "Spiel-Details",
                     backLabel: "Zur Spiele-Übersicht",
                     availabilityTitle: "Verfügbar auf",
-                    availabilityText: "Im Web unter arena.aralel.com sowie bei Google Play und im App Store verfügbar.",
+                    availabilityText: "Im Web unter sudoku.aralel.com sowie bei Google Play und im App Store verfügbar.",
                     metaDescription: "Arena Sudoku ist Aralels Mehrspieler-Sudoku für Web, iPhone und iPad mit Live-Board und Wettbewerbssystem."
                 },
                 en: {
@@ -422,7 +422,7 @@ export const siteCatalog = {
                     detailLabel: "Game Details",
                     backLabel: "Back to Games",
                     availabilityTitle: "Available On",
-                    availabilityText: "Available on the web at arena.aralel.com, on Google Play, and on the App Store.",
+                    availabilityText: "Available on the web at sudoku.aralel.com, on Google Play, and on the App Store.",
                     metaDescription: "Arena Sudoku is Aralel’s realtime multiplayer Sudoku game for the web, iPhone, and iPad."
                 }
             }
