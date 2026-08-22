@@ -145,12 +145,9 @@
 <meta http-equiv="content-language" content="{{ locale_code }}">
 <link rel="canonical" href="{{ canonical_url }}">
 
-<!-- Resource hints: speed up loading of the icon font and store/asset CDNs -->
+<!-- Resource hints: speed up loading of the icon font (product icons are served locally) -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-<link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
-<link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
-<link rel="dns-prefetch" href="https://m.media-amazon.com">
 {% if alternate_url %}
   {% if locale_code == "de" %}
     <link rel="alternate" hreflang="en" href="{{ alternate_url }}">

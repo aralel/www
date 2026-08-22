@@ -102,7 +102,7 @@ The site is optimized for search engines, Google rich results, and AI assistants
 - **[`sitemap.xml`](/Users/maysam/Workspace/aralel/aralel-software-studios/sitemap.xml)** lists all indexable pages with `lastmod` and `xhtml:link` hreflang alternates for each bilingual pair. Hidden products and internal pages are excluded.
 - **[`robots.txt`](/Users/maysam/Workspace/aralel/aralel-software-studios/robots.txt)** explicitly welcomes search-engine and AI crawlers (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot, CCBot, …) and points to the sitemap.
 - **[`llms.txt`](/Users/maysam/Workspace/aralel/aralel-software-studios/llms.txt)** provides AI assistants a concise, build-time-generated markdown map of the company, apps, games, platform pages, and legal pages.
-- **Performance hints:** `preconnect` / `dns-prefetch` for the icon-font and app-store image CDNs.
+- **Performance hints:** `preconnect` / `dns-prefetch` for the icon-font CDN. Product icons are not hotlinked from store CDNs — they are cached in the repo (see below), so no hints are needed for them.
 
 These are driven by data — adding a product, role, or service automatically updates the sitemap, structured data, and `llms.txt` on the next build.
 
@@ -111,3 +111,4 @@ These are driven by data — adding a product, role, or service automatically up
 - The repo still contains some standalone utility pages such as [`market.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/market.html) and [`map.html`](/Users/maysam/Workspace/aralel/aralel-software-studios/map.html).
 - `available/` and `.well-known/` are included explicitly through Jekyll config.
 - The source catalog script files remain under [`scripts/`](/Users/maysam/Workspace/aralel/aralel-software-studios/scripts), but the live site reads from [`_data/products.json`](/Users/maysam/Workspace/aralel/aralel-software-studios/_data/products.json).
+- **Product icons are cached locally** in [`images/products/`](/Users/maysam/Workspace/aralel/aralel-software-studios/images/products) rather than hotlinked from the App Store / Play Store / Amazon / Shopify CDNs, so the site does not depend on those hosts staying reachable or on their URLs staying stable. In [`_data/products.json`](/Users/maysam/Workspace/aralel/aralel-software-studios/_data/products.json) each product carries `iconUrl` (the local, site-root-relative path that templates render) alongside `iconSourceUrl` (the store URL it was fetched from). Run `node scripts/refresh-product-icons.mjs [slug ...]` to re-pull them when a store listing ships a new icon; icons are normalised to 512×512, PNGs are compressed with `pngquant` and JPEGs kept as delivered.

@@ -70,7 +70,7 @@ body_class: subpage
       "name": {{ copy.name | jsonify }},
       "description": {{ copy.metaDescription | jsonify }},
       "url": {{ page.url | absolute_url | jsonify }},
-      "image": {{ product.iconUrl | jsonify }},
+      "image": {{ product.iconUrl | absolute_url | jsonify }},
       "applicationCategory": {% if is_app %}"UtilitiesApplication"{% else %}"GameApplication"{% endif %},
       {% if operating_systems != "" %}"operatingSystem": {{ operating_systems | jsonify }},{% endif %}
       "inLanguage": {{ page.locale | jsonify }},
@@ -142,7 +142,7 @@ body_class: subpage
         </div>
 
         <div class="detail-visual">
-          <img src="{{ product.iconUrl }}" alt="{{ copy.name }} icon" class="detail-icon" loading="lazy">
+          <img src="{{ product.iconUrl | relative_url }}" alt="{{ copy.name }} icon" class="detail-icon" loading="lazy">
         </div>
       </div>
     </div>

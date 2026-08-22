@@ -9,7 +9,8 @@
       "platforms": ["iphone", "android", "website"],
       "accent": "#14b8a6",
       "accentStrong": "#0b4d46",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconUrl": "/images/products/arena-sudoku.jpg",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/arena-sudoku/id6760966368",
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.asudoku"
@@ -24,7 +25,8 @@
       "platforms": ["android"],
       "accent": "#d9485f",
       "accentStrong": "#8b1e33",
-      "iconUrl": "https://play-lh.googleusercontent.com/MGy2xuFSsg9mDG7z_pG4H5gPaaQSHx75Ydl3Z3LGYsg_9tv7i-_ZRdlodGz1ppZ4uj2jbNsedw1xl0lH9A-5Rg",
+      "iconUrl": "/images/products/availabell.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/MGy2xuFSsg9mDG7z_pG4H5gPaaQSHx75Ydl3Z3LGYsg_9tv7i-_ZRdlodGz1ppZ4uj2jbNsedw1xl0lH9A-5Rg",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.availabell"
       },
@@ -41,7 +43,8 @@
       "platforms": ["android", "iphone"],
       "accent": "#6c5ce7",
       "accentStrong": "#34287f",
-      "iconUrl": "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
+      "iconUrl": "/images/products/cyrus-cylinder.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.trennbare",
         "appStore": "https://apps.apple.com/us/app/cyrus-cylinder/id6760327600"
@@ -55,7 +58,8 @@
       "platforms": ["android", "website"],
       "accent": "#1f8f8b",
       "accentStrong": "#0d4947",
-      "iconUrl": "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
+      "iconUrl": "/images/products/anava.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.anava"
       },
@@ -69,7 +73,8 @@
       "platforms": ["android", "website"],
       "accent": "#ff9f1c",
       "accentStrong": "#7a4307",
-      "iconUrl": "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
+      "iconUrl": "/images/products/a-solar-compass.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.tarzaha"
       },
@@ -83,7 +88,8 @@
       "platforms": ["desktop", "website"],
       "accent": "#2563eb",
       "accentStrong": "#1d4ed8",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/76/ef/7a/76ef7a59-2549-0ff7-21c6-bc38bd92d050/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "iconUrl": "/images/products/wireless-deck.png",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/76/ef/7a/76ef7a59-2549-0ff7-21c6-bc38bd92d050/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/wireless-deck/id6761027814"
       },
@@ -101,7 +107,8 @@
       "platforms": ["desktop", "website"],
       "accent": "#0f766e",
       "accentStrong": "#134e4a",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e5/d9/3be5d991-2262-d4cd-2795-01aa69e0d724/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "iconUrl": "/images/products/messagram-app.png",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e5/d9/3be5d991-2262-d4cd-2795-01aa69e0d724/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/messagram-app/id6760690229"
       },
@@ -119,7 +126,8 @@
       "platforms": ["android", "amazon", "samsung"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
-      "iconUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
+      "iconUrl": "/images/products/german-word-search.png",
+      "iconSourceUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
         "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875",
@@ -134,7 +142,8 @@
       "platforms": ["iphone"],
       "accent": "#f97316",
       "accentStrong": "#7c2d12",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/3a/92/e23a923e-9bd9-88c1-0496-a2979ee189af/AppIcon-0-0-1x_U007emarketing-0-11-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
+      "iconUrl": "/images/products/hedortal.jpg",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/3a/92/e23a923e-9bd9-88c1-0496-a2979ee189af/AppIcon-0-0-1x_U007emarketing-0-11-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/hedortal/id6759011605"
       }
@@ -147,7 +156,8 @@
       "platforms": ["iphone"],
       "accent": "#ef4444",
       "accentStrong": "#7f1d1d",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "iconUrl": "/images/products/rock-paper-bluetooth.jpg",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/rock-paper-bluetooth/id6759180874"
       }
@@ -160,7 +170,8 @@
       "platforms": ["desktop"],
       "accent": "#7c3aed",
       "accentStrong": "#3b0a91",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ed/40/4e/ed404e47-30a5-9485-c13a-6eb612126473/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "iconUrl": "/images/products/ai-usage-menubar.png",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ed/40/4e/ed404e47-30a5-9485-c13a-6eb612126473/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/ai-usage-menubar/id6782388203?mt=12"
       }
@@ -173,7 +184,8 @@
       "platforms": ["shopify", "website"],
       "accent": "#95BF47",
       "accentStrong": "#3f6212",
-      "iconUrl": "https://cdn.shopify.com/app-store/listing_images/63440e99c11c60a3df86ef1f0bda9a1b/icon/CIy5y4ie2pUDEAE=.png",
+      "iconUrl": "/images/products/streakbox-gamify-daily-visit.png",
+      "iconSourceUrl": "https://cdn.shopify.com/app-store/listing_images/63440e99c11c60a3df86ef1f0bda9a1b/icon/CIy5y4ie2pUDEAE=.png",
       "stores": {
         "shopifyAppStore": "https://apps.shopify.com/streakbox-gamify-daily-visit"
       },
@@ -187,7 +199,8 @@
       "platforms": ["amazon"],
       "accent": "#d97706",
       "accentStrong": "#92400e",
-      "iconUrl": "https://m.media-amazon.com/images/I/81v7gM7LNJL.png",
+      "iconUrl": "/images/products/ad-verbum.png",
+      "iconSourceUrl": "https://m.media-amazon.com/images/I/81v7gM7LNJL.png",
       "stores": {
         "amazonAppstore": "https://www.amazon.com/dp/B0H12XZQTM"
       }
@@ -200,7 +213,8 @@
       "platforms": ["iphone"],
       "accent": "#22c55e",
       "accentStrong": "#14532d",
-      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/9c/fb/df9cfbf1-73af-461d-08af-869bab9d58c0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "iconUrl": "/images/products/navigating-strait-of-hormuz.jpg",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/9c/fb/df9cfbf1-73af-461d-08af-869bab9d58c0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "stores": {
         "appStore": "https://apps.apple.com/us/app/navigating-strait-of-hormuz/id6785057111"
       }
