@@ -191,6 +191,19 @@
       "stores": {
         "amazonAppstore": "https://www.amazon.com/dp/B0H12XZQTM"
       }
+    },
+    {
+      "slug": "navigating-strait-of-hormuz",
+      "type": "game",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["iphone"],
+      "accent": "#22c55e",
+      "accentStrong": "#14532d",
+      "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/9c/fb/df9cfbf1-73af-461d-08af-869bab9d58c0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/navigating-strait-of-hormuz/id6785057111"
+      }
     }
   ]
 }

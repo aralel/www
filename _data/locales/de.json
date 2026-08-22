@@ -899,6 +899,34 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Im Amazon Appstore für Android und Fire TV veröffentlicht.",
       "metaDescription": "Ad Verbum ist Aralels Wortmemorierungs-Snake-Spiel für Android und Fire TV."
+    },
+    "navigating-strait-of-hormuz": {
+      "name": "Strait of Hormuz",
+      "category": "Action-Roguelike",
+      "shortSummary": "Ein Marine-Survival-Roguelike für einen Daumen durch die meistumkämpfte Seestraße der Welt.",
+      "heroTitle": "Die Meerenge mit einem Daumen durchqueren",
+      "heroText": "Navigating Strait of Hormuz schickt Sie nach Norden durch einen engen Korridor aus treibenden Seeminen, schnellen Patrouillenbooten und Drohnenschwärmen – der Radarstrahl ist Ihre einzige Vorwarnung.",
+      "description": "Steuern Sie per Daumenzug, tippen Sie für einen Tomahawk auf das nächste Ziel und halten Sie gedrückt für eine schwere Salve gegen bis zu drei Gegner gleichzeitig. Vier zeitlich begrenzte Etappen steigern Spawnrate und Bedrohungsmix, abgeworfene Versorgungspakete reparieren den Rumpf oder füllen die Munition auf, und jeder Lauf bringt Bergungspunkte für neue Schiffe zwischen den Versuchen.",
+      "highlights": [
+        {
+          "title": "Radar-Sweep-Mechanik",
+          "text": "Bedrohungen bleiben im Nebel, bis der Radarstrahl sie erfasst – danach erscheinen sie als Silhouetten, deren Kurs sich vor dem Schuss ablesen lässt."
+        },
+        {
+          "title": "Drei freischaltbare Schiffe",
+          "text": "Starten Sie mit dem langsamen, robusten Tanker und schalten Sie das wendige Patrouillenboot sowie die Eskortfregatte mit dem größten Raketenmagazin frei."
+        },
+        {
+          "title": "Kurze Permadeath-Läufe",
+          "text": "Drei bis sieben Minuten pro Versuch, ausgelegt für einhändiges Spielen im Hochformat."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Derzeit für iPhone und iPad im App Store veröffentlicht.",
+      "metaDescription": "Navigating Strait of Hormuz ist Aralels Marine-Survival-Roguelike für iPhone und iPad."
     }
   }
 }
