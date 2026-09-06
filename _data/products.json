@@ -218,6 +218,39 @@
       "stores": {
         "appStore": "https://apps.apple.com/us/app/navigating-strait-of-hormuz/id6785057111"
       }
+    },
+    {
+      "slug": "buzzbelt",
+      "type": "app",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["android", "website"],
+      "accent": "#4a6741",
+      "accentStrong": "#1f2e19",
+      "iconUrl": "/images/products/buzzbelt.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/HC7ZwsJFwoOCnaLhc3j60jfc-L83bleAFyEBNsyKbnEWRhmiW7Nj14MMZYnQD6QXY6pMAy4XnNoeIKgCEzuZ",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.buzzbelt"
+      },
+      "websiteUrl": "https://buzzbelt.aralel.com",
+      "privacyUrl": {
+        "de": "https://buzzbelt.aralel.com/datenschutz.html",
+        "en": "https://buzzbelt.aralel.com/privacy.html"
+      }
+    },
+    {
+      "slug": "alien-planetary-ambush",
+      "type": "game",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["android"],
+      "accent": "#d946ef",
+      "accentStrong": "#701a75",
+      "iconUrl": "/images/products/alien-planetary-ambush.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/0wrXplAkT8PCjTqBXAr31d2vw9gY6_Zkxj12I_MPnmyDmYDFGe0r07zisu--xOAT22QoVmla0qu2w780W0Am",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.turnovers"
+      }
     }
   ]
 }

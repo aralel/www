@@ -927,6 +927,63 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Derzeit für iPhone und iPad im App Store veröffentlicht.",
       "metaDescription": "Navigating Strait of Hormuz ist Aralels Marine-Survival-Roguelike für iPhone und iPad."
+    },
+    "buzzbelt": {
+      "name": "Buzzbelt",
+      "category": "Kommunikation",
+      "shortSummary": "Offline-Gruppenchat für Ausflüge — Nachrichten springen per Bluetooth von Handy zu Handy, ganz ohne Internet oder SIM.",
+      "heroTitle": "Die ganze Gruppe erreichen, auch ohne Empfang",
+      "heroText": "Buzzbelt ist ein Gruppenchat für Ausflüge, der ohne Internet, SIM-Karte und Roaming auskommt. Die Telefone kommunizieren direkt über Bluetooth miteinander und reichen Nachrichten durch die Gruppe weiter — die Reichweite ist die ganze Gruppe, nicht nur die Personen direkt daneben.",
+      "description": "Die App ist für Gruppenleiter gedacht, die eine Gruppe zusammenhalten müssen: ein Gruppenchat und Direktnachrichten, die warten, bis ein Weg frei ist, ein Buzz, der jedes erreichbare Telefon in voller Lautstärke klingeln lässt, und ein Live-Kopfzähler, der zeigt, wie viele Telefone gerade erreichbar sind. Neue Mitglieder treten in Sekunden bei, indem sie beim Abmarsch einen QR-Code scannen — ohne Konto, ohne Telefonnummer und ohne dass nach der Installation noch Empfang nötig ist. Die Reichweite ist auf Bluetooth begrenzt, kein Ortungsdienst: gedacht, um eine Gruppe zusammenzuhalten, nicht um jemanden zu finden, der sich allein entfernt hat.",
+      "highlights": [
+        {
+          "title": "Nachrichten wandern durch die Gruppe",
+          "text": "Jedes Telefon reicht empfangene Nachrichten weiter, sodass sie die ganze Gruppe in mehreren Schritten erreichen, statt an der kurzen Bluetooth-Reichweite zu enden."
+        },
+        {
+          "title": "Ein ehrlicher Kopfzähler statt Raten",
+          "text": "Sehen Sie, wie viele Telefone Ihres gerade tatsächlich erreicht — ein Strich statt einer falschen Null, wenn es das nicht sagen kann."
+        },
+        {
+          "title": "Buzz und QR-Beitritt beim Abmarsch",
+          "text": "Lassen Sie jedes erreichbare Telefon in voller Lautstärke klingeln, und neue Mitglieder treten in Sekunden per QR-Code-Scan bei — ohne Konto, ohne Telefonnummer."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
+      "metaDescription": "Buzzbelt ist Aralels Offline-Gruppenchat für Ausflüge — Bluetooth-Messaging, ehrlicher Kopfzähler und Buzz-Alarm ganz ohne Internet, SIM oder Konto."
+    },
+    "alien-planetary-ambush": {
+      "name": "Alien Planetary Ambush",
+      "category": "Arcade",
+      "shortSummary": "Ordnen Sie Planetentypen zu und lösen Sie Kettenreaktionen mit Strahlenangriffen in einer handgefertigten Arcade-Kampagne aus.",
+      "heroTitle": "Das Feld räumen, ein Strahlenangriff nach dem anderen",
+      "heroText": "Alien Planetary Ambush ist ein schnelles Arcade-Puzzlespiel: Tippen Sie auf einen Planeten, um alle sichtbaren Planeten desselben Typs zu markieren – dann feuern die Ecktürme synchronisierte Strahlenangriffe, die die ganze Gruppe auf einmal auslöschen.",
+      "description": "Erreichen Sie das Punkteziel jedes Levels, um bis zu drei Sterne zu verdienen und den nächsten Sektor freizuschalten, während Sie in den Google-Play-Games-Bestenlisten aufsteigen und Erfolge freischalten. Kurze Runden im Hochformat, spürbare Science-Fiction-Präsentation und verständliche Steuerung machen es leicht, für ein paar Level einzusteigen – und schwer, wieder aufzuhören.",
+      "highlights": [
+        {
+          "title": "Kettenreaktionen mit Strahlenangriffen",
+          "text": "Tippen Sie auf einen Planeten, um alle sichtbaren Planeten desselben Typs zu markieren, und lassen Sie die Ecktürme die ganze Gruppe in einem synchronisierten Blast auslöschen."
+        },
+        {
+          "title": "Handgefertigte Kampagne",
+          "text": "Erreichen Sie Punkteziele über eine Kampagne aus Levels und verdienen Sie bis zu drei Sterne pro Mission, um den nächsten Sektor freizuschalten."
+        },
+        {
+          "title": "Bestenlisten und Erfolge",
+          "text": "Treten Sie in den Google-Play-Games-Bestenlisten an und schalten Sie Erfolge frei, während Sie einen saubereren Lauf oder eine perfekte Drei-Sterne-Wertung anstreben."
+        }
+      ],
+      "primaryCta": "Bei Google Play ansehen",
+      "detailLabel": "Spiel-Details",
+      "backLabel": "Zur Spiele-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Android-Spiel bei Google Play veröffentlicht.",
+      "metaDescription": "Alien Planetary Ambush ist Aralels Arcade-Puzzlespiel, bei dem das Zuordnen von Planetentypen Kettenreaktionen mit Strahlenangriffen durch eine handgefertigte Kampagne auslöst."
     }
   }
 }

@@ -923,6 +923,63 @@
       "availabilityTitle": "Available On",
       "availabilityText": "Currently published for iPhone and iPad on the App Store.",
       "metaDescription": "Navigating Strait of Hormuz is Aralel’s one-thumb naval survival roguelike for iPhone and iPad."
+    },
+    "buzzbelt": {
+      "name": "Buzzbelt",
+      "category": "Communication",
+      "shortSummary": "Offline group chat for trips — messages hop phone to phone over Bluetooth, no internet or SIM needed.",
+      "heroTitle": "Reach your whole group when there is no signal",
+      "heroText": "Buzzbelt is a group chat for trips that needs no internet, no SIM and no roaming. Phones talk to each other directly over Bluetooth and pass messages along through the group, so your reach is everybody, not just the people standing next to you.",
+      "description": "It's built for a trip leader with a group to keep together: a group chat and direct messages that wait until there's a way through, a Buzz that rings every reachable phone at full volume, and a live headcount of who your phone can actually hear. New members join in seconds by scanning a QR code at departure — no accounts, no phone numbers, and nothing that needs a signal once the app is installed. Range is Bluetooth, not location: built for keeping a group together, not for finding someone who has wandered off alone.",
+      "highlights": [
+        {
+          "title": "Messages that hop through the group",
+          "text": "Each phone relays what it receives to the next, so a message crosses the whole group in steps instead of stopping at Bluetooth's short range."
+        },
+        {
+          "title": "An honest headcount, not a guess",
+          "text": "See how many phones yours can actually reach right now — a dash instead of a false zero when it can't tell."
+        },
+        {
+          "title": "Buzz, and QR join at departure",
+          "text": "Ring every reachable phone at full volume to get heads up, and let new members join in seconds by scanning a QR code — no accounts, no phone numbers."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "privacyLabel": "Privacy policy",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android app on Google Play.",
+      "metaDescription": "Buzzbelt is Aralel's offline group chat for trips — Bluetooth-only messaging, an honest headcount, and a Buzz alert with no internet, SIM, or accounts required."
+    },
+    "alien-planetary-ambush": {
+      "name": "Alien Planetary Ambush",
+      "category": "Arcade",
+      "shortSummary": "Match planet types to trigger chain-reaction beam strikes across a campaign of handcrafted arcade levels.",
+      "heroTitle": "Clear the board, one beam strike at a time",
+      "heroText": "Alien Planetary Ambush is a fast arcade puzzle game: tap a planet to mark every visible planet of the same type, then let corner launchers fire synchronized beam strikes that wipe the whole group at once.",
+      "description": "Clear each level's target score to earn up to three stars and unlock the next sector, while climbing Google Play Games leaderboards and unlocking achievements along the way. Quick portrait sessions, tactile sci-fi presentation, and readable controls make it easy to pick up for a few levels and hard to put down.",
+      "highlights": [
+        {
+          "title": "Chain-reaction beam strikes",
+          "text": "Tap a planet to mark every visible planet of its type, and watch corner launchers wipe the whole group in one synchronized blast."
+        },
+        {
+          "title": "Handcrafted campaign",
+          "text": "Clear score targets across a campaign of levels, earning up to three stars per mission to unlock the next sector."
+        },
+        {
+          "title": "Leaderboards and achievements",
+          "text": "Compete on Google Play Games leaderboards and unlock achievements as you chase a cleaner run or a perfect three-star clear."
+        }
+      ],
+      "primaryCta": "View on Google Play",
+      "detailLabel": "Game Details",
+      "backLabel": "Back to Games",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Published as an Android game on Google Play.",
+      "metaDescription": "Alien Planetary Ambush is Aralel's arcade puzzle game where matching planet types triggers chain-reaction beam strikes across a handcrafted campaign."
     }
   }
 }
