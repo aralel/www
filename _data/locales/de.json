@@ -637,12 +637,12 @@
           "text": "Arbeiten Sie flexibel mit Ihrem Standort oder frei gewählten Koordinaten."
         }
       ],
-      "primaryCta": "Bei Google Play ansehen",
+      "primaryCta": "Im App Store ansehen",
       "detailLabel": "App-Details",
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
-      "metaDescription": "Solar Compass ist Aralels Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
+      "availabilityText": "Verfügbar bei Google Play und im App Store.",
+      "metaDescription": "Solar Compass ist Aralels iOS- und Android-Tool zur Berechnung exakter Sonnenausrichtungen mit Countdown und Erinnerungen."
     },
     "wireless-deck": {
       "name": "Wireless Deck",

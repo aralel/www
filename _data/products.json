@@ -70,13 +70,14 @@
       "type": "app",
       "hidden": false,
       "front_page": false,
-      "platforms": ["android", "website"],
+      "platforms": ["iphone", "android", "website"],
       "accent": "#ff9f1c",
       "accentStrong": "#7a4307",
       "iconUrl": "/images/products/a-solar-compass.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.tarzaha"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.tarzaha",
+        "appStore": "https://apps.apple.com/us/app/a-solar-compass/id6813109002"
       },
       "websiteUrl": "https://sunquest.codehospital.com"
     },

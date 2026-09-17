@@ -2,6 +2,17 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-09-17
+
+**Prompt:** "https://apps.apple.com/us/app/a-solar-compass/id6813109002 was published, add it to the site"
+
+**Done:**
+- A Solar Compass was already a catalog entry (Android-only, via `sunquest.codehospital.com`). Added its new App Store listing: `"iphone"` to `platforms` and `stores.appStore` in `_data/products.json`, matching the `"iphone"` convention used by other dual-platform products (e.g. `arena-sudoku`).
+- Updated EN/DE copy in `_data/locales/` (`primaryCta`, `availabilityText`, `metaDescription`) since it previously said "Android" only.
+- No template/layout changes needed — `_layouts/product.html` renders store badges and platform pills straight from `products.json`.
+- Verified with `bundle exec jekyll build` and the local dev server: App Store badge, iPhone pill, and updated availability text all render correctly on `apps/a-solar-compass.html` / `apps/a-solar-compass_en.html`.
+- Logged in `CHANGELOG.md` under `[0.12.15]`.
+
 ## 2026-09-06 (2)
 
 **Prompt:** "apps.html should contain all apps and games.html should show all games"
