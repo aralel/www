@@ -609,12 +609,12 @@
           "text": "Onboarding und verbesserte Navigation helfen beim schnellen Einstieg."
         }
       ],
-      "primaryCta": "Bei Google Play ansehen",
+      "primaryCta": "Im App Store ansehen",
       "detailLabel": "App-Details",
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Als Android-App bei Google Play veröffentlicht.",
-      "metaDescription": "Anava ist Aralels Android-App für tägliche Bittgebete, Dankbarkeit und spirituelle Reflexion."
+      "availabilityText": "Verfügbar bei Google Play und im App Store.",
+      "metaDescription": "Anava ist Aralels iOS- und Android-App für tägliche Bittgebete, Dankbarkeit und spirituelle Reflexion."
     },
     "a-solar-compass": {
       "name": "Solar Compass",

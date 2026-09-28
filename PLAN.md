@@ -2,6 +2,16 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-09-28
+
+**Prompt:** "anava is now also published in app store https://apps.apple.com/us/app/anava/id6814415159 please update the website"
+
+**Done:**
+- Anava was a catalog entry with `hidden: true` (Android-only). Added `stores.appStore` and `"iphone"` to `platforms` in `_data/products.json`, and set `hidden: false` so it is now publicly listed (catalog pages, platform pages, sitemap, llms.txt).
+- Updated EN/DE copy in `_data/locales/` (`primaryCta`, `availabilityText`, `metaDescription`).
+- Left `scripts/catalog-data.mjs` untouched (stale legacy copy; not updated by the previous Solar Compass change either).
+- Verified with `bundle exec jekyll build`. Logged in `CHANGELOG.md` under `[0.12.16]`.
+
 ## 2026-09-17
 
 **Prompt:** "https://apps.apple.com/us/app/a-solar-compass/id6813109002 was published, add it to the site"

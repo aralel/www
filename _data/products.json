@@ -53,15 +53,16 @@
     {
       "slug": "anava",
       "type": "app",
-      "hidden": true,
+      "hidden": false,
       "front_page": false,
-      "platforms": ["android", "website"],
+      "platforms": ["iphone", "android", "website"],
       "accent": "#1f8f8b",
       "accentStrong": "#0d4947",
       "iconUrl": "/images/products/anava.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.anava"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.anava",
+        "appStore": "https://apps.apple.com/us/app/anava/id6814415159"
       },
       "websiteUrl": "https://anava.codehospital.com"
     },
