@@ -2,6 +2,14 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-09-29
+
+**Prompt:** "buzzbelt was also published on appstore https://apps.apple.com/us/app/buzzbelt-offline-group-chat/id6809560341"
+
+**Done:**
+- Added `stores.appStore` and `"iphone"` to Buzzbelt in `_data/products.json`; updated EN/DE `primaryCta` and `availabilityText` (meta descriptions were already platform-neutral).
+- Verified with `bundle exec jekyll build`. Logged in `CHANGELOG.md` under `[0.12.17]`.
+
 ## 2026-09-28
 
 **Prompt:** "anava is now also published in app store https://apps.apple.com/us/app/anava/id6814415159 please update the website"

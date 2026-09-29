@@ -226,13 +226,14 @@
       "type": "app",
       "hidden": false,
       "front_page": false,
-      "platforms": ["android", "website"],
+      "platforms": ["iphone", "android", "website"],
       "accent": "#4a6741",
       "accentStrong": "#1f2e19",
       "iconUrl": "/images/products/buzzbelt.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/HC7ZwsJFwoOCnaLhc3j60jfc-L83bleAFyEBNsyKbnEWRhmiW7Nj14MMZYnQD6QXY6pMAy4XnNoeIKgCEzuZ",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.buzzbelt"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.buzzbelt",
+        "appStore": "https://apps.apple.com/us/app/buzzbelt-offline-group-chat/id6809560341"
       },
       "websiteUrl": "https://buzzbelt.aralel.com",
       "privacyUrl": {
