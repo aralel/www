@@ -2,6 +2,13 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-09-30
+
+**Prompt:** "script.js: Uncaught SyntaxError: Failed to execute 'querySelector' on 'Document': '#' is not a valid selector."
+
+**Done:**
+- Guarded the in-page smooth-scroll handler in `script.js` so hrefs of just `#` are ignored instead of passed to `querySelector`. Logged in `CHANGELOG.md` under `[0.12.18]`.
+
 ## 2026-09-29
 
 **Prompt:** "buzzbelt was also published on appstore https://apps.apple.com/us/app/buzzbelt-offline-group-chat/id6809560341"

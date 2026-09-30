@@ -44,7 +44,12 @@ if (mobileMenuToggle && navMenu) {
 // Smooth scrolling for in-page navigation links only
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (event) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetSelector = this.getAttribute('href');
+        if (targetSelector.length < 2) {
+            return;
+        }
+
+        const target = document.querySelector(targetSelector);
         if (!target) {
             return;
         }
