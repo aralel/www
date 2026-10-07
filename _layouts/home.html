@@ -7,6 +7,18 @@ body_class: home-page
 {% assign apps = visible_products | where: "type", "app" %}
 {% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
+{% comment %} Stats band: counted from products.json so the numbers stay true as the catalog changes. {% endcomment %}
+{% assign published_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign store_keys_seen = "," %}
+{% for product in published_products %}
+  {% for store in product.stores %}
+    {% assign store_key_token = "," | append: store[0] | append: "," %}
+    {% unless store_keys_seen contains store_key_token %}
+      {% assign store_keys_seen = store_keys_seen | append: store[0] | append: "," %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% assign store_count = store_keys_seen | split: "," | where_exp: "store_key", "store_key != ''" | size %}
 {% capture services_url %}{% include localized_path.html path="/services" locale=page.locale %}{% endcapture %}
 
 <script type="application/ld+json">
@@ -34,8 +46,13 @@ body_class: home-page
         <p>{{ t.home.hero.text }}</p>
         <div class="hero-actions">
           <a href="{{ t.home.hero.ctaUrl | relative_url }}" class="cta-button">{{ t.home.hero.ctaLabel }}</a>
-          <a href="{{ t.services.ctaUrl }}" class="secondary-link">{{ t.services.ctaLabel }}</a>
+          <a href="{{ t.services.ctaUrl | relative_url }}" class="secondary-link">{{ t.services.ctaLabel }}</a>
         </div>
+        <ul class="hero-stats">
+          <li>{{ t.home.stats.products | replace: "%count%", published_products.size }}</li>
+          <li>{{ t.home.stats.stores | replace: "%count%", store_count }}</li>
+          <li>{{ t.home.stats.platforms }}</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -124,7 +141,7 @@ body_class: home-page
 
       <div class="contact-form">
         <h3>{{ t.home.contact.formTitle }}</h3>
-        {% include contact_form.html locale=page.locale form_id="home-contact-form" placeholders=t.home.contact.placeholders submit_label=t.home.contact.submitLabel %}
+        {% include contact_form.html locale=page.locale form_id="home-contact-form" placeholders=t.home.contact.placeholders submit_label=t.home.contact.submitLabel topics=t.services.groups %}
       </div>
     </div>
   </section>

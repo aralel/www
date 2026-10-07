@@ -2,6 +2,18 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-07 (6)
+
+**Prompt:** "improve on the marketing and sales aspects"
+
+**Done:**
+- Sales: services page "Shipped by us" proof chips per group (`_data/marketing.yml`), "How we work" process, FAQ with FAQPage schema, enquiry-topic select on both forms, "Need an app like this?" cross-sell panel on every product page.
+- Marketing: value-led homepage hero (DE/EN), hero "Discuss a project" → services form instead of mailto, stats band computed from data, iOS Smart App Banner, device-aware store badge order, "More from Aralel" related products, Google Play UTM referrer attribution (App Store `pt`/`ct` ready behind a token).
+- Found and fixed: Google Fonts `@import` was a pre-consent third-party request (and contradicted the README); fonts now self-hosted in `fonts/`.
+- Kept claims honest: removed iPad and "our own products support RTL" from the FAQ draft since nothing on the site backs them.
+- Verified: build + `check-site.mjs _site` pass; FAQ JSON-LD valid; Chrome: zero cross-origin requests, fonts local, proof row/process/FAQ/cross-sell render. Logged in `CHANGELOG.md` under `[0.16.0]`.
+- Gotcha: the Chrome extension lost newly navigated tabs; navigating via `location.href` in an attached tab worked.
+
 ## 2026-10-07 (5)
 
 **Prompt:** "create a separate page for 'apps for travelling as family or friends' and put buzzbelt and albumara in it and put a link in the footer to it"

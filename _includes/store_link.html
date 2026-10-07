@@ -7,24 +7,38 @@
 {% if include.locale == "de" %}
   {% assign amazon_badge = "/images/badge-amazon-appstore-de.png" %}
 {% endif %}
+{% comment %}
+  Install attribution (_data/marketing.yml). `placement` names where the badge sits
+  (product-page, catalog-card); it becomes utm_campaign / ct in the store's reports.
+{% endcomment %}
+{% assign store_placement = include.placement | default: "website" %}
+{% assign attributed_store_url = include.url %}
+{% if include.store_key == "googlePlay" and site.data.marketing.google_play_referrer %}
+  {% assign play_referrer = "utm_source=aralel.com&utm_medium=website&utm_campaign=" | append: store_placement | url_encode %}
+  {% assign attributed_store_url = attributed_store_url | append: "&referrer=" | append: play_referrer %}
+{% elsif include.store_key == "appStore" and site.data.marketing.app_store_provider_token != "" %}
+  {% assign url_separator = "?" %}
+  {% if attributed_store_url contains "?" %}{% assign url_separator = "&" %}{% endif %}
+  {% assign attributed_store_url = attributed_store_url | append: url_separator | append: "pt=" | append: site.data.marketing.app_store_provider_token | append: "&ct=" | append: store_placement %}
+{% endif %}
 {% if include.store_key == "googlePlay" %}
-  <a class="store-link store-link--google" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.googleAria }}">
+  <a class="store-link store-link--google" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.googleAria }}">
     <img src="{{ google_badge | relative_url }}" alt="" class="store-badge-image" loading="lazy">
   </a>
 {% elsif include.store_key == "appStore" %}
-  <a class="store-link store-link--apple" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.appleAria }}">
+  <a class="store-link store-link--apple" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.appleAria }}">
     <img src="{{ apple_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--apple" loading="lazy">
   </a>
 {% elsif include.store_key == "amazonAppstore" %}
-  <a class="store-link store-link--amazon" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.amazonAria }}">
+  <a class="store-link store-link--amazon" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.amazonAria }}">
     <img src="{{ amazon_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--amazon" loading="lazy">
   </a>
 {% elsif include.store_key == "samsungGalaxyStore" %}
-  <a class="store-link store-link--samsung" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.samsungAria }}">
+  <a class="store-link store-link--samsung" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.samsungAria }}">
     <img src="{{ samsung_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--samsung" loading="lazy">
   </a>
 {% elsif include.store_key == "shopifyAppStore" %}
-  <a class="store-link store-link--shopify" href="{{ include.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.shopifyAria }}">
+  <a class="store-link store-link--shopify" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.shopifyAria }}">
     <img src="{{ shopify_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--shopify" loading="lazy">
   </a>
 {% endif %}

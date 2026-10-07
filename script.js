@@ -68,6 +68,21 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
 });
 
+// Put the visitor's own store first: App Store on iPhone/iPad, Google Play on Android.
+// (iPadOS reports itself as a Mac; touch support tells them apart.)
+const userAgent = navigator.userAgent;
+const isAppleMobileDevice = /iPhone|iPad|iPod/.test(userAgent) || (/Macintosh/.test(userAgent) && navigator.maxTouchPoints > 1);
+const isAndroidDevice = /Android/.test(userAgent);
+const preferredStoreSelector = isAppleMobileDevice ? '.store-link--apple' : (isAndroidDevice ? '.store-link--google' : null);
+if (preferredStoreSelector) {
+    document.querySelectorAll('.store-links').forEach((storeLinks) => {
+        const preferredStoreLink = storeLinks.querySelector(preferredStoreSelector);
+        if (preferredStoreLink && storeLinks.firstElementChild !== preferredStoreLink) {
+            storeLinks.prepend(preferredStoreLink);
+        }
+    });
+}
+
 // Contact forms (_includes/contact_form.html)
 // With an endpoint configured the form is POSTed via fetch; otherwise the visitor's
 // mail app opens with a pre-filled message to the company address.
@@ -97,7 +112,9 @@ function setupContactForm(contactForm) {
         const endpoint = contactForm.dataset.endpoint;
 
         if (!endpoint) {
-            const subject = formData.get('subject') || contactForm.dataset.defaultSubject;
+            const baseSubject = formData.get('subject') || contactForm.dataset.defaultSubject;
+            const topic = formData.get('topic');
+            const subject = topic ? `${baseSubject} – ${topic}` : baseSubject;
             const body = `${formData.get('message')}\n\n— ${formData.get('name')} <${formData.get('email')}>`;
             window.location.href = `mailto:${contactForm.dataset.mailto}`
                 + `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

@@ -1,6 +1,44 @@
 ---
 ---
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
+/* Fonts are self-hosted (fonts/, SIL Open Font License) instead of loaded from
+   Google Fonts, so no visitor data goes to Google before consent. Variable fonts:
+   one file per subset covers every weight. Only latin + latin-ext are needed for
+   German and English. */
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("/fonts/manrope-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url("/fonts/manrope-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url("/fonts/space-grotesk-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
     --bg: #ffffff;
@@ -994,6 +1032,7 @@ main {
 }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
     width: 100%;
     padding: 0.95rem 1rem;
@@ -1006,6 +1045,7 @@ main {
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: rgba(201, 122, 43, 0.65);
@@ -1947,4 +1987,180 @@ main {
 
 .hidden {
     display: none;
+}
+
+/* ── Marketing & sales components ───────────────────────────── */
+
+/* Homepage hero stats band (counts come from products.json) */
+.hero-stats {
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.hero-stats li {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Services: "Shipped by us" proof row under each group */
+.services-proof {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 0.9rem;
+}
+
+.services-proof-label {
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.services-proof-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.services-proof-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem 0.3rem 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.services-proof-item:hover,
+.services-proof-item:focus-visible {
+    border-color: var(--border-strong);
+    background: var(--surface-soft);
+}
+
+.services-proof-item img {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 8px;
+}
+
+/* Services: process steps */
+.process-steps {
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.process-step {
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: linear-gradient(180deg, var(--surface-soft), #fff);
+}
+
+.process-step-title {
+    margin: 0 0 0.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.08rem;
+}
+
+.process-step-text {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+/* Services: FAQ */
+.faq-list {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+}
+
+.faq-question {
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    font-weight: 700;
+    list-style-position: inside;
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 18px;
+}
+
+.faq-answer {
+    margin: 0;
+    padding: 0 1.2rem 1.1rem;
+    color: var(--text-soft);
+}
+
+/* Product page: services cross-sell panel */
+.cross-sell-panel {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+    background: linear-gradient(180deg, var(--brand-soft), #fff);
+}
+
+.cross-sell-title {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+}
+
+.cross-sell-text {
+    margin: 0 0 0.4rem;
+    color: var(--text-soft);
+}
+
+/* Product page: related products */
+.related-products {
+    width: min(calc(100% - 2rem), var(--content-width));
+    margin: 0 auto;
+    padding: 0 1rem 3.4rem;
+}
+
+.related-products .catalog-grid {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 960px) {
+    .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .process-steps {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }

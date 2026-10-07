@@ -122,7 +122,7 @@ body_class: subpage
             {% for store in product.stores %}
               {% assign store_key = store[0] %}
               {% assign store_url = store[1] %}
-              {% include store_link.html store_key=store_key url=store_url locale=page.locale %}
+              {% include store_link.html store_key=store_key url=store_url locale=page.locale placement="product-page" %}
             {% endfor %}
             {% if product.websiteUrl and product.stores.size < 3 %}
               <a class="store-link store-link--website" href="{{ product.websiteUrl }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.common.openWebsite }}">
@@ -183,10 +183,62 @@ body_class: subpage
         </div>
       </div>
 
+      {% comment %} Cross-sell: every product page doubles as a case study for client work. {% endcomment %}
+      {% capture services_discuss_url %}{% include localized_path.html path="/services" locale=page.locale %}{% endcapture %}
+      <div class="detail-panel cross-sell-panel">
+        <span class="page-kicker">{{ t.common.crossSell.kicker }}</span>
+        <h2 class="cross-sell-title">{{ t.common.crossSell.title }}</h2>
+        <p class="cross-sell-text">{{ t.common.crossSell.text | replace: "%name%", copy.name }}</p>
+        <a class="cta-button" href="{{ services_discuss_url | append: '#discuss' | relative_url }}">{{ t.common.crossSell.cta }}</a>
+      </div>
+
       <div class="detail-panel hidden">
         <a class="back-link" href="{{ listing_url | relative_url }}">{{ copy.backLabel }}</a>
       </div>
     </aside>
   </section>
+
+  {% comment %}
+    Related products, up to 3: same collection first (e.g. the travel apps), then
+    featured products of the same type, then any other product of the same type.
+  {% endcomment %}
+  {% assign related_products = "" | split: "" %}
+  {% assign related_slugs = "," | append: product.slug | append: "," %}
+  {% for related_pass in (1..3) %}
+    {% for candidate in site.data.products.products %}
+      {% if related_products.size >= 3 %}{% break %}{% endif %}
+      {% if candidate.hidden == true %}{% continue %}{% endif %}
+      {% assign candidate_token = "," | append: candidate.slug | append: "," %}
+      {% if related_slugs contains candidate_token %}{% continue %}{% endif %}
+      {% assign candidate_matches = false %}
+      {% if related_pass == 1 %}
+        {% for collection_key in product.collections %}
+          {% if candidate.collections contains collection_key %}{% assign candidate_matches = true %}{% endif %}
+        {% endfor %}
+      {% elsif related_pass == 2 %}
+        {% if candidate.type == product.type and candidate.front_page == true %}{% assign candidate_matches = true %}{% endif %}
+      {% elsif candidate.type == product.type %}
+        {% assign candidate_matches = true %}
+      {% endif %}
+      {% if candidate_matches %}
+        {% assign related_products = related_products | push: candidate %}
+        {% assign related_slugs = related_slugs | append: candidate.slug | append: "," %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if related_products.size > 0 %}
+    <section class="related-products">
+      <div class="section-title-container">
+        <h2 class="section-title">{{ t.common.relatedTitle }}</h2>
+        <div class="title-decoration"></div>
+      </div>
+      <div class="catalog-grid">
+        {% for related_product in related_products %}
+          {% include catalog_card.html product=related_product locale=page.locale compact=true %}
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
 </main>
 {% endif %}

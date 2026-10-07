@@ -108,7 +108,14 @@
       "mailtoOpened": "Your email app has opened with your message. Please send it from there.",
       "consentPrefix": "We use your details only to handle your enquiry. See our",
       "consentLink": "Privacy Policy"
-    }
+    },
+    "crossSell": {
+      "kicker": "Built by Aralel",
+      "title": "Need an app like this?",
+      "text": "We designed, built and published %name% ourselves. We do the same for clients — from the first idea to the store release.",
+      "cta": "Discuss a project"
+    },
+    "relatedTitle": "More from Aralel"
   },
   "platforms": {
     "labels": {
@@ -177,8 +184,8 @@
     "hero": {
       "kicker": "Official Website",
       "title": "Aralel GmbH",
-      "subtitle": "Software, digital products, and public portfolio",
-      "text": "Aralel builds and operates digital products for the web, mobile devices, and desktop platforms. This website is the company’s official presence and brings together our publicly available productions so partners, clients, and visitors can review the portfolio clearly.",
+      "subtitle": "We build and ship apps, games and web software — our own, and yours.",
+      "text": "Aralel is a software studio in Aachen, Germany. We publish our own products on the App Store, Google Play and the web, and bring the same experience to client projects: from the first idea to the store release and beyond.",
       "ctaLabel": "View Portfolio",
       "ctaUrl": "/frontpage_en.html"
     },
@@ -225,6 +232,11 @@
         "message": "Your Message"
       },
       "submitLabel": "Send Message"
+    },
+    "stats": {
+      "products": "%count% apps & games published",
+      "stores": "%count% app stores",
+      "platforms": "iPhone · Android · Mac · Web · Shopify"
     }
   },
   "careers": {
@@ -354,7 +366,7 @@
     "introTitle": "How we can help",
     "introText": "We are software specialists. We plug into existing teams to add capacity, review and demystify what you already have, and design and build new web, mobile, and automation projects end to end.",
     "ctaLabel": "Discuss a project",
-    "ctaUrl": "mailto:contact@aralel.com?subject=Project%20inquiry",
+    "ctaUrl": "/services_en.html#discuss",
     "form": {
       "title": "Discuss a project",
       "subtitle": "Tell us what you need help with and we'll get back to you.",
@@ -365,7 +377,10 @@
         "subject": "Subject",
         "message": "Tell us about your project"
       },
-      "submitLabel": "Send Message"
+      "submitLabel": "Send Message",
+      "topicLabel": "What do you need help with?",
+      "topicPlaceholder": "Choose a topic (optional)",
+      "topicOther": "Something else"
     },
     "groups": [
       {
@@ -508,7 +523,59 @@
           }
         ]
       }
-    ]
+    ],
+    "proofLabel": "Shipped by us",
+    "process": {
+      "title": "How we work",
+      "subtitle": "A simple, transparent process from the first conversation to a product in the stores.",
+      "steps": [
+        {
+          "title": "1. Conversation",
+          "text": "You tell us about your goals, users and constraints. We ask the questions that shape the project and say honestly whether we are the right fit."
+        },
+        {
+          "title": "2. Plan",
+          "text": "We propose scope, approach and milestones in writing, so you know what will be built, in which order, and what it depends on."
+        },
+        {
+          "title": "3. Build in increments",
+          "text": "We ship working versions early and often, so you see real progress and can steer priorities as the product takes shape."
+        },
+        {
+          "title": "4. Launch & support",
+          "text": "We handle store releases, localization and privacy requirements, and stay available for maintenance and next steps."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "Can you work with our existing team and codebase?",
+          "answer": "Yes. We regularly join existing teams to add capacity, review code and products, or take over maintenance. We start by understanding what is already there before changing anything."
+        },
+        {
+          "question": "Which platforms do you build for?",
+          "answer": "iPhone, Android, Mac, the web, and Shopify. Our own products run on all of them and are published on the App Store, Google Play, the Amazon Appstore, the Samsung Galaxy Store and the Shopify App Store."
+        },
+        {
+          "question": "Can you publish the app to the stores for us?",
+          "answer": "Yes. We prepare store listings, screenshots and metadata, handle review requirements, and release to every store you need, the same way we publish our own apps."
+        },
+        {
+          "question": "How do you handle data protection?",
+          "answer": "We are a German company and build with the GDPR in mind from the start: collecting only the data that is needed, keeping it local where possible, and documenting what is processed and why."
+        },
+        {
+          "question": "Which languages do you work in?",
+          "answer": "English and German. We also localize products for international audiences, including right-to-left languages."
+        },
+        {
+          "question": "How do we get started?",
+          "answer": "Send us a short message about your project using the form below or by email. We reply to arrange a first conversation, with no obligation."
+        }
+      ]
+    }
   },
   "company": {
     "hero": {

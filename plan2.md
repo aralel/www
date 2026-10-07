@@ -22,6 +22,8 @@
 
 **New finding while implementing:** `PLAN.md` and `README.md` were publicly served on www.aralel.com, and `plan2.md`/`CHANGELOG.md` would have been too. They are now excluded from the build.
 
+**Marketing & sales pass (CHANGELOG [0.16.0]):** F2 done (Smart App Banner and device-aware badge order); install attribution for Google Play (App Store ready once a provider token is set). New on top of the plan: services proof, process and FAQ, enquiry topics, product cross-sell, related products, a stats band, and self-hosted fonts (Google Fonts had been a pre-consent third-party request this review missed).
+
 **Still open / needs you:**
 - **L3:** the managing director's full name in `_data/company.yml` (`managing_director`).
 - **L4:** confirm `contact@aralel.com` should replace `hello@aralel.com` in the Impressum.

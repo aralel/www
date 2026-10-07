@@ -2,7 +2,9 @@
   Shared contact form for the homepage and the services page.
 
   Params: locale, form_id, placeholders (name/email/subject/message), submit_label,
-          subject_value (optional prefilled subject), message_rows (optional, default 4).
+          subject_value (optional prefilled subject), message_rows (optional, default 4),
+          topics (optional: services.groups, rendered as a "What do you need help with?" select
+          so enquiries arrive pre-qualified; the choice is added to the mail subject).
 
   Delivery:
   - `site.contact_form_endpoint` set (e.g. a Formspree URL): script.js POSTs the
@@ -44,6 +46,19 @@
     <div class="form-group">
       <label class="visually-hidden" for="{{ include.form_id }}-subject">{{ include.placeholders.subject }}</label>
       <input id="{{ include.form_id }}-subject" name="subject" type="text" placeholder="{{ include.placeholders.subject }}"{% if include.subject_value %} value="{{ include.subject_value | escape }}"{% endif %} required>
+    </div>
+  {% endif %}
+  {% if include.topics %}
+    {% assign services_form_copy = site.data.locales[include.locale].services.form %}
+    <div class="form-group">
+      <label class="visually-hidden" for="{{ include.form_id }}-topic">{{ services_form_copy.topicLabel }}</label>
+      <select id="{{ include.form_id }}-topic" name="topic">
+        <option value="">{{ services_form_copy.topicPlaceholder }}</option>
+        {% for topic_group in include.topics %}
+          <option value="{{ topic_group.title | escape }}">{{ topic_group.title }}</option>
+        {% endfor %}
+        <option value="{{ services_form_copy.topicOther | escape }}">{{ services_form_copy.topicOther }}</option>
+      </select>
     </div>
   {% endif %}
   <div class="form-group">

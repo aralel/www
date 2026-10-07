@@ -42,6 +42,23 @@ body_class: subpage
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": {{ locale_code | jsonify }},
+  "mainEntity": [
+    {% for faq_item in services.faq.items %}
+    {
+      "@type": "Question",
+      "name": {{ faq_item.question | jsonify }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq_item.answer | jsonify }} }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+
 <main class="services-page">
   <section class="page-hero page-hero--listing">
     <div class="page-hero-content">
@@ -80,8 +97,60 @@ body_class: subpage
             </article>
           {% endfor %}
         </div>
+        {% comment %} Proof: our own shipped products that use this kind of work (_data/marketing.yml). {% endcomment %}
+        {% assign proof_slugs = site.data.marketing.service_proof[group.slug] %}
+        {% if proof_slugs %}
+          <div class="services-proof">
+            <span class="services-proof-label">{{ services.proofLabel }}</span>
+            <ul class="services-proof-list">
+              {% for proof_slug in proof_slugs %}
+                {% assign proof_product = site.data.products.products | where: "slug", proof_slug | first %}
+                {% if proof_product and proof_product.hidden != true %}
+                  {% capture proof_product_url %}{% include product_path.html product=proof_product locale=locale_code %}{% endcapture %}
+                  <li>
+                    <a class="services-proof-item" href="{{ proof_product_url | relative_url }}">
+                      <img src="{{ proof_product.iconUrl | relative_url }}" alt="" width="512" height="512" loading="lazy">
+                      <span>{{ t.products[proof_slug].name }}</span>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
       </div>
     {% endfor %}
+  </section>
+
+  <section id="process" class="services-section services-process">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ services.process.title }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ services.process.subtitle }}</p>
+    </div>
+    <ol class="process-steps">
+      {% for step in services.process.steps %}
+        <li class="process-step">
+          <h3 class="process-step-title">{{ step.title }}</h3>
+          <p class="process-step-text">{{ step.text }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section id="faq" class="services-section services-faq">
+    <div class="section-title-container">
+      <h2 class="section-title">{{ services.faq.title }}</h2>
+      <div class="title-decoration"></div>
+    </div>
+    <div class="faq-list">
+      {% for faq_item in services.faq.items %}
+        <details class="faq-item">
+          <summary class="faq-question">{{ faq_item.question }}</summary>
+          <p class="faq-answer">{{ faq_item.answer }}</p>
+        </details>
+      {% endfor %}
+    </div>
   </section>
 
   <section id="discuss" class="contact-section services-contact">
@@ -92,7 +161,7 @@ body_class: subpage
     </div>
 
     <div class="contact-form services-form">
-      {% include contact_form.html locale=locale_code form_id="services-contact-form" placeholders=services.form.placeholders submit_label=services.form.submitLabel subject_value=services.form.subjectValue message_rows=5 %}
+      {% include contact_form.html locale=locale_code form_id="services-contact-form" placeholders=services.form.placeholders submit_label=services.form.submitLabel subject_value=services.form.subjectValue message_rows=5 topics=services.groups %}
     </div>
   </section>
 </main>

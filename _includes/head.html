@@ -149,6 +149,11 @@
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="content-language" content="{{ locale_code }}">
 <link rel="canonical" href="{{ canonical_url }}">
+{% comment %} iOS Smart App Banner: Safari on iPhone shows an "Open / Get" bar for the product's App Store app. {% endcomment %}
+{% if product and product_hidden == false and product.stores.appStore and product.platforms contains "iphone" %}
+  {% assign app_store_id = product.stores.appStore | split: "/id" | last | split: "?" | first %}
+<meta name="apple-itunes-app" content="app-id={{ app_store_id }}">
+{% endif %}
 
 {% comment %} hreflang sets must list every member, including the page itself. {% endcomment %}
 {% if alternate_url %}
@@ -187,6 +192,7 @@
 {% if site.twitter_handle %}<meta name="twitter:site" content="{{ site.twitter_handle }}">{% endif %}
 <meta name="release-version" content="{{ release_version }}">
 
+<link rel="preload" href="{{ '/fonts/manrope-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ release_version }}">
 <link rel="stylesheet" href="{{ '/animations.css' | relative_url }}?v={{ release_version }}">
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">

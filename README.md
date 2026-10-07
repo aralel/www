@@ -136,9 +136,16 @@ The site is optimized for search engines, Google rich results, and AI assistants
 - **Job postings** take `datePosted` from `_data/jobs.yml`, so it stays stable across builds.
 - **[`robots.txt`](robots.txt)** explicitly welcomes search-engine and AI crawlers (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot, CCBot, …) and points to the sitemap.
 - **[`llms.txt`](llms.txt)** provides AI assistants a concise, build-time-generated markdown map of the company, apps, games, platform pages, and legal pages.
-- **No third-party requests before consent.** Icons are inline SVG and product icons are cached in the repo, so pages load only same-origin assets. AdSense (marketing) and the relay.codehospital.com page-view pixel (analytics) load only after consent in `cookie-consent.js`.
+- **No third-party requests before consent.** Fonts are self-hosted in `fonts/` (Manrope and Space Grotesk, SIL OFL, latin + latin-ext variable WOFF2), icons are inline SVG and product icons are cached in the repo, so pages load only same-origin assets. AdSense (marketing) and the relay.codehospital.com page-view pixel (analytics) load only after consent in `cookie-consent.js`.
 
 These are driven by data — adding a product, role, or service automatically updates the sitemap, structured data, and `llms.txt` on the next build.
+
+## Marketing & Sales
+
+- [`_data/marketing.yml`](_data/marketing.yml): `service_proof` maps each services group to our own products shown as "Shipped by us" proof on the services page (only list products whose description backs the claim); `google_play_referrer` adds UTM attribution to Google Play links (Play Console → Acquisition); `app_store_provider_token` enables App Store campaign links (`pt` + `ct`) when set.
+- Homepage stats band counts published products and app stores from `products.json` at build time.
+- Product pages: iOS Smart App Banner for iPhone apps, store badge order matched to the visitor's device, a services cross-sell panel, and "More from Aralel" related products (same collection, then featured, then same type).
+- Services page: proof chips, "How we work" process, FAQ (`services.process`, `services.faq` in the locale files, with `FAQPage` structured data), and an enquiry-topic select on the forms.
 
 ## Contact Forms
 

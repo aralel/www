@@ -1,0 +1,19 @@
+# Marketing data that is the same in both languages.
+
+# Services page: shipped products shown under each service group as proof
+# ("Shipped by us"). Keys are services.groups[].slug in the locale files, values
+# are product slugs from products.json. Hidden products are skipped automatically.
+# Only list a product where its own description backs the claim.
+service_proof:
+  web: [arena-sudoku, albumara, streakbox-gamify-daily-visit]            # browser multiplayer, web album viewer, Shopify admin
+  mobile: [albumara, buzzbelt, a-solar-compass]                          # iOS + Android apps, widgets
+  connectivity: [buzzbelt, rock-paper-bluetooth, wireless-deck, arena-sudoku]  # Bluetooth mesh, BLE, realtime
+  reach: [german-word-search, streakbox-gamify-daily-visit, messagram-app]     # 3 Android stores, Shopify App Store, local-only data
+  operations: [a-solar-compass, streakbox-gamify-daily-visit, messagram-app]   # calculation engine, reward rules, import + search
+
+# Google Play install attribution. Store links get a `referrer` with UTM values so
+# installs from this site show up under "Acquisition" in the Play Console.
+# (App Store campaign links additionally need the provider token `pt`; set
+# app_store_provider_token to enable `pt` + `ct` on App Store links.)
+google_play_referrer: true
+app_store_provider_token: ""

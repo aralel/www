@@ -108,7 +108,14 @@
       "mailtoOpened": "Ihr E-Mail-Programm wurde mit Ihrer Nachricht geöffnet. Bitte senden Sie sie dort ab.",
       "consentPrefix": "Mit dem Absenden verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Details in der",
       "consentLink": "Datenschutzerklärung"
-    }
+    },
+    "crossSell": {
+      "kicker": "Von Aralel entwickelt",
+      "title": "Sie brauchen eine App wie diese?",
+      "text": "%name% haben wir selbst konzipiert, entwickelt und veröffentlicht. Dasselbe machen wir für unsere Kund:innen – von der ersten Idee bis zur Veröffentlichung im Store.",
+      "cta": "Projekt besprechen"
+    },
+    "relatedTitle": "Mehr von Aralel"
   },
   "platforms": {
     "labels": {
@@ -177,8 +184,8 @@
     "hero": {
       "kicker": "Offizielle Website",
       "title": "Aralel GmbH",
-      "subtitle": "Software, digitale Produkte und öffentliches Portfolio",
-      "text": "Aralel entwickelt und betreibt digitale Produkte für Web, Mobilgeräte und Desktop-Plattformen. Diese Website ist der offizielle Unternehmensauftritt und bündelt unsere öffentlich verfügbaren Produktionen, damit Partner, Kund:innen und Interessierte einen klaren Überblick über unser Portfolio erhalten.",
+      "subtitle": "Wir entwickeln und veröffentlichen Apps, Spiele und Web-Software – eigene und Ihre.",
+      "text": "Aralel ist ein Software-Studio aus Aachen. Wir veröffentlichen eigene Produkte im App Store, bei Google Play und im Web – und bringen dieselbe Erfahrung in Kundenprojekte ein: von der ersten Idee bis zur Veröffentlichung im Store und darüber hinaus.",
       "ctaLabel": "Portfolio ansehen",
       "ctaUrl": "/frontpage.html"
     },
@@ -225,6 +232,11 @@
         "message": "Ihre Nachricht"
       },
       "submitLabel": "Nachricht senden"
+    },
+    "stats": {
+      "products": "%count% Apps & Spiele veröffentlicht",
+      "stores": "%count% App-Stores",
+      "platforms": "iPhone · Android · Mac · Web · Shopify"
     }
   },
   "careers": {
@@ -354,7 +366,7 @@
     "introTitle": "Wie wir helfen können",
     "introText": "Wir sind Software-Spezialisten. Wir integrieren uns in bestehende Teams, um Kapazität zu schaffen, prüfen und entschärfen, was Sie bereits haben, und konzipieren und entwickeln neue Web-, Mobile- und Automatisierungsprojekte von A bis Z.",
     "ctaLabel": "Projekt besprechen",
-    "ctaUrl": "mailto:contact@aralel.com?subject=Projektanfrage",
+    "ctaUrl": "/services.html#discuss",
     "form": {
       "title": "Projekt besprechen",
       "subtitle": "Sagen Sie uns, wobei Sie Unterstützung brauchen – wir melden uns bei Ihnen.",
@@ -365,7 +377,10 @@
         "subject": "Betreff",
         "message": "Erzählen Sie uns von Ihrem Projekt"
       },
-      "submitLabel": "Nachricht senden"
+      "submitLabel": "Nachricht senden",
+      "topicLabel": "Wobei brauchen Sie Unterstützung?",
+      "topicPlaceholder": "Thema wählen (optional)",
+      "topicOther": "Etwas anderes"
     },
     "groups": [
       {
@@ -508,7 +523,59 @@
           }
         ]
       }
-    ]
+    ],
+    "proofLabel": "Von uns veröffentlicht",
+    "process": {
+      "title": "So arbeiten wir",
+      "subtitle": "Ein einfacher, transparenter Ablauf – vom ersten Gespräch bis zum fertigen Produkt im Store.",
+      "steps": [
+        {
+          "title": "1. Gespräch",
+          "text": "Sie erzählen uns von Zielen, Nutzer:innen und Rahmenbedingungen. Wir stellen die Fragen, die das Projekt prägen, und sagen ehrlich, ob wir die Richtigen dafür sind."
+        },
+        {
+          "title": "2. Plan",
+          "text": "Wir schlagen Umfang, Vorgehen und Meilensteine schriftlich vor – damit klar ist, was in welcher Reihenfolge entsteht und wovon es abhängt."
+        },
+        {
+          "title": "3. Schrittweise Umsetzung",
+          "text": "Wir liefern früh und regelmäßig lauffähige Versionen, damit Sie echten Fortschritt sehen und Prioritäten unterwegs anpassen können."
+        },
+        {
+          "title": "4. Launch & Betreuung",
+          "text": "Wir übernehmen Store-Veröffentlichung, Lokalisierung und Datenschutzanforderungen und bleiben für Wartung und nächste Schritte ansprechbar."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": [
+        {
+          "question": "Arbeiten Sie mit unserem bestehenden Team und Code?",
+          "answer": "Ja. Wir verstärken regelmäßig bestehende Teams, prüfen Code und Produkte oder übernehmen die Wartung. Dabei verstehen wir zuerst, was vorhanden ist, bevor wir etwas ändern."
+        },
+        {
+          "question": "Für welche Plattformen entwickeln Sie?",
+          "answer": "iPhone, Android, Mac, Web und Shopify. Unsere eigenen Produkte laufen auf all diesen Plattformen und sind im App Store, bei Google Play, im Amazon Appstore, im Samsung Galaxy Store und im Shopify App Store veröffentlicht."
+        },
+        {
+          "question": "Können Sie die App für uns in den Stores veröffentlichen?",
+          "answer": "Ja. Wir erstellen Store-Einträge, Screenshots und Metadaten, kümmern uns um die Prüfanforderungen der Stores und veröffentlichen in allen Stores, die Sie brauchen – genauso wie bei unseren eigenen Apps."
+        },
+        {
+          "question": "Wie gehen Sie mit Datenschutz um?",
+          "answer": "Als deutsches Unternehmen entwickeln wir von Anfang an DSGVO-konform: Wir erheben nur die nötigen Daten, halten sie wo möglich lokal und dokumentieren, was zu welchem Zweck verarbeitet wird."
+        },
+        {
+          "question": "In welchen Sprachen arbeiten Sie?",
+          "answer": "Deutsch und Englisch. Außerdem lokalisieren wir Produkte für internationale Zielgruppen, auch für Sprachen mit Rechts-nach-links-Schrift."
+        },
+        {
+          "question": "Wie starten wir?",
+          "answer": "Schreiben Sie uns kurz über Ihr Projekt – über das Formular unten oder per E-Mail. Wir melden uns für ein erstes, unverbindliches Gespräch."
+        }
+      ]
+    }
   },
   "company": {
     "hero": {
