@@ -6,6 +6,7 @@
 {% capture services_url %}{% include localized_path.html path="/services" locale=locale_code %}{% endcapture %}
 {% capture company_url %}{% include localized_path.html path="/company" locale=locale_code %}{% endcapture %}
 {% capture careers_url %}{% include localized_path.html path="/careers" locale=locale_code %}{% endcapture %}
+{% capture travel_apps_url %}{% include localized_path.html path="/travel-apps" locale=locale_code %}{% endcapture %}
 {% capture impressum_url %}{% include localized_path.html path="/impressum" locale=locale_code %}{% endcapture %}
 {% assign privacy_url = "/privacy-policy.html" %}
 {% if locale_code == "de" %}{% assign privacy_url = "/datenschutz.html" %}{% endif %}
@@ -23,6 +24,7 @@
       <ul>
         <li><a href="{{ games_url | relative_url }}">{{ t.common.gamesLabel }}</a></li>
         <li><a href="{{ apps_url | relative_url }}">{{ t.common.appsLabel }}</a></li>
+        <li><a href="{{ travel_apps_url | relative_url }}">{{ t.footer.travelApps }}</a></li>
         {% for featured_slug in footer_featured_slugs %}
           {% assign featured_product = site.data.products.products | where: "slug", featured_slug | first %}
           {% if featured_product and featured_product.hidden != true %}

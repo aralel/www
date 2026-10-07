@@ -1,0 +1,67 @@
+---
+layout: default
+body_class: subpage
+---
+{% comment %}
+  Themed product collection (e.g. travel apps). Lists every visible product whose
+  `collections` array in _data/products.json contains `page.collection_key`.
+  Page copy: pages.<page_key> (title/description) and collections.<collection_key>
+  (kicker/heroTitle/heroText) in the locale files.
+{% endcomment %}
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign page_meta = t.pages[page.page_key] %}
+{% assign collection_copy = t.collections[page.collection_key] %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+{% assign collection_products = visible_products | where_exp: "product", "product.collections contains page.collection_key" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ page.url | absolute_url }}#webpage",
+      "name": {{ page_meta.title | jsonify }},
+      "description": {{ page_meta.description | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "inLanguage": {{ locale_code | jsonify }},
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "itemListElement": [
+        {% for product in collection_products %}
+        {% assign product_copy = t.products[product.slug] %}
+        {% capture detail_url %}{% include product_path.html product=product locale=locale_code %}{% endcapture %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": {{ product_copy.name | jsonify }},
+          "url": {{ detail_url | absolute_url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ collection_copy.kicker }}</span>
+      <h1>{{ collection_copy.heroTitle }}</h1>
+      <p>{{ collection_copy.heroText }}</p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page">
+    <div class="catalog-grid">
+      {% for product in collection_products %}
+        {% include catalog_card.html product=product locale=locale_code %}
+      {% endfor %}
+    </div>
+  </section>
+</main>

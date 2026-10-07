@@ -2,6 +2,16 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-07 (5)
+
+**Prompt:** "create a separate page for 'apps for travelling as family or friends' and put buzzbelt and albumara in it and put a link in the footer to it"
+
+**Done:**
+- Made it data-driven rather than a one-off page: `collections: ["travel"]` on Buzzbelt and Albumara in `_data/products.json`, new `_layouts/collection_list.html`, pages `travel-apps.html` / `travel-apps_en.html`, DE/EN copy (`pages.travelApps`, `collections.travel`, `footer.travelApps`), footer link in the Portfolio column, `llms.txt` entry, collection-copy check in `check-site.mjs`.
+- Verified: build + `check-site.mjs _site` pass (84 pages); both locales list exactly the two apps; hreflang paired; footer link on every page; sitemap includes both; visual check in Chrome.
+- Gotcha: commit 5a4c1fa moved `.ruby-version` to 3.3.8 and bumped gems in `Gemfile.lock`; the build failed until `bundle install` under 3.3.8.
+- Logged in `CHANGELOG.md` under `[0.15.0]`.
+
 ## 2026-10-07 (4)
 
 **Prompt:** "do phase 1 and 2 and 3 and 4" (of `plan2.md`).

@@ -102,6 +102,9 @@ Optional product fields:
 - `schemaCategory`: schema.org `applicationCategory` for apps (e.g. `TravelApplication`); defaults to `UtilitiesApplication`. Games are always `GameApplication`.
 - `price`: price in EUR for structured data; defaults to `"0"`.
 - `front_page`: `true` to feature the product on the homepage and the portfolio page.
+- `collections`: themed collection pages the product appears on, e.g. `["travel"]`.
+
+Themed collection pages (e.g. [`travel-apps.html`](travel-apps.html) / [`travel-apps_en.html`](travel-apps_en.html), linked from the footer) list every visible product whose `collections` array contains the page's `collection_key`. To add a product to the travel page, add `"travel"` to its `collections`. To create a new collection: tag the products, add `collections.<key>` (kicker, heroTitle, heroText) and `pages.<pageKey>` (title, description) to both locale files, and create two stub pages with `layout: collection_list`, `page_key`, `collection_key` and `switch_url`.
 
 To add a new product, scaffold it so no file is forgotten:
 

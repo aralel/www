@@ -13,6 +13,10 @@
       "description": "Featured apps and games from the Aralel GmbH portfolio, with direct links to the App Store, Google Play and other platforms.",
       "heading": "Featured products"
     },
+    "travelApps": {
+      "title": "Travel apps for family and friends – Aralel GmbH",
+      "description": "Buzzbelt and Albumara: offline group chat and shared photo and video albums for trips with family and friends, on iPhone and Android."
+    },
     "apps": {
       "title": "Aralel Apps — iOS, Android, Mac & Web",
       "description": "A look at Aralel's released apps across iOS, Android, Mac, and the web."
@@ -157,6 +161,7 @@
   "footer": {
     "description": "Official website of Aralel GmbH with a public portfolio of released products.",
     "portfolioTitle": "Portfolio",
+    "travelApps": "Travel apps",
     "companyTitle": "Company",
     "languageTitle": "Language",
     "about": "Company",
@@ -547,6 +552,13 @@
       "heroText": "These games and interactive productions are currently public within the Aralel portfolio, on the web, Google Play, or the App Store.",
       "sectionTitle": "All games",
       "sectionSubtitle": "Every game in the portfolio has a short profile and direct links to its public release."
+    }
+  },
+  "collections": {
+    "travel": {
+      "kicker": "Travel together",
+      "heroTitle": "Apps for travelling with family and friends",
+      "heroText": "Two apps for trips with your group: Buzzbelt keeps everyone talking even without mobile signal, and Albumara gathers everyone's photos and videos into one shared album automatically."
     }
   },
   "products": {

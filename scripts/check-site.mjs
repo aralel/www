@@ -9,6 +9,7 @@
 //     exists, platforms agree with stores / websiteUrl
 //   - _data/locales/de.json and en.json have the same key structure
 //   - every product has copy in both locales and both page stubs
+//   - every product collection (products[].collections) has copy in both locales
 //   - every career role has posting metadata in _data/jobs.yml
 //   - every icon named in the locales exists in _data/icons.json (scripts/build-icons.mjs)
 // Built-site checks
@@ -78,6 +79,11 @@ function checkProducts(products, locales) {
             if (!/^https:\/\//.test(storeUrl)) fail("products", `${label}: ${storeKey} URL is not https`);
             if (!impliedPlatforms.some((platform) => platforms.includes(platform))) {
                 fail("products", `${label}: has a ${storeKey} link but none of [${impliedPlatforms}] in platforms`);
+            }
+        }
+        for (const collectionKey of product.collections ?? []) {
+            for (const [localeCode, localeData] of Object.entries(locales)) {
+                if (!localeData.collections?.[collectionKey]) fail("products", `${label}: collection "${collectionKey}" has no collections.${collectionKey} copy in ${localeCode}.json`);
             }
         }
         if (product.websiteUrl && !platforms.includes("website")) fail("products", `${label}: websiteUrl set but "website" not in platforms`);
