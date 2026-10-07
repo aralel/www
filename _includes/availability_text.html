@@ -1,0 +1,26 @@
+{%- comment -%}
+  Availability sentence derived from a product's store links, used when its locale copy
+  has no hand-written availabilityText. Adding a store to products.json then updates
+  the sentence automatically. Params: product, locale.
+{%- endcomment -%}
+{%- assign availability_copy = site.data.locales[include.locale].common.availability -%}
+{%- assign channel_names = "" -%}
+{%- for store in include.product.stores -%}
+  {%- case store[0] -%}
+    {%- when "appStore" -%}{%- assign channel_name = "App Store" -%}
+    {%- when "googlePlay" -%}{%- assign channel_name = "Google Play" -%}
+    {%- when "amazonAppstore" -%}{%- assign channel_name = "Amazon Appstore" -%}
+    {%- when "samsungGalaxyStore" -%}{%- assign channel_name = "Samsung Galaxy Store" -%}
+    {%- when "shopifyAppStore" -%}{%- assign channel_name = "Shopify App Store" -%}
+    {%- else -%}{%- assign channel_name = store[0] -%}
+  {%- endcase -%}
+  {%- assign channel_names = channel_names | append: channel_name | append: "|" -%}
+{%- endfor -%}
+{%- if include.product.websiteUrl -%}
+  {%- assign channel_names = channel_names | append: availability_copy.web | append: "|" -%}
+{%- endif -%}
+{%- assign channel_list = channel_names | split: "|" -%}
+{{- availability_copy.prefix }} {% for channel in channel_list -%}
+  {%- if forloop.first -%}{%- elsif forloop.last %} {{ availability_copy.and }} {% else %}, {% endif -%}
+  {{- channel -}}
+{%- endfor -%}.

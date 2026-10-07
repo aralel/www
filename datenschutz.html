@@ -3,12 +3,12 @@ layout: legal
 locale: de
 page_title: Datenschutzerklärung - Aralel GmbH
 page_description: Datenschutzerklärung der Aralel GmbH gemäß DSGVO – Informationen zu Datenverarbeitung, Cookies, Drittanbietern und Ihren Rechten.
-back_url: /index.html
+back_url: /
 back_label: Zurück zur Startseite
 switch_url: /privacy-policy.html
 ---
 <h1>Datenschutzerklärung</h1>
-<p class="last-updated">Zuletzt aktualisiert: 23. Mai 2026</p>
+<p class="last-updated">Zuletzt aktualisiert: 7. Oktober 2026</p>
 
 <div class="highlight-box">
   <strong>Zusammenfassung:</strong> Wir respektieren Ihre Privatsphäre und verpflichten uns zum Schutz Ihrer personenbezogenen Daten. Diese Erklärung informiert Sie gemäß Art. 13 und 14 DSGVO darüber, wie wir Ihre Daten erheben, verwenden und schützen.
@@ -36,7 +36,7 @@ switch_url: /privacy-policy.html
 <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren und störungsfreien Bereitstellung der Website). Die Daten werden gelöscht, sobald sie für die Erreichung des Zwecks der Erhebung nicht mehr erforderlich sind, spätestens nach 30 Tagen.</p>
 
 <h3>2.2 Kontaktaufnahme</h3>
-<p>Wenn Sie uns per E-Mail oder über das Kontaktformular auf unserer Website kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen gespeichert.</p>
+<p>Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben (Name, E-Mail-Adresse, Nachricht) zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen gespeichert. Das Kontaktformular auf unserer Website überträgt selbst keine Daten an uns: Es öffnet Ihr E-Mail-Programm mit einer vorausgefüllten Nachricht, die Sie selbst absenden.</p>
 <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage). Die Daten werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet wurde.</p>
 
 <h2>3. Drittanbieter-Dienste</h2>
@@ -47,10 +47,10 @@ switch_url: /privacy-policy.html
 <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Ohne Ihre Einwilligung wird Google AdSense nicht geladen.</p>
 <p><strong>Drittlandübermittlung:</strong> Google LLC hat seinen Sitz in den USA. Die Datenübermittlung erfolgt auf Grundlage der EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Weitere Informationen zum Datenschutz bei Google finden Sie unter <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>.</p>
 
-<h3>3.2 Font Awesome (Cloudflare CDN)</h3>
-<p>Diese Website verwendet Font Awesome, bereitgestellt über das Content Delivery Network (CDN) von Cloudflare, Inc. (101 Townsend St, San Francisco, CA 94107, USA). Dabei werden Schriftart-Icons von Servern von Cloudflare geladen. Cloudflare kann dabei Ihre IP-Adresse und technische Daten verarbeiten.</p>
-<p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der einheitlichen und ordnungsgemäßen Darstellung der Website). Font Awesome ist ein wesentlicher Bestandteil der Website-Funktionalität.</p>
-<p><strong>Drittlandübermittlung:</strong> Cloudflare hat seinen Hauptsitz in den USA. Die Übermittlung erfolgt auf Grundlage der EU-Standardvertragsklauseln. Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">https://www.cloudflare.com/privacypolicy/</a>.</p>
+<h3>3.2 Zugriffszählung über relay.codehospital.com (nur mit Einwilligung)</h3>
+<!-- TODO: Betreiber und ggf. Auftragsverarbeitungsvertrag für relay.codehospital.com ergänzen. -->
+<p>Wenn Sie Analyse-Cookies im Cookie-Banner zustimmen, ruft Ihr Browser beim Seitenaufruf eine unsichtbare Grafik vom Server relay.codehospital.com ab. Dabei werden Ihre IP-Adresse, die aufgerufene Seite, die Website, von der Sie gekommen sind (Referrer), sowie Browser-Informationen übermittelt. Wir nutzen dies, um die Aufrufe unserer Seiten zu zählen. Es werden dabei keine Cookies gesetzt.</p>
+<p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG (Einwilligung). Ohne Ihre Einwilligung wird die Grafik nicht geladen. Sie können die Einwilligung jederzeit über „Cookie-Einstellungen" im Footer widerrufen.</p>
 
 <h2>4. Cookies und lokaler Speicher</h2>
 
@@ -65,8 +65,12 @@ switch_url: /privacy-policy.html
   </thead>
   <tbody>
     <tr><td>aralel_cookie_consent</td><td>Speicherung Ihrer Cookie-Einwilligungen</td><td>Persistent (localStorage)</td></tr>
+    <tr><td>installBannerDismissed</td><td>Merkt sich, dass Sie den Hinweis „App installieren" geschlossen haben</td><td>Persistent (localStorage)</td></tr>
+    <tr><td>aralel-precache-*, aralel-runtime-*</td><td>Offline-Kopie von Seiten und Dateien dieser Website (Service Worker), damit sie schneller und ohne Verbindung laden. Enthält keine personenbezogenen Daten und wird bei jeder neuen Version ersetzt; über „Cache ungültig machen" im Footer jederzeit löschbar.</td><td>Bis zur nächsten Website-Version (Cache Storage)</td></tr>
   </tbody>
 </table>
+
+<p><strong>Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TDDDG (unbedingt erforderlich für den von Ihnen gewünschten Dienst) bzw. Art. 6 Abs. 1 lit. f DSGVO.</p>
 
 <h3>4.3 Marketing-Cookies (nur mit Einwilligung)</h3>
 <p>Mit Ihrer Einwilligung werden Marketing-Cookies von Google AdSense gesetzt, um Ihnen personalisierte Werbeanzeigen anzuzeigen. Diese Cookies können Ihre Aktivität über verschiedene Websites hinweg verfolgen.</p>

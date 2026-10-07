@@ -61,18 +61,9 @@
             '.contact-item',
             '.contact-form',
             '.footer-section',
-            '.page-hero-content .page-kicker',
-            '.page-hero-content h1',
-            '.page-hero-content p',
-            '.detail-breadcrumbs',
-            '.detail-copy .page-kicker',
-            '.detail-copy h1',
-            '.detail-copy .detail-lead',
-            '.detail-copy p',
-            '.detail-copy .product-pill-row',
-            '.detail-copy .store-links',
-            '.detail-copy .secondary-link-row',
-            '.detail-visual',
+            // Page heroes (.page-hero-content, .detail-hero) are above the fold and hold
+            // the LCP element, so they are deliberately not revealed: hiding them until
+            // this script runs delays first paint.
             '.detail-description',
             '.detail-panel',
             '.detail-sidebar',
@@ -94,13 +85,6 @@
         const aboutText = document.querySelector('.about-text');
         if (aboutText) {
             aboutText.classList.add('reveal', 'reveal--right');
-        }
-
-        // Scale variant for detail visual
-        const detailVisual = document.querySelector('.detail-visual');
-        if (detailVisual) {
-            detailVisual.classList.remove('reveal');
-            detailVisual.classList.add('reveal', 'reveal--scale');
         }
 
         // Stagger grids
@@ -197,18 +181,8 @@
         });
     }
 
-    // ── Nav link active state ──────────────────────────────────
-    function setupNavActive() {
-        const currentPath = window.location.pathname;
-        document.querySelectorAll('nav ul a').forEach((link) => {
-            const href = link.getAttribute('href');
-            if (!href || href.includes('#')) return;
-            if (currentPath === href) {
-                link.style.color = 'var(--text)';
-                link.style.background = 'var(--surface-soft)';
-            }
-        });
-    }
+    // Active nav link: rendered as aria-current="page" in _includes/header.html
+    // and styled in styles.css.
 
     // ── Catalog card accent border on hover ────────────────────
     // The CSS handles the hover, but we also add a subtle top-bar
@@ -227,54 +201,16 @@
         });
     }
 
-    // ── Page transition fade ───────────────────────────────────
-    function setupPageTransition() {
-        if (!motionOk()) return;
-
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.32s ease';
-
-        // Fade in on load
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                document.body.style.opacity = '1';
-            });
-        });
-
-        // Fade out on internal link navigation
-        document.querySelectorAll('a[href]').forEach((link) => {
-            const href = link.getAttribute('href');
-            if (
-                !href ||
-                href.startsWith('#') ||
-                href.startsWith('mailto:') ||
-                href.startsWith('http') ||
-                link.target === '_blank'
-            ) {
-                return;
-            }
-
-            link.addEventListener('click', (e) => {
-                const dest = link.href;
-                if (dest && dest !== window.location.href) {
-                    e.preventDefault();
-                    document.body.style.opacity = '0';
-                    setTimeout(() => {
-                        window.location.href = dest;
-                    }, 280);
-                }
-            });
-        });
-    }
+    // Page transitions are handled in CSS with cross-document View Transitions
+    // (@view-transition in animations.css). The old JS fade intercepted every link
+    // click, which broke Cmd/Ctrl-click and left pages blank after a bfcache restore.
 
     // ── Init ───────────────────────────────────────────────────
     function init() {
         if (motionOk()) {
             setupReveal();
             setupRipples();
-            setupPageTransition();
         }
-        setupNavActive();
         setupCardAccents();
     }
 

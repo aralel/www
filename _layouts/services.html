@@ -65,7 +65,7 @@ body_class: subpage
     {% for group in services.groups %}
       <div class="services-group" id="{{ group.slug }}">
         <div class="services-group-header">
-          <span class="services-group-icon"><i class="{{ group.iconStyle | default: 'fas' }} {{ group.icon }}"></i></span>
+          <span class="services-group-icon">{% include icon.html name=group.icon style=group.iconStyle %}</span>
           <div class="services-group-heading">
             <h3 class="services-group-title">{{ group.title }}</h3>
             <p class="services-group-summary">{{ group.summary }}</p>
@@ -74,7 +74,7 @@ body_class: subpage
         <div class="services-grid">
           {% for item in group.items %}
             <article class="service-card">
-              <span class="service-icon"><i class="{{ item.iconStyle | default: 'fas' }} {{ item.icon }}"></i></span>
+              <span class="service-icon">{% include icon.html name=item.icon style=item.iconStyle %}</span>
               <h3 class="service-title">{{ item.title }}</h3>
               <p class="service-text">{{ item.text }}</p>
             </article>
@@ -92,21 +92,7 @@ body_class: subpage
     </div>
 
     <div class="contact-form services-form">
-      <form>
-        <div class="form-group">
-          <input type="text" placeholder="{{ services.form.placeholders.name }}" required>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="{{ services.form.placeholders.email }}" required>
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="{{ services.form.placeholders.subject }}" value="{{ services.form.subjectValue }}" required>
-        </div>
-        <div class="form-group">
-          <textarea placeholder="{{ services.form.placeholders.message }}" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="submit-button">{{ services.form.submitLabel }}</button>
-      </form>
+      {% include contact_form.html locale=locale_code form_id="services-contact-form" placeholders=services.form.placeholders submit_label=services.form.submitLabel subject_value=services.form.subjectValue message_rows=5 %}
     </div>
   </section>
 </main>

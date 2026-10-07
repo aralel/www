@@ -2,62 +2,51 @@
 layout: legal
 locale: en
 page_title: Legal Notice - Aralel GmbH
-page_description: Legal Notice for Aralel GmbH pursuant to § 5 TMG (German Telemedia Act).
+page_description: Legal Notice for Aralel GmbH pursuant to § 5 DDG (German Digital Services Act).
 back_url: /en.html
 back_label: Back to Home
 switch_url: /impressum.html
 ---
 
+{% assign company = site.data.company %}
 <h1>Legal Notice</h1>
 <p class="last-updated">
-    Information pursuant to § 5 TMG (German Telemedia Act)
+    Information pursuant to § 5 DDG (German Digital Services Act)
 </p>
 
 <div class="highlight-box">
-    <strong>Note:</strong> This legal notice contains all mandatory disclosures
-    required under § 5 of the German Telemedia Act (Telemediengesetz – TMG).
+    <strong>Note:</strong> This legal notice contains the mandatory disclosures
+    required under § 5 of the German Digital Services Act
+    (Digitale-Dienste-Gesetz – DDG).
 </div>
 
 <h2>Company Details</h2>
 <address>
-    <strong>Aralel GmbH</strong><br />
-    Josefstr 66<br />
-    52080 Aachen<br />
-    Germany
+    <strong>{{ company.legal_name }}</strong><br />
+    {{ company.address.street }}<br />
+    {{ company.address.postal_code }} {{ company.address.city }}<br />
+    {{ company.address.country_en }}
 </address>
 
-<h2>Represented by</h2>
-<p>Taraghidelgarm</p>
+<h2>Represented by the Managing Director</h2>
+<p>{{ company.managing_director }}</p>
 
 <h2>Contact</h2>
-<p>Email: <a href="mailto:hello@aralel.com">hello@aralel.com</a></p>
+<p>Email: <a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a></p>
 
 <h2>Commercial Register</h2>
 <p>
     Registered in the Commercial Register (Handelsregister).<br />
-    Registration court: Amtsgericht Aachen<br />
-    Registration number: HRB-29506
+    Registration court: {{ company.register_court }}<br />
+    Registration number: {{ company.register_number }}
 </p>
 
 <h2>VAT Identification Number</h2>
 <p>
     VAT identification number pursuant to § 27a of the German VAT Act
     (Umsatzsteuergesetz):<br />
-    DE461077402
+    {{ company.vat_id }}
 </p>
-
-<h2>EU Online Dispute Resolution</h2>
-<p>
-    The European Commission provides a platform for online dispute resolution
-    (ODR):
-    <a
-        href="https://ec.europa.eu/consumers/odr/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >https://ec.europa.eu/consumers/odr/</a
-    >.
-</p>
-<p>Our email address can be found in the contact section above.</p>
 
 <h2>Consumer Dispute Resolution</h2>
 <p>
@@ -68,8 +57,8 @@ switch_url: /impressum.html
 <h2>Liability for Content</h2>
 <p>
     As a service provider, we are responsible for our own content on these pages
-    in accordance with § 7 para. 1 TMG under the general laws. According to §§ 8
-    to 10 TMG, however, we are not obligated to monitor transmitted or stored
+    in accordance with § 7 para. 1 DDG under the general laws. According to §§ 8
+    to 10 DDG, however, we are not obligated to monitor transmitted or stored
     third-party information or to investigate circumstances that indicate
     illegal activity.
 </p>

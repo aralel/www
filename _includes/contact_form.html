@@ -1,0 +1,61 @@
+{% comment %}
+  Shared contact form for the homepage and the services page.
+
+  Params: locale, form_id, placeholders (name/email/subject/message), submit_label,
+          subject_value (optional prefilled subject), message_rows (optional, default 4).
+
+  Delivery:
+  - `site.contact_form_endpoint` set (e.g. a Formspree URL): script.js POSTs the
+    form there with fetch; without JS the browser POSTs it directly.
+  - Not set: the form is a `mailto:` form. script.js opens the visitor's mail app
+    with a pre-filled message; without JS the browser does the same natively.
+{% endcomment %}
+{% assign t = site.data.locales[include.locale] %}
+{% assign form_copy = t.common.contactForm %}
+{% assign contact_email = site.data.company.emails.contact %}
+{% assign privacy_url = "/privacy-policy.html" %}
+{% if include.locale == "de" %}
+  {% assign privacy_url = "/datenschutz.html" %}
+{% endif %}
+{% assign message_rows = include.message_rows | default: 4 %}
+<form id="{{ include.form_id }}"
+      data-contact-form
+      data-mailto="{{ contact_email }}"
+      data-default-subject="{{ include.subject_value | default: form_copy.defaultSubject | escape }}"
+      data-status-sending="{{ form_copy.sending | escape }}"
+      data-status-success="{{ form_copy.success | escape }}"
+      data-status-error="{{ form_copy.error | escape }}"
+      data-status-mailto="{{ form_copy.mailtoOpened | escape }}"
+      {% if site.contact_form_endpoint %}
+      data-endpoint="{{ site.contact_form_endpoint }}"
+      action="{{ site.contact_form_endpoint }}" method="POST"
+      {% else %}
+      action="mailto:{{ contact_email }}" method="POST" enctype="text/plain"
+      {% endif %}>
+  <div class="form-group">
+    <label class="visually-hidden" for="{{ include.form_id }}-name">{{ include.placeholders.name }}</label>
+    <input id="{{ include.form_id }}-name" name="name" type="text" autocomplete="name" placeholder="{{ include.placeholders.name }}" required>
+  </div>
+  <div class="form-group">
+    <label class="visually-hidden" for="{{ include.form_id }}-email">{{ include.placeholders.email }}</label>
+    <input id="{{ include.form_id }}-email" name="email" type="email" autocomplete="email" placeholder="{{ include.placeholders.email }}" required>
+  </div>
+  {% if include.placeholders.subject %}
+    <div class="form-group">
+      <label class="visually-hidden" for="{{ include.form_id }}-subject">{{ include.placeholders.subject }}</label>
+      <input id="{{ include.form_id }}-subject" name="subject" type="text" placeholder="{{ include.placeholders.subject }}"{% if include.subject_value %} value="{{ include.subject_value | escape }}"{% endif %} required>
+    </div>
+  {% endif %}
+  <div class="form-group">
+    <label class="visually-hidden" for="{{ include.form_id }}-message">{{ include.placeholders.message }}</label>
+    <textarea id="{{ include.form_id }}-message" name="message" placeholder="{{ include.placeholders.message }}" rows="{{ message_rows }}" required></textarea>
+  </div>
+  {% comment %} Honeypot: hidden from people and assistive tech, bots tend to fill it. {% endcomment %}
+  <div class="form-honeypot" aria-hidden="true">
+    <label for="{{ include.form_id }}-website">Website</label>
+    <input id="{{ include.form_id }}-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <p class="form-consent">{{ form_copy.consentPrefix }} <a href="{{ privacy_url | relative_url }}">{{ form_copy.consentLink }}</a>.</p>
+  <button type="submit" class="submit-button">{{ include.submit_label }}</button>
+  <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+</form>

@@ -1,0 +1,11 @@
+{%- comment -%}
+  Site-root path of a product detail page: /apps/<slug>.html, /games/<slug>_en.html, …
+  Params: product (an entry of _data/products.json), locale.
+{%- endcomment -%}
+{%- if include.product.type == "app" -%}
+  {%- assign product_folder = "/apps/" -%}
+{%- else -%}
+  {%- assign product_folder = "/games/" -%}
+{%- endif -%}
+{%- assign product_base_path = product_folder | append: include.product.slug -%}
+{%- include localized_path.html path=product_base_path locale=include.locale -%}

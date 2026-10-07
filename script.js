@@ -39,6 +39,13 @@ if (mobileMenuToggle && navMenu) {
             closeNavMenu();
         }
     });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeNavMenu();
+            mobileMenuToggle.focus();
+        }
+    });
 }
 
 // Smooth scrolling for in-page navigation links only
@@ -60,6 +67,79 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         });
     });
 });
+
+// Contact forms (_includes/contact_form.html)
+// With an endpoint configured the form is POSTed via fetch; otherwise the visitor's
+// mail app opens with a pre-filled message to the company address.
+const MINIMUM_FILL_MILLISECONDS = 2500; // faster than this is almost certainly a bot
+
+function setFormStatus(statusElement, state, message) {
+    if (!statusElement) {
+        return;
+    }
+    statusElement.dataset.state = state;
+    statusElement.textContent = message;
+}
+
+function setupContactForm(contactForm) {
+    const statusElement = contactForm.querySelector('[data-form-status]');
+    const submitButton = contactForm.querySelector('[type="submit"]');
+    const formRenderedAt = Date.now();
+
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        const formData = new FormData(contactForm);
+        const looksLikeBot = formData.get('_gotcha') || Date.now() - formRenderedAt < MINIMUM_FILL_MILLISECONDS;
+        const endpoint = contactForm.dataset.endpoint;
+
+        if (!endpoint) {
+            const subject = formData.get('subject') || contactForm.dataset.defaultSubject;
+            const body = `${formData.get('message')}\n\n— ${formData.get('name')} <${formData.get('email')}>`;
+            window.location.href = `mailto:${contactForm.dataset.mailto}`
+                + `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            setFormStatus(statusElement, 'info', contactForm.dataset.statusMailto);
+            return;
+        }
+
+        if (looksLikeBot) {
+            // Pretend it worked so bots get no signal to adapt.
+            setFormStatus(statusElement, 'success', contactForm.dataset.statusSuccess);
+            contactForm.reset();
+            return;
+        }
+
+        formData.delete('_gotcha');
+        if (submitButton) {
+            submitButton.disabled = true;
+        }
+        setFormStatus(statusElement, 'info', contactForm.dataset.statusSending);
+
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                body: formData,
+                headers: { Accept: 'application/json' }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            setFormStatus(statusElement, 'success', contactForm.dataset.statusSuccess);
+            contactForm.reset();
+        } catch (error) {
+            setFormStatus(statusElement, 'error', contactForm.dataset.statusError);
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
+    });
+}
+
+document.querySelectorAll('form[data-contact-form]').forEach(setupContactForm);
 
 // Add to Home Screen functionality
 let deferredPrompt;
@@ -146,17 +226,6 @@ window.addEventListener('appinstalled', () => {
     }
 });
 
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const targetLink = document.getElementById('relay-pixel');
-    if (targetLink && document.referrer) {
-      // Safely encode the URL parameter to handle special characters
-      const encodedReferrer = encodeURIComponent(document.referrer);
-
-      // Append the parameter to the existing URL
-      targetLink.src += `?source=${encodedReferrer}`;
-    }
-  });
 
 // Add parallax effect for the homepage hero only
 const hero = document.querySelector('#hero');

@@ -1,0 +1,89 @@
+# Builds the site with the pinned Jekyll from Gemfile.lock, runs the consistency
+# checks, and (opt-in) deploys to GitHub Pages.
+#
+# Deploying from this workflow is OFF until both are done:
+#   1. Repo Settings → Pages → Build and deployment → Source: "GitHub Actions"
+#   2. Repo Settings → Secrets and variables → Actions → Variables:
+#      PAGES_DEPLOY_VIA_ACTIONS = true
+# Until then GitHub's classic Pages build keeps publishing the site, and this
+# workflow only reports problems on pushes and pull requests.
+
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # _plugins/git_last_modified.rb reads commit dates for sitemap <lastmod>
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true # Ruby version from .ruby-version
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Source checks (data, locales, page stubs)
+        run: node scripts/check-site.mjs
+
+      - name: Build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Built-site checks (JSON-LD, hreflang, links, sitemap)
+        run: node scripts/check-site.mjs _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: artifact
+      - name: Unpack site
+        run: mkdir _site && tar -xf artifact/artifact.tar -C _site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lighthouse CI (budgets in lighthouserc.json)
+        run: npx --yes @lhci/cli@0.14.x autorun
+
+  deploy:
+    needs: [build, lighthouse]
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.PAGES_DEPLOY_VIA_ACTIONS == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

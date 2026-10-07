@@ -2,6 +2,30 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-07 (4)
+
+**Prompt:** "do phase 1 and 2 and 3 and 4" (of `plan2.md`).
+
+**Done:**
+- Implemented Phases 1–4; details in `CHANGELOG.md` under `[0.14.0]`, status and deviations at the top of `plan2.md`.
+- Phase 1: working contact forms (mailto by default, `contact_form_endpoint` optional), relay pixel behind analytics consent, Impressum (ODR removed, TMG→DDG, data from new `_data/company.yml`), `site.url` → `https://www.aralel.com` (apex verified to 301 to www), debug app removed from `assetlinks.json`, JS page-fade replaced by CSS View Transitions.
+- Phase 2: hreflang self-reference + German home unified on `/`, stable JobPosting dates (`_data/jobs.yml`), git-based sitemap `lastmod` plugin, portfolio page metadata, `noindex` for market/map, DE/EN services drift fixed, legacy scripts deleted, `scripts/check-site.mjs`, GitHub Actions workflow (deploy opt-in), Linux platform in `Gemfile.lock`.
+- Phase 3: Font Awesome CDN → inline SVG (`scripts/build-icons.mjs`), hero/LCP not hidden by JS, image dimensions, a11y fixes, service worker rewrite, Lighthouse CI budgets, privacy policies updated.
+- Phase 4: `localized_path`/`product_path` URL helpers across all templates, company data everywhere, derived availability text, `schemaCategory`/`price`, `scripts/new-product.mjs`.
+- New finding: `PLAN.md`/`README.md` were publicly served; repo-only files now excluded from the build.
+- Verified: `jekyll build` clean, `check-site.mjs _site` passes (and catches the original bugs on the pre-change code), all JS passes `node --check`, browser check in Chrome (icons, form error path, bfcache back-nav, active nav, hero paint, no console errors).
+- Gotchas: `git rm` stages deletions (unstaged again, nothing committed); Python `json.dump` reformats `products.json` (inline arrays), so it is edited with text inserts; this shell has no node/rbenv on PATH (use `/opt/homebrew/bin/node`, `~/.rbenv/shims`).
+- Needs the owner: managing director's full name, relay pixel operator, `hello@` vs `contact@`, switching Pages to Actions.
+
+## 2026-10-07 (3)
+
+**Prompt:** Comprehensive code review and strategic improvement plan; save as `plan2.md`, no code changes.
+
+**Done:**
+- Reviewed all layouts, includes, client JS, service worker, data/locale files, legal pages and scripts; built the site into a scratch dir to verify output (151 JSON-LD blocks valid, 79 sitemap URLs, no missing stubs/locale copy).
+- Wrote `plan2.md`. Top findings: contact forms have no action/field names (submissions are lost); `site.url` is apex while `CNAME` is `www`; undisclosed pre-consent `relay.codehospital.com` pixel; Impressum still cites TMG and the discontinued EU ODR platform; `assetlinks.json` trusts the debug-signed Availabell build for `get_login_creds`; `animations.js` blanks pages on bfcache back-nav and hijacks Cmd-click; hreflang lacks self-reference; JobPosting dates reset every build; DE/EN services copy has drifted.
+- No site code changed. Logged in `CHANGELOG.md` under `[0.13.2]`.
+
 ## 2026-10-07 (2)
 
 **Prompt:** "yes and yes" — feature Albumara on the front page, and update the albumara.aralel.com landing page so it no longer names only the Android app.

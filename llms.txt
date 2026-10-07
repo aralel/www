@@ -14,7 +14,7 @@ Aralel GmbH is a software studio based in Aachen, Germany, building web, mobile,
 
 - Base URL: {{ site.url }}
 - Contact: contact@aralel.com
-- Languages: English ({{ site.url }}/en.html), German ({{ site.url }}/index.html)
+- Languages: English ({{ site.url }}/en.html), German ({{ site.url }}/)
 
 ## Company
 

@@ -1,4 +1,4 @@
-# robots.txt for Aralel GmbH — https://aralel.com
+# robots.txt for Aralel GmbH — https://www.aralel.com
 # Search engines and AI assistants are welcome to crawl and reference this site.
 
 User-agent: *
@@ -48,4 +48,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://aralel.com/sitemap.xml
+Sitemap: https://www.aralel.com/sitemap.xml

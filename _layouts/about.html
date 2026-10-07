@@ -5,12 +5,9 @@ body_class: subpage
 {% assign locale_code = page.locale | default: "en" %}
 {% assign t = site.data.locales[locale_code] %}
 {% assign company = t.company %}
-{% assign services_url = "/services_en.html" %}
-{% assign contact_url = "/en.html#contact" %}
-{% if locale_code == "de" %}
-  {% assign services_url = "/services.html" %}
-  {% assign contact_url = "/index.html#contact" %}
-{% endif %}
+{% capture services_url %}{% include localized_path.html path="/services" locale=locale_code %}{% endcapture %}
+{% capture home_url %}{% include localized_path.html path="/" locale=locale_code %}{% endcapture %}
+{% assign contact_url = home_url | append: "#contact" %}
 
 <script type="application/ld+json">
 {

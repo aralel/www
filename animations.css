@@ -4,11 +4,33 @@
    .motion-ok class added to <html> by animations.js
    ============================================================ */
 
+/* ── Page transitions ──────────────────────────────────────
+   Cross-document View Transitions: a short cross-fade between same-origin
+   pages, done by the browser. Unsupported browsers just navigate normally.
+   Replaces the old JS body fade (see CHANGELOG 0.14.0). */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.25s;
+    }
+}
+
 /* ── Keyframes ─────────────────────────────────────────────── */
 
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Motion without hiding: hero text stays visible (opacity 1) so it can paint as
+   the Largest Contentful Paint element right away. */
+@keyframes riseIn {
+    from { transform: translateY(14px); }
+    to   { transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -110,24 +132,11 @@ html.motion-ok .hero-animate .hero-kicker {
     animation-delay: 0.1s;
 }
 
-html.motion-ok .hero-animate h1 {
-    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.22s;
-}
-
-html.motion-ok .hero-animate h2 {
-    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.36s;
-}
-
-html.motion-ok .hero-animate p {
-    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.48s;
-}
-
+html.motion-ok .hero-animate h1,
+html.motion-ok .hero-animate h2,
+html.motion-ok .hero-animate p,
 html.motion-ok .hero-animate .hero-actions {
-    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.6s;
+    animation: riseIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ── Title decoration line ──────────────────────────────────── */

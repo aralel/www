@@ -1,6 +1,6 @@
 title: Aralel GmbH
 description: Official bilingual company website and public portfolio for Aralel GmbH.
-url: "https://aralel.com"
+url: "https://www.aralel.com"  # must match CNAME; the apex 301-redirects to www
 baseurl: ""
 
 # Optional social metadata. Uncomment and fill in to emit the matching tags.
@@ -9,11 +9,27 @@ baseurl: ""
 # facebook_app_id: "000000000000000"                    # -> <meta property="fb:app_id">
 # twitter_handle: "@aralel"                              # -> <meta name="twitter:site">
 
+# Contact forms (_includes/contact_form.html). Unset: the forms open the visitor's
+# mail app addressed to _data/company.yml emails.contact. Set to a form-backend URL
+# that accepts POSTed form data (e.g. "https://formspree.io/f/xxxxxxx") to send
+# submissions directly. Update section 2.2 of datenschutz.html / privacy-policy.html
+# to name that provider when you switch.
+# contact_form_endpoint: "https://formspree.io/f/xxxxxxx"
+
 include: [".well-known", "available"]
+# Repo-only files. Jekyll copies unknown files verbatim, so anything not listed
+# here (e.g. PLAN.md) would be published at www.aralel.com/<name>.
 exclude:
   - node_modules
   - scripts
   - sample.json
+  - README.md
+  - CHANGELOG.md
+  - PLAN.md
+  - plan2.md
+  - lighthouserc.json
+  - Gemfile
+  - Gemfile.lock
 
 defaults:
   - scope:

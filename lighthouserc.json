@@ -1,0 +1,32 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./_site",
+      "url": [
+        "/en.html",
+        "/apps_en.html",
+        "/apps/albumara_en.html",
+        "/services_en.html"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "preset": "desktop"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:accessibility": ["error", { "minScore": 0.95 }],
+        "categories:seo": ["error", { "minScore": 0.95 }],
+        "categories:best-practices": ["warn", { "minScore": 0.9 }],
+        "categories:performance": ["warn", { "minScore": 0.9 }],
+        "largest-contentful-paint": ["warn", { "maxNumericValue": 2000 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.05 }],
+        "render-blocking-resources": ["warn", { "maxLength": 0 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./.lighthouseci"
+    }
+  }
+}

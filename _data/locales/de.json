@@ -8,6 +8,11 @@
       "title": "Aralel GmbH — Software-Studio",
       "description": "Aralel entwickelt und veröffentlicht digitale Produkte — Apps, Spiele und Web-Software. Das ist die offizielle Präsenz und das öffentliche Portfolio des Studios."
     },
+    "portfolio": {
+      "title": "Portfolio – ausgewählte Apps und Spiele | Aralel GmbH",
+      "description": "Ausgewählte Apps und Spiele aus dem Portfolio der Aralel GmbH – mit direkten Links zu App Store, Google Play und weiteren Plattformen.",
+      "heading": "Ausgewählte Produkte"
+    },
     "apps": {
       "title": "Aralel-Apps — iOS, Android, Mac & Web",
       "description": "Veröffentlichte Aralel-Apps im Überblick — für iOS, Android, Mac und das Web."
@@ -85,7 +90,21 @@
     "typeGame": "Spiel",
     "openWebsite": "Website öffnen",
     "appsLabel": "Apps",
-    "gamesLabel": "Spiele"
+    "gamesLabel": "Spiele",
+    "availability": {
+      "prefix": "Erhältlich über",
+      "and": "und",
+      "web": "das Web"
+    },
+    "contactForm": {
+      "defaultSubject": "Anfrage über aralel.com",
+      "sending": "Wird gesendet …",
+      "success": "Danke! Ihre Nachricht ist bei uns angekommen. Wir melden uns bald.",
+      "error": "Das Senden hat nicht geklappt. Bitte schreiben Sie uns direkt an contact@aralel.com.",
+      "mailtoOpened": "Ihr E-Mail-Programm wurde mit Ihrer Nachricht geöffnet. Bitte senden Sie sie dort ab.",
+      "consentPrefix": "Mit dem Absenden verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Details in der",
+      "consentLink": "Datenschutzerklärung"
+    }
   },
   "platforms": {
     "labels": {

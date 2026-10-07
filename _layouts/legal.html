@@ -5,7 +5,7 @@ body_class: subpage
 <main class="legal-shell">
   <article class="policy-content">
     {% if page.back_url and page.back_label %}
-      <a href="{{ page.back_url | relative_url }}" class="back-link"><i class="fas fa-arrow-left"></i> {{ page.back_label }}</a>
+      <a href="{{ page.back_url | relative_url }}" class="back-link">{% include icon.html name="arrow-left" %} {{ page.back_label }}</a>
     {% endif %}
     {{ content }}
   </article>

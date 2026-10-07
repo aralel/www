@@ -10,8 +10,6 @@ body_class: subpage
 {% assign platform_products = visible_products | where_exp: "product", "product.platforms contains page.platform_key" %}
 {% assign games = platform_products | where: "type", "game" %}
 {% assign apps = platform_products | where: "type", "app" %}
-{% assign detail_suffix = "" %}
-{% if locale_code == "en" %}{% assign detail_suffix = "_en" %}{% endif %}
 
 <script type="application/ld+json">
 {
@@ -32,9 +30,7 @@ body_class: subpage
       "itemListElement": [
         {% for product in platform_products %}
         {% assign product_copy = t.products[product.slug] %}
-        {% assign detail_dir = "games" %}
-        {% if product.type == "app" %}{% assign detail_dir = "apps" %}{% endif %}
-        {% assign detail_url = "/" | append: detail_dir | append: "/" | append: product.slug | append: detail_suffix | append: ".html" %}
+        {% capture detail_url %}{% include product_path.html product=product locale=locale_code %}{% endcapture %}
         {
           "@type": "ListItem",
           "position": {{ forloop.index }},

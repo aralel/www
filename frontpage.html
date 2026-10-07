@@ -2,7 +2,8 @@
 layout: default
 body_class: subpage
 locale: de
-page_key: home
+page_key: portfolio
+switch_url: /frontpage_en.html
 ---
 {% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
 {% assign visible_products = visible_products | where: "front_page", true %}
@@ -14,8 +15,8 @@ page_key: home
   <section class="page-hero page-hero--listing">
     <div class="page-hero-content">
       <span class="page-kicker">{{ t.home.apps.title }}</span>
-      <h1>{{ t.pages.home.title }}</h1>
-      <p>{{ t.pages.home.description }}</p>
+      <h1>{{ t.pages.portfolio.heading }}</h1>
+      <p>{{ t.pages.portfolio.description }}</p>
     </div>
   </section>
 

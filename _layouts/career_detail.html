@@ -6,11 +6,7 @@ body_class: subpage
 {% assign t = site.data.locales[locale_code] %}
 {% assign careers = t.careers %}
 {% assign role = careers.roles | where: "slug", page.job_slug | first %}
-{% assign suffix = "" %}
-{% if locale_code == "en" %}
-  {% assign suffix = "_en" %}
-{% endif %}
-{% assign careers_url = "/careers" | append: suffix | append: ".html" %}
+{% capture careers_url %}{% include localized_path.html path="/careers" locale=locale_code %}{% endcapture %}
 {% assign department_name = careers.departments[role.department] %}
 
 {% assign role_type_normalized = role.type | downcase %}
@@ -24,8 +20,8 @@ body_class: subpage
 {% elsif role_type_normalized contains "temp" %}
   {% assign employment_type = "TEMPORARY" %}
 {% endif %}
-{% assign date_posted = page.date | default: site.time | date: "%Y-%m-%d" %}
-{% assign valid_through = page.date | default: site.time | date: "%s" | plus: 7776000 | date: "%Y-%m-%d" %}
+{% assign job_meta = site.data.jobs[page.job_slug] %}
+{% assign company = site.data.company %}
 
 <script type="application/ld+json">
 {
@@ -35,20 +31,20 @@ body_class: subpage
   "description": {{ role.extendedDescription | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
   "inLanguage": {{ locale_code | jsonify }},
-  "datePosted": {{ date_posted | jsonify }},
-  "validThrough": {{ valid_through | jsonify }},
+  "datePosted": {{ job_meta.date_posted | jsonify }},
+  {% if job_meta.valid_through %}"validThrough": {{ job_meta.valid_through | jsonify }},{% endif %}
   "employmentType": {{ employment_type | jsonify }},
   "identifier": {
     "@type": "PropertyValue",
-    "name": "Aralel GmbH",
+    "name": {{ company.legal_name | jsonify }},
     "value": {{ role.slug | jsonify }}
   },
   "industry": {{ department_name | jsonify }},
-  "directApply": true,
+  "directApply": false,
   "hiringOrganization": {
     "@type": "Organization",
     "@id": "{{ site.url }}/#organization",
-    "name": "Aralel GmbH",
+    "name": {{ company.legal_name | jsonify }},
     "sameAs": {{ site.url | jsonify }},
     "logo": "{{ '/images/aralel-logo.png' | absolute_url }}"
   },
@@ -56,10 +52,10 @@ body_class: subpage
     "@type": "Place",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Josefstr 66",
-      "postalCode": "52080",
-      "addressLocality": "Aachen",
-      "addressCountry": "DE"
+      "streetAddress": {{ company.address.street | jsonify }},
+      "postalCode": {{ company.address.postal_code | jsonify }},
+      "addressLocality": {{ company.address.city | jsonify }},
+      "addressCountry": {{ company.address.country_code | jsonify }}
     }
   },
   "jobLocationType": "TELECOMMUTE",
@@ -113,13 +109,13 @@ body_class: subpage
         <div class="career-aside-panel career-apply-panel">
           <h3 class="career-apply-title">{{ careers.applyTitle }}</h3>
           <p class="career-apply-text">{{ careers.applyText }}</p>
-          <a class="cta-button" href="mailto:contact@aralel.com?subject={{ role.emailSubject | uri_escape }}">
+          <a class="cta-button" href="mailto:{{ company.emails.contact }}?subject={{ role.emailSubject | uri_escape }}">
             {{ careers.hero.applyLabel }}
           </a>
         </div>
 
         <a class="back-link" href="{{ careers_url | relative_url }}">
-          <i class="fas fa-arrow-left"></i> {{ careers.backLabel }}
+          {% include icon.html name="arrow-left" %} {{ careers.backLabel }}
         </a>
       </aside>
     </div>

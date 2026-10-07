@@ -1,23 +1,15 @@
 {% assign locale_code = page.locale | default: "en" %}
 {% assign t = site.data.locales[locale_code] %}
-{% assign home_url = "/en.html" %}
-{% assign apps_url = "/apps_en.html" %}
-{% assign games_url = "/games_en.html" %}
-{% assign arena_url = "/games/arena-sudoku_en.html" %}
-{% assign availabell_url = "/apps/availabell_en.html" %}
-{% assign services_url = "/services_en.html" %}
-{% assign company_url = "/company_en.html" %}
-{% assign careers_url = "/careers_en.html" %}
-{% if locale_code == "de" %}
-  {% assign home_url = "/index.html" %}
-  {% assign apps_url = "/apps.html" %}
-  {% assign games_url = "/games.html" %}
-  {% assign arena_url = "/games/arena-sudoku.html" %}
-  {% assign availabell_url = "/apps/availabell.html" %}
-  {% assign services_url = "/services.html" %}
-  {% assign company_url = "/company.html" %}
-  {% assign careers_url = "/careers.html" %}
-{% endif %}
+{% capture home_url %}{% include localized_path.html path="/" locale=locale_code %}{% endcapture %}
+{% capture apps_url %}{% include localized_path.html path="/apps" locale=locale_code %}{% endcapture %}
+{% capture games_url %}{% include localized_path.html path="/games" locale=locale_code %}{% endcapture %}
+{% capture services_url %}{% include localized_path.html path="/services" locale=locale_code %}{% endcapture %}
+{% capture company_url %}{% include localized_path.html path="/company" locale=locale_code %}{% endcapture %}
+{% capture careers_url %}{% include localized_path.html path="/careers" locale=locale_code %}{% endcapture %}
+{% capture impressum_url %}{% include localized_path.html path="/impressum" locale=locale_code %}{% endcapture %}
+{% assign privacy_url = "/privacy-policy.html" %}
+{% if locale_code == "de" %}{% assign privacy_url = "/datenschutz.html" %}{% endif %}
+{% assign footer_featured_slugs = "arena-sudoku,availabell" | split: "," %}
 
 <footer class="site-footer">
   <div class="footer-content">
@@ -31,8 +23,13 @@
       <ul>
         <li><a href="{{ games_url | relative_url }}">{{ t.common.gamesLabel }}</a></li>
         <li><a href="{{ apps_url | relative_url }}">{{ t.common.appsLabel }}</a></li>
-        <li><a href="{{ arena_url | relative_url }}">Arena Sudoku</a></li>
-        <li><a href="{{ availabell_url | relative_url }}">Availabell</a></li>
+        {% for featured_slug in footer_featured_slugs %}
+          {% assign featured_product = site.data.products.products | where: "slug", featured_slug | first %}
+          {% if featured_product and featured_product.hidden != true %}
+            {% capture featured_product_url %}{% include product_path.html product=featured_product locale=locale_code %}{% endcapture %}
+            <li><a href="{{ featured_product_url | relative_url }}">{{ t.products[featured_slug].name }}</a></li>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div>
 
@@ -43,27 +40,21 @@
         <li><a href="{{ services_url | relative_url }}">{{ t.footer.services }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
         <li><a href="{{ careers_url | relative_url }}">{{ t.footer.careers }}</a></li>
-        {% if locale_code == "de" %}
-          <li><a href="{{ '/datenschutz.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
-          <li><a href="{{ '/impressum.html' | relative_url }}">{{ t.footer.impressum }}</a></li>
-        {% else %}
-          <li><a href="{{ '/privacy-policy.html' | relative_url }}">{{ t.footer.privacy }}</a></li>
-          <li><a href="{{ '/impressum_en.html' | relative_url }}">{{ t.footer.impressum }}</a></li>
-        {% endif %}
+        <li><a href="{{ privacy_url | relative_url }}">{{ t.footer.privacy }}</a></li>
+        <li><a href="{{ impressum_url | relative_url }}">{{ t.footer.impressum }}</a></li>
       </ul>
     </div>
 
     <div class="footer-section">
       <h3>{{ t.footer.languageTitle }}</h3>
       <ul>
-        <li><a href="{{ '/index.html' | relative_url }}">🇩🇪 Deutsch</a></li>
+        <li><a href="{{ '/' | relative_url }}">🇩🇪 Deutsch</a></li>
         <li><a href="{{ '/en.html' | relative_url }}">🇬🇧 English</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 Aralel GmbH. {% if locale_code == "de" %}Alle Rechte vorbehalten.{% else %}All rights reserved.{% endif %} | <a href="#" id="invalidate-cache">{{ t.footer.cache }}</a> | <a href="#" class="cookie-settings-link">{{ t.footer.cookieSettings }}</a></p>
-    <img id="relay-pixel" src="https://relay.codehospital.com/callback/9ea2b8a1207998a817aa98146acb6b11{{page.url}}.png" alt="Cache Invalidation" style="display:none;">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.data.company.legal_name }}. {% if locale_code == "de" %}Alle Rechte vorbehalten.{% else %}All rights reserved.{% endif %} | <a href="#" id="invalidate-cache">{{ t.footer.cache }}</a> | <a href="#" class="cookie-settings-link">{{ t.footer.cookieSettings }}</a></p>
   </div>
 </footer>

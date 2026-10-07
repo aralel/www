@@ -13,19 +13,13 @@ body_class: subpage
 {% if product.hidden == true %}
   {% assign product_hidden = true %}
 {% endif %}
-{% assign listing_url = "/games.html" %}
+{% assign listing_base_path = "/games" %}
 {% assign listing_label = t.common.gamesLabel %}
 {% if is_app %}
-  {% assign listing_url = "/apps.html" %}
+  {% assign listing_base_path = "/apps" %}
   {% assign listing_label = t.common.appsLabel %}
 {% endif %}
-{% if page.locale == "en" %}
-  {% if is_app %}
-    {% assign listing_url = "/apps_en.html" %}
-  {% else %}
-    {% assign listing_url = "/games_en.html" %}
-  {% endif %}
-{% endif %}
+{% capture listing_url %}{% include localized_path.html path=listing_base_path locale=page.locale %}{% endcapture %}
 
 {% if product_hidden %}
 <script>
@@ -55,8 +49,10 @@ body_class: subpage
     {% when "iphone" %}{% assign platform_names = platform_names | append: "iOS, " %}
     {% when "android" %}{% assign platform_names = platform_names | append: "Android, " %}
     {% when "amazon" %}{% assign platform_names = platform_names | append: "Amazon Fire, " %}
+    {% when "samsung" %}{% unless product.platforms contains "android" %}{% assign platform_names = platform_names | append: "Android, " %}{% endunless %}
     {% when "desktop" %}{% assign platform_names = platform_names | append: "macOS, " %}
     {% when "website" %}{% assign platform_names = platform_names | append: "Web, " %}
+    {% when "shopify" %}{% unless product.platforms contains "website" %}{% assign platform_names = platform_names | append: "Web (Shopify), " %}{% endunless %}
   {% endcase %}
 {% endfor %}
 {% assign operating_systems = platform_names | split: ", " | join: ", " %}
@@ -71,12 +67,13 @@ body_class: subpage
       "description": {{ copy.metaDescription | jsonify }},
       "url": {{ page.url | absolute_url | jsonify }},
       "image": {{ product.iconUrl | absolute_url | jsonify }},
-      "applicationCategory": {% if is_app %}"UtilitiesApplication"{% else %}"GameApplication"{% endif %},
+      {% comment %} schemaCategory in products.json: a schema.org application category; apps default to Utilities. {% endcomment %}
+      "applicationCategory": {% if is_app %}{{ product.schemaCategory | default: "UtilitiesApplication" | jsonify }}{% else %}"GameApplication"{% endif %},
       {% if operating_systems != "" %}"operatingSystem": {{ operating_systems | jsonify }},{% endif %}
       "inLanguage": {{ page.locale | jsonify }},
       "offers": {
         "@type": "Offer",
-        "price": "0",
+        "price": {{ product.price | default: "0" | jsonify }},
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock"
       },
@@ -142,7 +139,7 @@ body_class: subpage
         </div>
 
         <div class="detail-visual">
-          <img src="{{ product.iconUrl | relative_url }}" alt="{{ copy.name }} icon" class="detail-icon" loading="lazy">
+          <img src="{{ product.iconUrl | relative_url }}" alt="" class="detail-icon" width="512" height="512" fetchpriority="high">
         </div>
       </div>
     </div>
@@ -182,7 +179,7 @@ body_class: subpage
         </div>
         <div class="detail-meta-item">
           <span class="detail-meta-label">{{ copy.availabilityTitle }}</span>
-          <strong>{{ copy.availabilityText }}</strong>
+          <strong>{% if copy.availabilityText %}{{ copy.availabilityText }}{% else %}{% include availability_text.html product=product locale=page.locale %}{% endif %}</strong>
         </div>
       </div>
 

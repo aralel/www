@@ -8,6 +8,11 @@
       "title": "Aralel GmbH — Software Studio",
       "description": "Aralel builds and ships digital products — apps, games, and web software. This is the studio's official presence and public portfolio."
     },
+    "portfolio": {
+      "title": "Portfolio – featured apps and games | Aralel GmbH",
+      "description": "Featured apps and games from the Aralel GmbH portfolio, with direct links to the App Store, Google Play and other platforms.",
+      "heading": "Featured products"
+    },
     "apps": {
       "title": "Aralel Apps — iOS, Android, Mac & Web",
       "description": "A look at Aralel's released apps across iOS, Android, Mac, and the web."
@@ -85,7 +90,21 @@
     "typeGame": "Game",
     "openWebsite": "Open Website",
     "appsLabel": "Apps",
-    "gamesLabel": "Games"
+    "gamesLabel": "Games",
+    "availability": {
+      "prefix": "Available via",
+      "and": "and",
+      "web": "the web"
+    },
+    "contactForm": {
+      "defaultSubject": "Enquiry via aralel.com",
+      "sending": "Sending …",
+      "success": "Thank you! Your message has reached us. We'll get back to you soon.",
+      "error": "Sending failed. Please email us directly at contact@aralel.com.",
+      "mailtoOpened": "Your email app has opened with your message. Please send it from there.",
+      "consentPrefix": "We use your details only to handle your enquiry. See our",
+      "consentLink": "Privacy Policy"
+    }
   },
   "platforms": {
     "labels": {
@@ -382,11 +401,6 @@
             "icon": "fa-pen-ruler",
             "title": "UX & product design",
             "text": "Clear, focused interfaces designed around real usage — from product thinking and flows to polished, consistent UI."
-          },
-          {
-            "icon": "fa-calculator",
-            "title": "Complex logic & data",
-            "text": "Non-trivial computation done right — precise algorithms, calculation engines, and data-heavy logic, like the astronomical engine in our Solar Compass."
           }
         ]
       },
@@ -481,6 +495,11 @@
             "icon": "fa-wand-magic-sparkles",
             "title": "AI integration",
             "text": "Bring AI into your product where it actually helps — assistants, search, classification, and content features wired into your existing apps and data."
+          },
+          {
+            "icon": "fa-calculator",
+            "title": "Complex logic & data",
+            "text": "Non-trivial computation done right — precise algorithms, calculation engines, and data-heavy logic, like the astronomical engine in our Solar Compass."
           }
         ]
       }
@@ -518,12 +537,16 @@
     "app": {
       "kicker": "Portfolio",
       "heroTitle": "Applications",
-      "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites across mobile, desktop, and the web."
+      "heroText": "These applications are currently public as part of the Aralel portfolio, with direct links to their store releases and supporting websites across mobile, desktop, and the web.",
+      "sectionTitle": "All applications",
+      "sectionSubtitle": "Every application in the portfolio has a short profile and direct links to its public release."
     },
     "game": {
       "kicker": "Portfolio",
       "heroTitle": "Games",
-      "heroText": "These games and interactive productions are currently public within the Aralel portfolio"
+      "heroText": "These games and interactive productions are currently public within the Aralel portfolio, on the web, Google Play, or the App Store.",
+      "sectionTitle": "All games",
+      "sectionSubtitle": "Every game in the portfolio has a short profile and direct links to its public release."
     }
   },
   "products": {

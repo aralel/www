@@ -1,0 +1,14 @@
+{%- comment -%}
+  Site-root path of a bilingual page. German pages are "<path>.html", English ones
+  "<path>_en.html"; the homepage is "/" (de) and "/en.html" (en).
+  Params: path (without .html, e.g. "/apps" or "/"), locale.
+  Outputs a bare path; pipe through relative_url or absolute_url where it is used:
+    {% capture apps_url %}{% include localized_path.html path="/apps" locale=page.locale %}{% endcapture %}
+{%- endcomment -%}
+{%- if include.path == "/" -%}
+  {%- if include.locale == "en" -%}/en.html{%- else -%}/{%- endif -%}
+{%- elsif include.locale == "en" -%}
+  {{- include.path -}}_en.html
+{%- else -%}
+  {{- include.path -}}.html
+{%- endif -%}

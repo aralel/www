@@ -1,0 +1,18 @@
+# Per-role posting metadata for JobPosting structured data (_layouts/career_detail.html).
+# date_posted: when the role was first published. Keep it stable; Google treats a
+#              datePosted that changes on every build as misrepresented freshness.
+# valid_through: optional closing date (YYYY-MM-DD). Omit for open-ended roles.
+# Every role in _data/locales/*.json careers.roles needs an entry (checked by scripts/check-site.mjs).
+
+rails-backend-developer:
+  date_posted: "2026-06-04"
+unity-developer:
+  date_posted: "2026-06-04"
+3d-blender-artist:
+  date_posted: "2026-06-04"
+content-manager:
+  date_posted: "2026-06-04"
+customer-success-specialist:
+  date_posted: "2026-06-04"
+part-time-ceo:
+  date_posted: "2026-06-04"

@@ -1,39 +1,31 @@
 {% assign locale_code = page.locale | default: "en" %}
 {% assign t = site.data.locales[locale_code] %}
-{% assign home_url = "/en.html" %}
-{% assign apps_url = "/apps_en.html" %}
-{% assign games_url = "/games_en.html" %}
-{% assign services_url = "/services_en.html" %}
-{% assign company_url = "/company_en.html" %}
-{% assign careers_url = "/careers_en.html" %}
-{% if locale_code == "de" %}
-  {% assign home_url = "/index.html" %}
-  {% assign apps_url = "/apps.html" %}
-  {% assign games_url = "/games.html" %}
-  {% assign services_url = "/services.html" %}
-  {% assign company_url = "/company.html" %}
-  {% assign careers_url = "/careers.html" %}
-{% endif %}
+{% capture home_url %}{% include localized_path.html path="/" locale=locale_code %}{% endcapture %}
+{% capture apps_url %}{% include localized_path.html path="/apps" locale=locale_code %}{% endcapture %}
+{% capture games_url %}{% include localized_path.html path="/games" locale=locale_code %}{% endcapture %}
+{% capture services_url %}{% include localized_path.html path="/services" locale=locale_code %}{% endcapture %}
 
 <header class="site-header">
   <nav class="site-nav">
     <a class="logo logo-link" href="{{ home_url | relative_url }}">
-      <img src="{{ '/images/aralel-logo.png' | relative_url }}" alt="Aralel GmbH Logo" class="logo-img">
+      <img src="{{ '/images/aralel-logo.png' | relative_url }}" alt="" class="logo-img" width="320" height="320">
       <span class="logo-text">Aralel GmbH</span>
     </a>
 
-    <button class="mobile-menu-toggle" aria-label="{% if locale_code == "de" %}Menü umschalten{% else %}Toggle menu{% endif %}" type="button">
+    <button class="mobile-menu-toggle" aria-controls="site-nav-menu" aria-expanded="false" aria-label="{% if locale_code == "de" %}Menü umschalten{% else %}Toggle menu{% endif %}" type="button">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <ul>
-      <li><a href="{{ apps_url | relative_url }}">{{ t.nav.apps }}</a></li>
-      <li><a href="{{ games_url | relative_url }}">{{ t.nav.games }}</a></li>
-      <li><a href="{{ services_url | relative_url }}">{{ t.nav.services }}</a></li>
+    {% assign other_locale = "de" %}
+    {% if locale_code == "de" %}{% assign other_locale = "en" %}{% endif %}
+    <ul id="site-nav-menu">
+      <li><a href="{{ apps_url | relative_url }}"{% if page.url == apps_url %} aria-current="page"{% endif %}>{{ t.nav.apps }}</a></li>
+      <li><a href="{{ games_url | relative_url }}"{% if page.url == games_url %} aria-current="page"{% endif %}>{{ t.nav.games }}</a></li>
+      <li><a href="{{ services_url | relative_url }}"{% if page.url == services_url %} aria-current="page"{% endif %}>{{ t.nav.services }}</a></li>
       {% if page.switch_url %}
-        <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" title="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
+        <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" hreflang="{{ other_locale }}" lang="{{ other_locale }}" title="{{ t.nav.switchTitle }}" aria-label="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
       {% endif %}
     </ul>
   </nav>

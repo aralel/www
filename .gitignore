@@ -3,3 +3,6 @@ CHANGELOG.md
 _site/
 .vscode/
 .claude/
+.jekyll-cache/
+node_modules/
+.lighthouseci/

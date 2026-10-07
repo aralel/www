@@ -1,0 +1,35 @@
+# Single source of truth for company facts. Rendered by the Impressum pages,
+# footer, homepage contact block, Organization / JobPosting JSON-LD and the
+# contact forms. Change a value here and every page picks it up on the next build.
+
+legal_name: "Aralel GmbH"
+managing_director: "Taraghidelgarm"   # TODO: Impressum requires the managing director's full name
+vat_id: "DE461077402"
+register_court: "Amtsgericht Aachen"
+register_number: "HRB-29506"
+
+address:
+  street: "Josefstr 66"
+  postal_code: "52080"
+  city: "Aachen"
+  country_code: "DE"
+  country_de: "Deutschland"
+  country_en: "Germany"
+
+emails:
+  contact: "contact@aralel.com"   # general enquiries, contact forms, Impressum, careers
+  privacy: "privacy@aralel.com"   # data-protection requests
+
+social:
+  - name: "LinkedIn"
+    url: "https://www.linkedin.com/company/aralel"
+    icon: "linkedin"
+  - name: "GitHub"
+    url: "https://www.github.com/aralel"
+    icon: "github"
+  - name: "Instagram"
+    url: "https://www.instagram.com/aralelss"
+    icon: "instagram"
+  - name: "Bluesky"
+    url: "https://bsky.app/profile/aralel.bsky.social"
+    icon: "bluesky"

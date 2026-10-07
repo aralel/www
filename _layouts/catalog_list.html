@@ -7,10 +7,6 @@ body_class: subpage
 {% assign t = site.data.locales[page.locale] %}
 {% assign page_meta = t.pages[page.page_key] %}
 {% assign catalog = t.catalog[page.catalog_type] %}
-{% assign detail_dir = "games" %}
-{% if page.catalog_type == "app" %}{% assign detail_dir = "apps" %}{% endif %}
-{% assign detail_suffix = "" %}
-{% if page.locale == "en" %}{% assign detail_suffix = "_en" %}{% endif %}
 
 <script type="application/ld+json">
 {
@@ -31,7 +27,7 @@ body_class: subpage
       "itemListElement": [
         {% for product in products %}
         {% assign product_copy = t.products[product.slug] %}
-        {% assign detail_url = "/" | append: detail_dir | append: "/" | append: product.slug | append: detail_suffix | append: ".html" %}
+        {% capture detail_url %}{% include product_path.html product=product locale=page.locale %}{% endcapture %}
         {
           "@type": "ListItem",
           "position": {{ forloop.index }},

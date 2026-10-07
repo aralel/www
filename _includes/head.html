@@ -19,6 +19,11 @@
 {% if product and product.hidden == true %}
   {% assign product_hidden = true %}
 {% endif %}
+{% comment %} `noindex: true` in front matter keeps a page out of search results and sitemap.xml. {% endcomment %}
+{% assign page_noindex = false %}
+{% if product_hidden or page.noindex %}
+  {% assign page_noindex = true %}
+{% endif %}
 {% assign page_copy = nil %}
 {% if page.page_key and t.pages[page.page_key] %}
   {% assign page_copy = t.pages[page.page_key] %}
@@ -136,8 +141,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ resolved_title | escape }}</title>
 <meta name="description" content="{{ resolved_description | escape }}">
-<meta name="robots" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endif %}">
-<meta name="googlebot" content="{% if product_hidden %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1{% endif %}">
+<meta name="robots" content="{% if page_noindex %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endif %}">
+<meta name="googlebot" content="{% if page_noindex %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1{% endif %}">
 <meta name="author" content="Aralel GmbH">
 <meta name="publisher" content="Aralel GmbH">
 <meta name="theme-color" content="#ffffff">
@@ -145,13 +150,13 @@
 <meta http-equiv="content-language" content="{{ locale_code }}">
 <link rel="canonical" href="{{ canonical_url }}">
 
-<!-- Resource hints: speed up loading of the icon font (product icons are served locally) -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+{% comment %} hreflang sets must list every member, including the page itself. {% endcomment %}
 {% if alternate_url %}
   {% if locale_code == "de" %}
+    <link rel="alternate" hreflang="de" href="{{ canonical_url }}">
     <link rel="alternate" hreflang="en" href="{{ alternate_url }}">
   {% else %}
+    <link rel="alternate" hreflang="en" href="{{ canonical_url }}">
     <link rel="alternate" hreflang="de" href="{{ alternate_url }}">
   {% endif %}
 {% endif %}
@@ -184,7 +189,6 @@
 
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ release_version }}">
 <link rel="stylesheet" href="{{ '/animations.css' | relative_url }}?v={{ release_version }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="manifest" href="{{ '/manifest.json' | relative_url }}?v={{ release_version }}">
@@ -193,6 +197,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Sitewide structured data: Organization + WebSite. Linked by @id so detail-page
      schema (Product, JobPosting, …) can reference the same canonical entities. -->
+{% assign company = site.data.company %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -200,37 +205,32 @@
     {
       "@type": "Organization",
       "@id": "{{ site.url }}/#organization",
-      "name": "Aralel GmbH",
-      "legalName": "Aralel GmbH",
+      "name": {{ company.legal_name | jsonify }},
+      "legalName": {{ company.legal_name | jsonify }},
       "url": "{{ site.url }}/",
       "logo": {
         "@type": "ImageObject",
         "url": "{{ '/images/aralel-logo.png' | absolute_url }}",
-        "caption": "Aralel GmbH"
+        "caption": {{ company.legal_name | jsonify }}
       },
       "image": "{{ '/images/aralel-logo.png' | absolute_url }}",
       "description": {{ t.site.defaultDescription | default: site.description | jsonify }},
-      "email": "contact@aralel.com",
-      "vatID": "DE461077402",
+      "email": {{ company.emails.contact | jsonify }},
+      "vatID": {{ company.vat_id | jsonify }},
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Josefstr 66",
-        "postalCode": "52080",
-        "addressLocality": "Aachen",
-        "addressCountry": "DE"
+        "streetAddress": {{ company.address.street | jsonify }},
+        "postalCode": {{ company.address.postal_code | jsonify }},
+        "addressLocality": {{ company.address.city | jsonify }},
+        "addressCountry": {{ company.address.country_code | jsonify }}
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "contact@aralel.com",
+        "email": {{ company.emails.contact | jsonify }},
         "contactType": "customer support",
         "availableLanguage": ["English", "German"]
       },
-      "sameAs": [
-        "https://www.linkedin.com/company/aralel",
-        "https://www.github.com/aralel",
-        "https://www.instagram.com/aralelss",
-        "https://bsky.app/profile/aralel.bsky.social"
-      ]
+      "sameAs": {{ company.social | map: "url" | jsonify }}
     },
     {
       "@type": "WebSite",

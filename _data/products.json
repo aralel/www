@@ -31,13 +31,14 @@
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.availabell"
       },
       "privacyUrl": {
-        "de": "https://aralel.com/apps/availabell-privacy.html",
-        "en": "https://aralel.com/apps/availabell-privacy.html"
+        "de": "https://www.aralel.com/apps/availabell-privacy.html",
+        "en": "https://www.aralel.com/apps/availabell-privacy.html"
       }
     },
     {
       "slug": "cyrus-cylinder",
       "type": "app",
+      "schemaCategory": "EducationalApplication",
       "hidden": false,
       "front_page": true,
       "platforms": ["android", "iphone"],
@@ -53,6 +54,7 @@
     {
       "slug": "anava",
       "type": "app",
+      "schemaCategory": "HealthApplication",
       "hidden": false,
       "front_page": false,
       "platforms": ["iphone", "android", "website"],
@@ -167,6 +169,7 @@
     {
       "slug": "ai-usage-menubar",
       "type": "app",
+      "schemaCategory": "DeveloperApplication",
       "hidden": false,
       "front_page": false,
       "platforms": ["desktop"],
@@ -181,6 +184,7 @@
     {
       "slug": "streakbox-gamify-daily-visit",
       "type": "app",
+      "schemaCategory": "BusinessApplication",
       "hidden": false,
       "front_page": false,
       "platforms": ["shopify", "website"],
@@ -224,6 +228,7 @@
     {
       "slug": "buzzbelt",
       "type": "app",
+      "schemaCategory": "CommunicationApplication",
       "hidden": false,
       "front_page": false,
       "platforms": ["iphone", "android", "website"],
@@ -244,6 +249,7 @@
     {
       "slug": "albumara",
       "type": "app",
+      "schemaCategory": "TravelApplication",
       "hidden": false,
       "front_page": true,
       "platforms": ["iphone", "android", "website"],

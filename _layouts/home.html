@@ -7,10 +7,7 @@ body_class: home-page
 {% assign apps = visible_products | where: "type", "app" %}
 {% assign games = visible_products | where: "type", "game" %}
 {% assign t = site.data.locales[page.locale] %}
-{% assign services_url = "/services_en.html" %}
-{% if page.locale == "de" %}
-  {% assign services_url = "/services.html" %}
-{% endif %}
+{% capture services_url %}{% include localized_path.html path="/services" locale=page.locale %}{% endcapture %}
 
 <script type="application/ld+json">
 {
@@ -84,7 +81,7 @@ body_class: home-page
     <div class="services-grid">
       {% for group in t.services.groups %}
         <a class="service-card service-card--link" href="{{ services_url | relative_url }}#{{ group.slug }}">
-          <span class="service-icon"><i class="{{ group.iconStyle | default: 'fas' }} {{ group.icon }}"></i></span>
+          <span class="service-icon">{% include icon.html name=group.icon style=group.iconStyle %}</span>
           <h3 class="service-title">{{ group.title }}</h3>
           <p class="service-text">{{ group.summary }}</p>
         </a>
@@ -105,22 +102,21 @@ body_class: home-page
     <div class="contact-container">
       <div class="contact-info">
         <div class="contact-item">
-          <i class="fas fa-envelope mobile_hidden"></i>
+          <span class="contact-item-icon mobile_hidden">{% include icon.html name="envelope" %}</span>
           <div>
             <h3>{{ t.home.contact.emailTitle }}</h3>
-            <p><a href="mailto:contact@aralel.com">contact@aralel.com</a></p>
+            <p><a href="mailto:{{ site.data.company.emails.contact }}">{{ site.data.company.emails.contact }}</a></p>
           </div>
         </div>
 
         <div class="contact-item">
-          <i class="fas fa-comment mobile_hidden"></i>
+          <span class="contact-item-icon mobile_hidden">{% include icon.html name="comment" %}</span>
           <div>
             <h3>{{ t.home.contact.socialTitle }}</h3>
             <div class="social-links">
-              <a target="_blank" href="https://www.linkedin.com/company/aralel" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              <a target="_blank" href="https://www.github.com/aralel" title="GitHub"><i class="fab fa-github"></i></a>
-              <a target="_blank" href="https://www.instagram.com/aralelss" title="Instagram"><i class="fab fa-instagram"></i></a>
-              <a target="_blank" href="https://bsky.app/profile/aralel.bsky.social" title="Bluesky"><i class="fab fa-bsky">🦋</i></a>
+              {% for social_profile in site.data.company.social %}
+                <a href="{{ social_profile.url }}" target="_blank" rel="noopener noreferrer me" aria-label="{{ social_profile.name }}" title="{{ social_profile.name }}">{% include icon.html name=social_profile.icon style="fab" %}</a>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -128,23 +124,7 @@ body_class: home-page
 
       <div class="contact-form">
         <h3>{{ t.home.contact.formTitle }}</h3>
-        <form>
-          <div class="form-group">
-            <input type="text" placeholder="{{ t.home.contact.placeholders.name }}" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="{{ t.home.contact.placeholders.email }}" required>
-          </div>
-          {% if t.home.contact.placeholders.subject %}
-            <div class="form-group">
-              <input type="text" placeholder="{{ t.home.contact.placeholders.subject }}" required>
-            </div>
-          {% endif %}
-          <div class="form-group">
-            <textarea placeholder="{{ t.home.contact.placeholders.message }}" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="submit-button">{{ t.home.contact.submitLabel }}</button>
-        </form>
+        {% include contact_form.html locale=page.locale form_id="home-contact-form" placeholders=t.home.contact.placeholders submit_label=t.home.contact.submitLabel %}
       </div>
     </div>
   </section>

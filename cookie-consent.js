@@ -172,9 +172,13 @@
         return banner;
     }
 
+    // Element focused before the banner opened, so focus can return there on close.
+    let focusBeforeBanner = null;
+
     // Show the banner
     function showBanner() {
         let banner = document.getElementById('cookie-consent-banner');
+        focusBeforeBanner = document.activeElement;
         if (!banner) {
             banner = createBanner();
             document.body.appendChild(banner);
@@ -189,9 +193,14 @@
             document.getElementById('cookie-preferences').checked = storedConsent.preferences;
         }
 
-        // Show with animation
+        // Show with animation. Move focus into the dialog only when the visitor opened
+        // it (via "Cookie settings"); on first visit it stays non-intrusive.
+        const openedByVisitor = storedConsent !== null || focusBeforeBanner !== document.body;
         requestAnimationFrame(() => {
             banner.classList.add('show');
+            if (openedByVisitor) {
+                banner.querySelector('#cookie-accept-all').focus();
+            }
         });
     }
 
@@ -199,15 +208,26 @@
     function hideBanner() {
         const banner = document.getElementById('cookie-consent-banner');
         if (banner) {
+            const focusWasInBanner = banner.contains(document.activeElement);
             banner.classList.remove('show');
             setTimeout(() => {
                 banner.remove();
             }, 300);
+            if (focusWasInBanner && focusBeforeBanner && document.contains(focusBeforeBanner)) {
+                focusBeforeBanner.focus();
+            }
         }
     }
 
     // Setup event listeners
     function setupEventListeners(banner) {
+        // Escape closes without changing stored choices (first visit: banner reappears next page).
+        banner.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                hideBanner();
+            }
+        });
+
         // Accept all
         banner.querySelector('#cookie-accept-all').addEventListener('click', () => {
             const consent = {
@@ -259,8 +279,21 @@
         }
     }
 
+    // Page-view counter on relay.codehospital.com. Previously an <img> in the footer that
+    // fired on every page before consent; it now only fires with analytics consent.
+    const RELAY_PIXEL_BASE = 'https://relay.codehospital.com/callback/9ea2b8a1207998a817aa98146acb6b11';
+    let relayPixelSent = false;
+
     function loadAnalytics() {
-        // No analytics service is currently configured.
+        if (relayPixelSent) { return; }
+        relayPixelSent = true;
+        const pagePath = document.body.dataset.pagePath || window.location.pathname;
+        let pixelUrl = RELAY_PIXEL_BASE + pagePath + '.png';
+        if (document.referrer) {
+            pixelUrl += '?source=' + encodeURIComponent(document.referrer);
+        }
+        const relayPixel = new Image();
+        relayPixel.src = pixelUrl;
     }
 
     function loadMarketing() {
