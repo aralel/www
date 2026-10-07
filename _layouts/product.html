@@ -226,7 +226,7 @@ body_class: subpage
   {% endcomment %}
   {% assign related_products = "" | split: "" %}
   {% assign related_slugs = "," | append: product.slug | append: "," %}
-  {% for related_pass in (1..3) %}
+  {% for related_pass in (1..4) %}
     {% for candidate in site.data.products.products %}
       {% if related_products.size >= 3 %}{% break %}{% endif %}
       {% if candidate.hidden == true %}{% continue %}{% endif %}
