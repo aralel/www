@@ -104,6 +104,8 @@ Optional product fields:
 - `front_page`: `true` to feature the product on the homepage and the portfolio page.
 - `collections`: themed collection pages the product appears on, e.g. `["travel"]`.
 
+`products.json` references [`scripts/schemas/products.schema.json`](scripts/schemas/products.schema.json) via `$schema`, so editors validate and autocomplete entries.
+
 Themed collection pages (e.g. [`travel-apps.html`](travel-apps.html) / [`travel-apps_en.html`](travel-apps_en.html), linked from the footer) list every visible product whose `collections` array contains the page's `collection_key`. To add a product to the travel page, add `"travel"` to its `collections`. To create a new collection: tag the products, add `collections.<key>` (kicker, heroTitle, heroText) and `pages.<pageKey>` (title, description) to both locale files, and create two stub pages with `layout: collection_list`, `page_key`, `collection_key` and `switch_url`.
 
 To add a new product, scaffold it so no file is forgotten:
@@ -147,6 +149,22 @@ These are driven by data — adding a product, role, or service automatically up
 - Product pages: iOS Smart App Banner for iPhone apps, store badge order matched to the visitor's device, a services cross-sell panel, and "More from Aralel" related products (same collection, then featured, then same type).
 - Services page: proof chips, "How we work" process, FAQ (`services.process`, `services.faq` in the locale files, with `FAQPage` structured data), and an enquiry-topic select on the forms.
 
+## Store Data, Screenshots & Images
+
+- `node scripts/store-sync.mjs` audits the App Store and Google Play against the catalog (missing apps, dead links, renamed listings, paid apps, privacy links found on listings) and writes `_data/store_listings.json` (ratings, store names, screenshots). `--screenshots` also caches up to 4 screenshots per product in `images/screenshots/<slug>/` (macOS, uses `sips`); `--check` only reports and exits 1 when an app is missing or a link is dead. CI runs `--check` weekly (`.github/workflows/store-audit.yml`).
+- Product pages show the cached screenshots and, once a product has ≥ 5 ratings across stores, emit `aggregateRating`.
+- `node scripts/build-webp.mjs` (needs `cwebp`) writes `.webp` copies of icons and screenshots; `_includes/picture.html` serves them with the original as fallback. Run it after `refresh-product-icons.mjs` or `store-sync.mjs --screenshots`; `check-site.mjs` fails if one is missing.
+
+## News, Press Kit & Analytics
+
+- **News:** add items (newest first) to [`_data/news.yml`](_data/news.yml) with `date`, optional `product`, and `de`/`en` title and text. They appear on `news.html` / `news_en.html` and in the RSS feeds `feed_de.xml` / `feed.xml`.
+- **Press kit:** `press.html` / `press_en.html`, built from `_data/company.yml` (including `brand_colors`) and the catalog.
+- **Analytics:** set `analytics_script_src` and `analytics_domain` in `_config.yml` to load a Plausible-compatible script after analytics consent. Store-badge clicks are sent as "Store click" events. Name the provider in the privacy policies when enabling it.
+
+## Theming
+
+Colors are CSS custom properties on `:root` in `styles.css`, with a dark set applied by `prefers-color-scheme: dark` or `data-theme="dark"` on `<html>` (`data-theme="light"` forces light). Use the tokens (`--surface`, `--surface-glass`, `--text`, `--brand-deep`, …) rather than literal colors so both themes keep working. Button gradients end in `--brand-strong`, which stays dark under white text.
+
 ## Contact Forms
 
 The homepage and services forms share [`_includes/contact_form.html`](_includes/contact_form.html). By default they open the visitor's email app with a pre-filled message to `emails.contact` from `_data/company.yml` (works without JavaScript too). To deliver submissions directly, set `contact_form_endpoint` in `_config.yml` to a form backend that accepts POSTed form data (e.g. Formspree); `script.js` then submits with `fetch` and shows success/error messages. When you switch, update section 2.2 of both privacy policies to name the provider. Spam protection: a hidden honeypot field (`_gotcha`) and a minimum fill time.
@@ -178,5 +196,7 @@ The deploy job then runs after the checks pass on `main`, so a broken build or f
 - Standalone utility pages [`market.html`](market.html) and [`map.html`](map.html) are published but marked `noindex`.
 - `available/` and `.well-known/` are included explicitly through Jekyll config. `.well-known/assetlinks.json` lists only the release-signed Availabell app.
 - Repo-only files (`README.md`, `PLAN.md`, `plan2.md`, `CHANGELOG.md`, `lighthouserc.json`, `scripts/`, …) are in `exclude:` in `_config.yml`. Jekyll publishes any file not excluded, so add new repo-only files there.
-- [`scripts/`](scripts): `check-site.mjs` (consistency checks), `new-product.mjs` (product scaffolder), `build-icons.mjs` (icon data), `refresh-product-icons.mjs` (cached store icons). The site reads catalog data from [`_data/products.json`](_data/products.json) only.
+- [`scripts/`](scripts): `check-site.mjs` (consistency checks), `new-product.mjs` (product scaffolder), `store-sync.mjs` (store audit, ratings, screenshots), `build-webp.mjs` (WebP copies), `build-icons.mjs` (icon data), `refresh-product-icons.mjs` (cached store icons).
+- `_plugins/asset_version.rb` versions CSS/JS (`?v=`) and the service-worker cache by content hash; `_plugins/git_last_modified.rb` sets sitemap `lastmod`. Both are skipped where plugins don't run.
+- A `<meta>` Content-Security-Policy (`_includes/head.html`) blocks plugins and `<base>` hijacking and limits form targets to this site, `mailto:` and `contact_form_endpoint`. Add a new form target there if you introduce one. The site reads catalog data from [`_data/products.json`](_data/products.json) only.
 - **Product icons are cached locally** in [`images/products/`](images/products) rather than hotlinked from the App Store / Play Store / Amazon / Shopify CDNs, so the site does not depend on those hosts staying reachable or on their URLs staying stable. In [`_data/products.json`](_data/products.json) each product carries `iconUrl` (the local, site-root-relative path that templates render) alongside `iconSourceUrl` (the store URL it was fetched from). Run `node scripts/refresh-product-icons.mjs [slug ...]` to re-pull them when a store listing ships a new icon; icons are normalised to 512×512, PNGs are compressed with `pngquant` and JPEGs kept as delivered.

@@ -8,7 +8,20 @@
 
 ## Implementation status (2026-10-07)
 
-**Done, Phases 1–4:** B1, B2, B3, B4, B5, B6, B10 · S1, S2, S3, S6 · L1, L2, L4, L5 · E1, E2, E3, E4, E5, E6, E7, E8 · P1, P2, P3 · A1–A6 · D1, D2, D3 · 4.1, 4.3, 4.4, 4.5, 4.6, 4.7 · 5.1, 5.2.
+**Legend:** ✅ done · ⏳ needs the owner (decision, content or access) · ⬜ not done. Details per release in `CHANGELOG.md` [0.14.0]–[0.17.0].
+
+| Area | Status |
+|---|---|
+| Bugs | ✅ B1 · ✅ B2 · ✅ B3 · ✅ B4 · ✅ B5 · ✅ B6 · ✅ B7 · ✅ B8 · ✅ B9 · ✅ B10 · ✅ B11 |
+| Security & privacy | ✅ S1 (gated + disclosed; ⏳ name the operator in privacy §3.2) · ✅ S2 · ✅ S3 · ✅ S4 (meta CSP; header-only directives impossible on GitHub Pages) · ⬜ S5 (internal-test redirect kept; your call) · ✅ S6 |
+| Legal | ✅ L1 · ✅ L2 · ⏳ L3 (managing director's full name) · ✅ L4 (⏳ confirm `contact@` replaces `hello@`) · ✅ L5 · ✅ L6 (15 of 17 linked; ⏳ Streakbox has no privacy page — Shopify requires one — and Ad Verbum) |
+| SEO | ✅ E1 · ✅ E2 · ✅ E3 · ✅ E4 · ✅ E5 · ✅ E6 · ✅ E7 · ✅ E8 · ✅ E9 |
+| Performance | ✅ P1 · ✅ P2 · ✅ P3 · ✅ P4 · ✅ P5 |
+| Accessibility | ✅ A1 · ✅ A2 · ✅ A3 · ✅ A4 · ✅ A5 · ✅ A6 |
+| Data & tech debt | ✅ D1 · ✅ D2 · ✅ D3 · ✅ D4 · ✅ D5 (enforced by `check-site.mjs`) · ⬜ D6 (colors now tokenized; `styles.css` still one large file) |
+| Code improvements | ✅ 4.1 · ✅ 4.2 (scaffolder, not a generator) · ✅ 4.3 · ✅ 4.4 · ✅ 4.5 · ✅ 4.6 · ✅ 4.7 |
+| Architecture & process | ✅ 5.1 (⏳ switch Pages source to "GitHub Actions" + `PAGES_DEPLOY_VIA_ACTIONS=true` to deploy from it) · ✅ 5.2 · ✅ 5.3 |
+| Features | ✅ F1 (mailto; ⏳ optional `contact_form_endpoint`) · ✅ F2 · ✅ F3 · ✅ F4 (wired; no app has ratings yet) · ✅ F5 (⏳ choose a provider) · ✅ F6 · ✅ F7 · ✅ F8 · ⏳ F9 (per-app privacy policies need legal input) · ✅ F10 · ⏳ F11 (third language needs a translator) |
 
 **Changed from the plan:**
 - **E1** verified with curl: `aralel.com` 301-redirects to `www.aralel.com`, so `site.url` is now `www`.
@@ -18,19 +31,13 @@
 - **4.2:** a scaffolder (`scripts/new-product.mjs`) plus the CI stub check, instead of a generator plugin. Classic GitHub Pages ignores plugins, so generated pages would vanish there.
 - **4.6:** PWA, install banner and "invalidate cache" link kept, with the worker rewritten.
 - **5.2:** `scripts/check-site.mjs` replaces html-proofer/ajv, so CI needs no extra gems or npm packages.
-- **B7:** footer featured links skip hidden products but are still a fixed list (`arena-sudoku`, `availabell`).
+- **F3/F4:** screenshots and ratings come from the store-sync data (5.3). Shopify and Amazon listings aren't read, so Streakbox and Ad Verbum have no screenshots.
 
-**New finding while implementing:** `PLAN.md` and `README.md` were publicly served on www.aralel.com, and `plan2.md`/`CHANGELOG.md` would have been too. They are now excluded from the build.
-
-**Marketing & sales pass (CHANGELOG [0.16.0]):** F2 done (Smart App Banner and device-aware badge order); install attribution for Google Play (App Store ready once a provider token is set). New on top of the plan: services proof, process and FAQ, enquiry topics, product cross-sell, related products, a stats band, and self-hosted fonts (Google Fonts had been a pre-consent third-party request this review missed).
-
-**Still open / needs you:**
-- **L3:** the managing director's full name in `_data/company.yml` (`managing_director`).
-- **L4:** confirm `contact@aralel.com` should replace `hello@aralel.com` in the Impressum.
-- **S1:** name the operator of relay.codehospital.com in privacy policy §3.2 (TODO comment), or remove the pixel.
-- **5.1:** to deploy via Actions, switch Pages source to "GitHub Actions" and set `PAGES_DEPLOY_VIA_ACTIONS=true`.
-- **F1:** optionally set `contact_form_endpoint` (then update privacy §2.2).
-- **L6**, Phases 5–6 (F2–F11, 5.3, P4/P5, B8/B9/B11, S4/S5, D4 schema file, D5/D6, E9) not started.
+**Found while implementing (not in the original review):**
+- `PLAN.md` and `README.md` were publicly served on www.aralel.com; repo-only files are now excluded from the build.
+- Google Fonts was loaded from Google on every page before consent; fonts are now self-hosted.
+- The store audit found **LLM Grid Worker** (Mac, App Store id 6787503403) published but not in the catalog, and renamed listings "Hormuz Strait" and "A Solar Compass". ⏳ Add or rename in the catalog if wanted.
+- Added on top of the plan: services proof/process/FAQ, enquiry topics, product cross-sell, related products, stats band, travel collection page.
 
 ---
 
@@ -257,37 +264,37 @@ Add `.github/workflows/pages.yml`: Ruby setup → `bundle exec jekyll build` →
 ## 7. Prioritized backlog
 
 ### 🔴 Critical (stability / legal / security)
-1. **B1** Make the contact forms work (F1).
-2. **S1** Remove the relay pixel, or gate it behind consent and disclose it in both privacy policies.
-3. **L1/L2** Impressum: remove the ODR link and change TMG → DDG (both locales). **L3**: full name of the managing director.
-4. **E1** Align `site.url` with the served host (likely `https://www.aralel.com`), after checking the Pages custom-domain and redirect behavior.
-5. **S2** Remove the debug app entries from `assetlinks.json`.
+1. ✅ — **B1** Make the contact forms work (F1).
+2. ✅ — **S1** Remove the relay pixel, or gate it behind consent and disclose it in both privacy policies.
+3. ✅ (L3 ⏳) — **L1/L2** Impressum: remove the ODR link and change TMG → DDG (both locales). **L3**: full name of the managing director.
+4. ✅ — **E1** Align `site.url` with the served host (likely `https://www.aralel.com`), after checking the Pages custom-domain and redirect behavior.
+5. ✅ — **S2** Remove the debug app entries from `assetlinks.json`.
 
 ### 🟠 High
-6. **B2/B3** Fix the page-transition bugs (4.5).
-7. **E2/E3** hreflang self-reference; make the DE home canonical and hreflang target the same URL.
-8. **E4** Real, stable `datePosted` per job; `directApply: false`.
-9. **S3/P1** Self-host the icon subset (or inline SVG) and remove the Font Awesome CDN.
-10. **D1** Reconcile the services copy between DE and EN, then add the locale-parity check.
-11. **5.1** GitHub Actions build + deploy with pinned Jekyll 4.3.
+6. ✅ — **B2/B3** Fix the page-transition bugs (4.5).
+7. ✅ — **E2/E3** hreflang self-reference; make the DE home canonical and hreflang target the same URL.
+8. ✅ — **E4** Real, stable `datePosted` per job; `directApply: false`.
+9. ✅ — **S3/P1** Self-host the icon subset (or inline SVG) and remove the Font Awesome CDN.
+10. ✅ — **D1** Reconcile the services copy between DE and EN, then add the locale-parity check.
+11. ✅ — **5.1** GitHub Actions build + deploy with pinned Jekyll 4.3.
 
 ### 🟡 Medium
-12. **P2/P3** Keep hero and LCP elements out of reveal; eager-load the LCP icon with dimensions.
-13. **E5/E6/E7** Meaningful `lastmod`; remove `frontpage*.html`; move `market.html`/`map.html`/`sample.json` out.
-14. **B5/B6** Service worker rework, or decide to drop the PWA (4.6).
-15. **A1–A4** Accessibility fixes.
-16. **4.1/4.3/4.4** Centralize locale URLs, company facts and availability copy.
-17. **5.2** Data schema, stub check, html-proofer, Lighthouse CI.
-18. **D2/D3** Delete legacy scripts; fix `.gitignore`.
-19. **E8** Accurate `applicationCategory`/`price`/`operatingSystem`.
-20. **F2, F5, F6** Smart banners, analytics, catalog filters.
+12. ✅ — **P2/P3** Keep hero and LCP elements out of reveal; eager-load the LCP icon with dimensions.
+13. ✅ — **E5/E6/E7** Meaningful `lastmod`; remove `frontpage*.html`; move `market.html`/`map.html`/`sample.json` out.
+14. ✅ — **B5/B6** Service worker rework, or decide to drop the PWA (4.6).
+15. ✅ — **A1–A4** Accessibility fixes.
+16. ✅ — **4.1/4.3/4.4** Centralize locale URLs, company facts and availability copy.
+17. ✅ — **5.2** Data schema, stub check, html-proofer, Lighthouse CI.
+18. ✅ — **D2/D3** Delete legacy scripts; fix `.gitignore`.
+19. ✅ — **E8** Accurate `applicationCategory`/`price`/`operatingSystem`.
+20. ✅ — **F2, F5, F6** Smart banners, analytics, catalog filters.
 
 ### ⚪ Nice-to-have / future
-21. **4.2** Generated product, platform and career pages.
-22. **5.3** Automated store-sync audit; **F4** ratings; **F3** screenshots.
-23. **F7** News feed; **F8** press kit; **F9** per-app privacy pages; **F10** dark mode; **F11** third locale.
-24. **P4/P5** AVIF/WebP icons; content-hash cache busting.
-25. Small items: B4, B7–B11, S4–S6, A5–A6, E9, D5–D6.
+21. ✅ (scaffolder) — **4.2** Generated product, platform and career pages.
+22. ✅ — **5.3** Automated store-sync audit; **F4** ratings; **F3** screenshots.
+23. ✅ F7, F8, F10 · ⏳ F9, F11 — **F7** News feed; **F8** press kit; **F9** per-app privacy pages; **F10** dark mode; **F11** third locale.
+24. ✅ — **P4/P5** AVIF/WebP icons; content-hash cache busting.
+25. ✅ except ⬜ S5, D6 — Small items: B4, B7–B11, S4–S6, A5–A6, E9, D5–D6.
 
 ---
 
@@ -317,20 +324,20 @@ Add `.github/workflows/pages.yml`: Ruby setup → `bundle exec jekyll build` →
 
 | Phase | Theme | Items | Rough effort |
 |---|---|---|---|
-| **Phase 1: Stop the bleeding** (week 1) | Legal, privacy, lost leads | B1/F1, S1, L1–L3, S2, E1 **(after verifying hosting)**, B2/B3 quick guard | 1–2 days |
-| **Phase 2: Correctness & safety net** (weeks 2–3) | CI and SEO correctness | 5.1 Actions deploy, 5.2 checks (schema, parity, stubs, html-proofer), E2–E6, D1, D2/D3, E7 | 3–4 days |
-| **Phase 3: Performance & accessibility** (weeks 3–4) | CWV and WCAG | S3/P1 icons, P2/P3, A1–A4, 4.6 SW decision, Lighthouse CI budgets | 2–3 days |
-| **Phase 4: Maintainability** (month 2) | Fewer files per product change | 4.1, 4.3, 4.4, 4.2 generators, E8, 4.7 | 3–5 days |
-| **Phase 5: Growth features** (month 2–3) | Conversion and visibility | F2, F5, F6 → 5.3 store-sync → F4, F3 → F7, F8, F9 | 1–2 weeks total, incremental |
-| **Phase 6: Polish** (later) | | F10, F11, P4/P5, remaining ⚪ items | as capacity allows |
+| ✅ **Phase 1: Stop the bleeding** (week 1) | Legal, privacy, lost leads | B1/F1, S1, L1–L3, S2, E1 **(after verifying hosting)**, B2/B3 quick guard | 1–2 days |
+| ✅ **Phase 2: Correctness & safety net** (weeks 2–3) | CI and SEO correctness | 5.1 Actions deploy, 5.2 checks (schema, parity, stubs, html-proofer), E2–E6, D1, D2/D3, E7 | 3–4 days |
+| ✅ **Phase 3: Performance & accessibility** (weeks 3–4) | CWV and WCAG | S3/P1 icons, P2/P3, A1–A4, 4.6 SW decision, Lighthouse CI budgets | 2–3 days |
+| ✅ **Phase 4: Maintainability** (month 2) | Fewer files per product change | 4.1, 4.3, 4.4, 4.2 generators, E8, 4.7 | 3–5 days |
+| ✅ (F9 ⏳) **Phase 5: Growth features** (month 2–3) | Conversion and visibility | F2, F5, F6 → 5.3 store-sync → F4, F3 → F7, F8, F9 | 1–2 weeks total, incremental |
+| ✅ (F11 ⏳) **Phase 6: Polish** (later) | | F10, F11, P4/P5, remaining ⚪ items | as capacity allows |
 
 **Ordering rationale:** Phase 1 items carry legal or financial risk and are small. CI comes before the refactors, so 4.1–4.4 land behind the parity, stub and link checks. Store-sync (5.3) comes before ratings and screenshots, because both reuse its store-API plumbing.
 
 ---
 
 ## 10. Open questions for the owner
-1. What is the authoritative host, `www.aralel.com` or `aralel.com`, and is GitHub Pages building via Actions or the classic builder?
-2. What does `relay.codehospital.com` do? Is it analytics, cache-busting or uptime monitoring? That decides whether it needs consent or should be removed.
-3. Should `market.html` and `map.html` stay public on the company domain?
-4. Is the PWA install prompt a deliberate product decision?
-5. Which services list is correct, the German one or the English one (D1)?
+1. ✅ / ⏳ What is the authoritative host, `www.aralel.com` or `aralel.com`, and is GitHub Pages building via Actions or the classic builder? — *Host answered: `www` (apex 301-redirects). Builder still open; the Actions workflow deploys only once you opt in.*
+2. ⏳ What does `relay.codehospital.com` do? Is it analytics, cache-busting or uptime monitoring? That decides whether it needs consent or should be removed. — *Meanwhile gated behind analytics consent and disclosed.*
+3. ⏳ Should `market.html` and `map.html` stay public on the company domain? — *Meanwhile `noindex`.*
+4. ⏳ Is the PWA install prompt a deliberate product decision? — *Kept; the cache-reset link was clearly intentional.*
+5. ✅ Which services list is correct, the German one or the English one (D1)? — *German, per the original grouping in the changelog; English aligned.*

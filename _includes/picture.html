@@ -1,0 +1,14 @@
+{%- comment -%}
+  Responsive image with a WebP source (built by scripts/build-webp.mjs) and the
+  original PNG/JPEG as fallback. Remote URLs render as a plain <img>.
+  Params: src, alt, width, height, class, loading (default lazy), fetchpriority.
+{%- endcomment -%}
+{%- capture picture_img_attributes -%}
+alt="{{ include.alt }}"{% if include.class %} class="{{ include.class }}"{% endif %}{% if include.width %} width="{{ include.width }}" height="{{ include.height }}"{% endif %}{% if include.fetchpriority %} fetchpriority="{{ include.fetchpriority }}"{% else %} loading="{{ include.loading | default: "lazy" }}"{% endif %} decoding="async"
+{%- endcapture -%}
+{%- if include.src contains "://" -%}
+<img src="{{ include.src }}" {{ picture_img_attributes }}>
+{%- else -%}
+{%- assign webp_src = include.src | split: "." | pop | join: "." | append: ".webp" -%}
+<picture><source srcset="{{ webp_src | relative_url }}" type="image/webp"><img src="{{ include.src | relative_url }}" {{ picture_img_attributes }}></picture>
+{%- endif -%}

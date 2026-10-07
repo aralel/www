@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Aralel product catalog (_data/products.json)",
+  "description": "Editor validation and autocompletion. Cross-file rules (locale copy, page stubs, icon files, store/platform consistency) are checked by scripts/check-site.mjs.",
+  "type": "object",
+  "required": ["products"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "brand": { "type": "string" },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "type", "platforms", "stores", "iconUrl", "accent", "accentStrong"],
+        "additionalProperties": false,
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "URL slug; page stubs are apps|games/<slug>(_en).html" },
+          "type": { "enum": ["app", "game"] },
+          "schemaCategory": {
+            "description": "schema.org applicationCategory for apps; defaults to UtilitiesApplication",
+            "enum": ["BusinessApplication", "CommunicationApplication", "DesignApplication", "DeveloperApplication", "EducationalApplication", "EntertainmentApplication", "FinanceApplication", "GameApplication", "HealthApplication", "HomeApplication", "LifestyleApplication", "MultimediaApplication", "ReferenceApplication", "SecurityApplication", "ShoppingApplication", "SocialNetworkingApplication", "SportsApplication", "TravelApplication", "UtilitiesApplication"]
+          },
+          "price": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]{1,2})?$", "description": "EUR price for structured data; default \"0\"" },
+          "hidden": { "type": "boolean", "description": "true removes the product from listings, sitemap and llms.txt; its page redirects" },
+          "front_page": { "type": "boolean", "description": "Feature on the homepage and the portfolio page" },
+          "collections": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "description": "Themed collection pages, e.g. [\"travel\"]" },
+          "platforms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "enum": ["iphone", "android", "amazon", "samsung", "desktop", "website", "shopify"] }
+          },
+          "accent": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+          "accentStrong": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+          "iconUrl": { "type": "string", "description": "Site-root path of the cached icon, e.g. /images/products/<slug>.png" },
+          "iconSourceUrl": { "type": "string", "description": "Store URL the icon is refreshed from (scripts/refresh-product-icons.mjs)" },
+          "stores": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "appStore": { "type": "string", "pattern": "^https://apps\\.apple\\.com/.+/id[0-9]+" },
+              "googlePlay": { "type": "string", "pattern": "^https://play\\.google\\.com/store/apps/details\\?id=" },
+              "amazonAppstore": { "type": "string", "format": "uri" },
+              "samsungGalaxyStore": { "type": "string", "format": "uri" },
+              "shopifyAppStore": { "type": "string", "pattern": "^https://apps\\.shopify\\.com/" }
+            }
+          },
+          "websiteUrl": { "type": "string", "format": "uri" },
+          "privacyUrl": {
+            "type": "object",
+            "required": ["de", "en"],
+            "additionalProperties": false,
+            "properties": { "de": { "type": "string", "format": "uri" }, "en": { "type": "string", "format": "uri" } }
+          }
+        }
+      }
+    }
+  }
+}

@@ -179,7 +179,7 @@ html.motion-ok .detail-card {
 html.motion-ok .detail-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 28px rgba(70, 43, 17, 0.09);
-    background: linear-gradient(180deg, #fff, var(--surface-soft));
+    background: linear-gradient(180deg, var(--surface), var(--surface-soft));
 }
 
 /* ── About image floating orbs ──────────────────────────────── */
@@ -219,7 +219,7 @@ html.motion-ok .about-image::after {
 
 .site-header.is-scrolled {
     box-shadow: 0 4px 24px rgba(70, 43, 17, 0.09);
-    background: rgba(255, 255, 255, 0.97);
+    background: var(--surface-glass);
 }
 
 /* ── Logo hover ─────────────────────────────────────────────── */

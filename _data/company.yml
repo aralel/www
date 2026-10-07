@@ -33,3 +33,14 @@ social:
   - name: "Bluesky"
     url: "https://bsky.app/profile/aralel.bsky.social"
     icon: "bluesky"
+
+# Brand colors shown in the press kit (match the :root tokens in styles.css).
+brand_colors:
+  - name: "Amber"
+    hex: "#c97a2b"
+  - name: "Deep amber"
+    hex: "#8f4e16"
+  - name: "Cream"
+    hex: "#fff3e3"
+  - name: "Ink"
+    hex: "#201a14"

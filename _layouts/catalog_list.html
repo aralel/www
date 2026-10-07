@@ -51,6 +51,21 @@ body_class: subpage
   </section>
 
   <section class="catalog-section-page">
+    {% comment %} Platform filter (script.js). Hidden until JS runs, so without JS every card stays listed. {% endcomment %}
+    {% assign filter_platforms = "" %}
+    {% for platform_key in site.data.locales[page.locale].platforms.labels %}
+      {% assign platform_products = products | where_exp: "product", "product.platforms contains platform_key[0]" %}
+      {% if platform_products.size > 0 %}{% assign filter_platforms = filter_platforms | append: platform_key[0] | append: "," %}{% endif %}
+    {% endfor %}
+    {% assign filter_platform_list = filter_platforms | split: "," %}
+    {% if filter_platform_list.size > 1 %}
+      <div class="catalog-filter" role="group" aria-label="{{ t.common.filterLabel }}" data-catalog-filter hidden>
+        <button type="button" class="catalog-filter-chip" data-platform="" aria-pressed="true">{{ t.common.filterAll }}</button>
+        {% for platform_key in filter_platform_list %}
+          <button type="button" class="catalog-filter-chip" data-platform="{{ platform_key }}" aria-pressed="false">{{ t.platforms.labels[platform_key] }}</button>
+        {% endfor %}
+      </div>
+    {% endif %}
     <div class="catalog-grid">
       {% for product in products %}
         {% include catalog_card.html product=product locale=page.locale %}

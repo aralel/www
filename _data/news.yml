@@ -1,0 +1,66 @@
+# News items for news.html / news_en.html and the RSS feeds (feed.xml, feed_de.xml).
+# Newest first. `product` (optional) links the item to a product page and shows its icon.
+# Dates are when the release went live on this site (see CHANGELOG.md).
+
+- date: 2026-10-07
+  product: albumara
+  de:
+    title: "Albumara ist da – im App Store und bei Google Play"
+    text: "Ein gemeinsames Album für jede Reise und jedes Event: Mit Albumara landen die Fotos und Videos aller Teilnehmenden automatisch an einem Ort – für iPhone und Android, mit Web-Link für alle ohne App."
+  en:
+    title: "Albumara is out on the App Store and Google Play"
+    text: "One shared album for every trip or event: with Albumara, everyone's photos and videos land in one place automatically — on iPhone and Android, with a web link for anyone without the app."
+
+- date: 2026-09-29
+  product: buzzbelt
+  de:
+    title: "Buzzbelt jetzt auch für iPhone"
+    text: "Der Offline-Gruppenchat für Reisen ist jetzt im App Store erhältlich. Nachrichten springen per Bluetooth von Handy zu Handy – ohne Internet, ohne SIM-Karte."
+  en:
+    title: "Buzzbelt now on iPhone"
+    text: "The offline group chat for trips is now on the App Store. Messages hop phone to phone over Bluetooth — no internet or SIM needed."
+
+- date: 2026-09-28
+  product: anava
+  de:
+    title: "Anava jetzt im App Store"
+    text: "Anava, die ruhige App für tägliche Bittgebete, Dankbarkeit und spirituelle Routinen, ist jetzt auch für iPhone verfügbar."
+  en:
+    title: "Anava now on the App Store"
+    text: "Anava, the calm app for daily supplications, gratitude and spiritual routines, is now available on iPhone too."
+
+- date: 2026-09-17
+  product: a-solar-compass
+  de:
+    title: "A Solar Compass jetzt für iPhone"
+    text: "Den genauen Moment berechnen, in dem die Sonne eine Zielrichtung erreicht – jetzt auch im App Store, mit Countdown, Erinnerungen und Widgets."
+  en:
+    title: "A Solar Compass now on iPhone"
+    text: "Calculate the exact moment the sun aligns with a target bearing — now on the App Store too, with countdowns, reminders and widgets."
+
+- date: 2026-09-06
+  product: buzzbelt
+  de:
+    title: "Neu: Buzzbelt bei Google Play"
+    text: "Buzzbelt hält Reisegruppen zusammen, auch ohne Mobilfunknetz: Gruppenchat, Direktnachrichten und ein „Buzz“, der alle erreichbaren Handys in voller Lautstärke klingeln lässt."
+  en:
+    title: "New: Buzzbelt on Google Play"
+    text: "Buzzbelt keeps travel groups together without mobile signal: group chat, direct messages and a Buzz that rings every reachable phone at full volume."
+
+- date: 2026-08-22
+  product: navigating-strait-of-hormuz
+  de:
+    title: "Neues iPhone-Spiel: durch die Straße von Hormus"
+    text: "Ein Einhand-Roguelike über das Überleben auf See in der umkämpftesten Schifffahrtsroute der Welt – jetzt im App Store."
+  en:
+    title: "New iPhone game: through the Strait of Hormuz"
+    text: "A one-thumb naval survival roguelike through the world's most contested shipping lane — now on the App Store."
+
+- date: 2026-07-17
+  product: streakbox-gamify-daily-visit
+  de:
+    title: "Streakbox im Shopify App Store"
+    text: "Unsere erste Shopify-App belohnt eingeloggte Kund:innen mit einem täglichen Geschenk, das mit jeder Besuchsserie wächst."
+  en:
+    title: "Streakbox on the Shopify App Store"
+    text: "Our first Shopify app rewards logged-in customers with a daily gift that grows the longer their visit streak lasts."

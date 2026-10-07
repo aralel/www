@@ -17,6 +17,14 @@
       "title": "Reise-Apps für Familie und Freunde – Aralel GmbH",
       "description": "Buzzbelt und Albumara: Offline-Gruppenchat und gemeinsame Foto- und Videoalben für Reisen mit Familie und Freunden – für iPhone und Android."
     },
+    "news": {
+      "title": "Neuigkeiten – Aralel GmbH",
+      "description": "Neue Apps, Spiele und Store-Veröffentlichungen der Aralel GmbH."
+    },
+    "press": {
+      "title": "Pressebereich – Aralel GmbH",
+      "description": "Fakten, Unternehmensbeschreibung, Logo und Produkt-Icons für Artikel und Einträge über die Aralel GmbH."
+    },
     "apps": {
       "title": "Aralel-Apps — iOS, Android, Mac & Web",
       "description": "Veröffentlichte Aralel-Apps im Überblick — für iOS, Android, Mac und das Web."
@@ -115,7 +123,12 @@
       "text": "%name% haben wir selbst konzipiert, entwickelt und veröffentlicht. Dasselbe machen wir für unsere Kund:innen – von der ersten Idee bis zur Veröffentlichung im Store.",
       "cta": "Projekt besprechen"
     },
-    "relatedTitle": "Mehr von Aralel"
+    "relatedTitle": "Mehr von Aralel",
+    "privacyLabel": "Datenschutz",
+    "screenshotsTitle": "Screenshots",
+    "screenshotAlt": "Screenshot %number% von %name%",
+    "filterAll": "Alle",
+    "filterLabel": "Nach Plattform filtern"
   },
   "platforms": {
     "labels": {
@@ -169,12 +182,14 @@
     "description": "Offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte und direkten Links zu den jeweiligen Plattformen.",
     "portfolioTitle": "Portfolio",
     "travelApps": "Reise-Apps",
+    "news": "Neuigkeiten",
     "companyTitle": "Unternehmen",
     "languageTitle": "Sprache",
     "about": "Unternehmen",
     "contact": "Kontakt",
     "services": "Leistungen",
     "careers": "Karriere",
+    "press": "Presse",
     "privacy": "Datenschutz",
     "impressum": "Impressum",
     "cookieSettings": "Cookie-Einstellungen",
@@ -627,6 +642,34 @@
       "heroTitle": "Apps für Reisen mit Familie und Freunden",
       "heroText": "Zwei Apps für die Reise mit Ihrer Gruppe: Mit Buzzbelt bleiben alle auch ohne Mobilfunknetz im Gespräch, und Albumara sammelt die Fotos und Videos aller automatisch in einem gemeinsamen Album."
     }
+  },
+  "news": {
+    "kicker": "Neuigkeiten",
+    "heroTitle": "Was es Neues gibt",
+    "heroText": "Neue Apps, Spiele und Store-Veröffentlichungen aus unserem Studio.",
+    "feedLabel": "RSS-Feed abonnieren",
+    "productLink": "Mehr über %name%"
+  },
+  "press": {
+    "kicker": "Presse",
+    "heroTitle": "Pressebereich",
+    "heroText": "Fakten, Logo und Produktbilder für Artikel und Einträge über Aralel. Für Interviews oder weiteres Material schreiben Sie uns.",
+    "boilerplateTitle": "Über Aralel",
+    "boilerplate": "Die Aralel GmbH ist ein Software-Studio mit Sitz in Aachen. Sie entwickelt und veröffentlicht eigene Apps und Spiele für iPhone, Android, Mac, das Web und Shopify und arbeitet als Software-Partner für Unternehmen, die Web-, Mobile- und Automatisierungsprojekte sauber umgesetzt haben möchten.",
+    "factsTitle": "Auf einen Blick",
+    "companyLabel": "Unternehmen",
+    "headquartersLabel": "Sitz",
+    "productsLabel": "Produkte",
+    "productsValue": "%count% veröffentlichte Apps und Spiele",
+    "platformsLabel": "Plattformen",
+    "contactLabel": "Pressekontakt",
+    "logoTitle": "Logo",
+    "logoText": "Bitte verwenden Sie das Logo unverändert und mit ausreichend Abstand.",
+    "logoDownload": "Logo herunterladen (PNG)",
+    "colorsTitle": "Markenfarben",
+    "productsTitle": "Produkt-Icons",
+    "productsText": "Icons unserer veröffentlichten Apps und Spiele, 512 × 512 px. Jeder Name verlinkt auf die Produktseite mit Store-Links.",
+    "iconDownload": "Icon herunterladen"
   },
   "products": {
     "availabell": {

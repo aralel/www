@@ -1,0 +1,63 @@
+---
+layout: default
+body_class: subpage
+---
+{% comment %} News page: items from _data/news.yml, newest first. {% endcomment %}
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign news_copy = t.news %}
+{% capture feed_path %}{% if locale_code == "de" %}/feed_de.xml{% else %}/feed.xml{% endif %}{% endcapture %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ page.url | absolute_url }}#webpage",
+  "name": {{ t.pages.news.title | jsonify }},
+  "description": {{ t.pages.news.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "publisher": { "@id": "{{ site.url }}/#organization" }
+}
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ news_copy.kicker }}</span>
+      <h1>{{ news_copy.heroTitle }}</h1>
+      <p>{{ news_copy.heroText }} <a href="{{ feed_path | relative_url }}">{{ news_copy.feedLabel }}</a></p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page">
+    <ol class="news-list">
+      {% for news_item in site.data.news %}
+        {% assign item_copy = news_item[locale_code] %}
+        {% assign news_product = nil %}
+        {% if news_item.product %}
+          {% assign news_product = site.data.products.products | where: "slug", news_item.product | first %}
+        {% endif %}
+        <li class="news-item">
+          <article>
+            <time class="news-date" datetime="{{ news_item.date | date: '%Y-%m-%d' }}">{% if locale_code == "de" %}{{ news_item.date | date: "%d.%m.%Y" }}{% else %}{{ news_item.date | date: "%B %-d, %Y" }}{% endif %}</time>
+            <div class="news-body">
+              {% if news_product and news_product.hidden != true %}
+                {% include picture.html src=news_product.iconUrl alt="" class="news-icon" width=512 height=512 %}
+              {% endif %}
+              <div>
+                <h2 class="news-title">{{ item_copy.title }}</h2>
+                <p class="news-text">{{ item_copy.text }}</p>
+                {% if news_product and news_product.hidden != true %}
+                  {% capture news_product_url %}{% include product_path.html product=news_product locale=locale_code %}{% endcapture %}
+                  <a class="learn-more" href="{{ news_product_url | relative_url }}">{{ news_copy.productLink | replace: "%name%", t.products[news_item.product].name }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+</main>

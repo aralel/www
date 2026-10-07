@@ -22,9 +22,7 @@ body_class: subpage
 {% capture listing_url %}{% include localized_path.html path=listing_base_path locale=page.locale %}{% endcapture %}
 
 {% if product_hidden %}
-<script>
-  window.location.replace({{ listing_url | relative_url | jsonify }});
-</script>
+{% comment %} Hidden product: _includes/head.html redirects to the listing with a meta refresh; this is the fallback content. {% endcomment %}
 
 <main class="catalog-page">
   <section class="page-hero page-hero--listing">
@@ -56,6 +54,9 @@ body_class: subpage
   {% endcase %}
 {% endfor %}
 {% assign operating_systems = platform_names | split: ", " | join: ", " %}
+{% comment %} Store data from scripts/store-sync.mjs: ratings and cached screenshots. {% endcomment %}
+{% assign store_listing = site.data.store_listings[product.slug] %}
+{% assign minimum_rating_count = 5 %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,6 +72,14 @@ body_class: subpage
       "applicationCategory": {% if is_app %}{{ product.schemaCategory | default: "UtilitiesApplication" | jsonify }}{% else %}"GameApplication"{% endif %},
       {% if operating_systems != "" %}"operatingSystem": {{ operating_systems | jsonify }},{% endif %}
       "inLanguage": {{ page.locale | jsonify }},
+      {% if store_listing.screenshots.size > 0 %}"screenshot": [{% for screenshot in store_listing.screenshots %}{{ screenshot.src | absolute_url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],{% endif %}
+      {% if store_listing.rating and store_listing.rating.count >= minimum_rating_count %}"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ store_listing.rating.value | jsonify }},
+        "ratingCount": {{ store_listing.rating.count | jsonify }},
+        "bestRating": 5,
+        "worstRating": 1
+      },{% endif %}
       "offers": {
         "@type": "Offer",
         "price": {{ product.price | default: "0" | jsonify }},
@@ -133,17 +142,30 @@ body_class: subpage
 
           {% if product.privacyUrl and product.privacyUrl[page.locale] %}
             <div class="secondary-link-row">
-              <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel }}</a>
+              <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel | default: t.common.privacyLabel }}</a>
             </div>
           {% endif %}
         </div>
 
         <div class="detail-visual">
-          <img src="{{ product.iconUrl | relative_url }}" alt="" class="detail-icon" width="512" height="512" fetchpriority="high">
+          {% include picture.html src=product.iconUrl alt="" class="detail-icon" width=512 height=512 fetchpriority="high" %}
         </div>
       </div>
     </div>
   </section>
+
+  {% if store_listing.screenshots.size > 0 %}
+    <section class="screenshot-gallery" aria-label="{{ t.common.screenshotsTitle }}">
+      <ul class="screenshot-strip">
+        {% for screenshot in store_listing.screenshots %}
+          {% assign screenshot_alt = t.common.screenshotAlt | replace: "%name%", copy.name | replace: "%number%", forloop.index %}
+          <li class="screenshot-item{% if screenshot.width > screenshot.height %} screenshot-item--landscape{% endif %}">
+            {% include picture.html src=screenshot.src alt=screenshot_alt width=screenshot.width height=screenshot.height %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
 
   <section class="detail-content">
     <div class="detail-main-column">

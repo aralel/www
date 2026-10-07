@@ -16,6 +16,13 @@ baseurl: ""
 # to name that provider when you switch.
 # contact_form_endpoint: "https://formspree.io/f/xxxxxxx"
 
+# Privacy-friendly analytics (Plausible or a compatible self-hosted script such as
+# Umami's Plausible mode). Loaded by cookie-consent.js only after analytics consent.
+# Store-badge clicks are sent as "Store click" events (props: store, product, placement).
+# When you enable it, name the provider in section 3 of both privacy policies.
+# analytics_script_src: "https://plausible.io/js/script.js"
+# analytics_domain: "www.aralel.com"
+
 include: [".well-known", "available"]
 # Repo-only files. Jekyll copies unknown files verbatim, so anything not listed
 # here (e.g. PLAN.md) would be published at www.aralel.com/<name>.

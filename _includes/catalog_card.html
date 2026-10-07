@@ -8,9 +8,9 @@
   {% assign show_game_tag = true %}
 {% endif %}
 
-<article class="catalog-card{% if include.compact %} catalog-card--compact{% endif %}" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};">
+<article class="catalog-card{% if include.compact %} catalog-card--compact{% endif %}" data-platforms="{{ product.platforms | join: ' ' }}" style="--product-accent:{{ product.accent }}; --product-accent-strong:{{ product.accentStrong }};">
   <div class="catalog-card-top">
-    <img src="{{ product.iconUrl | relative_url }}" alt="" class="catalog-icon" width="512" height="512" loading="lazy">
+    {% include picture.html src=product.iconUrl alt="" class="catalog-icon" width=512 height=512 %}
     <div class="catalog-heading">
       <span class="catalog-type">{{ copy.category }}</span>
       <h3><a class="catalog-name-link" href="{{ product_url | relative_url }}">{{ copy.name }}</a></h3>

@@ -1,4 +1,5 @@
 {
+  "$schema": "../scripts/schemas/products.schema.json",
   "brand": "Aralel GmbH",
   "products": [
     {
@@ -11,6 +12,10 @@
       "accentStrong": "#0b4d46",
       "iconUrl": "/images/products/arena-sudoku.jpg",
       "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/cb/71/efcb719d-a76d-0f45-dd08-4a6f49759337/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "privacyUrl": {
+        "de": "https://sudoku.aralel.com/privacy",
+        "en": "https://sudoku.aralel.com/privacy"
+      },
       "stores": {
         "appStore": "https://apps.apple.com/us/app/arena-sudoku/id6760966368",
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.asudoku"
@@ -46,6 +51,10 @@
       "accentStrong": "#34287f",
       "iconUrl": "/images/products/cyrus-cylinder.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/qyTnHuQIoakYoTPk7WvSbuxPjW0jTG0a-dcF7IrOvlM8N9_x7L6jQdhuiM082itg_4s9Cn4eL0docnlDUyNn",
+      "privacyUrl": {
+        "de": "https://cyrus-cylinder.aralel.com/privacy.html",
+        "en": "https://cyrus-cylinder.aralel.com/privacy.html"
+      },
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.trennbare",
         "appStore": "https://apps.apple.com/us/app/cyrus-cylinder/id6760327600"
@@ -62,6 +71,10 @@
       "accentStrong": "#0d4947",
       "iconUrl": "/images/products/anava.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/Bm9qmvrOaNkz15I-VxAwgyozjvTIwkMF0gfw0jr0idnq2HC8EiG4uj01MbgO2ukdYw",
+      "privacyUrl": {
+        "de": "https://anava.aralel.com/privacy-policy.html",
+        "en": "https://anava.aralel.com/privacy-policy.html"
+      },
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.anava",
         "appStore": "https://apps.apple.com/us/app/anava/id6814415159"
@@ -78,6 +91,10 @@
       "accentStrong": "#7a4307",
       "iconUrl": "/images/products/a-solar-compass.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/xO6wTLnJ4hPVECFO8zZsy27tUBB-uJt7tlMdkZiBzuR25XMCM4iZfrezppL3EY2BiwE3H1xIfnpaURtiLXy9fg",
+      "privacyUrl": {
+        "de": "https://sunquest.codehospital.com/privacy.html",
+        "en": "https://sunquest.codehospital.com/privacy.html"
+      },
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.tarzaha",
         "appStore": "https://apps.apple.com/us/app/a-solar-compass/id6813109002"
@@ -132,6 +149,10 @@
       "accentStrong": "#102a66",
       "iconUrl": "/images/products/german-word-search.png",
       "iconSourceUrl": "https://m.media-amazon.com/images/I/71-0Vf6XjnL._h1_.png",
+      "privacyUrl": {
+        "de": "https://german-word-search.aralel.com/privacy.html",
+        "en": "https://german-word-search.aralel.com/privacy.html"
+      },
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
         "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875",
@@ -148,6 +169,10 @@
       "accentStrong": "#7c2d12",
       "iconUrl": "/images/products/hedortal.jpg",
       "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/3a/92/e23a923e-9bd9-88c1-0496-a2979ee189af/AppIcon-0-0-1x_U007emarketing-0-11-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
+      "privacyUrl": {
+        "de": "https://www.aralel.com/datenschutz.html",
+        "en": "https://www.aralel.com/privacy-policy.html"
+      },
       "stores": {
         "appStore": "https://apps.apple.com/us/app/hedortal/id6759011605"
       }
@@ -162,6 +187,10 @@
       "accentStrong": "#7f1d1d",
       "iconUrl": "/images/products/rock-paper-bluetooth.jpg",
       "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f5/12/81/f51281e5-e40e-1738-c013-90c6df5131c3/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "privacyUrl": {
+        "de": "https://www.aralel.com/datenschutz.html",
+        "en": "https://www.aralel.com/privacy-policy.html"
+      },
       "stores": {
         "appStore": "https://apps.apple.com/us/app/rock-paper-bluetooth/id6759180874"
       }
@@ -177,6 +206,10 @@
       "accentStrong": "#3b0a91",
       "iconUrl": "/images/products/ai-usage-menubar.png",
       "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ed/40/4e/ed404e47-30a5-9485-c13a-6eb612126473/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "privacyUrl": {
+        "de": "https://www.aralel.com/datenschutz.html",
+        "en": "https://www.aralel.com/privacy-policy.html"
+      },
       "stores": {
         "appStore": "https://apps.apple.com/us/app/ai-usage-menubar/id6782388203?mt=12"
       }
@@ -221,6 +254,10 @@
       "accentStrong": "#14532d",
       "iconUrl": "/images/products/navigating-strait-of-hormuz.jpg",
       "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/9c/fb/df9cfbf1-73af-461d-08af-869bab9d58c0/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "privacyUrl": {
+        "de": "https://strait-of-hormuz.aralel.com/privacy.html",
+        "en": "https://strait-of-hormuz.aralel.com/privacy.html"
+      },
       "stores": {
         "appStore": "https://apps.apple.com/us/app/navigating-strait-of-hormuz/id6785057111"
       }
@@ -279,6 +316,10 @@
       "accentStrong": "#701a75",
       "iconUrl": "/images/products/alien-planetary-ambush.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/0wrXplAkT8PCjTqBXAr31d2vw9gY6_Zkxj12I_MPnmyDmYDFGe0r07zisu--xOAT22QoVmla0qu2w780W0Am",
+      "privacyUrl": {
+        "de": "https://www.aralel.com/datenschutz.html",
+        "en": "https://www.aralel.com/privacy-policy.html"
+      },
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.turnovers"
       }

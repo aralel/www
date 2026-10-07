@@ -1,0 +1,394 @@
+{
+  "arena-sudoku": {
+    "storeNames": {
+      "appStore": "Arena Sudoku",
+      "googlePlay": "Arena Sudoku"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/arena-sudoku/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/arena-sudoku/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/arena-sudoku/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/arena-sudoku/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "availabell": {
+    "storeNames": {
+      "googlePlay": "Availabell"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/availabell/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/availabell/2.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/availabell/3.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/availabell/4.jpg",
+        "width": 460,
+        "height": 818
+      }
+    ]
+  },
+  "cyrus-cylinder": {
+    "storeNames": {
+      "appStore": "Cyrus Cylinder",
+      "googlePlay": "Cyrus Cylinder"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/cyrus-cylinder/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/cyrus-cylinder/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/cyrus-cylinder/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/cyrus-cylinder/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "anava": {
+    "storeNames": {
+      "appStore": "Anava",
+      "googlePlay": "Anava"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/anava/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/anava/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/anava/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/anava/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "a-solar-compass": {
+    "storeNames": {
+      "appStore": "A Solar Compass",
+      "googlePlay": "A Solar Compass"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/a-solar-compass/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/a-solar-compass/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/a-solar-compass/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/a-solar-compass/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "wireless-deck": {
+    "storeNames": {
+      "appStore": "Wireless Deck"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/wireless-deck/1.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/wireless-deck/2.jpg",
+        "width": 920,
+        "height": 575
+      }
+    ]
+  },
+  "messagram-app": {
+    "storeNames": {
+      "appStore": "Messagram App"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/messagram-app/1.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/messagram-app/2.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/messagram-app/3.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/messagram-app/4.jpg",
+        "width": 920,
+        "height": 575
+      }
+    ]
+  },
+  "german-word-search": {
+    "storeNames": {
+      "googlePlay": "German Word Search"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/german-word-search/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/german-word-search/2.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/german-word-search/3.jpg",
+        "width": 460,
+        "height": 818
+      }
+    ]
+  },
+  "hedortal": {
+    "storeNames": {
+      "appStore": "Hedortal"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/hedortal/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/hedortal/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/hedortal/3.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "rock-paper-bluetooth": {
+    "storeNames": {
+      "appStore": "Rock Paper Bluetooth"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/rock-paper-bluetooth/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/rock-paper-bluetooth/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/rock-paper-bluetooth/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/rock-paper-bluetooth/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "ai-usage-menubar": {
+    "storeNames": {
+      "appStore": "AI Usage Menubar"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/ai-usage-menubar/1.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/ai-usage-menubar/2.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/ai-usage-menubar/3.jpg",
+        "width": 920,
+        "height": 575
+      },
+      {
+        "src": "/images/screenshots/ai-usage-menubar/4.jpg",
+        "width": 920,
+        "height": 575
+      }
+    ]
+  },
+  "streakbox-gamify-daily-visit": {
+    "storeNames": {}
+  },
+  "ad-verbum": {
+    "storeNames": {}
+  },
+  "navigating-strait-of-hormuz": {
+    "storeNames": {
+      "appStore": "Hormuz Strait"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/navigating-strait-of-hormuz/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/navigating-strait-of-hormuz/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/navigating-strait-of-hormuz/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/navigating-strait-of-hormuz/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "buzzbelt": {
+    "storeNames": {
+      "appStore": "Buzzbelt: Offline Group Chat",
+      "googlePlay": "Buzzbelt: Offline Group Chat"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/buzzbelt/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/buzzbelt/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/buzzbelt/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/buzzbelt/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "albumara": {
+    "storeNames": {
+      "appStore": "Albumara",
+      "googlePlay": "Albumara"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/albumara/1.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/albumara/2.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/albumara/3.jpg",
+        "width": 460,
+        "height": 995
+      },
+      {
+        "src": "/images/screenshots/albumara/4.jpg",
+        "width": 460,
+        "height": 995
+      }
+    ]
+  },
+  "alien-planetary-ambush": {
+    "storeNames": {
+      "googlePlay": "Alien Planetary Ambush"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/alien-planetary-ambush/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/alien-planetary-ambush/2.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/alien-planetary-ambush/3.jpg",
+        "width": 460,
+        "height": 818
+      }
+    ]
+  }
+}

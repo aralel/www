@@ -1,0 +1,91 @@
+---
+layout: default
+body_class: subpage
+---
+{% comment %} Press kit: facts from _data/company.yml, products from products.json. {% endcomment %}
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign press = t.press %}
+{% assign company = site.data.company %}
+{% assign published_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "{{ page.url | absolute_url }}#webpage",
+  "name": {{ t.pages.press.title | jsonify }},
+  "description": {{ t.pages.press.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "inLanguage": {{ locale_code | jsonify }},
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
+  "about": { "@id": "{{ site.url }}/#organization" }
+}
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ press.kicker }}</span>
+      <h1>{{ press.heroTitle }}</h1>
+      <p>{{ press.heroText }}</p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page press-kit">
+    <div class="press-grid">
+      <article class="detail-panel">
+        <h2 class="press-heading">{{ press.boilerplateTitle }}</h2>
+        <p class="press-boilerplate">{{ press.boilerplate }}</p>
+      </article>
+
+      <article class="detail-panel">
+        <h2 class="press-heading">{{ press.factsTitle }}</h2>
+        <dl class="press-facts">
+          <dt>{{ press.companyLabel }}</dt>
+          <dd>{{ company.legal_name }}</dd>
+          <dt>{{ press.headquartersLabel }}</dt>
+          <dd>{{ company.address.city }}, {% if locale_code == "de" %}{{ company.address.country_de }}{% else %}{{ company.address.country_en }}{% endif %}</dd>
+          <dt>{{ press.productsLabel }}</dt>
+          <dd>{{ press.productsValue | replace: "%count%", published_products.size }}</dd>
+          <dt>{{ press.platformsLabel }}</dt>
+          <dd>{{ t.home.stats.platforms }}</dd>
+          <dt>{{ press.contactLabel }}</dt>
+          <dd><a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a></dd>
+        </dl>
+      </article>
+
+      <article class="detail-panel">
+        <h2 class="press-heading">{{ press.logoTitle }}</h2>
+        <img class="press-logo" src="{{ '/images/aralel-logo.png' | relative_url }}" alt="{{ company.legal_name }} Logo" width="320" height="320" loading="lazy">
+        <p class="press-note">{{ press.logoText }}</p>
+        <a class="learn-more" href="{{ '/images/aralel-logo.png' | relative_url }}" download>{{ press.logoDownload }}</a>
+      </article>
+
+      <article class="detail-panel">
+        <h2 class="press-heading">{{ press.colorsTitle }}</h2>
+        <ul class="press-colors">
+          {% for brand_color in site.data.company.brand_colors %}
+            <li><span class="press-swatch" style="background: {{ brand_color.hex }}"></span><span>{{ brand_color.name }}<br><code>{{ brand_color.hex }}</code></span></li>
+          {% endfor %}
+        </ul>
+      </article>
+    </div>
+
+    <div class="section-title-container press-products-title">
+      <h2 class="section-title">{{ press.productsTitle }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ press.productsText }}</p>
+    </div>
+    <ul class="press-products">
+      {% for press_product in published_products %}
+        {% capture press_product_url %}{% include product_path.html product=press_product locale=locale_code %}{% endcapture %}
+        <li class="press-product">
+          {% include picture.html src=press_product.iconUrl alt="" width=512 height=512 %}
+          <a class="press-product-name" href="{{ press_product_url | relative_url }}">{{ t.products[press_product.slug].name }}</a>
+          <a class="press-product-download" href="{{ press_product.iconUrl | relative_url }}" download>{{ press.iconDownload }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</main>

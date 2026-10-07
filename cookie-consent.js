@@ -284,7 +284,22 @@
     const RELAY_PIXEL_BASE = 'https://relay.codehospital.com/callback/9ea2b8a1207998a817aa98146acb6b11';
     let relayPixelSent = false;
 
+    // Optional analytics script (analytics_script_src in _config.yml), consent-gated.
+    function loadAnalyticsScript() {
+        const analyticsSrc = document.body.dataset.analyticsSrc;
+        if (!analyticsSrc || document.querySelector('script[data-analytics]')) { return; }
+        // Queue events sent before the script finishes loading (Plausible's documented stub).
+        window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+        const analyticsScript = document.createElement('script');
+        analyticsScript.src = analyticsSrc;
+        analyticsScript.defer = true;
+        analyticsScript.setAttribute('data-domain', document.body.dataset.analyticsDomain || window.location.hostname);
+        analyticsScript.setAttribute('data-analytics', '1');
+        document.head.appendChild(analyticsScript);
+    }
+
     function loadAnalytics() {
+        loadAnalyticsScript();
         if (relayPixelSent) { return; }
         relayPixelSent = true;
         const pagePath = document.body.dataset.pagePath || window.location.pathname;

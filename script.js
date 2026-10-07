@@ -83,6 +83,51 @@ if (preferredStoreSelector) {
     });
 }
 
+// Catalog platform filter (_layouts/catalog_list.html). ?platform=<key> preselects a filter,
+// so filtered views can be linked.
+const catalogFilter = document.querySelector('[data-catalog-filter]');
+if (catalogFilter) {
+    const filterChips = catalogFilter.querySelectorAll('[data-platform]');
+    const catalogCards = document.querySelectorAll('.catalog-section-page .catalog-card');
+
+    const applyPlatformFilter = (selectedPlatform) => {
+        filterChips.forEach((chip) => chip.setAttribute('aria-pressed', String(chip.dataset.platform === selectedPlatform)));
+        catalogCards.forEach((card) => {
+            const cardPlatforms = card.dataset.platforms.split(' ');
+            card.hidden = Boolean(selectedPlatform) && !cardPlatforms.includes(selectedPlatform);
+        });
+        const pageUrl = new URL(window.location.href);
+        if (selectedPlatform) {
+            pageUrl.searchParams.set('platform', selectedPlatform);
+        } else {
+            pageUrl.searchParams.delete('platform');
+        }
+        history.replaceState(null, '', pageUrl);
+    };
+
+    filterChips.forEach((chip) => chip.addEventListener('click', () => applyPlatformFilter(chip.dataset.platform)));
+    catalogFilter.hidden = false;
+
+    const requestedPlatform = new URL(window.location.href).searchParams.get('platform');
+    if (requestedPlatform && [...filterChips].some((chip) => chip.dataset.platform === requestedPlatform)) {
+        applyPlatformFilter(requestedPlatform);
+    }
+}
+
+// Store-badge clicks as analytics events. window.plausible only exists after analytics
+// consent with analytics_script_src configured (cookie-consent.js), so this is a no-op otherwise.
+document.addEventListener('click', (event) => {
+    const storeLink = event.target.closest('.store-link');
+    if (!storeLink || typeof window.plausible !== 'function') {
+        return;
+    }
+    const storeName = [...storeLink.classList].find((className) => className.startsWith('store-link--'))?.replace('store-link--', '') || 'store';
+    const productName = storeLink.closest('.catalog-card')?.querySelector('.catalog-name-link')?.textContent.trim()
+        || document.querySelector('.detail-copy h1')?.textContent.trim() || '';
+    const placement = storeLink.closest('.catalog-card') ? 'catalog-card' : 'product-page';
+    window.plausible('Store click', { props: { store: storeName, product: productName, placement } });
+});
+
 // Contact forms (_includes/contact_form.html)
 // With an endpoint configured the form is POSTed via fetch; otherwise the visitor's
 // mail app opens with a pre-filled message to the company address.
@@ -194,8 +239,7 @@ function createInstallBanner() {
     installButton.addEventListener('click', async () => {
         if (deferredPrompt) {
             deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response to the install prompt: ${outcome}`);
+            await deferredPrompt.userChoice;
             deferredPrompt = null;
             installBanner.classList.remove('show-banner');
         }
@@ -209,13 +253,9 @@ function createInstallBanner() {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
+        // Offline support is an enhancement: a failed registration just means no offline cache.
         navigator.serviceWorker.register(`/service-worker.js?v=${encodeURIComponent(releaseVersion)}`)
-            .then((registration) => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            })
-            .catch((error) => {
-                console.log('ServiceWorker registration failed: ', error);
-            });
+            .catch(() => {});
     });
 }
 
@@ -236,7 +276,6 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 window.addEventListener('appinstalled', () => {
-    console.log('App was installed');
     localStorage.removeItem('installBannerDismissed');
     if (installBanner) {
         installBanner.classList.remove('show-banner');
@@ -251,7 +290,10 @@ const heroContent = hero ? hero.querySelector('.hero-content') : null;
 if (hero && heroContent) {
     const parallaxMedia = window.matchMedia('(min-width: 821px) and (prefers-reduced-motion: no-preference)');
 
+    let parallaxFrameRequested = false;
+
     const updateHeroParallax = () => {
+        parallaxFrameRequested = false;
         if (!parallaxMedia.matches) {
             heroContent.style.transform = '';
             return;
@@ -260,8 +302,16 @@ if (hero && heroContent) {
         heroContent.style.transform = `translateY(${window.scrollY * 0.18}px)`;
     };
 
+    // At most one transform write per frame, however many scroll events arrive.
+    const requestHeroParallaxUpdate = () => {
+        if (!parallaxFrameRequested) {
+            parallaxFrameRequested = true;
+            requestAnimationFrame(updateHeroParallax);
+        }
+    };
+
     updateHeroParallax();
-    window.addEventListener('scroll', updateHeroParallax, { passive: true });
+    window.addEventListener('scroll', requestHeroParallaxUpdate, { passive: true });
     if (typeof parallaxMedia.addEventListener === 'function') {
         parallaxMedia.addEventListener('change', updateHeroParallax);
     }

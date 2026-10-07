@@ -117,5 +117,6 @@ Next steps:
      availabilityText is optional: without it the sentence is built from the store links.
   2. In _data/products.json add platforms, stores, websiteUrl/privacyUrl, iconSourceUrl,
      accent colors, and schemaCategory for apps (a schema.org application category).
-  3. node scripts/refresh-product-icons.mjs ${slug}
+  3. node scripts/refresh-product-icons.mjs ${slug} && node scripts/build-webp.mjs
+     (optional: node scripts/store-sync.mjs --screenshots && node scripts/build-webp.mjs)
   4. Set "hidden": false, then: node scripts/check-site.mjs`);

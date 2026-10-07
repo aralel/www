@@ -2,6 +2,18 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-07 (7)
+
+**Prompt:** "do the next steps, also mark tasks that are done in plan2.md"
+
+**Done:**
+- Phase 5: `scripts/store-sync.mjs` store audit (+ weekly CI `store-audit.yml`), screenshots cached from the stores and shown in a product-page gallery, `aggregateRating` wiring (no app has ratings yet), 10 verified privacy links from the store listings, platform filter chips, consent-gated analytics hook with store-click events, news page + RSS feeds, press kit.
+- Phase 6: dark mode (tokens + `data-theme` override), WebP copies via `scripts/build-webp.mjs` + `<picture>` include (−70% image weight), content-hash asset versions plugin, meta CSP + referrer policy, products JSON Schema, meta-refresh redirect for hidden products, rAF parallax, console logs removed, deprecated metas fixed, footer featured products from data.
+- `plan2.md`: per-ID status table (✅ / ⏳ / ⬜), every backlog item and roadmap phase marked, open questions annotated.
+- Store audit findings for the owner: **LLM Grid Worker** (Mac) published but not in the catalog; renamed listings "Hormuz Strait" and "A Solar Compass"; Streakbox has no privacy page (Shopify requires one).
+- Verified: build + `check-site.mjs _site` pass (88 pages), feeds parse as XML, all JS/JSON valid; Chrome: dark mode on product/services/FAQ, light mode unchanged, filter preselection, WebP served, zero cross-origin requests.
+- Not done (needs owner): F9 per-app privacy policies, F11 third language, L3, relay operator, S5 decision. Logged in `CHANGELOG.md` under `[0.17.0]`.
+
 ## 2026-10-07 (6)
 
 **Prompt:** "improve on the marketing and sales aspects"

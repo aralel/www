@@ -139,15 +139,30 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% comment %}
+  Content-Security-Policy, deliberately conservative so consent-gated AdSense and an
+  optional analytics script keep working: no plugins, no <base> hijacking, forms
+  may only go to this site, mailto: or the configured endpoint, and any http://
+  subresource is upgraded. (frame-ancestors and reporting need HTTP headers, which
+  GitHub Pages cannot set.)
+{% endcomment %}
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self' mailto:{% if site.contact_form_endpoint %} {{ site.contact_form_endpoint }}{% endif %}; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+{% if product_hidden %}
+  {% if product.type == "app" %}{% assign hidden_listing_path = "/apps" %}{% else %}{% assign hidden_listing_path = "/games" %}{% endif %}
+  {% capture hidden_listing_url %}{% include localized_path.html path=hidden_listing_path locale=locale_code %}{% endcapture %}
+<meta http-equiv="refresh" content="0; url={{ hidden_listing_url | relative_url }}">
+{% endif %}
 <title>{{ resolved_title | escape }}</title>
 <meta name="description" content="{{ resolved_description | escape }}">
 <meta name="robots" content="{% if page_noindex %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endif %}">
 <meta name="googlebot" content="{% if page_noindex %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1{% endif %}">
 <meta name="author" content="Aralel GmbH">
 <meta name="publisher" content="Aralel GmbH">
-<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
-<meta http-equiv="content-language" content="{{ locale_code }}">
 <link rel="canonical" href="{{ canonical_url }}">
 {% comment %} iOS Smart App Banner: Safari on iPhone shows an "Open / Get" bar for the product's App Store app. {% endcomment %}
 {% if product and product_hidden == false and product.stores.appStore and product.platforms contains "iphone" %}
@@ -166,6 +181,11 @@
   {% endif %}
 {% endif %}
 <link rel="alternate" hreflang="x-default" href="{{ x_default_url }}">
+{% if locale_code == "de" %}
+<link rel="alternate" type="application/rss+xml" title="{{ t.pages.news.title | escape }}" href="{{ '/feed_de.xml' | absolute_url }}">
+{% else %}
+<link rel="alternate" type="application/rss+xml" title="{{ t.pages.news.title | escape }}" href="{{ '/feed.xml' | absolute_url }}">
+{% endif %}
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ canonical_url }}">
@@ -199,6 +219,7 @@
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
 <link rel="manifest" href="{{ '/manifest.json' | relative_url }}?v={{ release_version }}">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <!-- Sitewide structured data: Organization + WebSite. Linked by @id so detail-page

@@ -11,6 +11,9 @@ service_proof:
   reach: [german-word-search, streakbox-gamify-daily-visit, messagram-app]     # 3 Android stores, Shopify App Store, local-only data
   operations: [a-solar-compass, streakbox-gamify-daily-visit, messagram-app]   # calculation engine, reward rules, import + search
 
+# Products linked in the footer's Portfolio column (hidden products are skipped).
+footer_featured: [arena-sudoku, albumara, buzzbelt]
+
 # Google Play install attribution. Store links get a `referrer` with UTM values so
 # installs from this site show up under "Acquisition" in the Play Console.
 # (App Store campaign links additionally need the provider token `pt`; set

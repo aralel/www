@@ -1,0 +1,33 @@
+---
+layout: none
+permalink: /feed.xml
+---
+{%- assign t = site.data.locales["en"] -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ t.pages.news.title | xml_escape }}</title>
+    <link>{{ '/news_en.html' | absolute_url }}</link>
+    <description>{{ t.pages.news.description | xml_escape }}</description>
+    <language>en</language>
+    <atom:link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/rss+xml"/>
+    {%- for news_item in site.data.news %}
+    {%- assign item_copy = news_item["en"] %}
+    {%- assign item_link = '/news_en.html' | absolute_url %}
+    {%- if news_item.product %}
+      {%- assign news_product = site.data.products.products | where: "slug", news_item.product | first %}
+      {%- if news_product and news_product.hidden != true %}
+        {%- capture news_product_path %}{% include product_path.html product=news_product locale="en" %}{% endcapture %}
+        {%- assign item_link = news_product_path | absolute_url %}
+      {%- endif %}
+    {%- endif %}
+    <item>
+      <title>{{ item_copy.title | xml_escape }}</title>
+      <link>{{ item_link }}</link>
+      <guid isPermaLink="false">{{ site.url }}/news/{{ news_item.date | date: '%Y-%m-%d' }}-{{ news_item.product | default: forloop.index }}</guid>
+      <pubDate>{{ news_item.date | date_to_rfc822 }}</pubDate>
+      <description>{{ item_copy.text | xml_escape }}</description>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

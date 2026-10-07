@@ -12,6 +12,7 @@
 //   - every product collection (products[].collections) has copy in both locales
 //   - every career role has posting metadata in _data/jobs.yml
 //   - every icon named in the locales exists in _data/icons.json (scripts/build-icons.mjs)
+//   - every screenshot in _data/store_listings.json exists (scripts/store-sync.mjs --screenshots)
 // Built-site checks
 //   - every JSON-LD block parses
 //   - hreflang: self-reference present, alternates reciprocal and equal to the target's canonical
@@ -91,6 +92,9 @@ function checkProducts(products, locales) {
 
         if (product.iconUrl && !product.iconUrl.includes("://") && !fileExists(product.iconUrl.replace(/^\//, ""))) {
             fail("products", `${label}: icon file ${product.iconUrl} does not exist`);
+        }
+        if (product.iconUrl && !product.iconUrl.includes("://") && !fileExists(product.iconUrl.replace(/^\//, "").replace(/\.(png|jpe?g)$/i, ".webp"))) {
+            fail("webp", `${label}: no WebP for ${product.iconUrl}; run scripts/build-webp.mjs`);
         }
 
         if (product.privacyUrl) {
@@ -185,6 +189,20 @@ function checkIcons(locales) {
         for (const [key, child] of Object.entries(value)) visit(child, `${keyPath}.${key}`);
     };
     for (const [localeCode, localeData] of Object.entries(locales)) visit(localeData, localeCode);
+}
+
+function checkStoreListings(products) {
+    if (!fileExists("_data/store_listings.json")) return;
+    const storeListings = readJson("_data/store_listings.json");
+    const productSlugs = new Set(products.map((product) => product.slug));
+    for (const [slug, listing] of Object.entries(storeListings)) {
+        if (!productSlugs.has(slug)) fail("store-listings", `${slug}: not in products.json`);
+        for (const screenshot of listing.screenshots ?? []) {
+            if (!fileExists(screenshot.src.replace(/^\//, ""))) fail("store-listings", `${slug}: missing ${screenshot.src}`);
+            if (!fileExists(screenshot.src.replace(/^\//, "").replace(/\.(png|jpe?g)$/i, ".webp"))) fail("webp", `${slug}: no WebP for ${screenshot.src}; run scripts/build-webp.mjs`);
+            if (!(screenshot.width > 0 && screenshot.height > 0)) fail("store-listings", `${slug}: ${screenshot.src} has no dimensions`);
+        }
+    }
 }
 
 // ── Built-site checks ─────────────────────────────────────────
@@ -292,6 +310,7 @@ checkProducts(products, locales);
 compareStructure(locales.de, locales.en, "locales");
 checkJobs(locales);
 checkIcons(locales);
+checkStoreListings(products);
 
 let builtPageCount = 0;
 if (builtSiteArgument) {

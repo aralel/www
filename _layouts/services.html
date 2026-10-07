@@ -109,7 +109,7 @@ body_class: subpage
                   {% capture proof_product_url %}{% include product_path.html product=proof_product locale=locale_code %}{% endcapture %}
                   <li>
                     <a class="services-proof-item" href="{{ proof_product_url | relative_url }}">
-                      <img src="{{ proof_product.iconUrl | relative_url }}" alt="" width="512" height="512" loading="lazy">
+                      {% include picture.html src=proof_product.iconUrl alt="" width=512 height=512 %}
                       <span>{{ t.products[proof_slug].name }}</span>
                     </a>
                   </li>

@@ -7,10 +7,12 @@
 {% capture company_url %}{% include localized_path.html path="/company" locale=locale_code %}{% endcapture %}
 {% capture careers_url %}{% include localized_path.html path="/careers" locale=locale_code %}{% endcapture %}
 {% capture travel_apps_url %}{% include localized_path.html path="/travel-apps" locale=locale_code %}{% endcapture %}
+{% capture news_url %}{% include localized_path.html path="/news" locale=locale_code %}{% endcapture %}
+{% capture press_url %}{% include localized_path.html path="/press" locale=locale_code %}{% endcapture %}
 {% capture impressum_url %}{% include localized_path.html path="/impressum" locale=locale_code %}{% endcapture %}
 {% assign privacy_url = "/privacy-policy.html" %}
 {% if locale_code == "de" %}{% assign privacy_url = "/datenschutz.html" %}{% endif %}
-{% assign footer_featured_slugs = "arena-sudoku,availabell" | split: "," %}
+{% assign footer_featured_slugs = site.data.marketing.footer_featured %}
 
 <footer class="site-footer">
   <div class="footer-content">
@@ -25,6 +27,7 @@
         <li><a href="{{ games_url | relative_url }}">{{ t.common.gamesLabel }}</a></li>
         <li><a href="{{ apps_url | relative_url }}">{{ t.common.appsLabel }}</a></li>
         <li><a href="{{ travel_apps_url | relative_url }}">{{ t.footer.travelApps }}</a></li>
+        <li><a href="{{ news_url | relative_url }}">{{ t.footer.news }}</a></li>
         {% for featured_slug in footer_featured_slugs %}
           {% assign featured_product = site.data.products.products | where: "slug", featured_slug | first %}
           {% if featured_product and featured_product.hidden != true %}
@@ -42,6 +45,7 @@
         <li><a href="{{ services_url | relative_url }}">{{ t.footer.services }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
         <li><a href="{{ careers_url | relative_url }}">{{ t.footer.careers }}</a></li>
+        <li><a href="{{ press_url | relative_url }}">{{ t.footer.press }}</a></li>
         <li><a href="{{ privacy_url | relative_url }}">{{ t.footer.privacy }}</a></li>
         <li><a href="{{ impressum_url | relative_url }}">{{ t.footer.impressum }}</a></li>
       </ul>
