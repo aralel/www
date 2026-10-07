@@ -957,6 +957,35 @@
       "availabilityText": "Verfügbar bei Google Play und im App Store.",
       "metaDescription": "Buzzbelt ist Aralels Offline-Gruppenchat für Ausflüge — Bluetooth-Messaging, ehrlicher Kopfzähler und Buzz-Alarm ganz ohne Internet, SIM oder Konto."
     },
+    "albumara": {
+      "name": "Albumara",
+      "category": "Reisen",
+      "shortSummary": "Ein gemeinsames Album für jede Reise und jedes Event — alle Fotos und Videos landen automatisch an einem Ort.",
+      "heroTitle": "Alle Aufnahmen, ein gemeinsames Album",
+      "heroText": "Albumara macht aus jeder Reise und jedem Event ein gemeinsames Album. Laden Sie die Menschen ein, mit denen Sie unterwegs sind, aktivieren Sie das automatische Teilen, und jedes Foto und Video fließt in ein Album, das alle sehen können — ohne hinterher allen Bildern hinterherzulaufen.",
+      "description": "Beiträge kommen direkt aus der Fotomediathek, während das Event läuft, aus der integrierten Kamera oder aus Nachrichten, AirDrop und jeder anderen Quelle auf dem Telefon. Eigentümer legen fest, wer als Mitglied beiträgt oder nur als Gast zuschaut, und können ein Event pausieren oder beenden, ohne etwas zu löschen — Alben bleiben dauerhaft erhalten. Über einen Nur-Ansehen-Weblink können Familie und Freunde das Album ohne App durchstöbern, nahezu doppelte Serienaufnahmen mehrerer Telefone werden zu einer Kachel gebündelt, und das ganze Album lässt sich jederzeit als ZIP herunterladen. Anmeldung mit Apple oder Google, ganz ohne neues Passwort.",
+      "highlights": [
+        {
+          "title": "Fotos und Videos, automatisch",
+          "text": "Aktivieren Sie die Synchronisierung der Fotomediathek für ein Event, und alle Aufnahmen landen in einem gemeinsamen Album — kein Weiterleiten, kein Scrollen durch den Gruppenchat."
+        },
+        {
+          "title": "Ein Album, jedes Gerät",
+          "text": "Stöbern Sie in der iOS- und Android-App oder teilen Sie einen Nur-Ansehen-Weblink, damit auch Menschen ohne App das Album sehen können."
+        },
+        {
+          "title": "Sie behalten die Kontrolle",
+          "text": "Laden Sie Mitglieder ein, die beitragen, oder Gäste, die nur zuschauen, und pausieren oder beenden Sie Beiträge jederzeit, ohne Geteiltes zu verlieren."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Verfügbar im App Store, bei Google Play und im Web.",
+      "metaDescription": "Albumara ist Aralels App für gemeinsame Alben auf Reisen und Events — alle Fotos und Videos fließen automatisch in ein Album, auf iOS, Android und im Web."
+    },
     "alien-planetary-ambush": {
       "name": "Alien Planetary Ambush",
       "category": "Arcade",

@@ -953,6 +953,35 @@
       "availabilityText": "Available on Google Play and the App Store.",
       "metaDescription": "Buzzbelt is Aralel's offline group chat for trips — Bluetooth-only messaging, an honest headcount, and a Buzz alert with no internet, SIM, or accounts required."
     },
+    "albumara": {
+      "name": "Albumara",
+      "category": "Travel",
+      "shortSummary": "One shared album for every trip or event — everyone's photos and videos land in one place, automatically.",
+      "heroTitle": "Everyone's shots, one shared album",
+      "heroText": "Albumara turns every trip or event into one shared album. Invite the people you're with, turn on auto-share, and every photo and video anyone takes flows into a single album everyone can see — no more chasing people for their pictures afterwards.",
+      "description": "Contributions can come straight from the camera roll while the event is running, from the built-in camera, or from Messages, AirDrop and anywhere else on the phone. Owners decide who joins as a contributing member or a view-only guest, and can pause or end an event without deleting anything — albums are permanent. A view-only web link lets friends and family browse without installing the app, near-duplicate bursts from several phones are grouped into one tile, and the whole album can be downloaded as a single zip at any time. Sign in with Apple or Google, no new passwords.",
+      "highlights": [
+        {
+          "title": "Photos and videos, automatically",
+          "text": "Turn on camera-roll sync for an event and everyone's shots land in one shared album — no forwarding, no group-chat scroll."
+        },
+        {
+          "title": "One album, every device",
+          "text": "Browse from the iOS and Android apps, or share a view-only web link so people without the app can see the album too."
+        },
+        {
+          "title": "You're in control",
+          "text": "Invite members who contribute or guests who just browse, and pause or end contributions any time without losing what's already shared."
+        }
+      ],
+      "primaryCta": "View on the App Store",
+      "privacyLabel": "Privacy policy",
+      "detailLabel": "App Details",
+      "backLabel": "Back to Apps",
+      "availabilityTitle": "Available On",
+      "availabilityText": "Available on the App Store, Google Play, and on the web.",
+      "metaDescription": "Albumara is Aralel's shared-album app for trips and events — everyone's photos and videos flow into one album automatically, on iOS, Android, and the web."
+    },
     "alien-planetary-ambush": {
       "name": "Alien Planetary Ambush",
       "category": "Arcade",

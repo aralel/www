@@ -2,6 +2,25 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-07 (2)
+
+**Prompt:** "yes and yes" — feature Albumara on the front page, and update the albumara.aralel.com landing page so it no longer names only the Android app.
+
+**Done:**
+- Set `front_page: true` for `albumara` in `_data/products.json` (`_layouts/home.html` filters on it). Logged under `[0.13.1]`.
+- Landing page lives in the separate `../albomara` project (Rails backend), not this repo: edited `backend/app/views/dashboard/sessions/new.html.erb` to say "iPhone and Android apps", and logged it in `../albomara/CHANGELOG.md`. Not deployed.
+- Flagged, not changed: the Albumara terms and privacy pages (`pages/terms.html.erb`, `pages/privacy.html.erb`) also describe the service as "the Android app and web viewer".
+
+## 2026-10-07
+
+**Prompt:** "we have a new app for sharing collected media during events and travel trips called Albumara — published in both app store and google play (com.albumara.app, id6812853754), https://albumara.aralel.com/"
+
+**Done:**
+- Sourced name, category, description and icon from the App Store lookup API, the Play listing and the albumara.aralel.com landing page (which also has `/privacy`).
+- Added the `albumara` product to `_data/products.json` (iphone/android/website, both store links, websiteUrl, privacyUrl), EN/DE copy in `_data/locales/`, detail pages `apps/albumara.html` / `apps/albumara_en.html`, cached icon via `refresh-product-icons.mjs`.
+- Gotcha: on the Play page, `itemprop="image"` is the ESRB badge; the real icon is `og:image`.
+- Verified with `bundle exec jekyll build` and the local dev server: both detail pages, the Apps catalog card with all three store links, and no console errors. Logged in `CHANGELOG.md` under `[0.13.0]`.
+
 ## 2026-09-30
 
 **Prompt:** "script.js: Uncaught SyntaxError: Failed to execute 'querySelector' on 'Document': '#' is not a valid selector."

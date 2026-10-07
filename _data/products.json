@@ -242,6 +242,26 @@
       }
     },
     {
+      "slug": "albumara",
+      "type": "app",
+      "hidden": false,
+      "front_page": true,
+      "platforms": ["iphone", "android", "website"],
+      "accent": "#1a9bc4",
+      "accentStrong": "#0b4a5e",
+      "iconUrl": "/images/products/albumara.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/KqBV6b4-BVslHlYH05WcaUNd1M38dXc3qfD0v0zOYGcsyDxig98WMtXimCf1sNg7DRutGGAJGbj4GMDWwdjK5gk",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.albumara.app",
+        "appStore": "https://apps.apple.com/us/app/albumara/id6812853754"
+      },
+      "websiteUrl": "https://albumara.aralel.com",
+      "privacyUrl": {
+        "de": "https://albumara.aralel.com/privacy",
+        "en": "https://albumara.aralel.com/privacy"
+      }
+    },
+    {
       "slug": "alien-planetary-ambush",
       "type": "game",
       "hidden": false,
