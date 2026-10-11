@@ -151,3 +151,11 @@ Running log of prompts given to Claude in this repo and what was done in respons
 - Logged the change in `CHANGELOG.md` under `[0.12.13]`.
 
 **Follow-up when it exists:** once Buzzbelt ships a real App Store listing, add `stores.appStore` in `_data/products.json` and re-run `node scripts/refresh-product-icons.mjs buzzbelt` if the icon should be re-sourced.
+
+## 2026-10-11
+
+**Prompt:** Fix Liquid syntax error (line 8) in `/_layouts/platform_list.html` during the GitHub Pages build.
+
+**Done:**
+- Replaced the `where_exp` containing `or` with two filters merged via `concat | uniq` (Liquid 4.0.4 limitation).
+- Logged in `CHANGELOG.md` under `[0.18.2]`.
