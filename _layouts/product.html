@@ -140,12 +140,6 @@ body_class: subpage
               </a>
             {% endif %}
           </div>
-
-          {% if product.privacyUrl and product.privacyUrl[page.locale] %}
-            <div class="secondary-link-row">
-              <a class="secondary-link" href="{{ product.privacyUrl[page.locale] }}" target="_blank" rel="noopener noreferrer">{{ copy.privacyLabel | default: t.common.privacyLabel }}</a>
-            </div>
-          {% endif %}
         </div>
 
         <div class="detail-visual">
@@ -199,10 +193,6 @@ body_class: subpage
         <div class="detail-meta-item">
           <span class="detail-meta-label">{{ t.common.typeLabel }}</span>
           <strong>{% if is_app %}{{ t.common.typeApp }}{% else %}{{ t.common.typeGame }}{% endif %}</strong>
-        </div>
-        <div class="detail-meta-item">
-          <span class="detail-meta-label">{{ copy.availabilityTitle }}</span>
-          <strong>{% if copy.availabilityText %}{{ copy.availabilityText }}{% else %}{% include availability_text.html product=product locale=page.locale %}{% endif %}</strong>
         </div>
       </div>
 

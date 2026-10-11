@@ -1156,12 +1156,12 @@
       "availabilityText": "Published as an Android game on Google Play.",
       "metaDescription": "Alien Planetary Ambush is Aralel's arcade puzzle game where matching planet types triggers chain-reaction beam strikes across a handcrafted campaign."
     },
-    "hands-free-teleprompter": {
-      "name": "Hands-Free Teleprompter",
+    "voice-following-teleprompter": {
+      "name": "Voice-following Teleprompter",
       "category": "Productivity",
-      "shortSummary": "An iPad teleprompter for speeches, sermons, recitations, lessons and songs that can follow your voice.",
-      "heroTitle": "A calm prompter that keeps pace with you",
-      "heroText": "Hands-Free Teleprompter turns an iPad into a clear prompter for speeches, sermons, khutbahs, recitations, lessons and songs. The text is large enough to read from about two metres and scrolls at the speed you choose — or follows your voice.",
+      "shortSummary": "An iPad teleprompter that can follow your voice for speeches, sermons, recitations, lessons and songs.",
+      "heroTitle": "Voice-following teleprompter that keeps pace with you",
+      "heroText": "Voice-following Teleprompter turns an iPad into a clear prompter for speeches, sermons, khutbahs, recitations, lessons and songs. The text is large enough to read from about two metres and scrolls at the speed you choose — or follows your voice.",
       "description": "Each script is built from pieces you can reorder: your own text in any language (right-to-left for Arabic, Farsi and Hebrew is handled per paragraph), Quran passages in the Uthmani script with optional translations, Bible verses from ten bundled public-domain editions, karaoke-style song lyrics, and timed pauses with a note for yourself. Rehearse mode estimates and times every piece, and every run is logged with a streak and calendar. Scripts sync between your iPads through your own iCloud, with weekly automatic backups to the Files app. No account, no ads, no tracking, and the app is available in seven languages.",
       "highlights": [
         {
@@ -1183,7 +1183,7 @@
       "backLabel": "Back to Apps",
       "availabilityTitle": "Available On",
       "availabilityText": "Available for iPad on the App Store.",
-      "metaDescription": "Hands-Free Teleprompter is Aralel's iPad teleprompter for speeches, sermons, Quran and Bible recitation, lessons and songs — with large type and text that follows your voice."
+      "metaDescription": "Voice-following Teleprompter is Aralel's iPad teleprompter for speeches, sermons, Quran and Bible recitation, lessons and songs — with large type and text that follows your voice."
     }
   }
 }

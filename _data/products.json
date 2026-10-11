@@ -325,7 +325,7 @@
       }
     },
     {
-      "slug": "hands-free-teleprompter",
+      "slug": "voice-following-teleprompter",
       "type": "app",
       "schemaCategory": "UtilitiesApplication",
       "hidden": false,

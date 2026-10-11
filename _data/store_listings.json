@@ -391,9 +391,9 @@
       }
     ]
   },
-  "hands-free-teleprompter": {
+  "voice-following-teleprompter": {
     "storeNames": {
-      "appStore": "Hands-Free Teleprompter"
+      "appStore": "Voice-following Teleprompter"
     },
     "screenshots": [
       {

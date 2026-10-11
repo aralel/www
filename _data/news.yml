@@ -3,12 +3,12 @@
 # Dates are when the release went live on this site (see CHANGELOG.md).
 
 - date: 2026-10-11
-  product: hands-free-teleprompter
+  product: voice-following-teleprompter
   de:
-    title: "Hands-Free Teleprompter für das iPad"
+    title: "Voice-following Teleprompter für das iPad"
     text: "Ein ruhiger iPad-Prompter für Reden, Predigten, Rezitationen, Unterricht und Lieder – mit großer Schrift, Koran- und Bibelpassagen und Text, der Ihrer Stimme folgt. Kein Konto, keine Werbung, kein Tracking."
   en:
-    title: "Hands-Free Teleprompter for iPad"
+    title: "Voice-following Teleprompter for iPad"
     text: "A calm iPad prompter for speeches, sermons, recitations, lessons and songs — with large type, Quran and Bible passages, and text that follows your voice. No account, no ads, no tracking."
 
 - date: 2026-10-07

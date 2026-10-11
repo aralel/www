@@ -28,34 +28,32 @@
         <li><a href="{{ apps_url | relative_url }}">{{ t.common.appsLabel }}</a></li>
         <li><a href="{{ travel_apps_url | relative_url }}">{{ t.footer.travelApps }}</a></li>
         <li><a href="{{ news_url | relative_url }}">{{ t.footer.news }}</a></li>
-        {% for featured_slug in footer_featured_slugs %}
+        <!-- {% for featured_slug in footer_featured_slugs %}
           {% assign featured_product = site.data.products.products | where: "slug", featured_slug | first %}
           {% if featured_product and featured_product.hidden != true %}
             {% capture featured_product_url %}{% include product_path.html product=featured_product locale=locale_code %}{% endcapture %}
             <li><a href="{{ featured_product_url | relative_url }}">{{ t.products[featured_slug].name }}</a></li>
           {% endif %}
-        {% endfor %}
+        {% endfor %} -->
       </ul>
     </div>
 
     <div class="footer-section">
-      <h3>{{ t.footer.companyTitle }}</h3>
+      <h3><a href="{{ company_url | relative_url }}">{{ t.footer.companyTitle }}</a></h3>
       <ul>
-        <li><a href="{{ company_url | relative_url }}">{{ t.footer.about }}</a></li>
         <li><a href="{{ services_url | relative_url }}">{{ t.footer.services }}</a></li>
         <li><a href="{{ home_url | relative_url }}#contact">{{ t.footer.contact }}</a></li>
         <li><a href="{{ careers_url | relative_url }}">{{ t.footer.careers }}</a></li>
         <li><a href="{{ press_url | relative_url }}">{{ t.footer.press }}</a></li>
-        <li><a href="{{ privacy_url | relative_url }}">{{ t.footer.privacy }}</a></li>
-        <li><a href="{{ impressum_url | relative_url }}">{{ t.footer.impressum }}</a></li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h3>{{ t.footer.languageTitle }}</h3>
       <ul>
         <li><a href="{{ '/' | relative_url }}">🇩🇪 Deutsch</a></li>
         <li><a href="{{ '/en.html' | relative_url }}">🇬🇧 English</a></li>
+        <li><a href="{{ privacy_url | relative_url }}">{{ t.footer.privacy }}</a></li>
+        <li><a href="{{ impressum_url | relative_url }}">{{ t.footer.impressum }}</a></li>
       </ul>
     </div>
   </div>
