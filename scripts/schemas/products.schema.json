@@ -27,7 +27,7 @@
           "platforms": {
             "type": "array",
             "uniqueItems": true,
-            "items": { "enum": ["iphone", "android", "amazon", "samsung", "desktop", "website", "shopify"] }
+            "items": { "enum": ["iphone", "ipad", "android", "amazon", "samsung", "desktop", "website", "shopify"] }
           },
           "accent": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
           "accentStrong": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },

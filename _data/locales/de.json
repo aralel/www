@@ -133,6 +133,7 @@
   "platforms": {
     "labels": {
       "iphone": "iPhone",
+      "ipad": "iPad",
       "android": "Android",
       "amazon": "Amazon",
       "samsung": "Samsung",
@@ -1154,6 +1155,35 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Als Android-Spiel bei Google Play veröffentlicht.",
       "metaDescription": "Alien Planetary Ambush ist Aralels Arcade-Puzzlespiel, bei dem das Zuordnen von Planetentypen Kettenreaktionen mit Strahlenangriffen durch eine handgefertigte Kampagne auslöst."
+    },
+    "hands-free-teleprompter": {
+      "name": "Hands-Free Teleprompter",
+      "category": "Produktivität",
+      "shortSummary": "Ein iPad-Teleprompter für Reden, Predigten, Rezitationen, Unterricht und Lieder, der Ihrer Stimme folgen kann.",
+      "heroTitle": "Ein ruhiger Prompter, der Ihr Tempo hält",
+      "heroText": "Hands-Free Teleprompter macht das iPad zu einem klaren Prompter für Reden, Predigten, Khutbahs, Rezitationen, Unterricht und Lieder. Der Text ist aus etwa zwei Metern lesbar und scrollt in dem Tempo, das Sie wählen — oder folgt Ihrer Stimme.",
+      "description": "Jedes Skript besteht aus Bausteinen, die Sie beliebig umsortieren: eigener Text in jeder Sprache (Rechts-nach-links für Arabisch, Farsi und Hebräisch wird pro Absatz erkannt), Koranpassagen in Uthmani-Schrift mit optionaler Übersetzung, Bibelverse aus zehn mitgelieferten gemeinfreien Ausgaben, Liedtexte im Karaoke-Stil und Pausen mit Countdown und eigener Notiz. Der Probemodus schätzt und misst jeden Baustein, und jeder Durchlauf wird mit Serie und Kalender protokolliert. Skripte synchronisieren sich über Ihre eigene iCloud zwischen Ihren iPads, mit wöchentlichen automatischen Backups in der Dateien-App. Kein Konto, keine Werbung, kein Tracking — und die App gibt es in sieben Sprachen.",
+      "highlights": [
+        {
+          "title": "Folgt der Stimme",
+          "text": "Der Text läuft, während Sie sprechen oder rezitieren, und hält an, wenn Sie pausieren. Er reagiert nur auf die Lautstärke — deshalb funktioniert er in jeder Sprache und offline, und nichts wird aufgenommen."
+        },
+        {
+          "title": "Skripte aus Bausteinen",
+          "text": "Kombinieren Sie eigenen Text, Koran- und Bibelpassagen, getimte Liedtexte und Countdown-Pausen in einem Skript und sortieren Sie sie jederzeit um."
+        },
+        {
+          "title": "Gemacht für den Raum",
+          "text": "Große Schrift, aus etwa zwei Metern lesbar, flüssiges Scrollen mit 120 Hz, kontrastreiche Designs, und das iPad bleibt während des Vortrags wach."
+        }
+      ],
+      "primaryCta": "Im App Store ansehen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Für das iPad im App Store erhältlich.",
+      "metaDescription": "Hands-Free Teleprompter ist Aralels iPad-Teleprompter für Reden, Predigten, Koran- und Bibelrezitation, Unterricht und Lieder — mit großer Schrift und Text, der Ihrer Stimme folgt."
     }
   }
 }

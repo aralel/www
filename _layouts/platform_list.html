@@ -7,7 +7,12 @@ body_class: subpage
 {% assign page_meta = t.pages[page.page_key] %}
 {% assign platform_page = t.platforms.pages[page.platform_key] %}
 {% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
-{% assign platform_products = visible_products | where_exp: "product", "product.platforms contains page.platform_key" %}
+{% comment %} The iphone page is "iPhone & iPad", so iPad-only apps (platform "ipad") are listed there too. {% endcomment %}
+{% if page.platform_key == "iphone" %}
+  {% assign platform_products = visible_products | where_exp: "product", "product.platforms contains 'iphone' or product.platforms contains 'ipad'" %}
+{% else %}
+  {% assign platform_products = visible_products | where_exp: "product", "product.platforms contains page.platform_key" %}
+{% endif %}
 {% assign games = platform_products | where: "type", "game" %}
 {% assign apps = platform_products | where: "type", "app" %}
 

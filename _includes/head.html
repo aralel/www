@@ -164,11 +164,11 @@
 <meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
 <meta name="format-detection" content="telephone=no">
 <link rel="canonical" href="{{ canonical_url }}">
-{% comment %} iOS Smart App Banner: Safari on iPhone shows an "Open / Get" bar for the product's App Store app. {% endcomment %}
-{% if product and product_hidden == false and product.stores.appStore and product.platforms contains "iphone" %}
+{% comment %} iOS Smart App Banner: Safari on iPhone/iPad shows an "Open / Get" bar for the product's App Store app (only on devices that can install it). {% endcomment %}
+{% if product and product_hidden == false and product.stores.appStore %}{% if product.platforms contains "iphone" or product.platforms contains "ipad" %}
   {% assign app_store_id = product.stores.appStore | split: "/id" | last | split: "?" | first %}
 <meta name="apple-itunes-app" content="app-id={{ app_store_id }}">
-{% endif %}
+{% endif %}{% endif %}
 
 {% comment %} hreflang sets must list every member, including the page itself. {% endcomment %}
 {% if alternate_url %}

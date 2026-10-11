@@ -9,6 +9,8 @@
     {% assign page_name = platform_key %}
     {% if platform_key == "website" %}
       {% assign page_name = "websites" %}
+    {% elsif platform_key == "ipad" %}
+      {% assign page_name = "iphone" %}
     {% endif %}
     {% assign platform_base_path = "/" | append: page_name %}
     {% capture platform_url %}{% include localized_path.html path=platform_base_path locale=locale_code %}{% endcapture %}

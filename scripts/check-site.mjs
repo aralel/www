@@ -34,10 +34,10 @@ const readJson = (relativePath) => JSON.parse(fs.readFileSync(path.join(rootDir,
 const fileExists = (relativePath) => fs.existsSync(path.join(rootDir, relativePath));
 
 const PRODUCT_TYPES = ["app", "game"];
-const PLATFORM_KEYS = ["iphone", "android", "amazon", "samsung", "desktop", "website", "shopify"];
-// Which platform each store implies. The App Store can mean iPhone or Mac.
+const PLATFORM_KEYS = ["iphone", "ipad", "android", "amazon", "samsung", "desktop", "website", "shopify"];
+// Which platform each store implies. The App Store can mean iPhone, iPad-only or Mac.
 const STORE_PLATFORMS = {
-    appStore: ["iphone", "desktop"],
+    appStore: ["iphone", "ipad", "desktop"],
     googlePlay: ["android"],
     amazonAppstore: ["amazon"],
     samsungGalaxyStore: ["samsung"],

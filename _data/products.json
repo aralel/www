@@ -323,6 +323,25 @@
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.codehospital.turnovers"
       }
+    },
+    {
+      "slug": "hands-free-teleprompter",
+      "type": "app",
+      "schemaCategory": "UtilitiesApplication",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["ipad"],
+      "accent": "#2a9d8f",
+      "accentStrong": "#1b2541",
+      "iconUrl": "/images/products/hands-free-teleprompter.jpg",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c9/02/d9/c902d966-857f-7cc4-9fb6-fcc5bb4108e4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "privacyUrl": {
+        "de": "https://www.aralel.com/datenschutz.html",
+        "en": "https://www.aralel.com/privacy-policy.html"
+      },
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434"
+      }
     }
   ]
 }

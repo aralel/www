@@ -190,9 +190,10 @@ for (const product of products) {
         listing.rating = { value: Math.round(weightedRating * 10) / 10, count: totalRatingCount };
     }
 
-    // Screenshots: prefer the App Store (iPhone, else Mac), fall back to Google Play.
-    const screenshotSources = appStoreApp?.screenshotUrls?.length
-        ? appStoreApp.screenshotUrls.map((url) => url.replace(/\/[^/]+\.(jpg|png)$/, `/${LANDSCAPE_SCREENSHOT_WIDTH}x0w.jpg`))
+    // Screenshots: prefer the App Store (iPhone or Mac, else iPad for iPad-only apps), fall back to Google Play.
+    const appStoreScreenshotUrls = appStoreApp?.screenshotUrls?.length ? appStoreApp.screenshotUrls : appStoreApp?.ipadScreenshotUrls;
+    const screenshotSources = appStoreScreenshotUrls?.length
+        ? appStoreScreenshotUrls.map((url) => url.replace(/\/[^/]+\.(jpg|png)$/, `/${LANDSCAPE_SCREENSHOT_WIDTH}x0w.jpg`))
         : (playListing?.screenshotUrls ?? []).map((url) => `${url}=w${LANDSCAPE_SCREENSHOT_WIDTH}`);
     if (cacheScreenshots && !product.hidden && screenshotSources.length) {
         listing.screenshots = await cacheProductScreenshots(product.slug, screenshotSources);

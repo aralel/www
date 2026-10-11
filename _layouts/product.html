@@ -45,6 +45,7 @@ body_class: subpage
 {% for platform_key in product.platforms %}
   {% case platform_key %}
     {% when "iphone" %}{% assign platform_names = platform_names | append: "iOS, " %}
+    {% when "ipad" %}{% unless product.platforms contains "iphone" %}{% assign platform_names = platform_names | append: "iPadOS, " %}{% endunless %}
     {% when "android" %}{% assign platform_names = platform_names | append: "Android, " %}
     {% when "amazon" %}{% assign platform_names = platform_names | append: "Amazon Fire, " %}
     {% when "samsung" %}{% unless product.platforms contains "android" %}{% assign platform_names = platform_names | append: "Android, " %}{% endunless %}
@@ -228,7 +229,7 @@ body_class: subpage
   {% assign related_slugs = "," | append: product.slug | append: "," %}
   {% for related_pass in (1..4) %}
     {% for candidate in site.data.products.products %}
-      {% if related_products.size >= 3 %}{% break %}{% endif %}
+      {% if related_products.size >= 4 %}{% break %}{% endif %}
       {% if candidate.hidden == true %}{% continue %}{% endif %}
       {% assign candidate_token = "," | append: candidate.slug | append: "," %}
       {% if related_slugs contains candidate_token %}{% continue %}{% endif %}

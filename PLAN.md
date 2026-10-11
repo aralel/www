@@ -2,6 +2,16 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-11
+
+**Prompt:** "we have published an app just for ipad, https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434"
+
+**Done:**
+- Added Hands-Free Teleprompter (`hands-free-teleprompter`) via `scripts/new-product.mjs`: product entry, EN/DE copy from the App Store description, icon, 3 iPad screenshots, WebP, news item. Privacy link = company policy (what the listing links to); the app repo's own `docs/privacy-policy.md` is not hosted anywhere yet.
+- The catalog had no way to say "iPad only" (it would have shown an "iPhone" pill). Added an `ipad` platform key end to end: schema, check-site, locale labels, iPhone & iPad platform page, pills, `operatingSystem: iPadOS`, Smart App Banner, and iPad screenshot fallback in `store-sync.mjs`.
+- Restored three unrelated screenshots that `store-sync.mjs --screenshots` re-downloaded byte-different.
+- Verified: `jekyll build` + `check-site.mjs _site` pass (18 products, 90 pages); dev server: product page (iPad pill → iPhone & iPad page, App Store badge, screenshots, `iPadOS`, no console errors), listed on `iphone_en.html` and `apps.html`. Logged in `CHANGELOG.md` under `[0.18.0]`.
+
 ## 2026-10-07 (7)
 
 **Prompt:** "do the next steps, also mark tasks that are done in plan2.md"

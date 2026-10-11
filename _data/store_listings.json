@@ -390,5 +390,27 @@
         "height": 818
       }
     ]
+  },
+  "hands-free-teleprompter": {
+    "storeNames": {
+      "appStore": "Hands-Free Teleprompter"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/hands-free-teleprompter/1.jpg",
+        "width": 460,
+        "height": 613
+      },
+      {
+        "src": "/images/screenshots/hands-free-teleprompter/2.jpg",
+        "width": 460,
+        "height": 613
+      },
+      {
+        "src": "/images/screenshots/hands-free-teleprompter/3.jpg",
+        "width": 460,
+        "height": 613
+      }
+    ]
   }
 }
