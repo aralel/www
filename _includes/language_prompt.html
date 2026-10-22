@@ -1,0 +1,40 @@
+{%- comment -%}
+  First-visit language choice on phones (script.js opens it with showModal() when no
+  choice is stored yet; without JavaScript it never shows). Both languages are written
+  in their own language because the visitor's language is not known yet. The page's
+  own language comes first.
+{%- endcomment -%}
+{% if page.switch_url %}
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign german_url = page.url %}
+{% assign english_url = page.switch_url %}
+{% if locale_code == "en" %}
+  {% assign german_url = page.switch_url %}
+  {% assign english_url = page.url %}
+{% endif %}
+<dialog class="language-prompt" id="language-prompt" aria-labelledby="language-prompt-title" closedby="any" data-page-locale="{{ locale_code }}">
+  <form method="dialog" class="language-prompt-sheet">
+    <h2 id="language-prompt-title" class="language-prompt-title">
+      {% if locale_code == "de" %}
+        <span lang="de">Sprache wählen</span>
+        <span lang="en" class="language-prompt-title-alt">Choose your language</span>
+      {% else %}
+        <span lang="en">Choose your language</span>
+        <span lang="de" class="language-prompt-title-alt">Sprache wählen</span>
+      {% endif %}
+    </h2>
+    <div class="language-prompt-options">
+      <button type="submit" value="de" lang="de" class="language-option" data-href="{{ german_url | relative_url }}">
+        <span class="language-option-name">Deutsch</span>
+        <span class="language-option-code" aria-hidden="true">DE</span>
+      </button>
+      <button type="submit" value="en" lang="en" class="language-option" data-href="{{ english_url | relative_url }}">
+        <span class="language-option-name">English</span>
+        <span class="language-option-code" aria-hidden="true">EN</span>
+      </button>
+    </div>
+    <p class="language-prompt-hint">{{ t.languagePrompt.hint }}</p>
+  </form>
+</dialog>
+{% endif %}

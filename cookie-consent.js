@@ -32,6 +32,7 @@
         rejectAll:       isDE ? 'Alle ablehnen' : 'Reject All',
         savePrefs:       isDE ? 'Einstellungen speichern' : 'Save Preferences',
         acceptAll:       isDE ? 'Alle akzeptieren' : 'Accept All',
+        customize:       isDE ? 'Anpassen' : 'Customize',
     };
 
     // Default consent state - all non-essential cookies disabled
@@ -140,6 +141,7 @@
         headerDiv.appendChild(descPara);
 
         const optionsDiv = makeEl('div', 'cookie-consent-options');
+        optionsDiv.id = 'cookie-consent-options';
         optionsDiv.appendChild(makeOption('cookie-necessary', true, true, i18n.necessary, i18n.required, i18n.necessaryDesc));
         optionsDiv.appendChild(makeOption('cookie-analytics', false, false, i18n.analytics, null, i18n.analyticsDesc));
         optionsDiv.appendChild(makeOption('cookie-marketing', false, false, i18n.marketing, null, i18n.marketingDesc));
@@ -152,10 +154,18 @@
         const acceptBtn = makeEl('button', 'cookie-btn cookie-btn-primary', i18n.acceptAll);
         acceptBtn.id = 'cookie-accept-all';
 
+        // Phones hide the category switches until "Customize" (styles.css); wider screens never show this button.
+        const customizeBtn = makeEl('button', 'cookie-btn cookie-btn-link', i18n.customize);
+        customizeBtn.id = 'cookie-customize';
+        customizeBtn.type = 'button';
+        customizeBtn.setAttribute('aria-controls', optionsDiv.id);
+        customizeBtn.setAttribute('aria-expanded', 'false');
+
         const buttonsDiv = makeEl('div', 'cookie-consent-buttons');
         buttonsDiv.appendChild(rejectBtn);
         buttonsDiv.appendChild(saveBtn);
         buttonsDiv.appendChild(acceptBtn);
+        buttonsDiv.appendChild(customizeBtn);
 
         const content = makeEl('div', 'cookie-consent-content');
         content.appendChild(headerDiv);
@@ -196,12 +206,19 @@
         // Show with animation. Move focus into the dialog only when the visitor opened
         // it (via "Cookie settings"); on first visit it stays non-intrusive.
         const openedByVisitor = storedConsent !== null || focusBeforeBanner !== document.body;
+        // Someone who asked for the settings sees the category switches straight away.
+        setCustomizing(banner, openedByVisitor);
         requestAnimationFrame(() => {
             banner.classList.add('show');
             if (openedByVisitor) {
                 banner.querySelector('#cookie-accept-all').focus();
             }
         });
+    }
+
+    function setCustomizing(banner, isCustomizing) {
+        banner.classList.toggle('is-customizing', isCustomizing);
+        banner.querySelector('#cookie-customize').setAttribute('aria-expanded', String(isCustomizing));
     }
 
     // Hide the banner
@@ -226,6 +243,11 @@
             if (event.key === 'Escape') {
                 hideBanner();
             }
+        });
+
+        banner.querySelector('#cookie-customize').addEventListener('click', () => {
+            setCustomizing(banner, true);
+            banner.querySelector('#cookie-analytics').focus();
         });
 
         // Accept all
@@ -363,8 +385,15 @@
     function init() {
         // Show banner if no consent stored
         if (!hasConsent()) {
-            // Small delay to let the page render first
-            setTimeout(showBanner, 500);
+            // Small delay to let the page render first. On a phone's first visit the
+            // language sheet (script.js) comes first, so the two never stack.
+            setTimeout(() => {
+                if (window.aralelLanguagePromptOpen) {
+                    window.addEventListener('aralel:language-chosen', () => setTimeout(showBanner, 300), { once: true });
+                } else {
+                    showBanner();
+                }
+            }, 500);
         } else {
             // Apply stored consent
             const consent = getStoredConsent();

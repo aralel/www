@@ -51,6 +51,9 @@
     // ── Scroll-reveal via IntersectionObserver ─────────────────
     function setupReveal() {
         if (!('IntersectionObserver' in window)) return;
+        // Phones show content straight away: on a single-column page every card would
+        // otherwise fade in late (with stagger delays) and read as blank space while scrolling.
+        if (window.matchMedia('(max-width: 820px)').matches) return;
 
         // Mark elements that should reveal on scroll
         const revealSelectors = [

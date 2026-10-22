@@ -48,10 +48,22 @@ body_class: home-page
           <a href="{{ t.home.hero.ctaUrl | relative_url }}" class="cta-button">{{ t.home.hero.ctaLabel }}</a>
           <a href="{{ t.services.ctaUrl | relative_url }}" class="secondary-link">{{ t.services.ctaLabel }}</a>
         </div>
+        {% comment %} Phones show the counts as a two-column strip with a few featured icons (styles.css); wider screens keep the pills. {% endcomment %}
         <ul class="hero-stats">
-          <li>{{ t.home.stats.products | replace: "%count%", published_products.size }}</li>
-          <li>{{ t.home.stats.stores | replace: "%count%", store_count }}</li>
-          <li>{{ t.home.stats.platforms }}</li>
+          <li class="hero-stat hero-stat--products">
+            <span class="hero-stat-icons" aria-hidden="true">
+              {% for product in visible_products limit: 4 %}
+                {% include picture.html src=product.iconUrl alt="" class="hero-stat-icon" width=512 height=512 %}
+              {% endfor %}
+            </span>
+            <strong class="hero-stat-number">{{ published_products.size }}</strong>
+            <span class="hero-stat-label">{{ t.home.stats.productsLabel }}</span>
+          </li>
+          <li class="hero-stat">
+            <strong class="hero-stat-number">{{ store_count }}</strong>
+            <span class="hero-stat-label">{{ t.home.stats.storesLabel }}</span>
+          </li>
+          <li class="hero-stat hero-stat--platforms">{{ t.home.stats.platforms }}</li>
         </ul>
       </div>
     </div>

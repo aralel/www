@@ -2,6 +2,16 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-22 (3)
+
+**Prompt:** (pasted brief) "Redesign the mobile view of aralel.com … make it significantly better": diagnosis, direction, section-by-section mobile redesign; first-visit language selection on mobile and an always-visible language switcher; desktop can stay as is.
+
+**Done:**
+- Diagnosed at 375×667 with headless Chromium. Problems found: a full-screen cookie dialog on first visit; doubled gutters (28px on some sections vs 16px on others); a framed hero repeating the header name; six 430px-tall service cards; catalog cards up to 550px with stacked badges; scroll-reveal leaving blank areas; a stacked footer; 26px footer links; the language switch hidden inside the menu; the install prompt competing with the cookie banner.
+- Built the redesign as a phone-only block at the end of `styles.css` plus a header DE/EN switch, a first-visit language `<dialog>` sheet, a stats strip with product icons, a cookie "Customize" step and overlay sequencing. Details in `CHANGELOG.md` under `[0.20.0]`; README section "Mobile Layout & Language Choice".
+- Verified: build + `check-site.mjs` pass; screenshots at 375/320px, DE/EN, light/dark, menu, cookie states; scripted language-sheet paths; desktop 1280px unchanged.
+- Gotcha: `asdf` was not on PATH in this shell, so `bundle` picked system Ruby 2.6. Build with `PATH="$HOME/.asdf/installs/ruby/3.3.8/bin:$PATH"`. The `_site` found at the start had been built by a dev server (localhost URLs), which made `check-site.mjs` report 181 hreflang/sitemap errors until a normal build.
+
 ## 2026-10-22 (2)
 
 **Prompt:** "add a page introducing llmondemand.com / add another page introducing healthinkey.com"

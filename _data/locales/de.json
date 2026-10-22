@@ -83,7 +83,8 @@
     "contact": "Kontakt",
     "careers": "Karriere",
     "switchTitle": "English",
-    "switchFlag": "🇬🇧"
+    "switchFlag": "🇬🇧",
+    "languageLabel": "Sprache"
   },
   "stores": {
     "googleAria": "Bei Google Play öffnen",
@@ -251,9 +252,9 @@
       "submitLabel": "Nachricht senden"
     },
     "stats": {
-      "products": "%count% Apps & Spiele veröffentlicht",
-      "stores": "%count% App-Stores",
-      "platforms": "iPhone · Android · Mac · Web · Shopify"
+      "platforms": "iPhone · Android · Mac · Web · Shopify",
+      "productsLabel": "Apps & Spiele veröffentlicht",
+      "storesLabel": "App-Stores"
     }
   },
   "careers": {
@@ -1244,5 +1245,8 @@
       "availabilityText": "In Entwicklung. Mehr unter healthinkey.com.",
       "metaDescription": "Health In Key ist eine kommende persönliche Gesundheitsakte von Aralel: Arztunterlagen ordnen, Medikamente festhalten und Ausgewähltes mit Familie oder Ärzten teilen."
     }
+  },
+  "languagePrompt": {
+    "hint": "Sie können jederzeit oben auf der Seite mit DE / EN wechseln."
   }
 }

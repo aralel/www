@@ -48,6 +48,62 @@ if (mobileMenuToggle && navMenu) {
     });
 }
 
+// First-visit language choice on phones (_includes/language_prompt.html). The choice is
+// kept in localStorage so the sheet shows once; the DE/EN switches record it as well.
+// cookie-consent.js waits for 'aralel:language-chosen' while the sheet is open.
+const LANGUAGE_CHOICE_KEY = 'aralel_language';
+const languagePrompt = document.getElementById('language-prompt');
+
+function readStoredLanguage() {
+    try {
+        return localStorage.getItem(LANGUAGE_CHOICE_KEY);
+    } catch (error) {
+        return null;
+    }
+}
+
+function storeLanguage(languageCode) {
+    try {
+        localStorage.setItem(LANGUAGE_CHOICE_KEY, languageCode);
+    } catch (error) {
+        // Storage blocked (private mode): the sheet may simply ask again next time.
+    }
+}
+
+document.querySelectorAll('[data-language-choice]').forEach((languageLink) => {
+    languageLink.addEventListener('click', () => storeLanguage(languageLink.dataset.languageChoice));
+});
+
+if (languagePrompt && typeof languagePrompt.showModal === 'function' && !readStoredLanguage()
+    && window.matchMedia('(max-width: 820px)').matches) {
+    const pageLocale = languagePrompt.dataset.pageLocale;
+    const browserLanguages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+    const suggestedLocale = browserLanguages
+        .map((languageTag) => languageTag.slice(0, 2).toLowerCase())
+        .find((languageCode) => languageCode === 'de' || languageCode === 'en') || pageLocale;
+    const suggestedOption = languagePrompt.querySelector(`.language-option[value="${suggestedLocale}"]`);
+    if (suggestedOption) {
+        suggestedOption.classList.add('is-suggested');
+        suggestedOption.parentElement.prepend(suggestedOption);
+        suggestedOption.autofocus = true;
+    }
+
+    languagePrompt.addEventListener('close', () => {
+        window.aralelLanguagePromptOpen = false;
+        // Esc, the back gesture or a tap outside keep the language of the page.
+        const chosenLocale = languagePrompt.returnValue || pageLocale;
+        storeLanguage(chosenLocale);
+        window.dispatchEvent(new CustomEvent('aralel:language-chosen', { detail: chosenLocale }));
+        if (chosenLocale !== pageLocale) {
+            const chosenOption = languagePrompt.querySelector(`.language-option[value="${chosenLocale}"]`);
+            window.location.href = chosenOption.dataset.href;
+        }
+    });
+
+    window.aralelLanguagePromptOpen = true;
+    languagePrompt.showModal();
+}
+
 // Smooth scrolling for in-page navigation links only
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (event) {
@@ -226,8 +282,8 @@ function createInstallBanner() {
             </div>
         </div>
         <div class="install-actions">
-            <button id="install-button">${installAction}</button>
-            <button id="close-install-banner">✕</button>
+            <button id="install-button" type="button">${installAction}</button>
+            <button id="close-install-banner" type="button" aria-label="${isGerman ? 'Schließen' : 'Close'}">✕</button>
         </div>
     `;
 
@@ -259,6 +315,22 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// The install prompt waits until the language sheet and the cookie banner are answered,
+// so a first visit never shows two overlays at once.
+function showInstallBannerWhenFree() {
+    if (!installBanner || localStorage.getItem('installBannerDismissed') === 'true') {
+        return;
+    }
+    const consentAnswered = !window.CookieConsent || window.CookieConsent.hasConsent();
+    if (window.aralelLanguagePromptOpen || !consentAnswered) {
+        const retryLater = () => setTimeout(showInstallBannerWhenFree, 4000);
+        window.addEventListener('cookieConsentUpdated', retryLater, { once: true });
+        window.addEventListener('aralel:language-chosen', retryLater, { once: true });
+        return;
+    }
+    installBanner.classList.add('show-banner');
+}
+
 window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferredPrompt = event;
@@ -267,12 +339,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
         createInstallBanner();
     }
 
-    const bannerDismissed = localStorage.getItem('installBannerDismissed');
-    if (bannerDismissed !== 'true') {
-        setTimeout(() => {
-            installBanner.classList.add('show-banner');
-        }, 2000);
-    }
+    setTimeout(showInstallBannerWhenFree, 2000);
 });
 
 window.addEventListener('appinstalled', () => {

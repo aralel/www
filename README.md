@@ -166,6 +166,14 @@ These are driven by data — adding a product, role, or service automatically up
 
 Colors are CSS custom properties on `:root` in `styles.css`, with a dark set applied by `prefers-color-scheme: dark` or `data-theme="dark"` on `<html>` (`data-theme="light"` forces light). Use the tokens (`--surface`, `--surface-glass`, `--text`, `--brand-deep`, …) rather than literal colors so both themes keep working. Button gradients end in `--brand-strong`, which stays dark under white text.
 
+## Mobile Layout & Language Choice
+
+Phone styles live in the "Mobile redesign" block at the end of `styles.css` (`max-width: 640px`, header pieces at `820px`); desktop rules above it are unchanged. On phones every section uses one 16px gutter, cards use borders instead of shadows, and content is not scroll-revealed (`animations.js` skips the reveal at 820px and below).
+
+- **Language:** the header shows a DE / EN switch on phones (`_includes/header.html`, needs `switch_url` in the page front matter). On the first visit on a phone, `script.js` opens the bottom sheet from `_includes/language_prompt.html` (a native `<dialog>`). The browser's language is suggested first, and the choice is stored in `localStorage` as `aralel_language` (listed in both privacy policies). Esc, the back gesture or a tap outside keep the page's language.
+- **Overlay order:** the language sheet comes first, then the cookie banner (`cookie-consent.js` waits for the `aralel:language-chosen` event), then the PWA install prompt (shown only once cookies are answered). They never stack.
+- **Cookie banner on phones:** Reject all and Accept all side by side; the category switches open with "Customize", or straight away when the visitor opens Cookie settings from the footer.
+
 ## Contact Forms
 
 The homepage and services forms share [`_includes/contact_form.html`](_includes/contact_form.html). By default they open the visitor's email app with a pre-filled message to `emails.contact` from `_data/company.yml` (works without JavaScript too). To deliver submissions directly, set `contact_form_endpoint` in `_config.yml` to a form backend that accepts POSTed form data (e.g. Formspree); `script.js` then submits with `fetch` and shows success/error messages. When you switch, update section 2.2 of both privacy policies to name the provider. Spam protection: a hidden honeypot field (`_gotcha`) and a minimum fill time.

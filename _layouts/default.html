@@ -23,6 +23,8 @@
     {% include footer.html %}
   {% endunless %}
 
+  {% include language_prompt.html %}
+
   {% unless page.disable_cookie_consent %}
     <script src="{{ '/cookie-consent.js' | relative_url }}?v={{ release_version }}"></script>
   {% endunless %}

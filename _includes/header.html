@@ -12,6 +12,20 @@
       <span class="logo-text">Aralel GmbH</span>
     </a>
 
+    {% comment %} Mobile only (desktop keeps the flag link in the menu): both languages always visible next to the menu button. {% endcomment %}
+    {% if page.switch_url %}
+      {% assign german_url = page.url %}
+      {% assign english_url = page.switch_url %}
+      {% if locale_code == "en" %}
+        {% assign german_url = page.switch_url %}
+        {% assign english_url = page.url %}
+      {% endif %}
+      <div class="lang-toggle" role="group" aria-label="{{ t.nav.languageLabel }}">
+        <a href="{{ german_url | relative_url }}" hreflang="de" lang="de" aria-label="Deutsch" data-language-choice="de"{% if locale_code == "de" %} aria-current="true"{% endif %}>DE</a>
+        <a href="{{ english_url | relative_url }}" hreflang="en" lang="en" aria-label="English" data-language-choice="en"{% if locale_code == "en" %} aria-current="true"{% endif %}>EN</a>
+      </div>
+    {% endif %}
+
     <button class="mobile-menu-toggle" aria-controls="site-nav-menu" aria-expanded="false" aria-label="{% if locale_code == "de" %}Menü umschalten{% else %}Toggle menu{% endif %}" type="button">
       <span></span>
       <span></span>
@@ -25,7 +39,7 @@
       <li><a href="{{ games_url | relative_url }}"{% if page.url == games_url %} aria-current="page"{% endif %}>{{ t.nav.games }}</a></li>
       <li><a href="{{ services_url | relative_url }}"{% if page.url == services_url %} aria-current="page"{% endif %}>{{ t.nav.services }}</a></li>
       {% if page.switch_url %}
-        <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" hreflang="{{ other_locale }}" lang="{{ other_locale }}" title="{{ t.nav.switchTitle }}" aria-label="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
+        <li class="lang-switch"><a href="{{ page.switch_url | relative_url }}" data-language-choice="{{ other_locale }}" hreflang="{{ other_locale }}" lang="{{ other_locale }}" title="{{ t.nav.switchTitle }}" aria-label="{{ t.nav.switchTitle }}">{{ t.nav.switchFlag }}</a></li>
       {% endif %}
     </ul>
   </nav>
