@@ -128,7 +128,8 @@
     "screenshotsTitle": "Screenshots",
     "screenshotAlt": "Screenshot %number% von %name%",
     "filterAll": "Alle",
-    "filterLabel": "Nach Plattform filtern"
+    "filterLabel": "Nach Plattform filtern",
+    "comingSoon": "Demnächst"
   },
   "platforms": {
     "labels": {
@@ -1184,6 +1185,64 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Für das iPad im App Store erhältlich.",
       "metaDescription": "Voice-following Teleprompter ist Aralels iPad-Teleprompter für Reden, Predigten, Koran- und Bibelrezitation, Unterricht und Lieder — mit großer Schrift und Text, der Ihrer Stimme folgt."
+    },
+    "llm-on-demand": {
+      "name": "LLM On Demand",
+      "category": "KI-Infrastruktur",
+      "shortSummary": "Vorhandene Macs, Workstations und Server werden zu einem privaten KI-Compute-Grid.",
+      "heroTitle": "Ein privates KI-Compute-Grid auf Hardware, die Ihnen schon gehört",
+      "heroText": "LLM On Demand verteilt LLM-Inferenz auf die Rechner, die Ihr Unternehmen bereits betreibt. Ungenutzte Desktops, Macs und Server werden zu einer verteilten Plattform, die Sie besitzen und kontrollieren – ohne eigenes GPU-Cluster und ohne tokenbasierte Cloud-Rechnungen.",
+      "description": "Inferenzaufträge laufen über eine API oder ein Webformular. Sie wählen ein exaktes Modell, eine Modellfamilie oder einen beliebigen verfügbaren Worker und erhalten Ergebnisse per Webhook oder Abfrage. Jobs lassen sich für Nutzungsauswertung und Kostenzuordnung taggen, Kontingente pro Team oder Workload festlegen. Auf der Worker-Seite bindet die kostenlose Mac-App LLM Grid Worker jeden Rechner mit Ollama an das Grid an – mit demselben Konto und API-Schlüssel. Sie schreibt weder Prompts noch Ergebnisse auf die Festplatte und pausiert auf Wunsch im Akkubetrieb, bei Überhitzung oder außerhalb der Arbeitszeiten. Jede weitere Maschine erhöht die Kapazität, und die Inferenz bleibt auf Hardware in Ihrem eigenen Netzwerk.",
+      "highlights": [
+        {
+          "title": "Rechenleistung, die Ihnen gehört",
+          "text": "Ungenutzte Macs, Desktops und Workstations arbeiten lassen, statt GPUs zu mieten oder pro Token zu zahlen."
+        },
+        {
+          "title": "Ihre Daten, Ihr Netzwerk",
+          "text": "Die Inferenz läuft auf Maschinen, die Sie kontrollieren. Prompts, Ergebnisse und Modelle bleiben in Ihrem Netzwerk."
+        },
+        {
+          "title": "Skalieren mit mehr Workern",
+          "text": "Mehr Durchsatz durch weitere Maschinen. Ein Konto und ein API-Schlüssel gelten für alle Worker."
+        }
+      ],
+      "primaryCta": "LLM On Demand öffnen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "Plattform-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Als Webplattform unter llmondemand.de, dazu die Mac-App LLM Grid Worker im App Store.",
+      "metaDescription": "LLM On Demand von Aralel macht vorhandene Unternehmensrechner zu einem privaten KI-Compute-Grid. LLM-Jobs per API einreichen und auf eigener Hardware ausführen."
+    },
+    "health-in-key": {
+      "name": "Health In Key",
+      "category": "Gesundheit",
+      "shortSummary": "Demnächst: Arztunterlagen, Medikamente und Teilen mit Familie oder Ärzten an einem Ort.",
+      "heroTitle": "Ihre Gesundheitsunterlagen, geordnet an einem zentralen Ort",
+      "heroText": "Health In Key ist eine persönliche Gesundheitsakte, an der wir arbeiten. Medizinische Dokumente ablegen, aktuelle und frühere Medikamente festhalten und die richtigen Informationen mit Angehörigen oder einer Ärztin bzw. einem Arzt für eine Zweitmeinung teilen.",
+      "description": "PDFs, Bilder und Notizen hochladen und nach Termin, Thema oder Person ordnen. Eine Zeitleiste aktueller und früherer Medikamente sorgt dafür, dass im Notfall oder bei neuen Ärzten nichts vergessen wird. Wenn jemand Ihre Unterlagen sehen soll, stellen Sie ein Freigabepaket mit genau dem Nötigen zusammen – etwa aktuelle Medikamente, Allergien und neue Laborwerte – und lassen den Rest weg. Health In Key befindet sich in Entwicklung. Die Website zeigt, wohin das Produkt geht.",
+      "highlights": [
+        {
+          "title": "Zentrale Gesundheitsakte",
+          "text": "Dokumente, Laborwerte, Bildgebung, Überweisungen und Arztbriefe an einem durchsuchbaren Ort."
+        },
+        {
+          "title": "Medikamentenverlauf",
+          "text": "Wissen, was Sie aktuell nehmen und früher genommen haben, mit Dosis und Startdatum."
+        },
+        {
+          "title": "Freigabepakete",
+          "text": "Ausgewählte Informationen mit Familie oder Ärzten für eine Zweitmeinung teilen. Sie entscheiden, was hineinkommt."
+        }
+      ],
+      "primaryCta": "healthinkey.com besuchen",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "Über das Projekt",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Status",
+      "availabilityText": "In Entwicklung. Mehr unter healthinkey.com.",
+      "metaDescription": "Health In Key ist eine kommende persönliche Gesundheitsakte von Aralel: Arztunterlagen ordnen, Medikamente festhalten und Ausgewähltes mit Familie oder Ärzten teilen."
     }
   }
 }

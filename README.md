@@ -103,6 +103,7 @@ Optional product fields:
 - `price`: price in EUR for structured data; defaults to `"0"`.
 - `front_page`: `true` to feature the product on the homepage and the portfolio page.
 - `collections`: themed collection pages the product appears on, e.g. `["travel"]`.
+- `comingSoon`: `true` for a product that is not released yet. It shows a "Coming soon" pill and leaves the `Offer` out of the structured data.
 
 `products.json` references [`scripts/schemas/products.schema.json`](scripts/schemas/products.schema.json) via `$schema`, so editors validate and autocomplete entries.
 

@@ -2,6 +2,15 @@
 # Newest first. `product` (optional) links the item to a product page and shows its icon.
 # Dates are when the release went live on this site (see CHANGELOG.md).
 
+- date: 2026-10-22
+  product: llm-on-demand
+  de:
+    title: "LLM On Demand: privates KI-Grid auf eigener Hardware"
+    text: "LLM On Demand verteilt LLM-Inferenz auf die Macs, Workstations und Server, die ein Unternehmen ohnehin betreibt – ohne GPU-Cluster und ohne Cloud-Rechnungen. Worker binden sich über die kostenlose Mac-App LLM Grid Worker an."
+  en:
+    title: "LLM On Demand: a private AI grid on your own hardware"
+    text: "LLM On Demand runs LLM inference across the Macs, workstations and servers a company already owns, with no GPU cluster and no cloud bills. Workers join through the free LLM Grid Worker Mac app."
+
 - date: 2026-10-11
   product: voice-following-teleprompter
   de:

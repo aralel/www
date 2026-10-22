@@ -5,6 +5,9 @@
 {% if include.wrap != false %}
 <div class="product-pill-row">
 {% endif %}
+  {% if product.comingSoon %}
+    <span class="product-pill product-pill--type">{{ t.common.comingSoon }}</span>
+  {% endif %}
   {% for platform_key in product.platforms %}
     {% assign page_name = platform_key %}
     {% if platform_key == "website" %}

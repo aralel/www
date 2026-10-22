@@ -128,7 +128,8 @@
     "screenshotsTitle": "Screenshots",
     "screenshotAlt": "%name% screenshot %number%",
     "filterAll": "All",
-    "filterLabel": "Filter by platform"
+    "filterLabel": "Filter by platform",
+    "comingSoon": "Coming soon"
   },
   "platforms": {
     "labels": {
@@ -1184,6 +1185,64 @@
       "availabilityTitle": "Available On",
       "availabilityText": "Available for iPad on the App Store.",
       "metaDescription": "Voice-following Teleprompter is Aralel's iPad teleprompter for speeches, sermons, Quran and Bible recitation, lessons and songs — with large type and text that follows your voice."
+    },
+    "llm-on-demand": {
+      "name": "LLM On Demand",
+      "category": "AI Infrastructure",
+      "shortSummary": "Turn the Macs, workstations and servers you already own into a private AI compute grid.",
+      "heroTitle": "A private AI compute grid on hardware you already own",
+      "heroText": "LLM On Demand spreads LLM inference across the computers your organisation already runs. Idle desktops, Macs and servers become one distributed platform that you own and control, with no dedicated GPU cluster and no per-token cloud bills.",
+      "description": "Submit inference jobs through one API or a web form. Pick an exact model, a model family or any available worker, and get results by webhook or polling. Tag jobs for usage tracking and chargeback, and set quotas per team or workload. On the worker side, the free LLM Grid Worker app for Mac connects any machine running Ollama to the grid with the same account and API key. It never writes prompts or results to disk and can pause on battery, under thermal pressure or outside working hours. Every machine you enroll adds capacity, and inference stays on hardware inside your own network.",
+      "highlights": [
+        {
+          "title": "Compute you already own",
+          "text": "Put idle Macs, desktops and workstations to work instead of renting GPUs or paying per token."
+        },
+        {
+          "title": "Your data, your network",
+          "text": "Inference runs on machines you control. Prompts, outputs and models stay inside your own network."
+        },
+        {
+          "title": "Scale by adding workers",
+          "text": "Grow throughput by enrolling more machines. One account and API key covers every worker."
+        }
+      ],
+      "primaryCta": "Open LLM On Demand",
+      "privacyLabel": "Privacy Policy",
+      "detailLabel": "Platform Details",
+      "backLabel": "Back to apps",
+      "availabilityTitle": "Available on",
+      "availabilityText": "A web platform at llmondemand.com, with the LLM Grid Worker Mac app on the App Store.",
+      "metaDescription": "LLM On Demand by Aralel turns the computers an organisation already owns into a private AI compute grid. Submit LLM jobs via API and run them on your own hardware."
+    },
+    "health-in-key": {
+      "name": "Health In Key",
+      "category": "Health",
+      "shortSummary": "Coming soon: medical records, medicines and sharing with family or doctors, all in one place.",
+      "heroTitle": "Your health records, organised in one key place",
+      "heroText": "Health In Key is a personal health record we are building. Store medical documents, keep track of the medicines you take now and took before, and share the right information with relatives or a doctor for a second opinion.",
+      "description": "Upload PDFs, images and notes, and group them by visit, topic or person. Keep a timeline of current and past medicines so nothing gets forgotten in an emergency or with a new doctor. When someone needs to see your records, put together a share pack with exactly what they need, such as current medicines, allergies and recent lab results, and leave out the rest. Health In Key is in development. The website shows where the product is heading.",
+      "highlights": [
+        {
+          "title": "Medical record hub",
+          "text": "Documents, lab results, imaging, referrals and visit summaries in one searchable place."
+        },
+        {
+          "title": "Medication history",
+          "text": "Know what you take now and what you took before, with doses and start dates."
+        },
+        {
+          "title": "Share packs",
+          "text": "Share selected information with family or a doctor for a second opinion. You decide what goes in."
+        }
+      ],
+      "primaryCta": "Visit healthinkey.com",
+      "privacyLabel": "Privacy Policy",
+      "detailLabel": "About the Project",
+      "backLabel": "Back to apps",
+      "availabilityTitle": "Status",
+      "availabilityText": "In development. More at healthinkey.com.",
+      "metaDescription": "Health In Key is an upcoming personal health record by Aralel: organise medical documents, track your medicines and share selected information with family or doctors."
     }
   }
 }

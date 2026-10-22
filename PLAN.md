@@ -2,6 +2,26 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-22 (2)
+
+**Prompt:** "add a page introducing llmondemand.com / add another page introducing healthinkey.com"
+
+**Done:**
+- Both added as catalog products via `scripts/new-product.mjs` (pages under `apps/`, so they show up in Apps, Websites, sitemap, llms.txt and related products). DE/EN copy is written from the live sites.
+- LLM On Demand: web + Mac. The App Store badge links LLM Grid Worker, which closes the "published but not in catalog" finding from 2026-10-07. Icon from the App Store, because the site's icon is a placeholder. News item added.
+- Health In Key: web only. Marked with a new `comingSoon` flag (schema + "Coming soon" pill + no `Offer` in JSON-LD) because the site is only a waitlist page. Icon cropped from the site's favicon set.
+- Verified: `jekyll build` + `check-site.mjs _site` pass (20 products, 94 pages); JSON-LD parses (LLM: `Web, macOS` with Offer; HIK: `Web`, no Offer); both pages and listing cards render in Playwright; no console errors. Logged in `CHANGELOG.md` under `[0.19.0]`.
+- Flagged for the owner: healthinkey.com placeholder text, a waitlist that doesn't send emails anywhere, and no Impressum or privacy page.
+
+## 2026-10-22
+
+**Prompt:** "the cookie box buttons are too big on iphone se and its not possible to scroll either"
+
+**Done:**
+- Cause: in the ≤600px column layout `.cookie-btn` kept `flex: 1 1 9rem`, so each button was 9rem tall. `.cookie-consent-content` had no `max-height`/`overflow`, so the dialog ran past the viewport.
+- Fix (`styles.css`): dialog capped to the viewport and scrolls inside. On mobile: 44px buttons pinned to the bottom of the dialog, tighter spacing and type, 0.5rem gutters plus the safe-area inset.
+- Verified: `jekyll build` + `check-site.mjs _site` pass. Playwright at 375×667: dialog 8–659px (inside the viewport), buttons 44px, content scrolls (845px content in a 649px box), the last option is fully visible above the pinned buttons, no horizontal overflow. Logged in `CHANGELOG.md` under `[0.18.3]`.
+
 ## 2026-10-11
 
 **Prompt:** "we have published an app just for ipad, https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434"

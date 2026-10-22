@@ -23,6 +23,7 @@
           "price": { "type": "string", "pattern": "^[0-9]+(\\.[0-9]{1,2})?$", "description": "EUR price for structured data; default \"0\"" },
           "hidden": { "type": "boolean", "description": "true removes the product from listings, sitemap and llms.txt; its page redirects" },
           "front_page": { "type": "boolean", "description": "Feature on the homepage and the portfolio page" },
+          "comingSoon": { "type": "boolean", "description": "Not released yet: shows a \"Coming soon\" pill and leaves the Offer out of the structured data" },
           "collections": { "type": "array", "items": { "type": "string" }, "uniqueItems": true, "description": "Themed collection pages, e.g. [\"travel\"]" },
           "platforms": {
             "type": "array",

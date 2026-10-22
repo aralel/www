@@ -342,6 +342,41 @@
       "stores": {
         "appStore": "https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434"
       }
+    },
+    {
+      "slug": "llm-on-demand",
+      "type": "app",
+      "hidden": false,
+      "front_page": false,
+      "schemaCategory": "BusinessApplication",
+      "platforms": ["website", "desktop"],
+      "accent": "#1fae8f",
+      "accentStrong": "#16213e",
+      "iconUrl": "/images/products/llm-on-demand.png",
+      "iconSourceUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c0/f6/5c/c0f65c50-897f-c13a-de8e-43fc6dbcbe55/AppIcon-0-0-85-220-0-5-0-2x.png/512x512bb.png",
+      "stores": {
+        "appStore": "https://apps.apple.com/us/app/llm-grid-worker/id6787503403"
+      },
+      "websiteUrl": "https://www.llmondemand.com",
+      "privacyUrl": {
+        "de": "https://www.llmondemand.de/privacy",
+        "en": "https://www.llmondemand.com/privacy"
+      }
+    },
+    {
+      "slug": "health-in-key",
+      "type": "app",
+      "hidden": false,
+      "front_page": false,
+      "comingSoon": true,
+      "schemaCategory": "HealthApplication",
+      "platforms": ["website"],
+      "accent": "#1f7ae0",
+      "accentStrong": "#0d3b78",
+      "iconUrl": "/images/products/health-in-key.png",
+      "iconSourceUrl": "",
+      "stores": {},
+      "websiteUrl": "https://www.healthinkey.com"
     }
   ]
 }

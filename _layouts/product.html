@@ -81,12 +81,13 @@ body_class: subpage
         "bestRating": 5,
         "worstRating": 1
       },{% endif %}
-      "offers": {
+      {% comment %} An unreleased product (comingSoon) has nothing to offer yet. {% endcomment %}
+      {% unless product.comingSoon %}"offers": {
         "@type": "Offer",
         "price": {{ product.price | default: "0" | jsonify }},
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock"
-      },
+      },{% endunless %}
       "publisher": { "@id": "{{ site.url }}/#organization" },
       "author": { "@id": "{{ site.url }}/#organization" }
     },
