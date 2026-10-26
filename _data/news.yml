@@ -2,6 +2,24 @@
 # Newest first. `product` (optional) links the item to a product page and shows its icon.
 # Dates are when the release went live on this site (see CHANGELOG.md).
 
+- date: 2026-10-26
+  product: arta-text
+  de:
+    title: "Arta Text jetzt bei Google Play"
+    text: "Ein privater Messenger ohne Telefonnummer, ohne E-Mail und ohne Konto. Kontakte werden persönlich per QR-Code hinzugefügt, und jede Nachricht wird auf dem Handy verschlüsselt, bevor sie verschickt wird."
+  en:
+    title: "Arta Text is now on Google Play"
+    text: "A private messenger with no phone number, no email and no account. Contacts are added by scanning a QR code in person, and every message is encrypted on your phone before it is sent."
+
+- date: 2026-10-26
+  product: open-eyes
+  de:
+    title: "Open Eyes jetzt bei Google Play"
+    text: "Blinzeln und verpasste Lächeln korrigieren: Open Eyes setzt offene Augen und das schönste Lächeln aus Ihren eigenen Aufnahmen desselben Moments ein – auf dem Handy, ohne Upload und ohne KI-erzeugte Pixel."
+  en:
+    title: "Open Eyes is now on Google Play"
+    text: "Fix blinks and missed smiles: Open Eyes swaps in open eyes and the best smile from your own shots of the same moment — on your phone, with no upload and no AI-generated pixels."
+
 - date: 2026-10-22
   product: llm-on-demand
   de:

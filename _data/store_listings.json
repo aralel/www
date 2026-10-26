@@ -397,19 +397,58 @@
     },
     "screenshots": [
       {
-        "src": "/images/screenshots/hands-free-teleprompter/1.jpg",
+        "src": "/images/screenshots/voice-following-teleprompter/1.jpg",
         "width": 460,
         "height": 613
       },
       {
-        "src": "/images/screenshots/hands-free-teleprompter/2.jpg",
+        "src": "/images/screenshots/voice-following-teleprompter/2.jpg",
         "width": 460,
         "height": 613
       },
       {
-        "src": "/images/screenshots/hands-free-teleprompter/3.jpg",
+        "src": "/images/screenshots/voice-following-teleprompter/3.jpg",
         "width": 460,
         "height": 613
+      }
+    ]
+  },
+  "arta-text": {
+    "storeNames": {
+      "googlePlay": "Arta Text"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/arta-text/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/arta-text/2.jpg",
+        "width": 460,
+        "height": 818
+      }
+    ]
+  },
+  "open-eyes": {
+    "storeNames": {
+      "googlePlay": "Open Eyes"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/open-eyes/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/open-eyes/2.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/open-eyes/3.jpg",
+        "width": 460,
+        "height": 818
       }
     ]
   }

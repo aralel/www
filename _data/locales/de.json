@@ -1244,6 +1244,64 @@
       "availabilityTitle": "Status",
       "availabilityText": "In Entwicklung. Mehr unter healthinkey.com.",
       "metaDescription": "Health In Key ist eine kommende persönliche Gesundheitsakte von Aralel: Arztunterlagen ordnen, Medikamente festhalten und Ausgewähltes mit Familie oder Ärzten teilen."
+    },
+    "arta-text": {
+      "name": "Arta Text",
+      "category": "Kommunikation",
+      "shortSummary": "Ein privater Messenger ohne Telefonnummer, ohne E-Mail und ohne Konto – Kontakte werden persönlich per QR-Code hinzugefügt.",
+      "heroTitle": "Nachrichten, die nur Sie beide lesen können",
+      "heroText": "Arta Text ist ein privater Messenger ohne Telefonnummer, ohne E-Mail und ohne Konto. Sie fügen jemanden hinzu, indem Sie seinen Code persönlich scannen, und jede Nachricht wird auf Ihrem Handy versiegelt, bevor sie verschickt wird.",
+      "description": "Für jeden Kontakt erzeugt das Handy ein brandneues Schlüsselpaar nur für diese Verbindung. Texte, Fotos und Dateien bis 25 MB sind so Ende-zu-Ende-verschlüsselt, mit bewährter, gut untersuchter Kryptografie (X25519, HKDF-SHA256, ChaCha20-Poly1305). Nachrichten werden vom Server gelöscht, sobald das Handy Ihres Kontakts sie hat, und der Server kann nicht erkennen, welche Kontakte zum selben Handy gehören. Schlüssel und Nachrichten gibt es nur auf Ihrem Handy, daher gibt es kein Cloud-Backup: Auf einem neuen Handy fügen Sie Ihre Kontakte neu hinzu. Benachrichtigungen zeigen nur den Namen des Kontakts, nie den Nachrichtentext. Keine Werbung, kein Tracking, keine Analyse durch Dritte, und alle Daten lassen sich mit einem Tipp in der App löschen. Entwickelt in Aachen nach EU-Datenschutzrecht.",
+      "highlights": [
+        {
+          "title": "Keine Nummer, kein Konto",
+          "text": "Keine Telefonnummer, keine E-Mail, keine Registrierung, nicht einmal eine Konto-ID. Zum Schreiben braucht es nichts über Sie."
+        },
+        {
+          "title": "Kontakte durch persönliches Treffen",
+          "text": "Jeder Kontakt beginnt mit einem QR-Scan vor Ort, damit niemand Schlüssel unterwegs austauschen kann. Jeder Code ist neu, funktioniert einmal und läuft nach 30 Minuten ab."
+        },
+        {
+          "title": "Versiegelt, bevor es das Handy verlässt",
+          "text": "Nachrichten, Fotos und Dateien werden auf Ihrem Handy verschlüsselt, mit einem eigenen Schlüsselpaar pro Kontakt. Wir können sie nicht lesen, und auch niemand, der an unseren Server gelangt."
+        }
+      ],
+      "primaryCta": "Bei Google Play laden",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Verfügbar für Android bei Google Play.",
+      "metaDescription": "Arta Text ist Aralels privater Messenger ohne Telefonnummer, E-Mail oder Konto – Kontakte per persönlichem QR-Scan, Ende-zu-Ende-verschlüsselte Nachrichten, Fotos und Dateien."
+    },
+    "open-eyes": {
+      "name": "Open Eyes",
+      "category": "Fotografie",
+      "shortSummary": "Geschlossene Augen und verpasste Lächeln korrigieren – mit offenen Augen und dem besseren Lächeln aus Ihren anderen Aufnahmen desselben Moments.",
+      "heroTitle": "Das eine Foto, auf dem alle gut aussehen",
+      "heroText": "Irgendwer blinzelt immer. Open Eyes nimmt mehrere Aufnahmen desselben Moments und setzt offene Augen und das schönste Lächeln in das Foto ein, das Ihnen am besten gefällt.",
+      "description": "Wählen Sie 2 bis 9 Fotos, die kurz nacheinander entstanden sind, tippen Sie auf Ihre Lieblingsaufnahme und dann auf ein Gesicht, um bessere Augen oder ein schöneres Lächeln aus den anderen Aufnahmen zu wählen – die App schlägt die beste vor. Die Überblendung passt sich Hautton und Licht an, und beim Speichern entsteht ein neues Foto, Ihre Originale bleiben unverändert. Die Gesichtserkennung läuft auf dem Handy und findet nur, wo Augen und Münder sind; niemand wird identifiziert und nichts wird hochgeladen. Korrigierte Fotos werden als Montage aus Ihren eigenen Aufnahmen gekennzeichnet (IPTC-Metadaten, Content Credentials und ein unsichtbares Wasserzeichen), und kein Pixel wird von KI erzeugt. Jede Korrektur bleibt im Verlauf, damit Sie sie später ändern können. Kleiner Download, kein Konto, keine Werbung.",
+      "highlights": [
+        {
+          "title": "Drei Tipper vom Blinzeln zum Lieblingsfoto",
+          "text": "Aufnahmen wählen, Favoriten wählen, Gesicht antippen. Gesichter, die besser aussehen können, sind markiert, mit Vorschlag für den besten Ersatz."
+        },
+        {
+          "title": "Ihre Fotos verlassen nie Ihr Handy",
+          "text": "Gesichter finden, Aufnahmen ausrichten und Korrekturen einblenden passiert alles auf dem Gerät. Es gibt kein Konto und keinen Upload."
+        },
+        {
+          "title": "Ehrlich gekennzeichnet",
+          "text": "Korrigierte Fotos werden neben den Originalen gespeichert und als Montage aus Ihren eigenen Aufnahmen gekennzeichnet. Nichts wird von KI erzeugt."
+        }
+      ],
+      "primaryCta": "Bei Google Play laden",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Verfügbar für Android bei Google Play.",
+      "metaDescription": "Open Eyes ist Aralels Foto-App, die Blinzeln und verpasste Lächeln mit Ihren eigenen Aufnahmen desselben Moments korrigiert – auf dem Gerät, ohne Upload, ohne KI-Pixel."
     }
   },
   "languagePrompt": {

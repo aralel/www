@@ -2,6 +2,25 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-26 (2)
+
+**Prompt:** "Fix the teleprompter slug/screenshot mismatch so its screenshots show again."
+
+**Done:**
+- Checked first: the `store_listings.json` key already matched the slug, and the product page was already showing all 3 screenshots. My earlier note was wrong. The only mismatch was the folder name.
+- Renamed `images/screenshots/hands-free-teleprompter/` to `voice-following-teleprompter/` and updated the 3 paths in `_data/store_listings.json`.
+- Verified: `jekyll build` + `check-site.mjs _site` pass. The product page references the new folder and no built page points at the old one. Logged in `CHANGELOG.md` under `[0.21.1]`.
+
+## 2026-10-26
+
+**Prompt:** "these two products have been published on google play https://play.google.com/store/apps/details?id=com.aralel.arta https://play.google.com/store/apps/details?id=com.aralel.openeyes"
+
+**Done:**
+- Neither app was in the catalog yet. Added **Arta Text** (`arta-text`) and **Open Eyes** (`open-eyes`) with `scripts/new-product.mjs`: product entries (Android + website, Google Play links, websites, DE/EN privacy URLs, accent colours picked from the icons), DE/EN copy written from the Play listings and the two websites, cached icons, Play screenshots, WebP copies, and news items.
+- Open Eyes' website links an App Store id (`id6823195027`) that isn't live yet (iTunes lookup is empty), so it is listed as Android only for now.
+- `store-sync.mjs --screenshots` re-downloads every product's screenshots and deletes their WebP files. I restored those from git and merged only the two new entries into `_data/store_listings.json`.
+- Verified: `jekyll build` + `check-site.mjs _site` pass (22 products, 98 pages). Both pages are listed on Apps, Android, Websites, News, the sitemap and llms.txt, and the DE page renders in the dev server. Logged in `CHANGELOG.md` under `[0.21.0]`.
+
 ## 2026-10-22 (3)
 
 **Prompt:** (pasted brief) "Redesign the mobile view of aralel.com … make it significantly better": diagnosis, direction, section-by-section mobile redesign; first-visit language selection on mobile and an always-visible language switcher; desktop can stay as is.

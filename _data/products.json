@@ -377,6 +377,46 @@
       "iconSourceUrl": "",
       "stores": {},
       "websiteUrl": "https://www.healthinkey.com"
+    },
+    {
+      "slug": "arta-text",
+      "type": "app",
+      "schemaCategory": "CommunicationApplication",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["android", "website"],
+      "accent": "#b08d57",
+      "accentStrong": "#1d3b3a",
+      "iconUrl": "/images/products/arta-text.jpg",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/MRUUltlXXGi7heR0CZLSzKFBin8eV-eUllBlvWE4B0TAW40rGCnO2aHvdSzp6S4kejt3JMOaTph1z-MBPPPX",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.arta"
+      },
+      "websiteUrl": "https://arta.aralel.com",
+      "privacyUrl": {
+        "de": "https://arta.aralel.com/de/privacy",
+        "en": "https://arta.aralel.com/privacy"
+      }
+    },
+    {
+      "slug": "open-eyes",
+      "type": "app",
+      "schemaCategory": "MultimediaApplication",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["android", "website"],
+      "accent": "#7c3aed",
+      "accentStrong": "#1e1b4b",
+      "iconUrl": "/images/products/open-eyes.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/BZ8MOXbS0kRxNe3A_cYQLIP4yifvb5i4UtZ50xrYC9CapaLkEb-lfZQw6Qy3_BPAjWf9f5y-UeAzT3TO-WcGfg",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.openeyes"
+      },
+      "websiteUrl": "https://openeyes.aralel.com",
+      "privacyUrl": {
+        "de": "https://openeyes.aralel.com/de/privacy.html",
+        "en": "https://openeyes.aralel.com/privacy.html"
+      }
     }
   ]
 }
