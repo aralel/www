@@ -107,7 +107,14 @@ Optional product fields:
 
 `products.json` references [`scripts/schemas/products.schema.json`](scripts/schemas/products.schema.json) via `$schema`, so editors validate and autocomplete entries.
 
-Themed collection pages (e.g. [`travel-apps.html`](travel-apps.html) / [`travel-apps_en.html`](travel-apps_en.html), linked from the footer) list every visible product whose `collections` array contains the page's `collection_key`. To add a product to the travel page, add `"travel"` to its `collections`. To create a new collection: tag the products, add `collections.<key>` (kicker, heroTitle, heroText) and `pages.<pageKey>` (title, description) to both locale files, and create two stub pages with `layout: collection_list`, `page_key`, `collection_key` and `switch_url`.
+Themed collections are listed in [`_data/collections.yml`](_data/collections.yml) (order = order on the hub page [`collections.html`](collections.html), linked from the footer). Each collection page (e.g. [`travel-apps.html`](travel-apps.html) / `travel-apps_en.html`, layout `collection_list`) lists every visible product whose `collections` array contains the page's `collection_key`, and ends with links to the other collections. To add a product to a collection, add its key to the product's `collections`. To create a new collection:
+
+1. Add `{ key, page, page_key }` to `_data/collections.yml`.
+2. Add `collections.<key>` (kicker, heroTitle, heroText) and `pages.<pageKey>` (title, description) to both locale files.
+3. Create the two stub pages (copy `learn-with-words.html` and `_en`) with `page_key`, `collection_key` and `switch_url`.
+4. Tag the products and run `node scripts/build-og-images.mjs` for the share images.
+
+`check-site.mjs` fails when a collection lacks copy or stubs or a product uses an unlisted key.
 
 To add a new product, scaffold it so no file is forgotten:
 
@@ -139,7 +146,7 @@ The site is optimized for search engines, Google rich results, and AI assistants
 - **Job postings** take `datePosted` from `_data/jobs.yml`, so it stays stable across builds.
 - **[`robots.txt`](robots.txt)** explicitly welcomes search-engine and AI crawlers (Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot, CCBot, …) and points to the sitemap.
 - **[`llms.txt`](llms.txt)** provides AI assistants a concise, build-time-generated markdown map of the company, apps, games, platform pages, and legal pages.
-- **No third-party requests before consent.** Fonts are self-hosted in `fonts/` (Manrope and Space Grotesk, SIL OFL, latin + latin-ext variable WOFF2), icons are inline SVG and product icons are cached in the repo, so pages load only same-origin assets. AdSense (marketing) and the relay.codehospital.com page-view pixel (analytics) load only after consent in `cookie-consent.js`.
+- **No third-party requests before consent.** Fonts are self-hosted in `fonts/` (Manrope and Space Grotesk, SIL OFL, latin + latin-ext variable WOFF2), icons are inline SVG and product icons are cached in the repo, so pages load only same-origin assets. AdSense (marketing) and the optional analytics script load only after consent in `cookie-consent.js`. The page-view pixel on our own server relay.codehospital.com runs without consent (legitimate interest, privacy policy §3.2); it sets no cookies and is skipped when the browser sends Global Privacy Control or Do Not Track.
 
 These are driven by data — adding a product, role, or service automatically updates the sitemap, structured data, and `llms.txt` on the next build.
 
@@ -160,7 +167,7 @@ These are driven by data — adding a product, role, or service automatically up
 
 - **News:** add items (newest first) to [`_data/news.yml`](_data/news.yml) with `date`, optional `product`, and `de`/`en` title and text. They appear on `news.html` / `news_en.html` and in the RSS feeds `feed_de.xml` / `feed.xml`.
 - **Press kit:** `press.html` / `press_en.html`, built from `_data/company.yml` (including `brand_colors`) and the catalog.
-- **Analytics:** set `analytics_script_src` and `analytics_domain` in `_config.yml` to load a Plausible-compatible script after analytics consent. Store-badge clicks are sent as "Store click" events. Name the provider in the privacy policies when enabling it.
+- **Analytics:** set `analytics_script_src` and `analytics_domain` in `_config.yml` to load a Plausible-compatible script after analytics consent (the basic page-view pixel is separate and needs no consent). Store-badge clicks are sent as "Store click" events. Name the provider in the privacy policies when enabling it.
 
 ## Theming
 
@@ -173,6 +180,13 @@ Phone styles live in the "Mobile redesign" block at the end of `styles.css` (`ma
 - **Language:** the header shows a DE / EN switch on phones (`_includes/header.html`, needs `switch_url` in the page front matter). On the first visit on a phone, `script.js` opens the bottom sheet from `_includes/language_prompt.html` (a native `<dialog>`). The browser's language is suggested first, and the choice is stored in `localStorage` as `aralel_language` (listed in both privacy policies). Esc, the back gesture or a tap outside keep the page's language.
 - **Overlay order:** the language sheet comes first, then the cookie banner (`cookie-consent.js` waits for the `aralel:language-chosen` event), then the PWA install prompt (shown only once cookies are answered). They never stack.
 - **Cookie banner on phones:** Reject all and Accept all side by side; the category switches open with "Customize", or straight away when the visitor opens Cookie settings from the footer.
+
+## Services Wizard, QR Codes, Share Images & Accessibility
+
+- **Project scoping wizard** ([`_layouts/services.html`](_layouts/services.html) `#scope`, logic in `script.js`): four steps (need, platforms, timeline, budget) that write a summary into the contact form's message field and select the topic. Copy and options live in `services.wizard` in the locale files; the first step's options come from `services.groups`. It needs JavaScript and stays hidden without it. Nothing is sent until the visitor sends the form.
+- **QR codes on product pages** (desktop visitors only, `.qr-panel`): `node scripts/build-qr.mjs` writes `images/qr/<slug>[_en].svg` for every visible, released product with an iPhone, iPad or Android platform. The code opens the product page (`?utm_source=qr`), where `script.js` puts the visitor's own store first. The encoder is dependency-free (`scripts/lib/qr.mjs`). Re-run when a product is added or its platforms change.
+- **Share images**: `node scripts/build-og-images.mjs` renders a 1200×630 JPEG per visible product and per page key in both languages into `images/og/` and writes `_data/og_images.json`, which `_includes/head.html` uses for `og:image` and `twitter:image` (a page's own `og_image` front matter still wins). It needs `playwright-core` with Chromium so the cards use the site fonts (`npm i playwright-core && npx playwright install chromium`; Node also finds it in a parent folder's `node_modules`). Re-run after changing a product's name, summary, colors or icon, or a page title or description.
+- **Accessibility statement**: [`barrierefreiheit.html`](barrierefreiheit.html) / `barrierefreiheit_en.html`, linked from the footer. It states what was checked (axe-core on 15 pages, 28 October 2026) and the known limitations. Re-run the audit and update the date and the claims after larger UI changes. Owner to-dos are marked `TODO (Inhaber/owner)` in the page sources.
 
 ## Contact Forms
 

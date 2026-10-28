@@ -16,15 +16,15 @@
     const i18n = {
         title:           isDE ? 'Cookie-Einstellungen' : 'Cookie Settings',
         description:     isDE
-            ? 'Wir verwenden Cookies, um Ihr Nutzungserlebnis zu verbessern und die Website zu analysieren. Sie können wählen, welche Cookies Sie erlauben. Notwendige Cookies sind immer aktiv. '
-            : 'We use cookies to enhance your browsing experience and analyze site traffic. You can choose which cookies you allow. Essential cookies are always active. ',
+            ? 'Wir verwenden Cookies, um Ihr Nutzungserlebnis zu verbessern. Sie können wählen, welche Cookies Sie erlauben. Notwendige Cookies sind immer aktiv. Unabhängig davon zählen wir Seitenaufrufe ohne Cookies auf unserem eigenen Server; dem können Sie widersprechen. '
+            : 'We use cookies to enhance your browsing experience. You can choose which cookies you allow. Essential cookies are always active. Separately, we count page views on our own server without cookies, and you can object to that. ',
         policyLink:      isDE ? 'Mehr erfahren in unserer Datenschutzerklärung' : 'Learn more in our Privacy Policy',
         policyHref:      isDE ? '/datenschutz.html' : '/privacy-policy.html',
         necessary:       isDE ? 'Notwendige Cookies' : 'Essential Cookies',
         necessaryDesc:   isDE ? 'Für den Betrieb der Website erforderlich. Können nicht deaktiviert werden.' : 'Required for the website to function. Cannot be disabled.',
         required:        isDE ? 'Erforderlich' : 'Required',
         analytics:       isDE ? 'Analyse-Cookies' : 'Analytics Cookies',
-        analyticsDesc:   isDE ? 'Helfen uns zu verstehen, wie Besucher mit der Website interagieren.' : 'Help us understand how visitors interact with our website.',
+        analyticsDesc:   isDE ? 'Optionale erweiterte Analyse über die einfache Seitenzählung hinaus, zum Beispiel welche Store-Buttons genutzt werden.' : 'Optional extended analytics beyond our basic page count, for example which store buttons are used.',
         marketing:       isDE ? 'Marketing-Cookies' : 'Marketing Cookies',
         marketingDesc:   isDE ? 'Für die Einblendung personalisierter Werbeanzeigen verwendet.' : 'Used to deliver personalized advertisements.',
         preferences:     isDE ? 'Präferenz-Cookies' : 'Preference Cookies',
@@ -109,13 +109,21 @@
     function makeOption(switchId, isChecked, isDisabled, titleText, badgeText, descText) {
         const header = makeEl('div', 'cookie-option-header');
         header.appendChild(makeSwitch(switchId, isChecked, isDisabled));
-        header.appendChild(makeEl('span', 'cookie-option-title', titleText));
+        const titleElement = makeEl('span', 'cookie-option-title', titleText);
+        titleElement.id = switchId + '-title';
+        header.appendChild(titleElement);
         if (badgeText) {
             header.appendChild(makeEl('span', 'cookie-badge required', badgeText));
         }
+        const descriptionElement = makeEl('p', 'cookie-option-desc', descText);
+        descriptionElement.id = switchId + '-description';
+        // The switch's own <label> wraps only the slider, so name and describe it explicitly.
+        const switchInput = header.querySelector('input');
+        switchInput.setAttribute('aria-labelledby', titleElement.id);
+        switchInput.setAttribute('aria-describedby', descriptionElement.id);
         const option = makeEl('div', 'cookie-option');
         option.appendChild(header);
-        option.appendChild(makeEl('p', 'cookie-option-desc', descText));
+        option.appendChild(descriptionElement);
         return option;
     }
 
@@ -290,7 +298,8 @@
         // Dispatch event for other scripts to listen to
         window.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: consent }));
 
-        // Example: Load analytics if consented
+        // Optional extended analytics script, only with consent. The basic page count
+        // (countPageView) does not depend on consent.
         if (consent.analytics) {
             loadAnalytics();
         }
@@ -301,8 +310,10 @@
         }
     }
 
-    // Page-view counter on relay.codehospital.com. Previously an <img> in the footer that
-    // fired on every page before consent; it now only fires with analytics consent.
+    // Page-view counter on relay.codehospital.com, our own server. It sets no cookies and
+    // stores nothing on the device, so it runs without consent on the basis of legitimate
+    // interest (privacy policy section 3.2). It is skipped when the browser signals Global
+    // Privacy Control or Do Not Track, which is also how visitors can object.
     const RELAY_PIXEL_BASE = 'https://relay.codehospital.com/callback/9ea2b8a1207998a817aa98146acb6b11';
     let relayPixelSent = false;
 
@@ -322,7 +333,12 @@
 
     function loadAnalytics() {
         loadAnalyticsScript();
-        if (relayPixelSent) { return; }
+    }
+
+    function countPageView() {
+        const visitorOptedOut = navigator.globalPrivacyControl === true
+            || navigator.doNotTrack === '1' || window.doNotTrack === '1';
+        if (relayPixelSent || visitorOptedOut) { return; }
         relayPixelSent = true;
         const pagePath = document.body.dataset.pagePath || window.location.pathname;
         let pixelUrl = RELAY_PIXEL_BASE + pagePath + '.png';
@@ -383,6 +399,8 @@
     }
 
     function init() {
+        countPageView();
+
         // Show banner if no consent stored
         if (!hasConsent()) {
             // Small delay to let the page render first. On a phone's first visit the

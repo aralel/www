@@ -1,0 +1,88 @@
+---
+layout: legal
+locale: en
+page_title: Accessibility Statement - Aralel GmbH
+page_description: Accessibility statement for aralel.com - what is in place, known limitations and how to report a barrier.
+back_url: /en.html
+back_label: Back to Home
+switch_url: /barrierefreiheit.html
+---
+
+{% assign company = site.data.company %}
+<h1>Accessibility Statement</h1>
+<p class="last-updated">Last updated: 28 October 2026</p>
+
+<p>
+    {{ company.legal_name }} wants <strong>www.aralel.com</strong> to be usable by as many people as
+    possible: with a keyboard, a screen reader, magnification, high contrast or on a phone. We aim
+    for the Web Content Accessibility Guidelines (WCAG) 2.2, conformance level AA.
+</p>
+
+<div class="highlight-box">
+    <strong>Note:</strong> We publish this statement voluntarily. Whether and to what extent legal
+    accessibility duties (for example under the German Barrierefreiheitsstärkungsgesetz) apply
+    depends on the individual service.
+</div>
+
+<!-- TODO (owner): If the BFSG applies to a service, add the competent market surveillance authority and the complaint procedure here. -->
+
+<h2>Scope</h2>
+<p>
+    This statement covers the website www.aralel.com in German and English. It does not cover our
+    apps and games or the app store pages we link to.
+</p>
+
+<h2>Where we stand</h2>
+<p>
+    By our own assessment, the website largely meets WCAG 2.2 level AA. It has not been fully
+    audited by a third party.
+</p>
+
+<h2>What we do</h2>
+<ul>
+    <li>Pages are structured with headings and landmarks (navigation, main content, footer), and each page declares its language.</li>
+    <li>Everything can be used with a keyboard. Focus is visible, and the menu, the language choice and the cookie notice close with the Esc key.</li>
+    <li>Text meets a contrast ratio of at least 4.5:1. The light and dark colour schemes follow your device setting.</li>
+    <li>Motion and transitions are turned off when your device asks to reduce motion.</li>
+    <li>The layout adapts to small screens and stays usable from 320 pixels wide without sideways scrolling. Text can be enlarged with your browser settings.</li>
+    <li>Controls are at least 24 × 24 pixels, and usually much larger on a phone. Input fields use at least 16 pixel text so your device does not zoom into them.</li>
+    <li>Form fields have labels, and status messages are read out by screen readers.</li>
+    <li>Images that carry content (screenshots, QR codes) have text alternatives. Purely decorative images, such as product icons next to a name, are hidden from screen readers.</li>
+</ul>
+
+<h2>Known limitations</h2>
+<ul>
+    <li><strong>Screenshots:</strong> The alternative text gives the app name and the number of the image. It does not describe what the image shows.</li>
+    <li><strong>Third-party content:</strong> The app store pages, linked product websites and ads that load only after you consent are outside our control.</li>
+    <li><strong>Contact forms:</strong> By default they open your email app with a prepared message. If you do not use one, write to us directly at <a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a>.</li>
+    <li><strong>Project scoping tool:</strong> The tool on the Services page needs JavaScript. Without JavaScript, the regular contact form is available.</li>
+    <li><strong>Long tables:</strong> Tables in the privacy policy scroll sideways on small screens. You can reach and scroll them with the keyboard.</li>
+    <li><strong>Assistive technology testing:</strong> We have not yet run systematic tests with screen readers such as VoiceOver, TalkBack or NVDA.</li>
+</ul>
+
+<h2>How we checked</h2>
+<p>
+    We assessed the website ourselves on 28 October 2026. Using axe-core 4.14 (rules for WCAG 2.0
+    to 2.2 levels A and AA, plus best practices), we checked 15 representative pages: home,
+    services, listings, product pages, collections, news, company, careers, press kit, legal
+    notice and privacy policy. We ran the checks at desktop and phone widths, in the light and
+    dark colour schemes. We also checked the language choice, the cookie notice and the open
+    menu. No violations were reported after we fixed the ones found earlier. Automated tools find
+    only part of the possible problems.
+</p>
+
+<h2>Report a barrier</h2>
+<p>
+    Did you run into a barrier, or can you not use some content? Write to us at
+    <a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a>. Please name the
+    page, describe the problem and, if you like, the assistive technology you use. We reply as
+    soon as we can and, if needed, provide the information in another form.
+</p>
+
+<h2>Address</h2>
+<address>
+    <strong>{{ company.legal_name }}</strong><br />
+    {{ company.address.street }}<br />
+    {{ company.address.postal_code }} {{ company.address.city }}<br />
+    {{ company.address.country_en }}
+</address>

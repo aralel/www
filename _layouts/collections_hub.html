@@ -1,0 +1,77 @@
+---
+layout: default
+body_class: subpage
+---
+{% comment %}
+  Hub listing every themed collection from _data/collections.yml. Copy: pages.collections
+  (title/description), collectionsHub (hero + labels) and collections.<key> in the locale files.
+{% endcomment %}
+{% assign locale_code = page.locale | default: "en" %}
+{% assign t = site.data.locales[locale_code] %}
+{% assign page_meta = t.pages[page.page_key] %}
+{% assign visible_products = site.data.products.products | where_exp: "product", "product.hidden != true" %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ page.url | absolute_url }}#webpage",
+      "name": {{ page_meta.title | jsonify }},
+      "description": {{ page_meta.description | jsonify }},
+      "url": {{ page.url | absolute_url | jsonify }},
+      "inLanguage": {{ locale_code | jsonify }},
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "publisher": { "@id": "{{ site.url }}/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "itemListElement": [
+        {% for collection in site.data.collections %}
+        {% capture collection_url %}{% include localized_path.html path=collection.page locale=locale_code %}{% endcapture %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "name": {{ t.collections[collection.key].heroTitle | jsonify }},
+          "url": {{ collection_url | absolute_url | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  ]
+}
+</script>
+
+<main class="catalog-page">
+  <section class="page-hero page-hero--listing">
+    <div class="page-hero-content">
+      <span class="page-kicker">{{ t.collectionsHub.kicker }}</span>
+      <h1>{{ t.collectionsHub.heroTitle }}</h1>
+      <p>{{ t.collectionsHub.heroText }}</p>
+    </div>
+  </section>
+
+  <section class="catalog-section-page">
+    <div class="collection-grid">
+      {% for collection in site.data.collections %}
+        {% assign collection_copy = t.collections[collection.key] %}
+        {% capture collection_url %}{% include localized_path.html path=collection.page locale=locale_code %}{% endcapture %}
+        {% assign collection_products = visible_products | where_exp: "product", "product.collections contains collection.key" %}
+        <article class="collection-card">
+          <span class="catalog-type">{{ collection_copy.kicker }}</span>
+          <h2 class="collection-card-title"><a class="collection-card-link" href="{{ collection_url | relative_url }}">{{ collection_copy.heroTitle }}</a></h2>
+          <p class="collection-card-text">{{ collection_copy.heroText }}</p>
+          <div class="collection-card-footer">
+            <span class="collection-icons" aria-hidden="true">
+              {% for product in collection_products limit: 6 %}
+                {% include picture.html src=product.iconUrl alt="" class="collection-icon" width=512 height=512 %}
+              {% endfor %}
+            </span>
+            <span class="collection-count">{{ t.collectionsHub.countLabel | replace: "%count%", collection_products.size }}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>

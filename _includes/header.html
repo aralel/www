@@ -21,8 +21,8 @@
         {% assign english_url = page.url %}
       {% endif %}
       <div class="lang-toggle" role="group" aria-label="{{ t.nav.languageLabel }}">
-        <a href="{{ german_url | relative_url }}" hreflang="de" lang="de" aria-label="Deutsch" data-language-choice="de"{% if locale_code == "de" %} aria-current="true"{% endif %}>DE</a>
-        <a href="{{ english_url | relative_url }}" hreflang="en" lang="en" aria-label="English" data-language-choice="en"{% if locale_code == "en" %} aria-current="true"{% endif %}>EN</a>
+        <a href="{{ german_url | relative_url }}" hreflang="de" lang="de" data-language-choice="de"{% if locale_code == "de" %} aria-current="true"{% endif %}>DE<span class="visually-hidden"> – Deutsch</span></a>
+        <a href="{{ english_url | relative_url }}" hreflang="en" lang="en" data-language-choice="en"{% if locale_code == "en" %} aria-current="true"{% endif %}>EN<span class="visually-hidden"> – English</span></a>
       </div>
     {% endif %}
 

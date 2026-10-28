@@ -1,0 +1,180 @@
+{
+  "width": 1200,
+  "height": 630,
+  "products": {
+    "arena-sudoku": {
+      "de": "/images/og/arena-sudoku_de.jpg",
+      "en": "/images/og/arena-sudoku_en.jpg"
+    },
+    "availabell": {
+      "de": "/images/og/availabell_de.jpg",
+      "en": "/images/og/availabell_en.jpg"
+    },
+    "cyrus-cylinder": {
+      "de": "/images/og/cyrus-cylinder_de.jpg",
+      "en": "/images/og/cyrus-cylinder_en.jpg"
+    },
+    "anava": {
+      "de": "/images/og/anava_de.jpg",
+      "en": "/images/og/anava_en.jpg"
+    },
+    "a-solar-compass": {
+      "de": "/images/og/a-solar-compass_de.jpg",
+      "en": "/images/og/a-solar-compass_en.jpg"
+    },
+    "wireless-deck": {
+      "de": "/images/og/wireless-deck_de.jpg",
+      "en": "/images/og/wireless-deck_en.jpg"
+    },
+    "messagram-app": {
+      "de": "/images/og/messagram-app_de.jpg",
+      "en": "/images/og/messagram-app_en.jpg"
+    },
+    "german-word-search": {
+      "de": "/images/og/german-word-search_de.jpg",
+      "en": "/images/og/german-word-search_en.jpg"
+    },
+    "hedortal": {
+      "de": "/images/og/hedortal_de.jpg",
+      "en": "/images/og/hedortal_en.jpg"
+    },
+    "rock-paper-bluetooth": {
+      "de": "/images/og/rock-paper-bluetooth_de.jpg",
+      "en": "/images/og/rock-paper-bluetooth_en.jpg"
+    },
+    "ai-usage-menubar": {
+      "de": "/images/og/ai-usage-menubar_de.jpg",
+      "en": "/images/og/ai-usage-menubar_en.jpg"
+    },
+    "streakbox-gamify-daily-visit": {
+      "de": "/images/og/streakbox-gamify-daily-visit_de.jpg",
+      "en": "/images/og/streakbox-gamify-daily-visit_en.jpg"
+    },
+    "ad-verbum": {
+      "de": "/images/og/ad-verbum_de.jpg",
+      "en": "/images/og/ad-verbum_en.jpg"
+    },
+    "navigating-strait-of-hormuz": {
+      "de": "/images/og/navigating-strait-of-hormuz_de.jpg",
+      "en": "/images/og/navigating-strait-of-hormuz_en.jpg"
+    },
+    "buzzbelt": {
+      "de": "/images/og/buzzbelt_de.jpg",
+      "en": "/images/og/buzzbelt_en.jpg"
+    },
+    "albumara": {
+      "de": "/images/og/albumara_de.jpg",
+      "en": "/images/og/albumara_en.jpg"
+    },
+    "alien-planetary-ambush": {
+      "de": "/images/og/alien-planetary-ambush_de.jpg",
+      "en": "/images/og/alien-planetary-ambush_en.jpg"
+    },
+    "voice-following-teleprompter": {
+      "de": "/images/og/voice-following-teleprompter_de.jpg",
+      "en": "/images/og/voice-following-teleprompter_en.jpg"
+    },
+    "llm-on-demand": {
+      "de": "/images/og/llm-on-demand_de.jpg",
+      "en": "/images/og/llm-on-demand_en.jpg"
+    },
+    "health-in-key": {
+      "de": "/images/og/health-in-key_de.jpg",
+      "en": "/images/og/health-in-key_en.jpg"
+    },
+    "arta-text": {
+      "de": "/images/og/arta-text_de.jpg",
+      "en": "/images/og/arta-text_en.jpg"
+    },
+    "open-eyes": {
+      "de": "/images/og/open-eyes_de.jpg",
+      "en": "/images/og/open-eyes_en.jpg"
+    }
+  },
+  "pages": {
+    "home": {
+      "de": "/images/og/page-home_de.jpg",
+      "en": "/images/og/page-home_en.jpg"
+    },
+    "portfolio": {
+      "de": "/images/og/page-portfolio_de.jpg",
+      "en": "/images/og/page-portfolio_en.jpg"
+    },
+    "travelApps": {
+      "de": "/images/og/page-travelApps_de.jpg",
+      "en": "/images/og/page-travelApps_en.jpg"
+    },
+    "news": {
+      "de": "/images/og/page-news_de.jpg",
+      "en": "/images/og/page-news_en.jpg"
+    },
+    "press": {
+      "de": "/images/og/page-press_de.jpg",
+      "en": "/images/og/page-press_en.jpg"
+    },
+    "apps": {
+      "de": "/images/og/page-apps_de.jpg",
+      "en": "/images/og/page-apps_en.jpg"
+    },
+    "games": {
+      "de": "/images/og/page-games_de.jpg",
+      "en": "/images/og/page-games_en.jpg"
+    },
+    "iphone": {
+      "de": "/images/og/page-iphone_de.jpg",
+      "en": "/images/og/page-iphone_en.jpg"
+    },
+    "android": {
+      "de": "/images/og/page-android_de.jpg",
+      "en": "/images/og/page-android_en.jpg"
+    },
+    "amazon": {
+      "de": "/images/og/page-amazon_de.jpg",
+      "en": "/images/og/page-amazon_en.jpg"
+    },
+    "samsung": {
+      "de": "/images/og/page-samsung_de.jpg",
+      "en": "/images/og/page-samsung_en.jpg"
+    },
+    "shopify": {
+      "de": "/images/og/page-shopify_de.jpg",
+      "en": "/images/og/page-shopify_en.jpg"
+    },
+    "desktop": {
+      "de": "/images/og/page-desktop_de.jpg",
+      "en": "/images/og/page-desktop_en.jpg"
+    },
+    "websites": {
+      "de": "/images/og/page-websites_de.jpg",
+      "en": "/images/og/page-websites_en.jpg"
+    },
+    "careers": {
+      "de": "/images/og/page-careers_de.jpg",
+      "en": "/images/og/page-careers_en.jpg"
+    },
+    "services": {
+      "de": "/images/og/page-services_de.jpg",
+      "en": "/images/og/page-services_en.jpg"
+    },
+    "company": {
+      "de": "/images/og/page-company_de.jpg",
+      "en": "/images/og/page-company_en.jpg"
+    },
+    "learnWithWords": {
+      "de": "/images/og/page-learnWithWords_de.jpg",
+      "en": "/images/og/page-learnWithWords_en.jpg"
+    },
+    "privateOfflineApps": {
+      "de": "/images/og/page-privateOfflineApps_de.jpg",
+      "en": "/images/og/page-privateOfflineApps_en.jpg"
+    },
+    "playTogether": {
+      "de": "/images/og/page-playTogether_de.jpg",
+      "en": "/images/og/page-playTogether_en.jpg"
+    },
+    "collections": {
+      "de": "/images/og/page-collections_de.jpg",
+      "en": "/images/og/page-collections_en.jpg"
+    }
+  }
+}

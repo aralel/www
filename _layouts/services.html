@@ -77,6 +77,8 @@ body_class: subpage
 
     <div class="services-cta">
       <a href="#discuss" class="cta-button">{{ services.ctaLabel }}</a>
+      {% comment %} The scoping wizard needs JavaScript, so its link stays hidden until script.js shows both. {% endcomment %}
+      <a href="#scope" class="secondary-link" data-scope-link hidden>{{ services.wizard.linkLabel }}</a>
     </div>
 
     {% for group in services.groups %}
@@ -150,6 +152,59 @@ body_class: subpage
           <p class="faq-answer">{{ faq_item.answer }}</p>
         </details>
       {% endfor %}
+    </div>
+  </section>
+
+  {% assign wizard = services.wizard %}
+  <section id="scope" class="services-section services-wizard" data-scope-wizard hidden aria-labelledby="scope-title"
+           data-message-intro="{{ wizard.messageIntro | escape }}" data-message-outro="{{ wizard.messageOutro | escape }}"
+           data-progress-label="{{ wizard.progress | escape }}" data-result-empty="{{ wizard.resultEmpty | escape }}">
+    <div class="section-title-container">
+      <h2 class="section-title" id="scope-title">{{ wizard.title }}</h2>
+      <div class="title-decoration"></div>
+      <p class="section-subtitle">{{ wizard.subtitle }}</p>
+    </div>
+
+    <div class="wizard-panel">
+      <form class="wizard-form" data-wizard-form>
+        <p class="wizard-progress" data-wizard-progress aria-live="polite"></p>
+        <div class="wizard-bar" aria-hidden="true"><span data-wizard-bar></span></div>
+
+        {% for step in wizard.steps %}
+          <fieldset class="wizard-step" data-wizard-step data-label="{{ step.label | escape }}" hidden>
+            <legend class="wizard-question" tabindex="-1">{{ step.title }}</legend>
+            <p class="wizard-hint">{{ step.hint }}</p>
+            <div class="wizard-options">
+              {% assign input_type = "radio" %}
+              {% if step.multiple %}{% assign input_type = "checkbox" %}{% endif %}
+              {% if step.fromGroups %}
+                {% for group in services.groups %}
+                  <label class="wizard-option"><input type="{{ input_type }}" name="scope-{{ step.key }}" value="{{ group.title | escape }}"><span>{{ group.title }}</span></label>
+                {% endfor %}
+              {% else %}
+                {% for option in step.options %}
+                  <label class="wizard-option"><input type="{{ input_type }}" name="scope-{{ step.key }}" value="{{ option | escape }}"><span>{{ option }}</span></label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </fieldset>
+        {% endfor %}
+
+        <div class="wizard-actions">
+          <button type="button" class="secondary-link" data-wizard-back>{{ wizard.back }}</button>
+          <button type="button" class="cta-button" data-wizard-next data-next-label="{{ wizard.next | escape }}" data-finish-label="{{ wizard.finish | escape }}">{{ wizard.next }}</button>
+        </div>
+      </form>
+
+      <div class="wizard-result" data-wizard-result hidden>
+        <h3 class="wizard-result-title" tabindex="-1">{{ wizard.resultTitle }}</h3>
+        <dl class="wizard-summary" data-wizard-summary></dl>
+        <p class="wizard-result-text" data-wizard-result-text>{{ wizard.resultText }}</p>
+        <div class="wizard-actions">
+          <button type="button" class="secondary-link" data-wizard-restart>{{ wizard.restart }}</button>
+          <button type="button" class="cta-button" data-wizard-continue>{{ wizard.continue }}</button>
+        </div>
+      </div>
     </div>
   </section>
 

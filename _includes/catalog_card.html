@@ -1,3 +1,5 @@
+{% comment %} heading_tag: h3 under a section heading (default); listing pages pass h2 because their page title is the h1. {% endcomment %}
+{% assign card_heading_tag = include.heading_tag | default: "h3" %}
 {% assign product = include.product %}
 {% assign t = site.data.locales[include.locale] %}
 {% assign copy = t.products[product.slug] %}
@@ -13,7 +15,7 @@
     {% include picture.html src=product.iconUrl alt="" class="catalog-icon" width=512 height=512 %}
     <div class="catalog-heading">
       <span class="catalog-type">{{ copy.category }}</span>
-      <h3><a class="catalog-name-link" href="{{ product_url | relative_url }}">{{ copy.name }}</a></h3>
+      <{{ card_heading_tag }}><a class="catalog-name-link" href="{{ product_url | relative_url }}">{{ copy.name }}</a></{{ card_heading_tag }}>
     </div>
   </div>
 

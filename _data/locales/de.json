@@ -72,6 +72,22 @@
     "company": {
       "title": "Über Aralel — Das Studio und wie wir arbeiten",
       "description": "Aralel ist ein Software-Studio, das digitale Produkte entwickelt und betreibt. Was wir bauen, wie wir arbeiten und was dieses Portfolio zeigt."
+    },
+    "learnWithWords": {
+      "title": "Wortspiele zum Lernen und Auswendiglernen – Aralel GmbH",
+      "description": "German Word Search, Cyrus Cylinder und Ad Verbum: Wortspiele, die den deutschen Wortschatz erweitern und beim Auswendiglernen von Texten helfen."
+    },
+    "privateOfflineApps": {
+      "title": "Private Apps und Offline-Apps – Aralel GmbH",
+      "description": "Aralel-Apps ohne Konto, Werbung und Tracking oder mit Offline-Betrieb: Messagram, Buzzbelt, Arta Text, Open Eyes und mehr."
+    },
+    "playTogether": {
+      "title": "Spiele zum gemeinsamen Spielen – Aralel GmbH",
+      "description": "Arena Sudoku und Rock Paper Bluetooth: ein Echtzeit-Sudoku zum gemeinsamen Lösen und ein lokales Schere-Stein-Papier-Duell über Bluetooth."
+    },
+    "collections": {
+      "title": "Sammlungen – Aralel GmbH",
+      "description": "Aralel-Apps und -Spiele nach Thema gruppiert: Reisen, Lernen mit Wörtern, private und Offline-Nutzung und gemeinsames Spielen."
     }
   },
   "nav": {
@@ -130,7 +146,12 @@
     "screenshotAlt": "Screenshot %number% von %name%",
     "filterAll": "Alle",
     "filterLabel": "Nach Plattform filtern",
-    "comingSoon": "Demnächst"
+    "comingSoon": "Demnächst",
+    "qr": {
+      "title": "Auf dem Handy öffnen",
+      "text": "Scannen Sie den Code mit der Kamera Ihres Handys. Die Seite öffnet sich mit dem passenden Store an erster Stelle.",
+      "alt": "QR-Code, der %name% auf Ihrem Handy öffnet"
+    }
   },
   "platforms": {
     "labels": {
@@ -184,7 +205,6 @@
   "footer": {
     "description": "Offizielle Website der Aralel GmbH mit öffentlichem Portfolio veröffentlichter Produkte und direkten Links zu den jeweiligen Plattformen.",
     "portfolioTitle": "Portfolio",
-    "travelApps": "Reise-Apps",
     "news": "Neuigkeiten",
     "companyTitle": "Unternehmen",
     "languageTitle": "Sprache",
@@ -196,7 +216,9 @@
     "privacy": "Datenschutz",
     "impressum": "Impressum",
     "cookieSettings": "Cookie-Einstellungen",
-    "cache": "Cache ungültig machen"
+    "cache": "Cache ungültig machen",
+    "collections": "Sammlungen",
+    "accessibility": "Barrierefreiheit"
   },
   "home": {
     "hero": {
@@ -593,6 +615,74 @@
           "answer": "Schreiben Sie uns kurz über Ihr Projekt – über das Formular unten oder per E-Mail. Wir melden uns für ein erstes, unverbindliches Gespräch."
         }
       ]
+    },
+    "wizard": {
+      "linkLabel": "Projekt eingrenzen",
+      "title": "Unsicher, wo Sie anfangen sollen?",
+      "subtitle": "Beantworten Sie vier kurze Fragen. Wir machen daraus eine versandfertige Anfrage, und es wird nichts gesendet, bevor Sie auf Senden drücken.",
+      "progress": "Schritt %current% von %total%",
+      "next": "Weiter",
+      "back": "Zurück",
+      "finish": "Zusammenfassung zeigen",
+      "steps": [
+        {
+          "key": "needs",
+          "label": "Bedarf",
+          "title": "Wobei brauchen Sie Unterstützung?",
+          "hint": "Wählen Sie alles, was zutrifft.",
+          "multiple": true,
+          "fromGroups": true,
+          "options": []
+        },
+        {
+          "key": "platforms",
+          "label": "Plattformen",
+          "title": "Wo soll es laufen?",
+          "hint": "Wählen Sie alles, was zutrifft.",
+          "multiple": true,
+          "options": [
+            "iPhone und iPad",
+            "Android",
+            "Web",
+            "Mac",
+            "Noch unklar"
+          ]
+        },
+        {
+          "key": "timeline",
+          "label": "Zeitrahmen",
+          "title": "Wann möchten Sie starten?",
+          "hint": "Wählen Sie eine Antwort.",
+          "multiple": false,
+          "options": [
+            "So bald wie möglich",
+            "In 1–3 Monaten",
+            "Später in diesem Jahr",
+            "Ich informiere mich erst"
+          ]
+        },
+        {
+          "key": "budget",
+          "label": "Budget",
+          "title": "Haben Sie ein ungefähres Budget?",
+          "hint": "Eine Spanne genügt und hilft uns, einen realistischen Umfang vorzuschlagen. Wählen Sie eine Antwort.",
+          "multiple": false,
+          "options": [
+            "Unter 10.000 €",
+            "10.000–30.000 €",
+            "30.000–75.000 €",
+            "Über 75.000 €",
+            "Noch unklar"
+          ]
+        }
+      ],
+      "resultTitle": "Ihr Projekt in Kürze",
+      "resultEmpty": "Sie haben nichts ausgewählt, daher bleibt das Formular leer. Sie können Ihr Projekt trotzdem in eigenen Worten beschreiben.",
+      "resultText": "Das steht jetzt im Nachrichtenfeld des Formulars darunter. Ergänzen Sie, was wir noch wissen sollten, und senden Sie die Anfrage ab.",
+      "continue": "Weiter zur Anfrage",
+      "restart": "Neu starten",
+      "messageIntro": "Projektumfang (aus dem Eingrenzungs-Assistenten):",
+      "messageOutro": "Weitere Details:"
     }
   },
   "company": {
@@ -644,6 +734,21 @@
       "kicker": "Unterwegs zusammen",
       "heroTitle": "Apps für Reisen mit Familie und Freunden",
       "heroText": "Zwei Apps für die Reise mit Ihrer Gruppe: Mit Buzzbelt bleiben alle auch ohne Mobilfunknetz im Gespräch, und Albumara sammelt die Fotos und Videos aller automatisch in einem gemeinsamen Album."
+    },
+    "words": {
+      "kicker": "Lernen mit Wörtern",
+      "heroTitle": "Wortspiele zum Lernen und Auswendiglernen",
+      "heroText": "Drei Wortspiele mit Sinn: German Word Search und Cyrus Cylinder erweitern den deutschen Wortschatz, und Ad Verbum hilft beim Auswendiglernen beliebiger Texte, indem eine Schlange die Wörter in der richtigen Reihenfolge einsammelt."
+    },
+    "private": {
+      "kicker": "Privat und offline",
+      "heroTitle": "Apps, die so wenig wie möglich verlangen",
+      "heroText": "Zusammen verzichten diese Apps auf Konto, Werbung und Tracking, und einige funktionieren ohne Internetverbindung. Auf der Seite jeder App steht, was davon zutrifft."
+    },
+    "together": {
+      "kicker": "Gemeinsam spielen",
+      "heroTitle": "Spiele für zwei oder mehr",
+      "heroText": "Bei Arena Sudoku lösen alle in Echtzeit dasselbe Brett, im Browser oder mobil. Rock Paper Bluetooth ist ein schnelles lokales Duell zwischen zwei iPhones oder iPads und funktioniert ohne Internet."
     }
   },
   "news": {
@@ -1306,5 +1411,13 @@
   },
   "languagePrompt": {
     "hint": "Sie können jederzeit oben auf der Seite mit DE / EN wechseln."
+  },
+  "collectionsHub": {
+    "kicker": "Nach Thema stöbern",
+    "heroTitle": "Sammlungen",
+    "heroText": "Unsere Apps und Spiele, gruppiert danach, wofür Sie sie nutzen möchten.",
+    "countLabel": "%count% Apps & Spiele",
+    "moreTitle": "Weitere Sammlungen",
+    "allCollections": "Alle Sammlungen"
   }
 }

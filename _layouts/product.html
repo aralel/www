@@ -152,7 +152,7 @@ body_class: subpage
 
   {% if store_listing.screenshots.size > 0 %}
     <section class="screenshot-gallery" aria-label="{{ t.common.screenshotsTitle }}">
-      <ul class="screenshot-strip">
+      <ul class="screenshot-strip" tabindex="0">
         {% for screenshot in store_listing.screenshots %}
           {% assign screenshot_alt = t.common.screenshotAlt | replace: "%name%", copy.name | replace: "%number%", forloop.index %}
           <li class="screenshot-item{% if screenshot.width > screenshot.height %} screenshot-item--landscape{% endif %}">
@@ -196,6 +196,22 @@ body_class: subpage
           <strong>{% if is_app %}{{ t.common.typeApp }}{% else %}{{ t.common.typeGame }}{% endif %}</strong>
         </div>
       </div>
+
+      {% comment %} Desktop only (styles.css): a QR code that opens this page on a phone. Files come from scripts/build-qr.mjs. {% endcomment %}
+      {% assign qr_eligible = false %}
+      {% unless product.comingSoon %}
+        {% for platform_key in product.platforms %}
+          {% if platform_key == "iphone" or platform_key == "ipad" or platform_key == "android" %}{% assign qr_eligible = true %}{% endif %}
+        {% endfor %}
+      {% endunless %}
+      {% if qr_eligible %}
+        {% capture qr_image_path %}/images/qr/{{ product.slug }}{% if page.locale == "en" %}_en{% endif %}.svg{% endcapture %}
+        <div class="detail-panel qr-panel">
+          <h2 class="qr-title">{{ t.common.qr.title }}</h2>
+          <img class="qr-image" src="{{ qr_image_path | relative_url }}" alt="{{ t.common.qr.alt | replace: '%name%', copy.name }}" width="148" height="148" loading="lazy" decoding="async">
+          <p class="qr-text">{{ t.common.qr.text }}</p>
+        </div>
+      {% endif %}
 
       {% comment %} Cross-sell: every product page doubles as a case study for client work. {% endcomment %}
       {% capture services_discuss_url %}{% include localized_path.html path="/services" locale=page.locale %}{% endcapture %}

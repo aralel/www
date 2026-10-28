@@ -2,6 +2,25 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-28 (2)
+
+**Prompt:** "it's part of aralel / it's stored on our servers / we want the referrer to stay / so do step 1 and 3 and 4" (relay.codehospital.com consent: fire the pixel without consent, rewrite privacy policy §3.2, adjust the cookie banner text).
+
+**Done:**
+- Pixel now fires on every page without consent; referrer kept; skipped for Global Privacy Control / Do Not Track (my addition, the objection mechanism). Policy §3.2 rewritten in DE/EN (Art. 6(1)(f), our own server, retention, objection). Cookie banner intro and Analytics description updated. README and `CHANGELOG.md` `[0.22.1]` updated.
+- Open for the owner: confirm "not joined with other websites" and give a concrete retention period (marked `TODO` in both policies); legal wording check.
+
+## 2026-10-28
+
+**Prompt:** "1- implement Project scoping wizard on the Services page 2- add qr code on product page for desktop visitors 3- implement more themed collections as you suggested 4- add Social share images per product and page 5- add Barrierefreiheitserklärung. resume work"
+
+**Done:**
+- 1: four-step wizard on `#scope` (progressive enhancement, writes into the contact form). 2: dependency-free QR encoder + `build-qr.mjs`, desktop-only panel. 3: `_data/collections.yml`, three new collections (words, private, together), a hub page, footer link. Skipped "Mac tools" (the Mac platform page already does it). 4: `build-og-images.mjs` (Playwright + site fonts) and a manifest used by `head.html`. 5: statement pages in DE/EN, written after an axe-core audit.
+- The audit found and I fixed real problems (contrast of muted text, heading order, DE/EN switch name, unnamed cookie switches, keyboard access to scroll areas). Details in `CHANGELOG.md` under `[0.22.0]`.
+- Verified: `jekyll build` + `check-site.mjs _site` pass (22 products, 108 pages). Wizard driven end to end on desktop and phone (and hidden without JS). QR encoder decoded with jsQR for 211 payloads across versions 1–10 and the shipped SVGs decode to the right URLs. axe-core: no violations on 15 pages × 3 viewport/theme combos plus overlays. No horizontal overflow at 320px on those pages.
+- For the owner: check the legal wording of the accessibility statement and add the authority/complaint section if the BFSG applies; consider screen reader testing (the statement says there has been none).
+- Gotchas: zsh does not split a loop variable like `$pair`, which created oddly named stub files (removed). Build with `PATH="$HOME/.asdf/installs/ruby/3.3.8/bin:$PATH"` when `bundle` picks system Ruby.
+
 ## 2026-10-26 (2)
 
 **Prompt:** "Fix the teleprompter slug/screenshot mismatch so its screenshots show again."

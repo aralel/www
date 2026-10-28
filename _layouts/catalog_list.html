@@ -68,7 +68,7 @@ body_class: subpage
     {% endif %}
     <div class="catalog-grid">
       {% for product in products %}
-        {% include catalog_card.html product=product locale=page.locale %}
+        {% include catalog_card.html product=product locale=page.locale  heading_tag="h2" %}
       {% endfor %}
     </div>
   </section>

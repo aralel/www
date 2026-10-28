@@ -1,0 +1,16 @@
+# Themed product collections, in the order the hub page and "more collections" rows show them.
+# key:      products.json `collections` tag and collections.<key> copy (kicker/heroTitle/heroText) in the locale files
+# page:     page path without .html (localized_path.html adds _en); the stub pages use layout collection_list
+# page_key: pages.<page_key> (title/description) in the locale files
+- key: travel
+  page: /travel-apps
+  page_key: travelApps
+- key: words
+  page: /learn-with-words
+  page_key: learnWithWords
+- key: private
+  page: /private-offline-apps
+  page_key: privateOfflineApps
+- key: together
+  page: /play-together
+  page_key: playTogether

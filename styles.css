@@ -49,7 +49,7 @@
     --border-strong: #d2c3b0;
     --text: #201a14;
     --text-soft: #64584d;
-    --text-muted: #8d8074;
+    --text-muted: #716557;   /* 4.9:1 on the lightest surface (was #8d8074, 3.4:1) */
     --brand: #c97a2b;
     --brand-deep: #8f4e16;
     --brand-soft: #fff3e3;
@@ -870,6 +870,7 @@ main {
     padding: 1.7rem;
 }
 
+.about-text h2,
 .about-text h3,
 .contact-item h3,
 .contact-form h3 {
@@ -884,6 +885,7 @@ main {
     color: var(--text-soft);
 }
 
+.about-text h2:not(:first-child),
 .about-text h3:not(:first-child) {
     margin-top: 1.5rem;
 }
@@ -3575,4 +3577,392 @@ picture {
         clip: rect(0 0 0 0);
         white-space: nowrap;
     }
+}
+
+/* ── Collections hub and "more collections" row ─────────────────────────────── */
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.collection-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, var(--surface), var(--surface-soft));
+    box-shadow: var(--shadow-sm);
+}
+
+.collection-card-title {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* The whole card opens the collection. */
+.collection-card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.collection-card-link:hover,
+.collection-card-link:focus-visible {
+    color: var(--brand-deep);
+    outline: none;
+}
+
+.collection-card:has(.collection-card-link:focus-visible) {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+}
+
+.collection-card-text {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+.collection-card-footer {
+    margin-top: auto;
+    padding-top: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.collection-icons {
+    display: flex;
+}
+
+.collection-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 11px;
+    border: 2px solid var(--surface);
+    object-fit: cover;
+}
+
+.collection-icon + .collection-icon,
+.collection-icons picture + picture .collection-icon {
+    margin-left: -0.55rem;
+}
+
+.collection-count {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.collection-more {
+    width: min(calc(100% - 2rem), var(--content-width));
+    margin: 0 auto;
+    padding: 0 0 3.4rem;
+}
+
+.collection-more-title {
+    margin: 0 0 0.75rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+}
+
+.collection-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+@media (max-width: 820px) {
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .collection-card {
+        padding: 1.15rem;
+        border-radius: 20px;
+        box-shadow: none;
+        background: var(--surface);
+    }
+
+    .collection-more {
+        width: 100%;
+        padding: 0.25rem 1rem 2.5rem;
+    }
+}
+
+/* ── Services: scoping wizard (script.js) ───────────────────────────────────── */
+.services-wizard [hidden] {
+    display: none !important;
+}
+
+.services-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.wizard-panel {
+    max-width: 44rem;
+    padding: 1.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, var(--surface), var(--surface-soft));
+    box-shadow: var(--shadow-sm);
+}
+
+.wizard-progress {
+    margin: 0 0 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.wizard-bar {
+    height: 0.35rem;
+    margin-bottom: 1.4rem;
+    border-radius: 999px;
+    background: var(--surface-muted);
+    overflow: hidden;
+}
+
+.wizard-bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--brand), var(--brand-strong));
+    transition: width 0.3s ease;
+}
+
+.wizard-step {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+.wizard-question {
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.wizard-question:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.wizard-hint {
+    margin: 0.35rem 0 1rem;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+.wizard-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 0.6rem;
+}
+
+.wizard-option {
+    position: relative;
+    display: block;
+}
+
+/* The real input stays focusable and clickable; the span is what people see. */
+.wizard-option input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.wizard-option span {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-height: 3.25rem;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    background: var(--surface);
+    font-weight: 700;
+    line-height: 1.3;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.wizard-option span::before {
+    content: "";
+    flex: none;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 2px solid var(--border-strong);
+    border-radius: 6px;
+    background: var(--surface);
+}
+
+.wizard-option input[type="radio"] + span::before {
+    border-radius: 50%;
+}
+
+.wizard-option input:checked + span {
+    border-color: var(--brand);
+    background: var(--brand-soft);
+}
+
+.wizard-option input:checked + span::before {
+    border-color: var(--brand);
+    background: var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 90% no-repeat;
+}
+
+.wizard-option input:focus-visible + span {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+}
+
+.wizard-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.wizard-actions [data-wizard-next],
+.wizard-actions [data-wizard-continue] {
+    margin-left: auto;
+    cursor: pointer;
+    border: 0;
+}
+
+.wizard-actions button {
+    cursor: pointer;
+}
+
+.wizard-result-title {
+    margin: 0 0 1rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+}
+
+.wizard-result-title:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.wizard-summary {
+    margin: 0 0 1rem;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.5rem 1.25rem;
+}
+
+.wizard-summary dt {
+    color: var(--text-muted);
+    font-weight: 800;
+}
+
+.wizard-summary dd {
+    margin: 0;
+    font-weight: 700;
+}
+
+.wizard-result-text {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+@media (max-width: 640px) {
+    .wizard-panel {
+        padding: 1.15rem;
+        border-radius: 20px;
+        box-shadow: none;
+    }
+
+    .wizard-options {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .wizard-question {
+        font-size: 1.2rem;
+    }
+
+    .wizard-actions .cta-button,
+    .wizard-actions .secondary-link {
+        flex: 1 1 8rem;
+    }
+
+    .wizard-summary {
+        grid-template-columns: 1fr;
+        gap: 0.1rem;
+    }
+
+    .wizard-summary dd {
+        margin-bottom: 0.6rem;
+    }
+
+    .services-cta .cta-button,
+    .services-cta .secondary-link {
+        flex: 1 1 100%;
+    }
+}
+
+/* ── Product page: QR code for desktop visitors (scripts/build-qr.mjs) ───────── */
+.qr-panel {
+    display: none;
+}
+
+/* Only where someone could actually scan it: a wide screen with a mouse. */
+@media (min-width: 821px) and (hover: hover) and (pointer: fine) {
+    .qr-panel {
+        display: grid;
+        gap: 0.6rem;
+        justify-items: start;
+    }
+}
+
+.qr-title {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+}
+
+.qr-image {
+    width: 9.25rem;
+    height: 9.25rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.qr-text {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.92rem;
+}
+
+/* Keyboard access to horizontally scrolling areas (screenshots, wide policy tables). */
+.screenshot-strip:focus-visible,
+.policy-content table:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
 }

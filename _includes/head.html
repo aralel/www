@@ -86,6 +86,18 @@
   {% assign meta_image_width = 1200 %}
   {% assign meta_image_height = 630 %}
 {% endif %}
+{% comment %} Generated share cards (scripts/build-og-images.mjs -> _data/og_images.json); a front-matter og_image still wins. {% endcomment %}
+{% assign og_images = site.data.og_images %}
+{% if meta_image == nil and product and og_images.products[product.slug][locale_code] %}
+  {% assign meta_image = og_images.products[product.slug][locale_code] %}
+  {% assign meta_image_width = og_images.width %}
+  {% assign meta_image_height = og_images.height %}
+{% endif %}
+{% if meta_image == nil and page.page_key and og_images.pages[page.page_key][locale_code] %}
+  {% assign meta_image = og_images.pages[page.page_key][locale_code] %}
+  {% assign meta_image_width = og_images.width %}
+  {% assign meta_image_height = og_images.height %}
+{% endif %}
 {% if meta_image == nil and product %}
   {% assign meta_image = product.iconUrl %}
 {% endif %}

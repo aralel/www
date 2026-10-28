@@ -9,7 +9,11 @@
 //     exists, platforms agree with stores / websiteUrl
 //   - _data/locales/de.json and en.json have the same key structure
 //   - every product has copy in both locales and both page stubs
-//   - every product collection (products[].collections) has copy in both locales
+//   - every collection in _data/collections.yml has copy, page copy and page stubs in both locales,
+//     and every product collection tag (products[].collections) is listed there
+//   - every phone app/game has its QR codes in images/qr/ (scripts/build-qr.mjs)
+//   - every visible product and every page key has a share image in both languages
+//     (_data/og_images.json, scripts/build-og-images.mjs) and the files exist
 //   - every career role has posting metadata in _data/jobs.yml
 //   - every icon named in the locales exists in _data/icons.json (scripts/build-icons.mjs)
 //   - every screenshot in _data/store_listings.json exists (scripts/store-sync.mjs --screenshots)
@@ -50,7 +54,41 @@ const HEX_COLOR = /^#[0-9a-f]{6}$/i;
 
 // ── Source checks ─────────────────────────────────────────────
 
-function checkProducts(products, locales) {
+// _data/collections.yml is a flat list of { key, page, page_key } entries.
+function readCollections() {
+    const collectionsSource = fs.readFileSync(path.join(rootDir, "_data", "collections.yml"), "utf8");
+    const collectionEntries = [];
+    for (const line of collectionsSource.split("\n")) {
+        const keyMatch = line.match(/^- key:\s*(\S+)/);
+        if (keyMatch) { collectionEntries.push({ key: keyMatch[1] }); continue; }
+        const fieldMatch = line.match(/^\s+(page|page_key):\s*(\S+)/);
+        if (fieldMatch && collectionEntries.length) collectionEntries.at(-1)[fieldMatch[1]] = fieldMatch[2];
+    }
+    return collectionEntries;
+}
+
+function checkCollections(collectionEntries, locales) {
+    for (const collectionEntry of collectionEntries) {
+        const { key, page, page_key: pageKey } = collectionEntry;
+        if (!page || !pageKey) { fail("collections", `${key}: needs page and page_key in _data/collections.yml`); continue; }
+        for (const [localeCode, localeData] of Object.entries(locales)) {
+            const collectionCopy = localeData.collections?.[key];
+            for (const copyField of ["kicker", "heroTitle", "heroText"]) {
+                if (!collectionCopy?.[copyField]) fail("collections", `${key}: ${localeCode}.json is missing collections.${key}.${copyField}`);
+            }
+            for (const pageField of ["title", "description"]) {
+                if (!localeData.pages?.[pageKey]?.[pageField]) fail("collections", `${key}: ${localeCode}.json is missing pages.${pageKey}.${pageField}`);
+            }
+            const stubPath = `${page.replace(/^\//, "")}${localeCode === "en" ? "_en" : ""}.html`;
+            if (!fileExists(stubPath)) { fail("collections", `${key}: missing page ${stubPath}`); continue; }
+            const stubSource = fs.readFileSync(path.join(rootDir, stubPath), "utf8");
+            if (!stubSource.includes(`collection_key: ${key}`)) fail("collections", `${stubPath}: collection_key is not ${key}`);
+            if (!stubSource.includes(`page_key: ${pageKey}`)) fail("collections", `${stubPath}: page_key is not ${pageKey}`);
+        }
+    }
+}
+
+function checkProducts(products, locales, collectionKeys) {
     const seenSlugs = new Set();
 
     for (const product of products) {
@@ -83,8 +121,15 @@ function checkProducts(products, locales) {
             }
         }
         for (const collectionKey of product.collections ?? []) {
+            if (!collectionKeys.includes(collectionKey)) fail("products", `${label}: collection "${collectionKey}" is not listed in _data/collections.yml`);
             for (const [localeCode, localeData] of Object.entries(locales)) {
                 if (!localeData.collections?.[collectionKey]) fail("products", `${label}: collection "${collectionKey}" has no collections.${collectionKey} copy in ${localeCode}.json`);
+            }
+        }
+        const needsQrCode = product.hidden !== true && product.comingSoon !== true && platforms.some((platform) => ["iphone", "ipad", "android"].includes(platform));
+        if (needsQrCode) {
+            for (const qrFile of [`${product.slug}.svg`, `${product.slug}_en.svg`]) {
+                if (!fileExists(`images/qr/${qrFile}`)) fail("qr", `${label}: images/qr/${qrFile} is missing; run scripts/build-qr.mjs`);
             }
         }
         if (product.websiteUrl && !platforms.includes("website")) fail("products", `${label}: websiteUrl set but "website" not in platforms`);
@@ -148,6 +193,22 @@ function compareStructure(germanValue, englishValue, keyPath) {
             if (!(key in germanValue)) fail("locale-parity", `${keyPath}.${key}: only in en.json`);
             else if (!(key in englishValue)) fail("locale-parity", `${keyPath}.${key}: only in de.json`);
             else compareStructure(germanValue[key], englishValue[key], `${keyPath}.${key}`);
+        }
+    }
+}
+
+function checkOgImages(products, locales) {
+    if (!fileExists("_data/og_images.json")) { fail("og", "_data/og_images.json is missing; run scripts/build-og-images.mjs"); return; }
+    const manifest = readJson("_data/og_images.json");
+    const requirements = [
+        ...products.filter((product) => product.hidden !== true).map((product) => ["products", product.slug]),
+        ...Object.keys(locales.en.pages).map((pageKey) => ["pages", pageKey]),
+    ];
+    for (const [group, key] of requirements) {
+        for (const localeCode of Object.keys(locales)) {
+            const imagePath = manifest[group]?.[key]?.[localeCode];
+            if (!imagePath) fail("og", `${group}.${key} has no ${localeCode} share image; run scripts/build-og-images.mjs`);
+            else if (!fileExists(imagePath.replace(/^\//, ""))) fail("og", `${imagePath} does not exist; run scripts/build-og-images.mjs`);
         }
     }
 }
@@ -306,8 +367,11 @@ function checkBuiltSite(builtSiteDir, siteUrl) {
 const { products } = readJson("_data/products.json");
 const locales = { de: readJson("_data/locales/de.json"), en: readJson("_data/locales/en.json") };
 
-checkProducts(products, locales);
+const collectionEntries = readCollections();
+checkCollections(collectionEntries, locales);
+checkProducts(products, locales, collectionEntries.map((collectionEntry) => collectionEntry.key));
 compareStructure(locales.de, locales.en, "locales");
+checkOgImages(products, locales);
 checkJobs(locales);
 checkIcons(locales);
 checkStoreListings(products);

@@ -40,7 +40,9 @@ Aralel GmbH is a software studio based in Aachen, Germany, building web, mobile,
 
 ## Collections
 
-- [Travel apps for family and friends]({{ site.url }}/travel-apps_en.html): {{ t.pages.travelApps.description }}
+- [All collections]({{ site.url }}/collections_en.html): {{ t.pages.collections.description }}
+{% for collection in site.data.collections %}- [{{ t.collections[collection.key].heroTitle }}]({{ site.url }}{{ collection.page }}_en.html): {{ t.pages[collection.page_key].description }}
+{% endfor %}
 
 ## Catalog by platform
 
@@ -54,5 +56,6 @@ Aralel GmbH is a software studio based in Aachen, Germany, building web, mobile,
 ## Legal
 
 - [Legal Notice / Impressum]({{ site.url }}/impressum_en.html)
+- [Accessibility statement]({{ site.url }}/barrierefreiheit_en.html)
 - [Privacy Policy]({{ site.url }}/privacy-policy.html)
 - [Sitemap]({{ site.url }}/sitemap.xml)

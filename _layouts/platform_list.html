@@ -63,10 +63,10 @@ body_class: subpage
   <section class="catalog-section-page">
     <div class="catalog-grid">
       {% for product in games %}
-        {% include catalog_card.html product=product locale=locale_code %}
+        {% include catalog_card.html product=product locale=locale_code heading_tag="h2" %}
       {% endfor %}
       {% for product in apps %}
-        {% include catalog_card.html product=product locale=locale_code %}
+        {% include catalog_card.html product=product locale=locale_code heading_tag="h2" %}
       {% endfor %}
     </div>
   </section>

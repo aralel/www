@@ -60,8 +60,20 @@ body_class: subpage
   <section class="catalog-section-page">
     <div class="catalog-grid">
       {% for product in collection_products %}
-        {% include catalog_card.html product=product locale=locale_code %}
+        {% include catalog_card.html product=product locale=locale_code  heading_tag="h2" %}
       {% endfor %}
     </div>
+  </section>
+
+  <section class="collection-more">
+    <h2 class="collection-more-title">{{ t.collectionsHub.moreTitle }}</h2>
+    <ul class="collection-links">
+      {% for other_collection in site.data.collections %}
+        {% if other_collection.key != page.collection_key %}
+          {% capture other_collection_url %}{% include localized_path.html path=other_collection.page locale=locale_code %}{% endcapture %}
+          <li><a class="product-pill product-pill--link" href="{{ other_collection_url | relative_url }}">{{ t.collections[other_collection.key].kicker }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
   </section>
 </main>

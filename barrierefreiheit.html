@@ -1,0 +1,92 @@
+---
+layout: legal
+locale: de
+page_title: Erklärung zur Barrierefreiheit - Aralel GmbH
+page_description: Erklärung zur Barrierefreiheit der Website aralel.com - Stand der Umsetzung, bekannte Einschränkungen und Kontakt für Rückmeldungen.
+back_url: /
+back_label: Zurück zur Startseite
+switch_url: /barrierefreiheit_en.html
+---
+
+{% assign company = site.data.company %}
+<h1>Erklärung zur Barrierefreiheit</h1>
+<p class="last-updated">Stand: 28. Oktober 2026</p>
+
+<p>
+    Die {{ company.legal_name }} möchte, dass <strong>www.aralel.com</strong> für möglichst
+    viele Menschen nutzbar ist: mit Tastatur, Screenreader, Vergrößerung, hohem Kontrast oder auf
+    dem Smartphone. Wir orientieren uns an den Web Content Accessibility Guidelines (WCAG) 2.2,
+    Konformitätsstufe AA.
+</p>
+
+<div class="highlight-box">
+    <strong>Hinweis:</strong> Wir geben diese Erklärung freiwillig ab. Ob und in welchem Umfang
+    gesetzliche Pflichten zur Barrierefreiheit (etwa nach dem Barrierefreiheitsstärkungsgesetz)
+    für einzelne Angebote bestehen, hängt vom jeweiligen Angebot ab.
+</div>
+
+<!-- TODO (Inhaber): Falls das BFSG für ein Angebot gilt, hier die zuständige Marktüberwachungsbehörde und das Beschwerdeverfahren ergänzen. -->
+
+<h2>Geltungsbereich</h2>
+<p>
+    Diese Erklärung gilt für die Website www.aralel.com in deutscher und englischer Sprache. Sie
+    gilt nicht für unsere Apps und Spiele und nicht für die Seiten der App-Stores, auf die wir
+    verlinken.
+</p>
+
+<h2>Stand der Umsetzung</h2>
+<p>
+    Nach unserer Selbsteinschätzung erfüllt die Website die Anforderungen der WCAG 2.2 Stufe AA
+    weitgehend. Eine vollständige Prüfung durch Dritte liegt nicht vor.
+</p>
+
+<h2>Was wir für die Barrierefreiheit tun</h2>
+<ul>
+    <li>Die Seiten sind mit Überschriften und Bereichen (Navigation, Hauptinhalt, Fußbereich) strukturiert, und jede Seite nennt ihre Sprache.</li>
+    <li>Alle Funktionen lassen sich mit der Tastatur bedienen. Der Fokus ist sichtbar, und Menü, Sprachauswahl und Cookie-Hinweis lassen sich mit der Esc-Taste schließen.</li>
+    <li>Texte erreichen mindestens das Kontrastverhältnis 4,5:1. Das helle und das dunkle Farbschema folgen der Einstellung Ihres Geräts.</li>
+    <li>Bewegungen und Übergänge entfallen, wenn Ihr Gerät „Bewegung reduzieren“ meldet.</li>
+    <li>Das Layout passt sich an kleine Bildschirme an und bleibt ab 320 Pixel Breite ohne seitliches Scrollen nutzbar. Die Schrift lässt sich mit den Einstellungen Ihres Browsers vergrößern.</li>
+    <li>Bedienelemente sind mindestens 24 × 24 Pixel groß, auf dem Smartphone meist deutlich größer. Eingabefelder verwenden mindestens 16 Pixel Schriftgröße, damit Ihr Gerät nicht hineinzoomt.</li>
+    <li>Formularfelder haben Beschriftungen, und Statusmeldungen werden von Screenreadern vorgelesen.</li>
+    <li>Bilder, die Inhalt tragen (Screenshots, QR-Codes), haben Textalternativen. Reine Zierbilder wie Produktsymbole neben einem Namen sind für Screenreader ausgeblendet.</li>
+</ul>
+
+<h2>Bekannte Einschränkungen</h2>
+<ul>
+    <li><strong>Screenshots:</strong> Der Alternativtext nennt nur den Namen der App und die Nummer des Bildes, er beschreibt nicht, was zu sehen ist.</li>
+    <li><strong>Inhalte Dritter:</strong> Die Seiten der App-Stores, verlinkte Produkt-Websites und Werbung, die erst nach Ihrer Einwilligung geladen wird, liegen nicht in unserer Hand.</li>
+    <li><strong>Kontaktformulare:</strong> Sie öffnen standardmäßig Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Wenn Sie keines nutzen, schreiben Sie uns direkt an <a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a>.</li>
+    <li><strong>Projekt-Assistent:</strong> Der Assistent zur Eingrenzung eines Projekts auf der Leistungsseite benötigt JavaScript. Ohne JavaScript steht das normale Kontaktformular zur Verfügung.</li>
+    <li><strong>Lange Tabellen:</strong> Tabellen in der Datenschutzerklärung scrollen auf kleinen Bildschirmen seitlich. Sie lassen sich mit der Tastatur erreichen und scrollen.</li>
+    <li><strong>Tests mit Hilfsmitteln:</strong> Wir haben bisher keine systematischen Tests mit Screenreadern wie VoiceOver, TalkBack oder NVDA durchgeführt.</li>
+</ul>
+
+<h2>Wie wir geprüft haben</h2>
+<p>
+    Am 28. Oktober 2026 haben wir die Website selbst bewertet. Wir haben mit axe-core 4.14
+    (Regeln für WCAG 2.0 bis 2.2 der Stufen A und AA sowie Best Practices) 15 repräsentative
+    Seiten geprüft: Startseite, Leistungen, Listenseiten, Produktseiten, Sammlungen, News,
+    Unternehmen, Karriere, Pressebereich, Impressum und Datenschutzerklärung. Die Prüfung lief in
+    Desktop- und Smartphone-Breite sowie im hellen und im dunklen Farbschema. Zusätzlich haben wir
+    Sprachauswahl, Cookie-Hinweis und das geöffnete Menü geprüft. Dabei wurden keine Verstöße
+    gemeldet, nachdem wir die zuvor gefundenen behoben hatten. Automatisierte Werkzeuge finden nur
+    einen Teil der möglichen Probleme.
+</p>
+
+<h2>Barrieren melden</h2>
+<p>
+    Sind Ihnen Barrieren aufgefallen oder können Sie Inhalte nicht nutzen? Schreiben Sie uns an
+    <a href="mailto:{{ company.emails.contact }}">{{ company.emails.contact }}</a>. Nennen Sie bitte
+    die Seite, beschreiben Sie das Problem und, wenn Sie möchten, das Hilfsmittel, das Sie nutzen.
+    Wir antworten so schnell wie möglich und stellen Ihnen die Information bei Bedarf in einer
+    anderen Form zur Verfügung.
+</p>
+
+<h2>Anschrift</h2>
+<address>
+    <strong>{{ company.legal_name }}</strong><br />
+    {{ company.address.street }}<br />
+    {{ company.address.postal_code }} {{ company.address.city }}<br />
+    {{ company.address.country_de }}
+</address>

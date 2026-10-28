@@ -259,6 +259,114 @@ function setupContactForm(contactForm) {
 
 document.querySelectorAll('form[data-contact-form]').forEach(setupContactForm);
 
+// Services page scoping wizard (_layouts/services.html). Four steps of choices become a
+// summary that is written into the contact form's message field. Nothing leaves the
+// browser until the visitor sends that form. Without JavaScript the section stays hidden.
+const scopeWizard = document.querySelector('[data-scope-wizard]');
+if (scopeWizard) {
+    const wizardForm = scopeWizard.querySelector('[data-wizard-form]');
+    const wizardSteps = [...scopeWizard.querySelectorAll('[data-wizard-step]')];
+    const wizardResult = scopeWizard.querySelector('[data-wizard-result]');
+    const progressElement = scopeWizard.querySelector('[data-wizard-progress]');
+    const progressBar = scopeWizard.querySelector('[data-wizard-bar]');
+    const backButton = scopeWizard.querySelector('[data-wizard-back]');
+    const nextButton = scopeWizard.querySelector('[data-wizard-next]');
+    const summaryElement = scopeWizard.querySelector('[data-wizard-summary]');
+    const resultTextElement = scopeWizard.querySelector('[data-wizard-result-text]');
+    const enquiryMessageField = document.getElementById('services-contact-form-message');
+    const enquiryTopicField = document.getElementById('services-contact-form-topic');
+    let currentStepIndex = 0;
+    let lastGeneratedMessage = '';
+    resultTextElement.dataset.fullText = resultTextElement.textContent;
+
+    const collectScopeAnswers = () => wizardSteps
+        .map((step) => ({
+            label: step.dataset.label,
+            values: [...step.querySelectorAll('input:checked')].map((input) => input.value),
+        }))
+        .filter((answer) => answer.values.length > 0);
+
+    const showStep = (stepIndex, moveFocus) => {
+        currentStepIndex = stepIndex;
+        wizardSteps.forEach((step, index) => { step.hidden = index !== stepIndex; });
+        const isLastStep = stepIndex === wizardSteps.length - 1;
+        progressElement.textContent = scopeWizard.dataset.progressLabel
+            .replace('%current%', stepIndex + 1)
+            .replace('%total%', wizardSteps.length);
+        progressBar.style.width = `${((stepIndex + 1) / wizardSteps.length) * 100}%`;
+        backButton.hidden = stepIndex === 0;
+        nextButton.textContent = isLastStep ? nextButton.dataset.finishLabel : nextButton.dataset.nextLabel;
+        if (moveFocus) {
+            wizardSteps[stepIndex].querySelector('legend').focus();
+        }
+    };
+
+    const showResult = () => {
+        const scopeAnswers = collectScopeAnswers();
+        summaryElement.replaceChildren();
+        scopeAnswers.forEach((answer) => {
+            const term = document.createElement('dt');
+            term.textContent = answer.label;
+            const definition = document.createElement('dd');
+            definition.textContent = answer.values.join(', ');
+            summaryElement.append(term, definition);
+        });
+        resultTextElement.textContent = scopeAnswers.length === 0
+            ? scopeWizard.dataset.resultEmpty
+            : resultTextElement.dataset.fullText;
+        wizardForm.hidden = true;
+        wizardResult.hidden = false;
+        wizardResult.querySelector('h3').focus();
+        if (typeof window.plausible === 'function') {
+            window.plausible('Scope wizard', { props: { step: 'finished' } });
+        }
+    };
+
+    const writeScopeIntoEnquiry = () => {
+        const scopeAnswers = collectScopeAnswers();
+        if (enquiryMessageField && scopeAnswers.length > 0) {
+            const scopeLines = scopeAnswers.map((answer) => `- ${answer.label}: ${answer.values.join(', ')}`);
+            const generatedMessage = `${scopeWizard.dataset.messageIntro}\n${scopeLines.join('\n')}\n\n${scopeWizard.dataset.messageOutro}\n`;
+            const previousText = lastGeneratedMessage
+                ? enquiryMessageField.value.replace(lastGeneratedMessage, '')
+                : enquiryMessageField.value;
+            enquiryMessageField.value = generatedMessage + previousText.trim();
+            enquiryMessageField.rows = Math.max(5, generatedMessage.split('\n').length + 2);
+            lastGeneratedMessage = generatedMessage;
+        }
+        const chosenServiceTitles = scopeAnswers.find((answer) => answer.label === wizardSteps[0].dataset.label)?.values ?? [];
+        if (enquiryTopicField && chosenServiceTitles.length === 1) {
+            enquiryTopicField.value = chosenServiceTitles[0];
+        }
+    };
+
+    nextButton.addEventListener('click', () => {
+        if (currentStepIndex < wizardSteps.length - 1) {
+            showStep(currentStepIndex + 1, true);
+        } else {
+            showResult();
+        }
+    });
+    backButton.addEventListener('click', () => showStep(currentStepIndex - 1, true));
+    scopeWizard.querySelector('[data-wizard-restart]').addEventListener('click', () => {
+        wizardForm.reset();
+        wizardResult.hidden = true;
+        wizardForm.hidden = false;
+        showStep(0, true);
+    });
+    scopeWizard.querySelector('[data-wizard-continue]').addEventListener('click', () => {
+        writeScopeIntoEnquiry();
+        if (enquiryMessageField) {
+            enquiryMessageField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            enquiryMessageField.focus({ preventScroll: true });
+        }
+    });
+
+    showStep(0, false);
+    scopeWizard.hidden = false;
+    document.querySelectorAll('[data-scope-link]').forEach((scopeLink) => { scopeLink.hidden = false; });
+}
+
 // Add to Home Screen functionality
 let deferredPrompt;
 let installButton;

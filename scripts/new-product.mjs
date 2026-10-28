@@ -119,4 +119,5 @@ Next steps:
      accent colors, and schemaCategory for apps (a schema.org application category).
   3. node scripts/refresh-product-icons.mjs ${slug} && node scripts/build-webp.mjs
      (optional: node scripts/store-sync.mjs --screenshots && node scripts/build-webp.mjs)
+  3b. node scripts/build-og-images.mjs   (share images; add node scripts/build-qr.mjs for phone apps)
   4. Set "hidden": false, then: node scripts/check-site.mjs`);
