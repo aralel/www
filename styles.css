@@ -3966,3 +3966,36 @@ picture {
     outline: 3px solid var(--brand);
     outline-offset: 2px;
 }
+
+/* ── Product page: screenshots share the left column, the sidebar starts beside them ── */
+.detail-left {
+    min-width: 0;
+    display: grid;
+    /* minmax(0, ...) so the screenshot strip scrolls inside the column instead of widening it. */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    align-content: start;
+}
+
+.detail-left .screenshot-gallery {
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Single column: the wrapper disappears and the gallery stacks above the description as before. */
+@media (max-width: 1080px) {
+    .detail-left {
+        display: contents;
+    }
+
+    .detail-content {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .detail-left .screenshot-gallery {
+        margin-inline: -1rem;
+    }
+}

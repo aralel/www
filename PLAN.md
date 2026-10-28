@@ -2,6 +2,12 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-28 (3)
+
+**Prompt:** "in desktop, the right side should move up so it's right of screenshots too" (product pages).
+
+**Done:** screenshots moved into the left column beside the sidebar (`.detail-left`); single-column order unchanged at ≤1080px; fixed the strip overflow with `minmax(0, 1fr)` tracks. Verified at 1280/900/375px. Logged under `[0.22.2]`.
+
 ## 2026-10-28 (2)
 
 **Prompt:** "it's part of aralel / it's stored on our servers / we want the referrer to stay / so do step 1 and 3 and 4" (relay.codehospital.com consent: fire the pixel without consent, rewrite privacy policy §3.2, adjust the cookie banner text).

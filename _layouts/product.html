@@ -150,38 +150,40 @@ body_class: subpage
     </div>
   </section>
 
-  {% if store_listing.screenshots.size > 0 %}
-    <section class="screenshot-gallery" aria-label="{{ t.common.screenshotsTitle }}">
-      <ul class="screenshot-strip" tabindex="0">
-        {% for screenshot in store_listing.screenshots %}
-          {% assign screenshot_alt = t.common.screenshotAlt | replace: "%name%", copy.name | replace: "%number%", forloop.index %}
-          <li class="screenshot-item{% if screenshot.width > screenshot.height %} screenshot-item--landscape{% endif %}">
-            {% include picture.html src=screenshot.src alt=screenshot_alt width=screenshot.width height=screenshot.height %}
-          </li>
-        {% endfor %}
-      </ul>
-    </section>
-  {% endif %}
-
   <section class="detail-content">
-    <div class="detail-main-column">
-      <div class="section-title-container">
-        <h2 class="section-title">{{ copy.detailLabel }}</h2>
-        <div class="title-decoration"></div>
-        <p class="section-subtitle">{{ copy.shortSummary }}</p>
-      </div>
+    {% comment %} Left column: screenshots, then the description. The sidebar sits beside both, starting at the top. {% endcomment %}
+    <div class="detail-left">
+      {% if store_listing.screenshots.size > 0 %}
+        <section class="screenshot-gallery" aria-label="{{ t.common.screenshotsTitle }}">
+          <ul class="screenshot-strip" tabindex="0">
+            {% for screenshot in store_listing.screenshots %}
+              {% assign screenshot_alt = t.common.screenshotAlt | replace: "%name%", copy.name | replace: "%number%", forloop.index %}
+              <li class="screenshot-item{% if screenshot.width > screenshot.height %} screenshot-item--landscape{% endif %}">
+                {% include picture.html src=screenshot.src alt=screenshot_alt width=screenshot.width height=screenshot.height %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+      <div class="detail-main-column">
+        <div class="section-title-container">
+          <h2 class="section-title">{{ copy.detailLabel }}</h2>
+          <div class="title-decoration"></div>
+          <p class="section-subtitle">{{ copy.shortSummary }}</p>
+        </div>
 
-      <div class="detail-description">
-        <p>{{ copy.description }}</p>
-      </div>
+        <div class="detail-description">
+          <p>{{ copy.description }}</p>
+        </div>
 
-      <div class="detail-card-grid">
-        {% for highlight in copy.highlights %}
-          <article class="detail-card">
-            <h2>{{ highlight.title }}</h2>
-            <p>{{ highlight.text }}</p>
-          </article>
-        {% endfor %}
+        <div class="detail-card-grid">
+          {% for highlight in copy.highlights %}
+            <article class="detail-card">
+              <h2>{{ highlight.title }}</h2>
+              <p>{{ highlight.text }}</p>
+            </article>
+          {% endfor %}
+        </div>
       </div>
     </div>
 
