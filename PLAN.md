@@ -2,6 +2,12 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-29
+
+**Prompt:** "use this for open eyes ios link https://testflight.apple.com/join/YUEzcxzM"
+
+**Done:** new `testFlight` store type (schema, checker, badge, link template, availability text, iOS ordering) and the Open Eyes entry (`iphone` platform + TestFlight link, availability copy, regenerated share image). Build and `check-site.mjs` pass; badge checked in the browser. Logged under `[0.22.3]`.
+
 ## 2026-10-28 (3)
 
 **Prompt:** "in desktop, the right side should move up so it's right of screenshots too" (product pages).

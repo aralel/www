@@ -42,6 +42,7 @@ const PLATFORM_KEYS = ["iphone", "ipad", "android", "amazon", "samsung", "deskto
 // Which platform each store implies. The App Store can mean iPhone, iPad-only or Mac.
 const STORE_PLATFORMS = {
     appStore: ["iphone", "ipad", "desktop"],
+    testFlight: ["iphone", "ipad"],
     googlePlay: ["android"],
     amazonAppstore: ["amazon"],
     samsungGalaxyStore: ["samsung"],

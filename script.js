@@ -129,7 +129,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 const userAgent = navigator.userAgent;
 const isAppleMobileDevice = /iPhone|iPad|iPod/.test(userAgent) || (/Macintosh/.test(userAgent) && navigator.maxTouchPoints > 1);
 const isAndroidDevice = /Android/.test(userAgent);
-const preferredStoreSelector = isAppleMobileDevice ? '.store-link--apple' : (isAndroidDevice ? '.store-link--google' : null);
+const preferredStoreSelector = isAppleMobileDevice ? '.store-link--apple, .store-link--testflight' : (isAndroidDevice ? '.store-link--google' : null);
 if (preferredStoreSelector) {
     document.querySelectorAll('.store-links').forEach((storeLinks) => {
         const preferredStoreLink = storeLinks.querySelector(preferredStoreSelector);

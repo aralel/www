@@ -413,13 +413,14 @@
       "hidden": false,
       "front_page": false,
       "collections": ["private"],
-      "platforms": ["android", "website"],
+      "platforms": ["iphone", "android", "website"],
       "accent": "#7c3aed",
       "accentStrong": "#1e1b4b",
       "iconUrl": "/images/products/open-eyes.png",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/BZ8MOXbS0kRxNe3A_cYQLIP4yifvb5i4UtZ50xrYC9CapaLkEb-lfZQw6Qy3_BPAjWf9f5y-UeAzT3TO-WcGfg",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.openeyes"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.openeyes",
+        "testFlight": "https://testflight.apple.com/join/YUEzcxzM"
       },
       "websiteUrl": "https://openeyes.aralel.com",
       "privacyUrl": {

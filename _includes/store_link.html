@@ -29,6 +29,10 @@
   <a class="store-link store-link--apple" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.appleAria }}">
     <img src="{{ apple_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--apple" loading="lazy">
   </a>
+{% elsif include.store_key == "testFlight" %}
+  <a class="store-link store-link--testflight" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.testflightAria }}">
+    <img src="{{ '/images/badge-testflight.svg' | relative_url }}" alt="" class="store-badge-image store-badge-image--testflight" loading="lazy">
+  </a>
 {% elsif include.store_key == "amazonAppstore" %}
   <a class="store-link store-link--amazon" href="{{ attributed_store_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ t.stores.amazonAria }}">
     <img src="{{ amazon_badge | relative_url }}" alt="" class="store-badge-image store-badge-image--amazon" loading="lazy">

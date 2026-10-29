@@ -40,6 +40,7 @@
             "properties": {
               "appStore": { "type": "string", "pattern": "^https://apps\\.apple\\.com/.+/id[0-9]+" },
               "googlePlay": { "type": "string", "pattern": "^https://play\\.google\\.com/store/apps/details\\?id=" },
+              "testFlight": { "type": "string", "pattern": "^https://testflight\\.apple\\.com/join/", "description": "Public TestFlight beta invitation; implies iphone or ipad" },
               "amazonAppstore": { "type": "string", "format": "uri" },
               "samsungGalaxyStore": { "type": "string", "format": "uri" },
               "shopifyAppStore": { "type": "string", "pattern": "^https://apps\\.shopify\\.com/" }

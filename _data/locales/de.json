@@ -109,7 +109,8 @@
     "samsungAria": "Im Galaxy Store öffnen",
     "shopifyAria": "Im Shopify App Store öffnen",
     "appleEyebrow": "Laden im",
-    "appleLabel": "App Store"
+    "appleLabel": "App Store",
+    "testflightAria": "Beta bei TestFlight beitreten"
   },
   "common": {
     "learnMore": "Mehr erfahren",
@@ -1405,7 +1406,7 @@
       "detailLabel": "App-Details",
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Verfügbar für Android bei Google Play.",
+      "availabilityText": "Verfügbar für Android bei Google Play. Die iOS-Beta ist bei TestFlight offen.",
       "metaDescription": "Open Eyes ist Aralels Foto-App, die Blinzeln und verpasste Lächeln mit Ihren eigenen Aufnahmen desselben Moments korrigiert – auf dem Gerät, ohne Upload, ohne KI-Pixel."
     }
   },
