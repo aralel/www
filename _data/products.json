@@ -148,7 +148,7 @@
       "hidden": false,
       "front_page": true,
       "collections": ["words"],
-      "platforms": ["android", "amazon", "samsung"],
+      "platforms": ["iphone", "android", "amazon", "samsung"],
       "accent": "#2563eb",
       "accentStrong": "#102a66",
       "iconUrl": "/images/products/german-word-search.png",
@@ -160,7 +160,8 @@
       "stores": {
         "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.german_word_search",
         "amazonAppstore": "https://www.amazon.com/dp/B0GX2VZ875",
-        "samsungGalaxyStore": "https://galaxystore.samsung.com/detail/com.aralel.german_word_search"
+        "samsungGalaxyStore": "https://galaxystore.samsung.com/detail/com.aralel.german_word_search",
+        "testFlight": "https://testflight.apple.com/join/Q5gSyPPp"
       }
     },
     {

@@ -1035,7 +1035,7 @@
       "detailLabel": "Spiel-Details",
       "backLabel": "Zur Spiele-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Als Android-Spiel bei Google Play veröffentlicht.",
+      "availabilityText": "Als Android-Spiel bei Google Play veröffentlicht. Die iOS-Beta ist bei TestFlight offen.",
       "metaDescription": "German Word Search ist Aralels Wortspiel zum spielerischen Lernen von deutschem Wortschatz mit Artikeln."
     },
     "arena-sudoku": {

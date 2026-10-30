@@ -2,6 +2,12 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-30
+
+**Prompt:** "use this https://testflight.apple.com/join/Q5gSyPPp for apple link of german word search"
+
+**Done:** German Word Search gets the `iphone` platform and the TestFlight link in `_data/products.json`, the iOS beta sentence in its DE/EN availability text, and regenerated share images. Build and `check-site.mjs` pass; the link renders on both product pages and on the iPhone page. Logged under `[0.22.4]`.
+
 ## 2026-10-29
 
 **Prompt:** "use this for open eyes ios link https://testflight.apple.com/join/YUEzcxzM"

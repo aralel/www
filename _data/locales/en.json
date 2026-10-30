@@ -1035,7 +1035,7 @@
       "detailLabel": "Game Details",
       "backLabel": "Back to Games",
       "availabilityTitle": "Available On",
-      "availabilityText": "Published as an Android game on Google Play.",
+      "availabilityText": "Published as an Android game on Google Play. The iOS beta is open on TestFlight.",
       "metaDescription": "German Word Search is Aralel’s vocabulary game for learning German words and articles through puzzle play."
     },
     "arena-sudoku": {
