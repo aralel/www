@@ -1408,6 +1408,35 @@
       "availabilityTitle": "Available On",
       "availabilityText": "Available for Android on Google Play. The iOS beta is open on TestFlight.",
       "metaDescription": "Open Eyes is Aralel's photo app that fixes blinks and missed smiles by combining your own shots of the same moment — on-device, no upload, no AI-generated pixels."
+    },
+    "adenal": {
+      "name": "Adenal",
+      "category": "Health",
+      "shortSummary": "Track the caffeine in your body, see when it is safe to sleep, and learn how your coffee timing affects your nights.",
+      "heroTitle": "Know when your coffee lets you sleep",
+      "heroText": "Adenal tracks the caffeine in your body, tells you when it drops below your sleep line, and shows how your coffee timing plays out in your nights.",
+      "description": "Log a coffee or tea in one tap, or pick from nearly 30 built-in drinks, your own drinks or a barcode scan. Adenal adds up every drink from the last 48 hours using your caffeine half-life and draws a live curve through to tomorrow morning, with the time you drop below your sleep line and the latest cup that still leaves you clear at bedtime. Record going to bed, nights and naps, and how sleepy you feel; after 14 nights, Adenal compares caffeine at bedtime with how long and how well you slept. Everything works without an account and stays on your phone; an optional account backs up your data and syncs it between Android and iPhone. Free, with a small ad banner on three screens. Caffeine values are estimates, not medical advice.",
+      "highlights": [
+        {
+          "title": "Safe-to-sleep time",
+          "text": "A live caffeine curve shows when you drop below your sleep line and the last coffee that still leaves you clear at bedtime."
+        },
+        {
+          "title": "Logging in one tap",
+          "text": "Coffee and tea shortcuts, nearly 30 built-in drinks, a barcode scanner and a home screen widget."
+        },
+        {
+          "title": "Insights from your own nights",
+          "text": "After 14 nights, see what caffeine at bedtime does to how long and how well you sleep."
+        }
+      ],
+      "primaryCta": "Get it on Google Play",
+      "privacyLabel": "Privacy Policy",
+      "detailLabel": "App Details",
+      "backLabel": "Back to apps",
+      "availabilityTitle": "Available on",
+      "availabilityText": "Available for Android on Google Play. The beta for iPhone and Apple Watch is open on TestFlight.",
+      "metaDescription": "Adenal is Aralel's free caffeine and sleep tracker: see how much caffeine is in your body, when it is safe to sleep, and how your coffee timing affects your sleep."
     }
   },
   "languagePrompt": {

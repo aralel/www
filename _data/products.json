@@ -428,6 +428,27 @@
         "de": "https://openeyes.aralel.com/de/privacy.html",
         "en": "https://openeyes.aralel.com/privacy.html"
       }
+    },
+    {
+      "slug": "adenal",
+      "type": "app",
+      "schemaCategory": "HealthApplication",
+      "hidden": false,
+      "front_page": false,
+      "platforms": ["iphone", "android", "website"],
+      "accent": "#8b5a2b",
+      "accentStrong": "#3b2216",
+      "iconUrl": "/images/products/adenal.png",
+      "iconSourceUrl": "https://play-lh.googleusercontent.com/NqPTa4kkIQRLyKiOzmYopVwZ3TxaJCrhc5OghUHgfWZu5g1iHjGciZvSBm4c7HCYQ4kX6p1cJfCHPhaEFa3M",
+      "stores": {
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.adenal",
+        "testFlight": "https://testflight.apple.com/join/BPc2Y7Sj"
+      },
+      "websiteUrl": "https://adenal.aralel.com",
+      "privacyUrl": {
+        "de": "https://adenal.aralel.com/privacy",
+        "en": "https://adenal.aralel.com/privacy"
+      }
     }
   ]
 }

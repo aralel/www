@@ -1408,6 +1408,35 @@
       "availabilityTitle": "Verfügbar auf",
       "availabilityText": "Verfügbar für Android bei Google Play. Die iOS-Beta ist bei TestFlight offen.",
       "metaDescription": "Open Eyes ist Aralels Foto-App, die Blinzeln und verpasste Lächeln mit Ihren eigenen Aufnahmen desselben Moments korrigiert – auf dem Gerät, ohne Upload, ohne KI-Pixel."
+    },
+    "adenal": {
+      "name": "Adenal",
+      "category": "Gesundheit",
+      "shortSummary": "Koffein im Körper verfolgen, sehen, wann Sie gut einschlafen können, und erfahren, wie sich der Zeitpunkt Ihres Kaffees auf Ihre Nächte auswirkt.",
+      "heroTitle": "Wissen, wann der Kaffee Sie schlafen lässt",
+      "heroText": "Adenal verfolgt das Koffein in Ihrem Körper, zeigt, wann es unter Ihre Schlafgrenze fällt, und macht sichtbar, wie sich der Zeitpunkt Ihres Kaffees auf Ihre Nächte auswirkt.",
+      "description": "Erfassen Sie Kaffee oder Tee mit einem Tipp, oder wählen Sie aus fast 30 eingebauten Getränken, Ihren eigenen Getränken oder per Barcode-Scan. Adenal summiert alle Getränke der letzten 48 Stunden mit Ihrer Koffein-Halbwertszeit und zeichnet eine Live-Kurve bis zum nächsten Morgen – mit der Uhrzeit, ab der Sie unter Ihrer Schlafgrenze liegen, und der letzten Tasse, die bis zur Schlafenszeit noch abgebaut ist. Erfassen Sie Zubettgehen, Nächte, Nickerchen und wie müde Sie sich fühlen; nach 14 Nächten vergleicht Adenal das Koffein zur Schlafenszeit mit Dauer und Qualität Ihres Schlafs. Alles funktioniert ohne Konto und bleibt auf Ihrem Handy; ein optionales Konto sichert Ihre Daten und synchronisiert sie zwischen Android und iPhone. Kostenlos, mit einem kleinen Werbebanner auf drei Bildschirmen. Die Koffeinwerte sind Schätzungen und keine medizinische Beratung.",
+      "highlights": [
+        {
+          "title": "Einschlafzeit auf einen Blick",
+          "text": "Eine Live-Koffeinkurve zeigt, wann Sie unter Ihre Schlafgrenze fallen und welcher Kaffee bis zur Schlafenszeit gerade noch abgebaut ist."
+        },
+        {
+          "title": "Erfassen mit einem Tipp",
+          "text": "Kurzwahl für Kaffee und Tee, fast 30 eingebaute Getränke, ein Barcode-Scanner und ein Widget für den Startbildschirm."
+        },
+        {
+          "title": "Erkenntnisse aus Ihren eigenen Nächten",
+          "text": "Nach 14 Nächten sehen Sie, was Koffein zur Schlafenszeit mit Dauer und Qualität Ihres Schlafs macht."
+        }
+      ],
+      "primaryCta": "Bei Google Play laden",
+      "privacyLabel": "Datenschutz",
+      "detailLabel": "App-Details",
+      "backLabel": "Zur Apps-Übersicht",
+      "availabilityTitle": "Verfügbar auf",
+      "availabilityText": "Verfügbar für Android bei Google Play. Die Beta für iPhone und Apple Watch ist bei TestFlight offen.",
+      "metaDescription": "Adenal ist Aralels kostenloser Koffein- und Schlaf-Tracker: Sehen Sie, wie viel Koffein in Ihrem Körper ist, wann Sie gut einschlafen können und wie sich der Zeitpunkt Ihres Kaffees auf Ihren Schlaf auswirkt."
     }
   },
   "languagePrompt": {

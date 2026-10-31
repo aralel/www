@@ -2,6 +2,15 @@
 # Newest first. `product` (optional) links the item to a product page and shows its icon.
 # Dates are when the release went live on this site (see CHANGELOG.md).
 
+- date: 2026-10-31
+  product: adenal
+  de:
+    title: "Adenal jetzt bei Google Play"
+    text: "Ein kostenloser Koffein- und Schlaf-Tracker: Adenal zeigt, wie viel Koffein gerade in Ihrem Körper ist, wann Sie gut einschlafen können und wie sich der Zeitpunkt Ihres Kaffees auf Ihren Schlaf auswirkt. Die Beta für iPhone und Apple Watch ist bei TestFlight offen."
+  en:
+    title: "Adenal is now on Google Play"
+    text: "A free caffeine and sleep tracker: Adenal shows how much caffeine is in your body right now, when it is safe to sleep, and how your coffee timing affects your sleep. The beta for iPhone and Apple Watch is open on TestFlight."
+
 - date: 2026-10-26
   product: arta-text
   de:

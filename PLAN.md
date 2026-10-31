@@ -2,6 +2,12 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-10-31
+
+**Prompt:** "we have published this app https://adenal.aralel.com/"
+
+**Done:** added **Adenal** (`adenal`) with `new-product.mjs`: Google Play + TestFlight (`BPc2Y7Sj`) links, website and privacy URL, DE/EN copy from the Play listing and website, icon, 4 screenshots (fetched for this product only) + WebP, share images, QR codes, news item. Left out of the "private" collection because it shows ads. Build and `check-site.mjs` pass (23 products, 110 pages); page checked at 1280px and 375px (no overflow). Logged under `[0.23.0]`.
+
 ## 2026-10-30
 
 **Prompt:** "use this https://testflight.apple.com/join/Q5gSyPPp for apple link of german word search"

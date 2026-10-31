@@ -451,5 +451,32 @@
         "height": 818
       }
     ]
+  },
+  "adenal": {
+    "storeNames": {
+      "googlePlay": "Adenal"
+    },
+    "screenshots": [
+      {
+        "src": "/images/screenshots/adenal/1.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/adenal/2.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/adenal/3.jpg",
+        "width": 460,
+        "height": 818
+      },
+      {
+        "src": "/images/screenshots/adenal/4.jpg",
+        "width": 460,
+        "height": 818
+      }
+    ]
   }
 }
