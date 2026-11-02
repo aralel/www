@@ -2,6 +2,12 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-11-02
+
+**Prompt:** "use https://testflight.apple.com/join/e3fAwRU6 for arta text"
+
+**Done:** Arta Text gets the `iphone` platform and the TestFlight link in `_data/products.json`, the iOS beta sentence in its DE/EN availability text, and regenerated share images. Logged under `[0.23.1]`.
+
 ## 2026-10-31
 
 **Prompt:** "we have published this app https://adenal.aralel.com/"

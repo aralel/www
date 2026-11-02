@@ -393,13 +393,14 @@
       "hidden": false,
       "front_page": false,
       "collections": ["private"],
-      "platforms": ["android", "website"],
+      "platforms": ["android", "iphone", "website"],
       "accent": "#b08d57",
       "accentStrong": "#1d3b3a",
       "iconUrl": "/images/products/arta-text.jpg",
       "iconSourceUrl": "https://play-lh.googleusercontent.com/MRUUltlXXGi7heR0CZLSzKFBin8eV-eUllBlvWE4B0TAW40rGCnO2aHvdSzp6S4kejt3JMOaTph1z-MBPPPX",
       "stores": {
-        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.arta"
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.arta",
+        "testFlight": "https://testflight.apple.com/join/e3fAwRU6"
       },
       "websiteUrl": "https://arta.aralel.com",
       "privacyUrl": {

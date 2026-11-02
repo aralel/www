@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Sets `site.release_version` to a short hash of the CSS/JS/manifest/service-worker
 # sources. Templates append it as ?v= to those assets and the service worker uses it
 # as its cache name, so browsers re-download them (and the service worker updates)
@@ -6,7 +8,7 @@
 # Where plugins don't run (classic GitHub Pages), templates fall back to the build
 # time, as before.
 
-require "digest"
+require 'digest'
 
 module AssetVersion
   VERSIONED_ASSETS = %w[
@@ -16,7 +18,7 @@ module AssetVersion
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
-  next if site.config["release_version"] # an explicit value in _config.yml wins
+  next if site.config['release_version'] # an explicit value in _config.yml wins
 
   asset_digest = Digest::SHA256.new
   AssetVersion::VERSIONED_ASSETS.each do |asset_path|
@@ -24,5 +26,5 @@ Jekyll::Hooks.register :site, :post_read do |site|
     asset_digest.update(asset_path)
     asset_digest.update(File.binread(full_path)) if File.exist?(full_path)
   end
-  site.config["release_version"] = asset_digest.hexdigest[0, 12]
+  site.config['release_version'] = asset_digest.hexdigest[0, 12]
 end

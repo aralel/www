@@ -1377,7 +1377,7 @@
       "detailLabel": "App-Details",
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Verfügbar für Android bei Google Play.",
+      "availabilityText": "Verfügbar für Android bei Google Play. Die iOS-Beta ist bei TestFlight offen.",
       "metaDescription": "Arta Text ist Aralels privater Messenger ohne Telefonnummer, E-Mail oder Konto – Kontakte per persönlichem QR-Scan, Ende-zu-Ende-verschlüsselte Nachrichten, Fotos und Dateien."
     },
     "open-eyes": {

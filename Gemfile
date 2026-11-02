@@ -1,6 +1,8 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-gem "jekyll", "~> 4.3"
-gem "webrick", "~> 1.8"
+source 'https://rubygems.org'
 
-gem "html-proofer", "~> 5.2"
+gem 'jekyll', '~> 4.3'
+gem 'webrick', '~> 1.8'
+
+gem 'html-proofer', '~> 5.2'
