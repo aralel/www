@@ -1267,10 +1267,10 @@
     "voice-following-teleprompter": {
       "name": "Voice-following Teleprompter",
       "category": "Produktivität",
-      "shortSummary": "Ein iPad-Teleprompter, der Ihre Stimme für Reden, Predigten, Rezitationen, Unterricht und Lieder folgen kann.",
+      "shortSummary": "Ein Teleprompter für iPad und Android, der Ihrer Stimme bei Reden, Predigten, Rezitationen, Unterricht und Liedern folgen kann.",
       "heroTitle": "Ein ruhiger Prompter, der Ihr Tempo hält",
-      "heroText": "Voice-following Teleprompter macht das iPad zu einem klaren Prompter für Reden, Predigten, Khutbahs, Rezitationen, Unterricht und Lieder. Der Text ist aus etwa zwei Metern lesbar und scrollt in dem Tempo, das Sie wählen — oder folgt Ihrer Stimme.",
-      "description": "Jedes Skript besteht aus Bausteinen, die Sie beliebig umsortieren: eigener Text in jeder Sprache (Rechts-nach-links für Arabisch, Farsi und Hebräisch wird pro Absatz erkannt), Koranpassagen in Uthmani-Schrift mit optionaler Übersetzung, Bibelverse aus zehn mitgelieferten gemeinfreien Ausgaben, Liedtexte im Karaoke-Stil und Pausen mit Countdown und eigener Notiz. Der Probemodus schätzt und misst jeden Baustein, und jeder Durchlauf wird mit Serie und Kalender protokolliert. Skripte synchronisieren sich über Ihre eigene iCloud zwischen Ihren iPads, mit wöchentlichen automatischen Backups in der Dateien-App. Kein Konto, keine Werbung, kein Tracking — und die App gibt es in sieben Sprachen.",
+      "heroText": "Voice-following Teleprompter macht das iPad oder ein Android-Tablet bzw. -Handy zu einem klaren Prompter für Reden, Predigten, Khutbahs, Rezitationen, Unterricht und Lieder. Der Text ist aus etwa zwei Metern lesbar und scrollt in dem Tempo, das Sie wählen — oder folgt Ihrer Stimme.",
+      "description": "Jedes Skript besteht aus Bausteinen, die Sie beliebig umsortieren: eigener Text in jeder Sprache (Rechts-nach-links für Arabisch, Farsi und Hebräisch wird pro Absatz erkannt), Koranpassagen in Uthmani-Schrift mit optionaler Übersetzung, Bibelverse aus zehn mitgelieferten gemeinfreien Ausgaben, Liedtexte im Karaoke-Stil und Pausen mit Countdown und eigener Notiz. Der Probemodus schätzt und misst jeden Baustein, und jeder Durchlauf wird mit Serie und Kalender protokolliert. Auf dem iPad synchronisieren sich Skripte über Ihre eigene iCloud zwischen Ihren Geräten, mit wöchentlichen automatischen Backups in der Dateien-App; unter Android landen die wöchentlichen Backups in einem Ordner Ihrer Wahl, und das Android-Backup überträgt Ihre Skripte auf ein neues Gerät. Skripte lassen sich als .teleprompter-Dateien teilen, die auf beiden Systemen öffnen. Im Web unter teleprompter.aralel.com schreiben und formatieren Sie Skripte im Browser, stöbern in einer Bibliothek fertiger Skripte aus Koran, Bibel, Talmud, Mafatih al-Dschinan und Nahdsch al-Balagha, spielen jedes Skript im Vollbild ab (auf Wunsch gespiegelt für einen Teleprompter-Spiegel) und öffnen es mit einem Tipp in der App. Die App braucht kein Konto, zeigt keine Werbung und trackt nicht — und es gibt sie in sieben Sprachen.",
       "highlights": [
         {
           "title": "Folgt der Stimme",
@@ -1282,7 +1282,7 @@
         },
         {
           "title": "Gemacht für den Raum",
-          "text": "Große Schrift, aus etwa zwei Metern lesbar, flüssiges Scrollen mit 120 Hz, kontrastreiche Designs, und das iPad bleibt während des Vortrags wach."
+          "text": "Große Schrift, aus etwa zwei Metern lesbar, flüssiges Scrollen mit 120 Hz, kontrastreiche Designs, und der Bildschirm bleibt während des Vortrags an."
         }
       ],
       "primaryCta": "Im App Store ansehen",
@@ -1290,8 +1290,8 @@
       "detailLabel": "App-Details",
       "backLabel": "Zur Apps-Übersicht",
       "availabilityTitle": "Verfügbar auf",
-      "availabilityText": "Für das iPad im App Store erhältlich.",
-      "metaDescription": "Voice-following Teleprompter ist Aralels iPad-Teleprompter für Reden, Predigten, Koran- und Bibelrezitation, Unterricht und Lieder — mit großer Schrift und Text, der Ihrer Stimme folgt."
+      "availabilityText": "Für das iPad im App Store, für Android bei Google Play und im Web erhältlich.",
+      "metaDescription": "Voice-following Teleprompter ist Aralels Teleprompter für iPad und Android – für Reden, Predigten, Koran- und Bibelrezitation, Unterricht und Lieder — mit großer Schrift und Text, der Ihrer Stimme folgt."
     },
     "llm-on-demand": {
       "name": "LLM On Demand",

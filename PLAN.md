@@ -2,6 +2,16 @@
 
 Running log of prompts given to Claude in this repo and what was done in response. Newest entries first.
 
+## 2026-11-07
+
+**Prompt:** "teleprompter is published in android too https://play.google.com/store/apps/details?id=com.aralel.teleprompter"
+
+**Done:** Voice-following Teleprompter gets the `android` platform and the Google Play link in `_data/products.json`, the Play store name in `store_listings.json`, DE/EN copy reworded from iPad-only to iPad and Android (using the Play listing), a news item, and regenerated share images. Build and `check-site.mjs` (source and `_site`) pass; the Play link renders on both product pages and the Android page. Logged under `[0.23.2]`.
+
+**Prompt:** "there is also a web version http://teleprompter.aralel.com/"
+
+**Done:** added `websiteUrl` (https) and the `website` platform, a DE/EN paragraph on the web editor, library and browser prompter, web in the availability text and news item, "no account" limited to the app (the web has optional sign-in), share images regenerated. Build and both `check-site.mjs` runs pass; the link renders on the product pages and the Websites page. Also logged under `[0.23.2]`.
+
 ## 2026-11-02
 
 **Prompt:** "use https://testflight.apple.com/join/e3fAwRU6 for arta text"

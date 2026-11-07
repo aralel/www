@@ -1267,10 +1267,10 @@
     "voice-following-teleprompter": {
       "name": "Voice-following Teleprompter",
       "category": "Productivity",
-      "shortSummary": "An iPad teleprompter that can follow your voice for speeches, sermons, recitations, lessons and songs.",
+      "shortSummary": "A teleprompter for iPad and Android that can follow your voice for speeches, sermons, recitations, lessons and songs.",
       "heroTitle": "Voice-following teleprompter that keeps pace with you",
-      "heroText": "Voice-following Teleprompter turns an iPad into a clear prompter for speeches, sermons, khutbahs, recitations, lessons and songs. The text is large enough to read from about two metres and scrolls at the speed you choose — or follows your voice.",
-      "description": "Each script is built from pieces you can reorder: your own text in any language (right-to-left for Arabic, Farsi and Hebrew is handled per paragraph), Quran passages in the Uthmani script with optional translations, Bible verses from ten bundled public-domain editions, karaoke-style song lyrics, and timed pauses with a note for yourself. Rehearse mode estimates and times every piece, and every run is logged with a streak and calendar. Scripts sync between your iPads through your own iCloud, with weekly automatic backups to the Files app. No account, no ads, no tracking, and the app is available in seven languages.",
+      "heroText": "Voice-following Teleprompter turns an iPad or an Android tablet or phone into a clear prompter for speeches, sermons, khutbahs, recitations, lessons and songs. The text is large enough to read from about two metres and scrolls at the speed you choose — or follows your voice.",
+      "description": "Each script is built from pieces you can reorder: your own text in any language (right-to-left for Arabic, Farsi and Hebrew is handled per paragraph), Quran passages in the Uthmani script with optional translations, Bible verses from ten bundled public-domain editions, karaoke-style song lyrics, and timed pauses with a note for yourself. Rehearse mode estimates and times every piece, and every run is logged with a streak and calendar. On iPad, scripts sync between your devices through your own iCloud, with weekly automatic backups to the Files app; on Android, weekly backups go to a folder you choose and Android backup moves your scripts to a new device. Scripts can be shared as .teleprompter files that open on both. On the web at teleprompter.aralel.com you can write and format scripts in your browser, browse a library of ready-made Quran, Bible, Talmud, Mafatih al-Jinan and Nahj al-Balagha scripts, play any script fullscreen (mirrored for a beam-splitter if needed) and open it in the app with one tap. The app needs no account and has no ads or tracking, and it is available in seven languages.",
       "highlights": [
         {
           "title": "Follow voice",
@@ -1282,7 +1282,7 @@
         },
         {
           "title": "Made for the room",
-          "text": "Large type readable from about two metres, smooth 120 Hz scrolling, high-contrast themes, and the iPad stays awake while you present."
+          "text": "Large type readable from about two metres, smooth 120 Hz scrolling, high-contrast themes, and the screen stays on while you present."
         }
       ],
       "primaryCta": "View on the App Store",
@@ -1290,8 +1290,8 @@
       "detailLabel": "App Details",
       "backLabel": "Back to Apps",
       "availabilityTitle": "Available On",
-      "availabilityText": "Available for iPad on the App Store.",
-      "metaDescription": "Voice-following Teleprompter is Aralel's iPad teleprompter for speeches, sermons, Quran and Bible recitation, lessons and songs — with large type and text that follows your voice."
+      "availabilityText": "Available for iPad on the App Store, for Android on Google Play, and on the web.",
+      "metaDescription": "Voice-following Teleprompter is Aralel's teleprompter for iPad and Android — for speeches, sermons, Quran and Bible recitation, lessons and songs — with large type and text that follows your voice."
     },
     "llm-on-demand": {
       "name": "LLM On Demand",

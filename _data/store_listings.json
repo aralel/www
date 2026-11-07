@@ -393,7 +393,8 @@
   },
   "voice-following-teleprompter": {
     "storeNames": {
-      "appStore": "Voice-following Teleprompter"
+      "appStore": "Voice-following Teleprompter",
+      "googlePlay": "Voice Activated Teleprompter"
     },
     "screenshots": [
       {

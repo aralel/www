@@ -338,7 +338,7 @@
       "hidden": false,
       "front_page": false,
       "collections": ["private"],
-      "platforms": ["ipad"],
+      "platforms": ["ipad", "android", "website"],
       "accent": "#2a9d8f",
       "accentStrong": "#1b2541",
       "iconUrl": "/images/products/hands-free-teleprompter.jpg",
@@ -348,8 +348,10 @@
         "en": "https://www.aralel.com/privacy-policy.html"
       },
       "stores": {
-        "appStore": "https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434"
-      }
+        "appStore": "https://apps.apple.com/us/app/hands-free-teleprompter/id6819140434",
+        "googlePlay": "https://play.google.com/store/apps/details?id=com.aralel.teleprompter"
+      },
+      "websiteUrl": "https://teleprompter.aralel.com"
     },
     {
       "slug": "llm-on-demand",

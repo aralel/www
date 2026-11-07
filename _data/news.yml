@@ -2,6 +2,15 @@
 # Newest first. `product` (optional) links the item to a product page and shows its icon.
 # Dates are when the release went live on this site (see CHANGELOG.md).
 
+- date: 2026-11-07
+  product: voice-following-teleprompter
+  de:
+    title: "Voice-following Teleprompter jetzt bei Google Play und im Web"
+    text: "Den Teleprompter, der Ihrer Stimme folgt, gibt es jetzt auch für Android-Tablets und -Handys – mit Koran- und Bibelpassagen, Liedtexten und großer Schrift. Skripte lassen sich als Datei zwischen iPad und Android teilen und unter teleprompter.aralel.com im Browser schreiben, mit einer Bibliothek fertiger Koran-, Bibel- und Talmud-Skripte. Die App braucht kein Konto und zeigt keine Werbung."
+  en:
+    title: "Voice-following Teleprompter is now on Google Play and the web"
+    text: "The teleprompter that follows your voice is now on Android tablets and phones too — with Quran and Bible passages, song lyrics and large type. Scripts can be shared as files between iPad and Android and written in your browser at teleprompter.aralel.com, with a library of ready-made Quran, Bible and Talmud scripts. The app needs no account and has no ads."
+
 - date: 2026-10-31
   product: adenal
   de:
